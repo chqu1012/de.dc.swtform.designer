@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated layout -->
+      <package
+            uri="de.dc.swtform.layout.model"
+            class="de.dc.swtform.layout.model.ModelPackage"
+            genModel="model/layout.xcore"/>
+   </extension>
+
+</plugin>

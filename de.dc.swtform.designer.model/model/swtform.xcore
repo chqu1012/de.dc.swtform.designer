@@ -1,0 +1,29 @@
+@GenModel(
+	runtimePlatform="RCP",
+	modelDirectory="/de.dc.swtform.designer.model/src-gen",
+	editDirectory="/de.dc.swtform.designer.edit/src-gen", 
+	editorDirectory="/de.dc.swtform.designer.editor/src-gen", 
+	fileExtensions="swtform"
+)
+package de.dc.swtform.xcore.model
+
+import de.dc.swtform.xcore.widget.XWidget
+import de.dc.swtform.layout.model.XLayout
+import de.dc.swtform.layout.model.XLayoutData
+
+class SwtForm extends XNamedElement, XLayoutElement{
+	contains XWidget[] widgets
+}
+
+abstract class XLayoutElement extends XLayoutDataElement{
+	contains XLayout[0..1] Layout
+}
+
+abstract class XLayoutDataElement{
+	contains XLayoutData[0..1] layoutData
+}
+
+abstract class XNamedElement{
+	String name
+}
+

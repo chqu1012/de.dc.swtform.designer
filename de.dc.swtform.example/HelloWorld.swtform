@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:SwtForm xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="de.dc.swtform.xcore.model" xmlns:model_1="de.dc.swtform.layout.model" xmlns:widget="de.dc.swtform.xcore.widget">
+  <Layout xsi:type="model_1:XGridLayout" numColumns="1" makeColumnsEqualWidth="false"/>
+  <widgets xsi:type="widget:XComposite">
+    <Layout xsi:type="model_1:XGridLayout" name="" numColumns="2" makeColumnsEqualWidth="false"/>
+    <widgets xsi:type="widget:XLabel" name="Name"/>
+    <widgets xsi:type="widget:XText" message="Bitte geben sie einen Namen ein..."/>
+  </widgets>
+  <widgets xsi:type="widget:XComposite">
+    <Layout xsi:type="model_1:XGridLayout" name="" numColumns="2" makeColumnsEqualWidth="false"/>
+    <widgets xsi:type="widget:XLabel" name="Geburtstag"/>
+    <widgets xsi:type="widget:XDateTime"/>
+  </widgets>
+  <widgets xsi:type="widget:XComposite" name="">
+    <Layout xsi:type="model_1:XGridLayout" name="" numColumns="2" makeColumnsEqualWidth="false"/>
+    <widgets xsi:type="widget:XLabel" name="Geschlecht"/>
+    <widgets xsi:type="widget:XCombo">
+      <items name="Männlich"/>
+      <items name="Weiblich"/>
+    </widgets>
+  </widgets>
+</model:SwtForm>

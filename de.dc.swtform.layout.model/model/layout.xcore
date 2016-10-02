@@ -1,0 +1,85 @@
+@GenModel(
+	runtimePlatform="RCP",
+	modelDirectory="/de.dc.swtform.layout.model/src-gen",
+	editDirectory="/de.dc.swtform.layout.edit/src-gen", 
+	editPluginID="de.dc.swtform.layout.edit"
+)
+package de.dc.swtform.layout.model
+
+abstract class XLayoutElement extends XLayoutDataElement{
+	contains XLayout[0..1] Layout
+}
+
+abstract class XLayoutDataElement{
+	contains XLayoutData[0..1] layoutData
+}
+
+abstract class XLayoutData{
+}
+
+abstract class XLayout{
+	String name
+	Integer marginWidth
+	Integer marginHeight
+}
+
+class XGridData extends XLayoutData{
+	Integer verticalAlignment
+	Integer horizontalAlignment
+	Integer widthHint
+	Integer heightHint
+	Integer horizontalIndent
+	Integer verticalIndent
+	Integer horizontalSpan
+	Integer verticalSpan
+	Boolean grabExcessHorizontalSpace
+	Boolean grabExcessVerticalSpace
+	Integer minimumWidth
+	Integer minimumHeight
+	Boolean exclude
+}
+
+class XFillData extends XLayoutData{
+	Integer defaultWidth
+	Integer defaultHeight
+	Integer currentWhint
+	Integer currentHhint
+	Integer currentWidth
+	Integer currentHeight
+}
+
+class XRowData extends XLayoutData{
+	Integer width
+	Integer height
+	Boolean exclude
+}
+
+class XGridLayout extends XLayout{
+	Integer numColumns
+	Boolean makeColumnsEqualWidth
+	Integer marginLeft
+	Integer marginTop
+	Integer marginRight
+	Integer marginBottom
+	Integer horizontalSpacing
+	Integer verticalSpacing
+}
+
+class XFillLayout extends XLayout{
+	Integer typ
+	Integer spacing
+}
+
+class XRowLayout extends XLayout{
+	Integer typ
+	Integer spacing
+	Boolean wrap
+	Boolean pack
+	Boolean fill
+	Boolean center
+	Boolean justify
+	Integer marginLeft
+	Integer marginTop
+	Integer marginRight
+	Integer marginBottom
+}

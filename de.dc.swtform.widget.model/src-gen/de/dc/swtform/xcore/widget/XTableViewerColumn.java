@@ -49,6 +49,7 @@ public interface XTableViewerColumn extends XWidget {
 
 	/**
 	 * Returns the value of the '<em><b>Size</b></em>' attribute.
+	 * The default value is <code>"100"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Size</em>' attribute isn't clear,
@@ -58,7 +59,7 @@ public interface XTableViewerColumn extends XWidget {
 	 * @return the value of the '<em>Size</em>' attribute.
 	 * @see #setSize(Integer)
 	 * @see de.dc.swtform.xcore.widget.WidgetPackage#getXTableViewerColumn_Size()
-	 * @model unique="false"
+	 * @model default="100" unique="false"
 	 * @generated
 	 */
 	Integer getSize();

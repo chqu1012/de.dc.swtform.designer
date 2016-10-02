@@ -11,15 +11,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="XButton" eSuperTypes="#//XWidget"/>
   <eClassifiers xsi:type="ecore:EClass" name="XCheckButton" eSuperTypes="#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSelected" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XRadioButton" eSuperTypes="#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSelected" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XToogleButton" eSuperTypes="#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSelected" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XSpinner" eSuperTypes="#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pageIncrement" unique="false"
@@ -38,11 +41,20 @@
     <eLiterals name="Time"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XDialogText" eSuperTypes="#//XWidget">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelWidth" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="100"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dialogType" unique="false"
         eType="#//XDialogType" defaultValueLiteral="OpenFile"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="XUnitLabel" eSuperTypes="#//XWidget">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelWidth" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="100"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="XDialogType">
     <eLiterals name="OpenFile"/>
@@ -96,22 +108,28 @@
   <eClassifiers xsi:type="ecore:EClass" name="XContentProvider"/>
   <eClassifiers xsi:type="ecore:EClass" name="XTableViewer" eSuperTypes="#//XViewer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="showHeader" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+        defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="showLines" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+        defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="showBorder" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+        defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="verticalScroll" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+        defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="horizontalScroll" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+        defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
         eType="#//XTableViewerColumn" containment="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XTableViewerColumn" eSuperTypes="#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="100"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XTreeViewer" eSuperTypes="#//XViewer"/>
   <eClassifiers xsi:type="ecore:EClass" name="XListViewer" eSuperTypes="#//XViewer"/>

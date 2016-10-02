@@ -38,6 +38,7 @@ import org.eclipse.swt.widgets.Spinner
 import org.eclipse.swt.widgets.Text
 import de.dc.swtform.xcore.widget.XDialogText
 import org.eclipse.swt.widgets.DirectoryDialog
+import de.dc.swtform.xcore.widget.XUnitLabel
 
 class XWidgetToSwtMapper {
 
@@ -172,6 +173,20 @@ class XWidgetToSwtMapper {
 				}
 			}
 		})
+	}
+
+	dispatch def createWidget(Composite parent, XUnitLabel w) {
+		val container = new Composite(parent, SWT.NONE) => [
+			val layout= new GridLayout(3, false)
+			layout.marginHeight=0
+			layout.marginWidth=5
+			it.layout = layout
+		]
+		SwtFactory.createLabel(container, w.name, w.labelWidth)
+		val text = new Text(container, SWT.BORDER)
+		text.layoutData = new GridData(SWT.FILL, SWT.FILL, true, false)
+		SwtFactory.createLabel(container, w.unit, 30)
+		container.initLayoutData(w.layoutData)
 	}
 
 	dispatch def createWidget(Composite parent, XSpinner w) {

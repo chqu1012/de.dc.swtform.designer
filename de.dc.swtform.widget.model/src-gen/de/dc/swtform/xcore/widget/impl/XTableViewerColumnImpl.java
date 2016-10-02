@@ -54,7 +54,7 @@ public class XTableViewerColumnImpl extends XWidgetImpl implements XTableViewerC
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer SIZE_EDEFAULT = null;
+	protected static final Integer SIZE_EDEFAULT = new Integer(100);
 
 	/**
 	 * The cached value of the '{@link #getSize() <em>Size</em>}' attribute.

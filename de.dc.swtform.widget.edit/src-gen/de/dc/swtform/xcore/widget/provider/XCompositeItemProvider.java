@@ -198,6 +198,11 @@ public class XCompositeItemProvider extends XWidgetItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(WidgetPackage.eINSTANCE.getXComposite_Widgets(),
+				 WidgetFactory.eINSTANCE.createXUnitLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WidgetPackage.eINSTANCE.getXComposite_Widgets(),
 				 WidgetFactory.eINSTANCE.createXToolBar()));
 
 		newChildDescriptors.add

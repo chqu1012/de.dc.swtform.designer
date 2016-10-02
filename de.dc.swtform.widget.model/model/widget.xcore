@@ -4,11 +4,10 @@
 	editDirectory="/de.dc.swtform.widget.edit/src-gen", 
 	editPluginID="de.dc.swtform.widget.edit"
 )  
-package de.dc.swtform.xcore.widget 
+package de.dc.swtform.xcore.widget
 
 import de.dc.swtform.layout.model.XLayoutDataElement
 import de.dc.swtform.layout.model.XLayoutElement
-import org.eclipse.emf.ecore.xml.^type.Int
 
 abstract class XWidget extends XLayoutDataElement{
 	String name
@@ -21,15 +20,15 @@ class XButton extends XWidget{
 }
 
 class XCheckButton extends XWidget{
-	Boolean isSelected
+	Boolean isSelected = "false"
 }
 
 class XRadioButton extends XWidget{
-	Boolean isSelected
+	Boolean isSelected = "false"
 }
 
 class XToogleButton extends XWidget{
-	Boolean isSelected
+	Boolean isSelected = "false"
 }
 
 class XSpinner extends XWidget{ 
@@ -49,9 +48,15 @@ enum XDateTimeType{
 }
 
 class XDialogText extends XWidget{
-	String path
+	String path = ""
 	int labelWidth = "100"
 	XDialogType dialogType = "OpenFile"
+}
+
+class XUnitLabel extends XWidget{
+	String value = ""
+	String unit = ""
+	int labelWidth = "100"
 }
 
 enum XDialogType{
@@ -132,17 +137,17 @@ class XContentProvider{
 }
 
 class XTableViewer extends XViewer{
-	Boolean showHeader
-	Boolean showLines
-	Boolean showBorder
-	Boolean verticalScroll
-	Boolean horizontalScroll
+	Boolean showHeader = "true"
+	Boolean showLines= "true"
+	Boolean showBorder= "true"
+	Boolean verticalScroll= "true"
+	Boolean horizontalScroll= "true"
 	contains XTableViewerColumn[] columns
 }
 
 class XTableViewerColumn extends XWidget{
 	Integer alignment
-	Integer size
+	Integer size= "100"
 }
 
 class XTreeViewer extends XViewer{

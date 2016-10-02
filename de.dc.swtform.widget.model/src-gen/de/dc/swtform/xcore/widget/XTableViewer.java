@@ -28,6 +28,7 @@ import org.eclipse.emf.common.util.EList;
 public interface XTableViewer extends XViewer {
 	/**
 	 * Returns the value of the '<em><b>Show Header</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Show Header</em>' attribute isn't clear,
@@ -37,7 +38,7 @@ public interface XTableViewer extends XViewer {
 	 * @return the value of the '<em>Show Header</em>' attribute.
 	 * @see #setShowHeader(Boolean)
 	 * @see de.dc.swtform.xcore.widget.WidgetPackage#getXTableViewer_ShowHeader()
-	 * @model unique="false"
+	 * @model default="true" unique="false"
 	 * @generated
 	 */
 	Boolean getShowHeader();
@@ -54,6 +55,7 @@ public interface XTableViewer extends XViewer {
 
 	/**
 	 * Returns the value of the '<em><b>Show Lines</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Show Lines</em>' attribute isn't clear,
@@ -63,7 +65,7 @@ public interface XTableViewer extends XViewer {
 	 * @return the value of the '<em>Show Lines</em>' attribute.
 	 * @see #setShowLines(Boolean)
 	 * @see de.dc.swtform.xcore.widget.WidgetPackage#getXTableViewer_ShowLines()
-	 * @model unique="false"
+	 * @model default="true" unique="false"
 	 * @generated
 	 */
 	Boolean getShowLines();
@@ -80,6 +82,7 @@ public interface XTableViewer extends XViewer {
 
 	/**
 	 * Returns the value of the '<em><b>Show Border</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Show Border</em>' attribute isn't clear,
@@ -89,7 +92,7 @@ public interface XTableViewer extends XViewer {
 	 * @return the value of the '<em>Show Border</em>' attribute.
 	 * @see #setShowBorder(Boolean)
 	 * @see de.dc.swtform.xcore.widget.WidgetPackage#getXTableViewer_ShowBorder()
-	 * @model unique="false"
+	 * @model default="true" unique="false"
 	 * @generated
 	 */
 	Boolean getShowBorder();
@@ -106,6 +109,7 @@ public interface XTableViewer extends XViewer {
 
 	/**
 	 * Returns the value of the '<em><b>Vertical Scroll</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Vertical Scroll</em>' attribute isn't clear,
@@ -115,7 +119,7 @@ public interface XTableViewer extends XViewer {
 	 * @return the value of the '<em>Vertical Scroll</em>' attribute.
 	 * @see #setVerticalScroll(Boolean)
 	 * @see de.dc.swtform.xcore.widget.WidgetPackage#getXTableViewer_VerticalScroll()
-	 * @model unique="false"
+	 * @model default="true" unique="false"
 	 * @generated
 	 */
 	Boolean getVerticalScroll();
@@ -132,6 +136,7 @@ public interface XTableViewer extends XViewer {
 
 	/**
 	 * Returns the value of the '<em><b>Horizontal Scroll</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Horizontal Scroll</em>' attribute isn't clear,
@@ -141,7 +146,7 @@ public interface XTableViewer extends XViewer {
 	 * @return the value of the '<em>Horizontal Scroll</em>' attribute.
 	 * @see #setHorizontalScroll(Boolean)
 	 * @see de.dc.swtform.xcore.widget.WidgetPackage#getXTableViewer_HorizontalScroll()
-	 * @model unique="false"
+	 * @model default="true" unique="false"
 	 * @generated
 	 */
 	Boolean getHorizontalScroll();

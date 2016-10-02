@@ -24,6 +24,7 @@ package de.dc.swtform.xcore.widget;
 public interface XDialogText extends XWidget {
 	/**
 	 * Returns the value of the '<em><b>Path</b></em>' attribute.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Path</em>' attribute isn't clear,
@@ -33,7 +34,7 @@ public interface XDialogText extends XWidget {
 	 * @return the value of the '<em>Path</em>' attribute.
 	 * @see #setPath(String)
 	 * @see de.dc.swtform.xcore.widget.WidgetPackage#getXDialogText_Path()
-	 * @model unique="false"
+	 * @model default="" unique="false"
 	 * @generated
 	 */
 	String getPath();

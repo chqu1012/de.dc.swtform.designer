@@ -64,6 +64,7 @@ public class WidgetFactoryImpl extends EFactoryImpl implements WidgetFactory {
 			case WidgetPackage.XSPINNER: return createXSpinner();
 			case WidgetPackage.XDATE_TIME: return createXDateTime();
 			case WidgetPackage.XDIALOG_TEXT: return createXDialogText();
+			case WidgetPackage.XUNIT_LABEL: return createXUnitLabel();
 			case WidgetPackage.XTOOL_BAR: return createXToolBar();
 			case WidgetPackage.XTOOL_BAR_ITEM: return createXToolBarItem();
 			case WidgetPackage.XCOOL_BAR: return createXCoolBar();
@@ -199,6 +200,16 @@ public class WidgetFactoryImpl extends EFactoryImpl implements WidgetFactory {
 	public XDialogText createXDialogText() {
 		XDialogTextImpl xDialogText = new XDialogTextImpl();
 		return xDialogText;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public XUnitLabel createXUnitLabel() {
+		XUnitLabelImpl xUnitLabel = new XUnitLabelImpl();
+		return xUnitLabel;
 	}
 
 	/**

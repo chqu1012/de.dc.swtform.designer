@@ -103,6 +103,10 @@ public class WidgetAdapterFactory extends AdapterFactoryImpl {
 				return createXDialogTextAdapter();
 			}
 			@Override
+			public Adapter caseXUnitLabel(XUnitLabel object) {
+				return createXUnitLabelAdapter();
+			}
+			@Override
 			public Adapter caseXToolBar(XToolBar object) {
 				return createXToolBarAdapter();
 			}
@@ -339,6 +343,20 @@ public class WidgetAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createXDialogTextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.swtform.xcore.widget.XUnitLabel <em>XUnit Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.swtform.xcore.widget.XUnitLabel
+	 * @generated
+	 */
+	public Adapter createXUnitLabelAdapter() {
 		return null;
 	}
 

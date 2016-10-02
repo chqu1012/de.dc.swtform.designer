@@ -36,7 +36,7 @@ public class XDialogTextImpl extends XWidgetImpl implements XDialogText {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PATH_EDEFAULT = null;
+	protected static final String PATH_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.

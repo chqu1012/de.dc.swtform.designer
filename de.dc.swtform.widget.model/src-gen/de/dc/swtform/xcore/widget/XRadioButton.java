@@ -22,6 +22,7 @@ package de.dc.swtform.xcore.widget;
 public interface XRadioButton extends XWidget {
 	/**
 	 * Returns the value of the '<em><b>Is Selected</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Is Selected</em>' attribute isn't clear,
@@ -31,7 +32,7 @@ public interface XRadioButton extends XWidget {
 	 * @return the value of the '<em>Is Selected</em>' attribute.
 	 * @see #setIsSelected(Boolean)
 	 * @see de.dc.swtform.xcore.widget.WidgetPackage#getXRadioButton_IsSelected()
-	 * @model unique="false"
+	 * @model default="false" unique="false"
 	 * @generated
 	 */
 	Boolean getIsSelected();

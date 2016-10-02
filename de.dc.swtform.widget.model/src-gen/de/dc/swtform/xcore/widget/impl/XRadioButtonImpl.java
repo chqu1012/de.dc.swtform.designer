@@ -33,7 +33,7 @@ public class XRadioButtonImpl extends XWidgetImpl implements XRadioButton {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean IS_SELECTED_EDEFAULT = null;
+	protected static final Boolean IS_SELECTED_EDEFAULT = Boolean.FALSE;
 
 	/**
 	 * The cached value of the '{@link #getIsSelected() <em>Is Selected</em>}' attribute.

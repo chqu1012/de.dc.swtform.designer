@@ -48,7 +48,7 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean SHOW_HEADER_EDEFAULT = null;
+	protected static final Boolean SHOW_HEADER_EDEFAULT = Boolean.TRUE;
 
 	/**
 	 * The cached value of the '{@link #getShowHeader() <em>Show Header</em>}' attribute.
@@ -68,7 +68,7 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean SHOW_LINES_EDEFAULT = null;
+	protected static final Boolean SHOW_LINES_EDEFAULT = Boolean.TRUE;
 
 	/**
 	 * The cached value of the '{@link #getShowLines() <em>Show Lines</em>}' attribute.
@@ -88,7 +88,7 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean SHOW_BORDER_EDEFAULT = null;
+	protected static final Boolean SHOW_BORDER_EDEFAULT = Boolean.TRUE;
 
 	/**
 	 * The cached value of the '{@link #getShowBorder() <em>Show Border</em>}' attribute.
@@ -108,7 +108,7 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean VERTICAL_SCROLL_EDEFAULT = null;
+	protected static final Boolean VERTICAL_SCROLL_EDEFAULT = Boolean.TRUE;
 
 	/**
 	 * The cached value of the '{@link #getVerticalScroll() <em>Vertical Scroll</em>}' attribute.
@@ -128,7 +128,7 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean HORIZONTAL_SCROLL_EDEFAULT = null;
+	protected static final Boolean HORIZONTAL_SCROLL_EDEFAULT = Boolean.TRUE;
 
 	/**
 	 * The cached value of the '{@link #getHorizontalScroll() <em>Horizontal Scroll</em>}' attribute.

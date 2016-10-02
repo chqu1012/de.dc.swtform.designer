@@ -1,6 +1,7 @@
 package de.dc.swtform.designer.util;
 
 import com.google.common.base.Objects;
+import de.dc.swtform.designer.util.SwtFactory;
 import de.dc.swtform.designer.util.XLayoutMapper;
 import de.dc.swtform.layout.model.XFillData;
 import de.dc.swtform.layout.model.XGridData;
@@ -22,6 +23,7 @@ import de.dc.swtform.xcore.widget.XTableViewer;
 import de.dc.swtform.xcore.widget.XTableViewerColumn;
 import de.dc.swtform.xcore.widget.XText;
 import de.dc.swtform.xcore.widget.XToogleButton;
+import de.dc.swtform.xcore.widget.XUnitLabel;
 import de.dc.swtform.xcore.widget.XWidget;
 import java.util.Arrays;
 import java.util.function.Consumer;
@@ -276,6 +278,31 @@ public class XWidgetToSwtMapper {
     return null;
   }
   
+  protected Object _createWidget(final Composite parent, final XUnitLabel w) {
+    Object _xblockexpression = null;
+    {
+      Composite _composite = new Composite(parent, SWT.NONE);
+      final Procedure1<Composite> _function = (Composite it) -> {
+        final GridLayout layout = new GridLayout(3, false);
+        layout.marginHeight = 0;
+        layout.marginWidth = 5;
+        it.setLayout(layout);
+      };
+      final Composite container = ObjectExtensions.<Composite>operator_doubleArrow(_composite, _function);
+      String _name = w.getName();
+      int _labelWidth = w.getLabelWidth();
+      SwtFactory.createLabel(container, _name, _labelWidth);
+      final Text text = new Text(container, SWT.BORDER);
+      GridData _gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
+      text.setLayoutData(_gridData);
+      String _unit = w.getUnit();
+      SwtFactory.createLabel(container, _unit, 30);
+      XLayoutData _layoutData = w.getLayoutData();
+      _xblockexpression = this.initLayoutData(container, _layoutData);
+    }
+    return _xblockexpression;
+  }
+  
   protected Object _createWidget(final Composite parent, final XSpinner w) {
     Object _xblockexpression = null;
     {
@@ -388,6 +415,8 @@ public class XWidgetToSwtMapper {
       return _createWidget(parent, (XText)w);
     } else if (w instanceof XToogleButton) {
       return _createWidget(parent, (XToogleButton)w);
+    } else if (w instanceof XUnitLabel) {
+      return _createWidget(parent, (XUnitLabel)w);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(parent, w).toString());

@@ -555,8 +555,17 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getXDialogText_DialogType() {
+	public EAttribute getXDialogText_LabelWidth() {
         return (EAttribute)getXDialogText().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXDialogText_DialogType() {
+        return (EAttribute)getXDialogText().getEStructuralFeatures().get(2);
 	}
 
 	/**

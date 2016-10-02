@@ -209,16 +209,17 @@ public class XWidgetToSwtMapper {
     final Procedure1<Composite> _function = (Composite it) -> {
       final GridLayout layout = new GridLayout(3, false);
       layout.marginHeight = 0;
-      layout.marginWidth = 0;
+      layout.marginWidth = 5;
       it.setLayout(layout);
     };
     final Composite container = ObjectExtensions.<Composite>operator_doubleArrow(_composite, _function);
-    Label _label = new Label(container, SWT.NONE);
-    final Procedure1<Label> _function_1 = (Label it) -> {
-      String _name = w.getName();
-      it.setText(_name);
-    };
-    ObjectExtensions.<Label>operator_doubleArrow(_label, _function_1);
+    final Label label = new Label(container, SWT.NONE);
+    String _name = w.getName();
+    label.setText(_name);
+    final GridData labelGd = new GridData(SWT.FILL, SWT.FILL, false, false);
+    int _labelWidth = w.getLabelWidth();
+    labelGd.widthHint = _labelWidth;
+    label.setLayoutData(labelGd);
     final Text text = new Text(container, SWT.BORDER);
     GridData _gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
     text.setLayoutData(_gridData);

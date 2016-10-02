@@ -8,6 +8,7 @@ package de.dc.swtform.xcore.widget
 
 import de.dc.swtform.layout.model.XLayoutDataElement
 import de.dc.swtform.layout.model.XLayoutElement
+import org.eclipse.emf.ecore.xml.^type.Int
 
 abstract class XWidget extends XLayoutDataElement{
 	String name
@@ -49,7 +50,8 @@ enum XDateTimeType{
 
 class XDialogText extends XWidget{
 	String path
-	XDialogType dialogType
+	int labelWidth = "100"
+	XDialogType dialogType = "OpenFile"
 }
 
 enum XDialogType{

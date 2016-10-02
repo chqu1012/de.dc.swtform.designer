@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link de.dc.swtform.xcore.widget.impl.XDialogTextImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link de.dc.swtform.xcore.widget.impl.XDialogTextImpl#getLabelWidth <em>Label Width</em>}</li>
  *   <li>{@link de.dc.swtform.xcore.widget.impl.XDialogTextImpl#getDialogType <em>Dialog Type</em>}</li>
  * </ul>
  *
@@ -46,6 +47,26 @@ public class XDialogTextImpl extends XWidgetImpl implements XDialogText {
 	 * @ordered
 	 */
 	protected String path = PATH_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLabelWidth() <em>Label Width</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLabelWidth()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LABEL_WIDTH_EDEFAULT = 100;
+
+	/**
+	 * The cached value of the '{@link #getLabelWidth() <em>Label Width</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLabelWidth()
+	 * @generated
+	 * @ordered
+	 */
+	protected int labelWidth = LABEL_WIDTH_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDialogType() <em>Dialog Type</em>}' attribute.
@@ -112,6 +133,27 @@ public class XDialogTextImpl extends XWidgetImpl implements XDialogText {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getLabelWidth() {
+		return labelWidth;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLabelWidth(int newLabelWidth) {
+		int oldLabelWidth = labelWidth;
+		labelWidth = newLabelWidth;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WidgetPackage.XDIALOG_TEXT__LABEL_WIDTH, oldLabelWidth, labelWidth));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public XDialogType getDialogType() {
 		return dialogType;
 	}
@@ -138,6 +180,8 @@ public class XDialogTextImpl extends XWidgetImpl implements XDialogText {
 		switch (featureID) {
 			case WidgetPackage.XDIALOG_TEXT__PATH:
 				return getPath();
+			case WidgetPackage.XDIALOG_TEXT__LABEL_WIDTH:
+				return getLabelWidth();
 			case WidgetPackage.XDIALOG_TEXT__DIALOG_TYPE:
 				return getDialogType();
 		}
@@ -154,6 +198,9 @@ public class XDialogTextImpl extends XWidgetImpl implements XDialogText {
 		switch (featureID) {
 			case WidgetPackage.XDIALOG_TEXT__PATH:
 				setPath((String)newValue);
+				return;
+			case WidgetPackage.XDIALOG_TEXT__LABEL_WIDTH:
+				setLabelWidth((Integer)newValue);
 				return;
 			case WidgetPackage.XDIALOG_TEXT__DIALOG_TYPE:
 				setDialogType((XDialogType)newValue);
@@ -173,6 +220,9 @@ public class XDialogTextImpl extends XWidgetImpl implements XDialogText {
 			case WidgetPackage.XDIALOG_TEXT__PATH:
 				setPath(PATH_EDEFAULT);
 				return;
+			case WidgetPackage.XDIALOG_TEXT__LABEL_WIDTH:
+				setLabelWidth(LABEL_WIDTH_EDEFAULT);
+				return;
 			case WidgetPackage.XDIALOG_TEXT__DIALOG_TYPE:
 				setDialogType(DIALOG_TYPE_EDEFAULT);
 				return;
@@ -190,6 +240,8 @@ public class XDialogTextImpl extends XWidgetImpl implements XDialogText {
 		switch (featureID) {
 			case WidgetPackage.XDIALOG_TEXT__PATH:
 				return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
+			case WidgetPackage.XDIALOG_TEXT__LABEL_WIDTH:
+				return labelWidth != LABEL_WIDTH_EDEFAULT;
 			case WidgetPackage.XDIALOG_TEXT__DIALOG_TYPE:
 				return dialogType != DIALOG_TYPE_EDEFAULT;
 		}
@@ -208,6 +260,8 @@ public class XDialogTextImpl extends XWidgetImpl implements XDialogText {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (path: ");
 		result.append(path);
+		result.append(", labelWidth: ");
+		result.append(labelWidth);
 		result.append(", dialogType: ");
 		result.append(dialogType);
 		result.append(')');

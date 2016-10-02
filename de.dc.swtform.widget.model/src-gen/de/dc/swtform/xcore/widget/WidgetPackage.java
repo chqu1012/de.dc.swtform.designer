@@ -690,13 +690,22 @@ public interface WidgetPackage extends EPackage {
 	int XDIALOG_TEXT__PATH = XWIDGET_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Label Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XDIALOG_TEXT__LABEL_WIDTH = XWIDGET_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Dialog Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XDIALOG_TEXT__DIALOG_TYPE = XWIDGET_FEATURE_COUNT + 1;
+	int XDIALOG_TEXT__DIALOG_TYPE = XWIDGET_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>XDialog Text</em>' class.
@@ -705,7 +714,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XDIALOG_TEXT_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 2;
+	int XDIALOG_TEXT_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>XDialog Text</em>' class.
@@ -3078,6 +3087,17 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getXDialogText_Path();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XDialogText#getLabelWidth <em>Label Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label Width</em>'.
+	 * @see de.dc.swtform.xcore.widget.XDialogText#getLabelWidth()
+	 * @see #getXDialogText()
+	 * @generated
+	 */
+	EAttribute getXDialogText_LabelWidth();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XDialogText#getDialogType <em>Dialog Type</em>}'.

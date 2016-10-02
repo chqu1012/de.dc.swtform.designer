@@ -121,10 +121,14 @@ class XWidgetToSwtMapper {
 		val container = new Composite(parent, SWT.NONE) => [
 			val layout= new GridLayout(3, false)
 			layout.marginHeight=0
-			layout.marginWidth=0
+			layout.marginWidth=5
 			it.layout = layout
 		]
-		new Label(container, SWT.NONE) => [text = w.name]
+		val label = new Label(container, SWT.NONE)
+		label.text = w.name
+		val labelGd = new GridData(SWT.FILL, SWT.FILL, false, false)
+		labelGd.widthHint=w.labelWidth
+		label.layoutData = labelGd
 		val text = new Text(container, SWT.BORDER)
 		text.layoutData = new GridData(SWT.FILL, SWT.FILL, true, false)
 		val button = new Button(container, SWT.PUSH)

@@ -46,6 +46,7 @@ public class XDialogTextItemProvider extends XWidgetItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addPathPropertyDescriptor(object);
+			addLabelWidthPropertyDescriptor(object);
 			addDialogTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -69,6 +70,28 @@ public class XDialogTextItemProvider extends XWidgetItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Label Width feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLabelWidthPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XDialogText_labelWidth_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XDialogText_labelWidth_feature", "_UI_XDialogText_type"),
+				 WidgetPackage.eINSTANCE.getXDialogText_LabelWidth(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -134,6 +157,7 @@ public class XDialogTextItemProvider extends XWidgetItemProvider {
 
 		switch (notification.getFeatureID(XDialogText.class)) {
 			case WidgetPackage.XDIALOG_TEXT__PATH:
+			case WidgetPackage.XDIALOG_TEXT__LABEL_WIDTH:
 			case WidgetPackage.XDIALOG_TEXT__DIALOG_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

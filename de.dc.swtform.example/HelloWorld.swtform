@@ -52,4 +52,14 @@
     <Layout xsi:type="model_1:XFillLayout" marginWidth="5" marginHeight="5"/>
     <widgets xsi:type="widget:XDialogText" name="Urkunde"/>
   </widgets>
+  <widgets xsi:type="widget:XComposite" name="">
+    <layoutData xsi:type="model_1:XGridData" verticalAlignment="4" horizontalAlignment="4" widthHint="-1" heightHint="-1" horizontalSpan="1" verticalSpan="1" grabExcessHorizontalSpace="true" grabExcessVerticalSpace="false"/>
+    <Layout xsi:type="model_1:XFillLayout" marginWidth="5" marginHeight="5"/>
+    <widgets xsi:type="widget:XDialogText" name="Beschreibung" dialogType="SaveFile"/>
+  </widgets>
+  <widgets xsi:type="widget:XComposite" name="">
+    <layoutData xsi:type="model_1:XGridData" verticalAlignment="4" horizontalAlignment="4" widthHint="-1" heightHint="-1" horizontalSpan="1" verticalSpan="1" grabExcessHorizontalSpace="true" grabExcessVerticalSpace="false"/>
+    <Layout xsi:type="model_1:XFillLayout" marginWidth="5" marginHeight="5"/>
+    <widgets xsi:type="widget:XDialogText" name="Exportverzeichnis" dialogType="OpenDirectory"/>
+  </widgets>
 </model:SwtForm>

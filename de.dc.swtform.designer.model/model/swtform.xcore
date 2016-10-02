@@ -26,4 +26,3 @@ abstract class XLayoutDataElement{
 abstract class XNamedElement{
 	String name
 }
-

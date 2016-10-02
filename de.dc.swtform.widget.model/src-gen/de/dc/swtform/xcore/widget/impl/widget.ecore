@@ -37,6 +37,18 @@
     <eLiterals name="Date"/>
     <eLiterals name="Time"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="XDialogText" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dialogType" unique="false"
+        eType="ecore:EEnum de.dc.swtform.xcore.widget#//XDialogType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="XDialogType">
+    <eLiterals name="OpenFile"/>
+    <eLiterals name="SaveFile"/>
+    <eLiterals name="OpenDirectory"/>
+    <eLiterals name="OpenFont"/>
+    <eLiterals name="OpenColor"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XToolBar" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget"/>
   <eClassifiers xsi:type="ecore:EClass" name="XToolBarItem" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget"/>
   <eClassifiers xsi:type="ecore:EClass" name="XCoolBar" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget"/>

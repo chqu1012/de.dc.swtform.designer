@@ -12,6 +12,8 @@ import de.dc.swtform.xcore.widget.XCombo;
 import de.dc.swtform.xcore.widget.XComboItem;
 import de.dc.swtform.xcore.widget.XComposite;
 import de.dc.swtform.xcore.widget.XDateTime;
+import de.dc.swtform.xcore.widget.XDialogText;
+import de.dc.swtform.xcore.widget.XDialogType;
 import de.dc.swtform.xcore.widget.XLabel;
 import de.dc.swtform.xcore.widget.XLink;
 import de.dc.swtform.xcore.widget.XRadioButton;
@@ -27,14 +29,20 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.DateTime;
+import org.eclipse.swt.widgets.DirectoryDialog;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Link;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Spinner;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
@@ -196,6 +204,77 @@ public class XWidgetToSwtMapper {
     return _xblockexpression;
   }
   
+  protected Object _createWidget(final Composite parent, final XDialogText w) {
+    Composite _composite = new Composite(parent, SWT.NONE);
+    final Procedure1<Composite> _function = (Composite it) -> {
+      final GridLayout layout = new GridLayout(3, false);
+      layout.marginHeight = 0;
+      layout.marginWidth = 0;
+      it.setLayout(layout);
+    };
+    final Composite container = ObjectExtensions.<Composite>operator_doubleArrow(_composite, _function);
+    Label _label = new Label(container, SWT.NONE);
+    final Procedure1<Label> _function_1 = (Label it) -> {
+      String _name = w.getName();
+      it.setText(_name);
+    };
+    ObjectExtensions.<Label>operator_doubleArrow(_label, _function_1);
+    final Text text = new Text(container, SWT.BORDER);
+    GridData _gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
+    text.setLayoutData(_gridData);
+    final Button button = new Button(container, SWT.PUSH);
+    button.setText("...");
+    button.addSelectionListener(new SelectionAdapter() {
+      @Override
+      public void widgetSelected(final SelectionEvent e) {
+        XDialogType _dialogType = w.getDialogType();
+        if (_dialogType != null) {
+          switch (_dialogType) {
+            case OPEN_FILE:
+              Shell _shell = new Shell();
+              FileDialog fd = new FileDialog(_shell, SWT.OPEN);
+              final String path = fd.open();
+              boolean _notEquals = (!Objects.equal(path, null));
+              if (_notEquals) {
+                text.setText(path);
+              }
+              return;
+            case OPEN_DIRECTORY:
+              Shell _shell_1 = new Shell();
+              DirectoryDialog fd_1 = new DirectoryDialog(_shell_1, SWT.OPEN);
+              final String path_1 = fd_1.open();
+              boolean _notEquals_1 = (!Objects.equal(path_1, null));
+              if (_notEquals_1) {
+                text.setText(path_1);
+              }
+              return;
+            case SAVE_FILE:
+              Shell _shell_2 = new Shell();
+              FileDialog fd_2 = new FileDialog(_shell_2, SWT.SAVE);
+              final String path_2 = fd_2.open();
+              boolean _notEquals_2 = (!Objects.equal(path_2, null));
+              if (_notEquals_2) {
+                text.setText(path_2);
+              }
+              return;
+            default:
+              break;
+          }
+        } else {
+        }
+        Shell _shell_3 = new Shell();
+        FileDialog fd_3 = new FileDialog(_shell_3, SWT.OPEN);
+        final String code = fd_3.open();
+        boolean _notEquals_3 = (!Objects.equal(code, null));
+        if (_notEquals_3) {
+          String _text = fd_3.getText();
+          text.setText(_text);
+        }
+      }
+    });
+    return null;
+  }
+  
   protected Object _createWidget(final Composite parent, final XSpinner w) {
     Object _xblockexpression = null;
     {
@@ -294,6 +373,8 @@ public class XWidgetToSwtMapper {
       return _createWidget(parent, (XComposite)w);
     } else if (w instanceof XDateTime) {
       return _createWidget(parent, (XDateTime)w);
+    } else if (w instanceof XDialogText) {
+      return _createWidget(parent, (XDialogText)w);
     } else if (w instanceof XLabel) {
       return _createWidget(parent, (XLabel)w);
     } else if (w instanceof XLink) {

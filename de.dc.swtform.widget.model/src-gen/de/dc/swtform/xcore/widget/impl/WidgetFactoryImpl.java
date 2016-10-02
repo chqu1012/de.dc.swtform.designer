@@ -63,6 +63,7 @@ public class WidgetFactoryImpl extends EFactoryImpl implements WidgetFactory {
 			case WidgetPackage.XTOOGLE_BUTTON: return createXToogleButton();
 			case WidgetPackage.XSPINNER: return createXSpinner();
 			case WidgetPackage.XDATE_TIME: return createXDateTime();
+			case WidgetPackage.XDIALOG_TEXT: return createXDialogText();
 			case WidgetPackage.XTOOL_BAR: return createXToolBar();
 			case WidgetPackage.XTOOL_BAR_ITEM: return createXToolBarItem();
 			case WidgetPackage.XCOOL_BAR: return createXCoolBar();
@@ -102,6 +103,8 @@ public class WidgetFactoryImpl extends EFactoryImpl implements WidgetFactory {
 		switch (eDataType.getClassifierID()) {
 			case WidgetPackage.XDATE_TIME_TYPE:
 				return createXDateTimeTypeFromString(eDataType, initialValue);
+			case WidgetPackage.XDIALOG_TYPE:
+				return createXDialogTypeFromString(eDataType, initialValue);
 			case WidgetPackage.STYLE:
 				return createStyleFromString(eDataType, initialValue);
 			default:
@@ -119,6 +122,8 @@ public class WidgetFactoryImpl extends EFactoryImpl implements WidgetFactory {
 		switch (eDataType.getClassifierID()) {
 			case WidgetPackage.XDATE_TIME_TYPE:
 				return convertXDateTimeTypeToString(eDataType, instanceValue);
+			case WidgetPackage.XDIALOG_TYPE:
+				return convertXDialogTypeToString(eDataType, instanceValue);
 			case WidgetPackage.STYLE:
 				return convertStyleToString(eDataType, instanceValue);
 			default:
@@ -184,6 +189,16 @@ public class WidgetFactoryImpl extends EFactoryImpl implements WidgetFactory {
 	public XDateTime createXDateTime() {
 		XDateTimeImpl xDateTime = new XDateTimeImpl();
 		return xDateTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public XDialogText createXDialogText() {
+		XDialogTextImpl xDialogText = new XDialogTextImpl();
+		return xDialogText;
 	}
 
 	/**
@@ -443,6 +458,26 @@ public class WidgetFactoryImpl extends EFactoryImpl implements WidgetFactory {
 	 * @generated
 	 */
 	public String convertXDateTimeTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public XDialogType createXDialogTypeFromString(EDataType eDataType, String initialValue) {
+		XDialogType result = XDialogType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertXDialogTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -99,6 +99,10 @@ public class WidgetAdapterFactory extends AdapterFactoryImpl {
 				return createXDateTimeAdapter();
 			}
 			@Override
+			public Adapter caseXDialogText(XDialogText object) {
+				return createXDialogTextAdapter();
+			}
+			@Override
 			public Adapter caseXToolBar(XToolBar object) {
 				return createXToolBarAdapter();
 			}
@@ -321,6 +325,20 @@ public class WidgetAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createXDateTimeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.swtform.xcore.widget.XDialogText <em>XDialog Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.swtform.xcore.widget.XDialogText
+	 * @generated
+	 */
+	public Adapter createXDialogTextAdapter() {
 		return null;
 	}
 

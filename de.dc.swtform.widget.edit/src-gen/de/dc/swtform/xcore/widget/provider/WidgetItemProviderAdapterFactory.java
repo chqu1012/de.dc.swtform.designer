@@ -210,6 +210,29 @@ public class WidgetItemProviderAdapterFactory extends WidgetAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.swtform.xcore.widget.XDialogText} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XDialogTextItemProvider xDialogTextItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.swtform.xcore.widget.XDialogText}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXDialogTextAdapter() {
+		if (xDialogTextItemProvider == null) {
+			xDialogTextItemProvider = new XDialogTextItemProvider(this);
+		}
+
+		return xDialogTextItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.swtform.xcore.widget.XToolBar} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -866,6 +889,7 @@ public class WidgetItemProviderAdapterFactory extends WidgetAdapterFactory imple
 		if (xToogleButtonItemProvider != null) xToogleButtonItemProvider.dispose();
 		if (xSpinnerItemProvider != null) xSpinnerItemProvider.dispose();
 		if (xDateTimeItemProvider != null) xDateTimeItemProvider.dispose();
+		if (xDialogTextItemProvider != null) xDialogTextItemProvider.dispose();
 		if (xToolBarItemProvider != null) xToolBarItemProvider.dispose();
 		if (xToolBarItemItemProvider != null) xToolBarItemItemProvider.dispose();
 		if (xCoolBarItemProvider != null) xCoolBarItemProvider.dispose();

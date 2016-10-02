@@ -47,6 +47,19 @@ enum XDateTimeType{
 	Time
 }
 
+class XDialogText extends XWidget{
+	String path
+	XDialogType dialogType
+}
+
+enum XDialogType{
+	OpenFile
+	SaveFile
+	OpenDirectory
+	OpenFont
+	OpenColor
+}
+
 class XToolBar extends XWidget{
 }
 

@@ -76,6 +76,15 @@ public interface WidgetFactory extends EFactory {
 	XDateTime createXDateTime();
 
 	/**
+	 * Returns a new object of class '<em>XDialog Text</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>XDialog Text</em>'.
+	 * @generated
+	 */
+	XDialogText createXDialogText();
+
+	/**
 	 * Returns a new object of class '<em>XTool Bar</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

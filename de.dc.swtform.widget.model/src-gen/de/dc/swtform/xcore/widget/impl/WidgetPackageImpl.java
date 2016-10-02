@@ -95,6 +95,13 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass xDialogTextEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass xToolBarEClass = null;
 
 	/**
@@ -271,6 +278,13 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 * @generated
 	 */
 	private EEnum xDateTimeTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum xDialogTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -520,9 +534,39 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getXDialogText() {
+		if (xDialogTextEClass == null) {
+			xDialogTextEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(8);
+		}
+		return xDialogTextEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXDialogText_Path() {
+        return (EAttribute)getXDialogText().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXDialogText_DialogType() {
+        return (EAttribute)getXDialogText().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getXToolBar() {
 		if (xToolBarEClass == null) {
-			xToolBarEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(8);
+			xToolBarEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(10);
 		}
 		return xToolBarEClass;
 	}
@@ -534,7 +578,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXToolBarItem() {
 		if (xToolBarItemEClass == null) {
-			xToolBarItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(9);
+			xToolBarItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(11);
 		}
 		return xToolBarItemEClass;
 	}
@@ -546,7 +590,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXCoolBar() {
 		if (xCoolBarEClass == null) {
-			xCoolBarEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(10);
+			xCoolBarEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(12);
 		}
 		return xCoolBarEClass;
 	}
@@ -558,7 +602,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXCoolBarItem() {
 		if (xCoolBarItemEClass == null) {
-			xCoolBarItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(11);
+			xCoolBarItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(13);
 		}
 		return xCoolBarItemEClass;
 	}
@@ -570,7 +614,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXBrowser() {
 		if (xBrowserEClass == null) {
-			xBrowserEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(12);
+			xBrowserEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(14);
 		}
 		return xBrowserEClass;
 	}
@@ -582,7 +626,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXLink() {
 		if (xLinkEClass == null) {
-			xLinkEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(13);
+			xLinkEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(15);
 		}
 		return xLinkEClass;
 	}
@@ -603,7 +647,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXLabel() {
 		if (xLabelEClass == null) {
-			xLabelEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(14);
+			xLabelEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(16);
 		}
 		return xLabelEClass;
 	}
@@ -615,7 +659,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXCombo() {
 		if (xComboEClass == null) {
-			xComboEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(15);
+			xComboEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(17);
 		}
 		return xComboEClass;
 	}
@@ -636,7 +680,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXComboItem() {
 		if (xComboItemEClass == null) {
-			xComboItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(16);
+			xComboItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(18);
 		}
 		return xComboItemEClass;
 	}
@@ -648,7 +692,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXText() {
 		if (xTextEClass == null) {
-			xTextEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(17);
+			xTextEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(19);
 		}
 		return xTextEClass;
 	}
@@ -660,7 +704,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXComposite() {
 		if (xCompositeEClass == null) {
-			xCompositeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(18);
+			xCompositeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(20);
 		}
 		return xCompositeEClass;
 	}
@@ -699,7 +743,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXGroup() {
 		if (xGroupEClass == null) {
-			xGroupEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(19);
+			xGroupEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(21);
 		}
 		return xGroupEClass;
 	}
@@ -711,7 +755,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXScrolledComposite() {
 		if (xScrolledCompositeEClass == null) {
-			xScrolledCompositeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(20);
+			xScrolledCompositeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(22);
 		}
 		return xScrolledCompositeEClass;
 	}
@@ -723,7 +767,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXTabFolder() {
 		if (xTabFolderEClass == null) {
-			xTabFolderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(21);
+			xTabFolderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(23);
 		}
 		return xTabFolderEClass;
 	}
@@ -744,7 +788,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXTabItem() {
 		if (xTabItemEClass == null) {
-			xTabItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(22);
+			xTabItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(24);
 		}
 		return xTabItemEClass;
 	}
@@ -756,7 +800,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXCTabFolder() {
 		if (xcTabFolderEClass == null) {
-			xcTabFolderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(23);
+			xcTabFolderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(25);
 		}
 		return xcTabFolderEClass;
 	}
@@ -777,7 +821,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXCTabItem() {
 		if (xcTabItemEClass == null) {
-			xcTabItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(24);
+			xcTabItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(26);
 		}
 		return xcTabItemEClass;
 	}
@@ -789,7 +833,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXViewer() {
 		if (xViewerEClass == null) {
-			xViewerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(25);
+			xViewerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(27);
 		}
 		return xViewerEClass;
 	}
@@ -819,7 +863,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXLabelProvider() {
 		if (xLabelProviderEClass == null) {
-			xLabelProviderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(26);
+			xLabelProviderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(28);
 		}
 		return xLabelProviderEClass;
 	}
@@ -831,7 +875,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXContentProvider() {
 		if (xContentProviderEClass == null) {
-			xContentProviderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(27);
+			xContentProviderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(29);
 		}
 		return xContentProviderEClass;
 	}
@@ -843,7 +887,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXTableViewer() {
 		if (xTableViewerEClass == null) {
-			xTableViewerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(28);
+			xTableViewerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(30);
 		}
 		return xTableViewerEClass;
 	}
@@ -909,7 +953,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXTableViewerColumn() {
 		if (xTableViewerColumnEClass == null) {
-			xTableViewerColumnEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(29);
+			xTableViewerColumnEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(31);
 		}
 		return xTableViewerColumnEClass;
 	}
@@ -939,7 +983,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXTreeViewer() {
 		if (xTreeViewerEClass == null) {
-			xTreeViewerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(30);
+			xTreeViewerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(32);
 		}
 		return xTreeViewerEClass;
 	}
@@ -951,7 +995,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXListViewer() {
 		if (xListViewerEClass == null) {
-			xListViewerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(31);
+			xListViewerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(33);
 		}
 		return xListViewerEClass;
 	}
@@ -963,7 +1007,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXComboViewer() {
 		if (xComboViewerEClass == null) {
-			xComboViewerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(32);
+			xComboViewerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(34);
 		}
 		return xComboViewerEClass;
 	}
@@ -985,9 +1029,21 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getXDialogType() {
+		if (xDialogTypeEEnum == null) {
+			xDialogTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(9);
+		}
+		return xDialogTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getStyle() {
 		if (styleEEnum == null) {
-			styleEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(33);
+			styleEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(35);
 		}
 		return styleEEnum;
 	}

@@ -124,6 +124,14 @@ public class WidgetSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case WidgetPackage.XDIALOG_TEXT: {
+				XDialogText xDialogText = (XDialogText)theEObject;
+				T result = caseXDialogText(xDialogText);
+				if (result == null) result = caseXWidget(xDialogText);
+				if (result == null) result = caseXLayoutDataElement(xDialogText);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case WidgetPackage.XTOOL_BAR: {
 				XToolBar xToolBar = (XToolBar)theEObject;
 				T result = caseXToolBar(xToolBar);
@@ -441,6 +449,21 @@ public class WidgetSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseXDateTime(XDateTime object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>XDialog Text</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>XDialog Text</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseXDialogText(XDialogText object) {
 		return null;
 	}
 

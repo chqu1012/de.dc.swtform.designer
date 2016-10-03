@@ -29,7 +29,7 @@ public class SwtFactory {
     Label _xblockexpression = null;
     {
       final Label label = new Label(parent, SWT.NONE);
-      final GridData gd = LayoutFactory.griddata(SWT.FILL, SWT.FILL, false, false, width);
+      final GridData gd = LayoutFactory.griddata(SWT.FILL, SWT.CENTER, false, false, width);
       label.setLayoutData(gd);
       label.setText(text);
       _xblockexpression = label;

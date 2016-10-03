@@ -19,7 +19,7 @@ class SwtFactory {
 	
 	def static createLabel(Composite parent, String text, int width){
 		val label = new Label(parent, SWT.NONE)
-		val gd = LayoutFactory::griddata(SWT.FILL, SWT.FILL, false, false, width)
+		val gd = LayoutFactory::griddata(SWT.FILL, SWT.CENTER, false, false, width)
 		label.layoutData = gd
 		label.text = text
 		label

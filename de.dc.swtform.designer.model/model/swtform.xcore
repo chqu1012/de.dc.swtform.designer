@@ -4,7 +4,7 @@
 	editDirectory="/de.dc.swtform.designer.edit/src-gen", 
 	editorDirectory="/de.dc.swtform.designer.editor/src-gen", 
 	fileExtensions="swtform"
-)
+, multipleEditorPages="false", creationSubmenus="true", decoration="Live")
 package de.dc.swtform.xcore.model
 
 import de.dc.swtform.xcore.widget.XWidget

@@ -40,15 +40,19 @@ public class Preview extends ViewPart implements ISelectionListener {
 	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 		if (selection instanceof IStructuredSelection) {
 			IStructuredSelection ss = (IStructuredSelection) selection;
+			clearComposite();
 			if (ss.getFirstElement() instanceof SwtForm) {
 				SwtForm form = (SwtForm) ss.getFirstElement();
 				layoutMapper.initialize(composite, form.getLayout());
-				clearComposite();
 				for (XWidget w : form.getWidgets()) {
 					widgetMapper.createWidget(composite, w);
 				}
-				composite.layout();
+			}else if (ss.getFirstElement() instanceof XWidget) {
+				XWidget widget = (XWidget) ss.getFirstElement();
+				widgetMapper.createWidget(composite, widget);
+				
 			}
+			composite.layout();
 		}
 	}
 

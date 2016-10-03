@@ -8,31 +8,31 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XButton" eSuperTypes="#//XWidget"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XCheckButton" eSuperTypes="#//XWidget">
+  <eClassifiers xsi:type="ecore:EClass" name="XButton" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XCheckButton" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSelected" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
         defaultValueLiteral="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XRadioButton" eSuperTypes="#//XWidget">
+  <eClassifiers xsi:type="ecore:EClass" name="XRadioButton" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSelected" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
         defaultValueLiteral="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XToogleButton" eSuperTypes="#//XWidget">
+  <eClassifiers xsi:type="ecore:EClass" name="XToogleButton" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSelected" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
         defaultValueLiteral="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XSpinner" eSuperTypes="#//XWidget">
+  <eClassifiers xsi:type="ecore:EClass" name="XSpinner" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pageIncrement" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="digits" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XDateTime" eSuperTypes="#//XWidget">
+  <eClassifiers xsi:type="ecore:EClass" name="XDateTime" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dateTimeType" unique="false"
-        upperBound="-1" eType="#//XDateTimeType"/>
+        upperBound="-1" eType="ecore:EEnum de.dc.swtform.xcore.widget#//XDateTimeType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="XDateTimeType">
     <eLiterals name="Calendar"/>
@@ -40,15 +40,15 @@
     <eLiterals name="Date"/>
     <eLiterals name="Time"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XDialogText" eSuperTypes="#//XWidget">
+  <eClassifiers xsi:type="ecore:EClass" name="XDialogText" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelWidth" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="100"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dialogType" unique="false"
-        eType="#//XDialogType" defaultValueLiteral="OpenFile"/>
+        eType="ecore:EEnum de.dc.swtform.xcore.widget#//XDialogType" defaultValueLiteral="OpenFile"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XUnitLabel" eSuperTypes="#//XWidget">
+  <eClassifiers xsi:type="ecore:EClass" name="XUnitLabel" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -63,58 +63,65 @@
     <eLiterals name="OpenFont"/>
     <eLiterals name="OpenColor"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XToolBar" eSuperTypes="#//XWidget"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XToolBarItem" eSuperTypes="#//XWidget"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XCoolBar" eSuperTypes="#//XWidget"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XCoolBarItem" eSuperTypes="#//XWidget"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XBrowser" eSuperTypes="#//XWidget"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XLink" eSuperTypes="#//XWidget">
+  <eClassifiers xsi:type="ecore:EClass" name="XToolBar" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XToolBarItem" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XCoolBar" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XCoolBarItem" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XBrowser" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XLink" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XLabel" eSuperTypes="#//XWidget"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XLabelCombo" eSuperTypes="#//XWidget">
+  <eClassifiers xsi:type="ecore:EClass" name="XLabel" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XLabelCombo" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="comboWidth" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="100"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="readOnly" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-        eType="#//XComboItem" containment="true" resolveProxies="false"/>
+        eType="ecore:EClass de.dc.swtform.xcore.widget#//XComboItem" containment="true"
+        resolveProxies="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XCombo" eSuperTypes="#//XWidget">
+  <eClassifiers xsi:type="ecore:EClass" name="XCombo" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-        eType="#//XComboItem" containment="true" resolveProxies="false"/>
+        eType="ecore:EClass de.dc.swtform.xcore.widget#//XComboItem" containment="true"
+        resolveProxies="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XComboItem" eSuperTypes="#//XWidget"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XText" eSuperTypes="#//XWidget"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XComposite" eSuperTypes="#//XWidget de.dc.swtform.layout.model#//XLayoutElement">
+  <eClassifiers xsi:type="ecore:EClass" name="XComboItem" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XText" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XComposite" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget de.dc.swtform.layout.model#//XLayoutElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="widgets" upperBound="-1"
-        eType="#//XWidget" containment="true" resolveProxies="false"/>
+        eType="ecore:EClass de.dc.swtform.xcore.widget#//XWidget" containment="true"
+        resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewers" upperBound="-1"
-        eType="#//XViewer" containment="true" resolveProxies="false"/>
+        eType="ecore:EClass de.dc.swtform.xcore.widget#//XViewer" containment="true"
+        resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="composites" upperBound="-1"
-        eType="#//XComposite" containment="true" resolveProxies="false"/>
+        eType="ecore:EClass de.dc.swtform.xcore.widget#//XComposite" containment="true"
+        resolveProxies="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XGroup" eSuperTypes="#//XComposite"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XScrolledComposite" eSuperTypes="#//XComposite"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XTabFolder" eSuperTypes="#//XWidget de.dc.swtform.layout.model#//XLayoutElement">
+  <eClassifiers xsi:type="ecore:EClass" name="XGroup" eSuperTypes="de.dc.swtform.xcore.widget#//XComposite"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XScrolledComposite" eSuperTypes="de.dc.swtform.xcore.widget#//XComposite"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XTabFolder" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget de.dc.swtform.layout.model#//XLayoutElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-        eType="#//XTabItem" containment="true" resolveProxies="false"/>
+        eType="ecore:EClass de.dc.swtform.xcore.widget#//XTabItem" containment="true"
+        resolveProxies="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XTabItem" eSuperTypes="#//XComposite"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XCTabFolder" eSuperTypes="#//XWidget de.dc.swtform.layout.model#//XLayoutElement">
+  <eClassifiers xsi:type="ecore:EClass" name="XTabItem" eSuperTypes="de.dc.swtform.xcore.widget#//XComposite"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XCTabFolder" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget de.dc.swtform.layout.model#//XLayoutElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-        eType="#//XCTabItem" containment="true" resolveProxies="false"/>
+        eType="ecore:EClass de.dc.swtform.xcore.widget#//XCTabItem" containment="true"
+        resolveProxies="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XCTabItem" eSuperTypes="#//XComposite"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XViewer" abstract="true" eSuperTypes="#//XWidget">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="labelProvider" eType="#//XLabelProvider"
+  <eClassifiers xsi:type="ecore:EClass" name="XCTabItem" eSuperTypes="de.dc.swtform.xcore.widget#//XComposite"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XViewer" abstract="true" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="labelProvider" eType="ecore:EClass de.dc.swtform.xcore.widget#//XLabelProvider"
         containment="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contentProvider" eType="#//XContentProvider"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contentProvider" eType="ecore:EClass de.dc.swtform.xcore.widget#//XContentProvider"
         containment="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XLabelProvider"/>
   <eClassifiers xsi:type="ecore:EClass" name="XContentProvider"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XTableViewer" eSuperTypes="#//XViewer">
+  <eClassifiers xsi:type="ecore:EClass" name="XTableViewer" eSuperTypes="de.dc.swtform.xcore.widget#//XViewer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="showHeader" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
         defaultValueLiteral="true"/>
@@ -131,17 +138,18 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
-        eType="#//XTableViewerColumn" containment="true" resolveProxies="false"/>
+        eType="ecore:EClass de.dc.swtform.xcore.widget#//XTableViewerColumn" containment="true"
+        resolveProxies="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XTableViewerColumn" eSuperTypes="#//XWidget">
+  <eClassifiers xsi:type="ecore:EClass" name="XTableViewerColumn" eSuperTypes="de.dc.swtform.xcore.widget#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
         defaultValueLiteral="100"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XTreeViewer" eSuperTypes="#//XViewer"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XListViewer" eSuperTypes="#//XViewer"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XComboViewer" eSuperTypes="#//XViewer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XTreeViewer" eSuperTypes="de.dc.swtform.xcore.widget#//XViewer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XListViewer" eSuperTypes="de.dc.swtform.xcore.widget#//XViewer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XComboViewer" eSuperTypes="de.dc.swtform.xcore.widget#//XViewer"/>
   <eClassifiers xsi:type="ecore:EEnum" name="Style">
     <eLiterals name="None"/>
     <eLiterals name="KeyDown" value="1"/>

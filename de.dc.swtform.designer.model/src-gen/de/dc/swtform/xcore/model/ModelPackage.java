@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see de.dc.swtform.xcore.model.ModelFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/GenModel runtimePlatform='RCP' modelDirectory='/de.dc.swtform.designer.model/src-gen' editDirectory='/de.dc.swtform.designer.edit/src-gen' editorDirectory='/de.dc.swtform.designer.editor/src-gen' fileExtensions='swtform' basePackage='de.dc.swtform.xcore'"
+ *        annotation="http://www.eclipse.org/emf/2002/GenModel runtimePlatform='RCP' modelDirectory='/de.dc.swtform.designer.model/src-gen' editDirectory='/de.dc.swtform.designer.edit/src-gen' editorDirectory='/de.dc.swtform.designer.editor/src-gen' fileExtensions='swtform' multipleEditorPages='false' creationSubmenus='true' decoration='Live' basePackage='de.dc.swtform.xcore'"
  * @generated
  */
 public interface ModelPackage extends EPackage {

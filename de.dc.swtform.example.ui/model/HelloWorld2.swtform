@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:SwtForm xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="de.dc.swtform.xcore.model" xmlns:model_1="de.dc.swtform.layout.model" xmlns:widget="de.dc.swtform.xcore.widget" packagePath="de.dc.swtform.example.control">
+  <Layout xsi:type="model_1:XGridLayout"/>
+  <widgets xsi:type="widget:XComposite">
+    <Layout xsi:type="model_1:XGridLayout" name="" numColumns="2"/>
+    <widgets xsi:type="widget:XLabel" name="Name"/>
+    <widgets xsi:type="widget:XText" message="Bitte geben sie einen Namen ein..."/>
+  </widgets>
+  <widgets xsi:type="widget:XComposite">
+    <Layout xsi:type="model_1:XGridLayout" name="" numColumns="2"/>
+    <widgets xsi:type="widget:XLabel" name="Geburtstag"/>
+    <widgets xsi:type="widget:XDateTime"/>
+  </widgets>
+  <widgets xsi:type="widget:XComposite">
+    <Layout xsi:type="model_1:XGridLayout" name="" numColumns="2"/>
+    <widgets xsi:type="widget:XLabel" name="Geschlecht"/>
+    <widgets xsi:type="widget:XCombo">
+      <items name="Männlich"/>
+      <items name="Weiblich"/>
+    </widgets>
+  </widgets>
+  <widgets xsi:type="widget:XComposite">
+    <layoutData xsi:type="model_1:XGridData" grabExcessVerticalSpace="true"/>
+    <Layout xsi:type="model_1:XFillLayout"/>
+    <widgets xsi:type="widget:XTableViewer">
+      <columns name="Name"/>
+      <columns name="Geschlecht"/>
+      <columns name="Geburtstag"/>
+    </widgets>
+  </widgets>
+  <widgets xsi:type="widget:XComposite">
+    <Layout xsi:type="model_1:XGridLayout" name="" numColumns="3"/>
+    <widgets xsi:type="widget:XLabel" name="Familienstand"/>
+    <widgets xsi:type="widget:XCheckButton" name="Ledig"/>
+    <widgets xsi:type="widget:XCheckButton" name="Verheiratet" isSelected="true"/>
+  </widgets>
+  <widgets xsi:type="widget:XComposite">
+    <Layout xsi:type="model_1:XGridLayout" name="" numColumns="5"/>
+    <widgets xsi:type="widget:XLabel" name="Betriebssystem"/>
+    <widgets xsi:type="widget:XRadioButton" name="Windows"/>
+    <widgets xsi:type="widget:XRadioButton" name="Mac"/>
+    <widgets xsi:type="widget:XRadioButton" name="Linux"/>
+    <widgets xsi:type="widget:XRadioButton" name="Unix"/>
+  </widgets>
+  <widgets xsi:type="widget:XComposite">
+    <Layout xsi:type="model_1:XGridLayout" name="" numColumns="5"/>
+    <widgets xsi:type="widget:XLabel" name="Homepage"/>
+    <widgets xsi:type="widget:XLink" url="www.home-page.org"/>
+  </widgets>
+  <widgets xsi:type="widget:XComposite">
+    <layoutData xsi:type="model_1:XGridData"/>
+    <Layout xsi:type="model_1:XFillLayout" marginWidth="5" marginHeight="5"/>
+    <widgets xsi:type="widget:XDialogText" name="Urkunde"/>
+  </widgets>
+  <widgets xsi:type="widget:XComposite">
+    <layoutData xsi:type="model_1:XGridData"/>
+    <Layout xsi:type="model_1:XFillLayout" marginWidth="5" marginHeight="5"/>
+    <widgets xsi:type="widget:XUnitLabel" name="Gewicht" unit="Kg"/>
+  </widgets>
+  <widgets xsi:type="widget:XUnitLabel" name="Größe" unit="m"/>
+  <widgets xsi:type="widget:XUnitLabel" name="Gewicht" unit="m"/>
+  <widgets xsi:type="widget:XTableViewer">
+    <layoutData xsi:type="model_1:XGridData" grabExcessVerticalSpace="true"/>
+    <columns name="Name" size="200"/>
+  </widgets>
+  <widgets xsi:type="widget:XDialogText" name="Exportverzeichnis" dialogType="OpenDirectory"/>
+  <widgets xsi:type="widget:XDialogText" name="Beschreibung" dialogType="SaveFile"/>
+  <widgets xsi:type="widget:XLabelCombo" name="Gender">
+    <items name="Heute"/>
+  </widgets>
+</model:SwtForm>

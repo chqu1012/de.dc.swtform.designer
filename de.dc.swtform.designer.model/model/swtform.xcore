@@ -12,6 +12,7 @@ import de.dc.swtform.layout.model.XLayout
 import de.dc.swtform.layout.model.XLayoutData
 
 class SwtForm extends XNamedElement, XLayoutElement{
+	String packagePath = ""
 	contains XWidget[] widgets
 }
 

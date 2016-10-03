@@ -18,7 +18,9 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -49,8 +51,31 @@ public class SwtFormItemProvider extends XNamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addPackagePathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Package Path feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPackagePathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SwtForm_packagePath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SwtForm_packagePath_feature", "_UI_SwtForm_type"),
+				 ModelPackage.Literals.SWT_FORM__PACKAGE_PATH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -123,6 +148,9 @@ public class SwtFormItemProvider extends XNamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SwtForm.class)) {
+			case ModelPackage.SWT_FORM__PACKAGE_PATH:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case ModelPackage.SWT_FORM__LAYOUT_DATA:
 			case ModelPackage.SWT_FORM__LAYOUT:
 			case ModelPackage.SWT_FORM__WIDGETS:

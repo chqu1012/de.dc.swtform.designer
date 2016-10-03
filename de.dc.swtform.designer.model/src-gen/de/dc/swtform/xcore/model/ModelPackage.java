@@ -132,13 +132,22 @@ public interface ModelPackage extends EPackage {
 	int SWT_FORM__LAYOUT = XNAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Package Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWT_FORM__PACKAGE_PATH = XNAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Widgets</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SWT_FORM__WIDGETS = XNAMED_ELEMENT_FEATURE_COUNT + 2;
+	int SWT_FORM__WIDGETS = XNAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Swt Form</em>' class.
@@ -147,7 +156,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SWT_FORM_FEATURE_COUNT = XNAMED_ELEMENT_FEATURE_COUNT + 3;
+	int SWT_FORM_FEATURE_COUNT = XNAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Swt Form</em>' class.
@@ -251,6 +260,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSwtForm();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.model.SwtForm#getPackagePath <em>Package Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Package Path</em>'.
+	 * @see de.dc.swtform.xcore.model.SwtForm#getPackagePath()
+	 * @see #getSwtForm()
+	 * @generated
+	 */
+	EAttribute getSwtForm_PackagePath();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link de.dc.swtform.xcore.model.SwtForm#getWidgets <em>Widgets</em>}'.
@@ -358,6 +378,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SWT_FORM = eINSTANCE.getSwtForm();
+
+		/**
+		 * The meta object literal for the '<em><b>Package Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SWT_FORM__PACKAGE_PATH = eINSTANCE.getSwtForm_PackagePath();
 
 		/**
 		 * The meta object literal for the '<em><b>Widgets</b></em>' containment reference list feature.

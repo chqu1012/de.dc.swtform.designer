@@ -132,8 +132,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSwtForm_PackagePath() {
+		return (EAttribute)swtFormEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getSwtForm_Widgets() {
-		return (EReference)swtFormEClass.getEStructuralFeatures().get(0);
+		return (EReference)swtFormEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -219,6 +228,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		// Create classes and their features
 		swtFormEClass = createEClass(SWT_FORM);
+		createEAttribute(swtFormEClass, SWT_FORM__PACKAGE_PATH);
 		createEReference(swtFormEClass, SWT_FORM__WIDGETS);
 
 		xLayoutElementEClass = createEClass(XLAYOUT_ELEMENT);
@@ -255,9 +265,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 		WidgetPackage theWidgetPackage = (WidgetPackage)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI);
 		de.dc.swtform.layout.model.ModelPackage theModelPackage_1 = (de.dc.swtform.layout.model.ModelPackage)EPackage.Registry.INSTANCE.getEPackage(de.dc.swtform.layout.model.ModelPackage.eNS_URI);
-		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -270,6 +280,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(swtFormEClass, SwtForm.class, "SwtForm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSwtForm_PackagePath(), theEcorePackage.getEString(), "packagePath", "", 0, 1, SwtForm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSwtForm_Widgets(), theWidgetPackage.getXWidget(), null, "widgets", null, 0, -1, SwtForm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(xLayoutElementEClass, XLayoutElement.class, "XLayoutElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

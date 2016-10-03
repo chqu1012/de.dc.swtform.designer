@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.dc.swtform.xcore.model.impl.SwtFormImpl#getLayoutData <em>Layout Data</em>}</li>
  *   <li>{@link de.dc.swtform.xcore.model.impl.SwtFormImpl#getLayout <em>Layout</em>}</li>
+ *   <li>{@link de.dc.swtform.xcore.model.impl.SwtFormImpl#getPackagePath <em>Package Path</em>}</li>
  *   <li>{@link de.dc.swtform.xcore.model.impl.SwtFormImpl#getWidgets <em>Widgets</em>}</li>
  * </ul>
  *
@@ -62,6 +63,26 @@ public class SwtFormImpl extends XNamedElementImpl implements SwtForm {
 	 * @ordered
 	 */
 	protected XLayout layout;
+
+	/**
+	 * The default value of the '{@link #getPackagePath() <em>Package Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPackagePath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PACKAGE_PATH_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getPackagePath() <em>Package Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPackagePath()
+	 * @generated
+	 * @ordered
+	 */
+	protected String packagePath = PACKAGE_PATH_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getWidgets() <em>Widgets</em>}' containment reference list.
@@ -183,6 +204,27 @@ public class SwtFormImpl extends XNamedElementImpl implements SwtForm {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getPackagePath() {
+		return packagePath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPackagePath(String newPackagePath) {
+		String oldPackagePath = packagePath;
+		packagePath = newPackagePath;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SWT_FORM__PACKAGE_PATH, oldPackagePath, packagePath));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<XWidget> getWidgets() {
 		if (widgets == null) {
 			widgets = new EObjectContainmentEList<XWidget>(XWidget.class, this, ModelPackage.SWT_FORM__WIDGETS);
@@ -220,6 +262,8 @@ public class SwtFormImpl extends XNamedElementImpl implements SwtForm {
 				return getLayoutData();
 			case ModelPackage.SWT_FORM__LAYOUT:
 				return getLayout();
+			case ModelPackage.SWT_FORM__PACKAGE_PATH:
+				return getPackagePath();
 			case ModelPackage.SWT_FORM__WIDGETS:
 				return getWidgets();
 		}
@@ -240,6 +284,9 @@ public class SwtFormImpl extends XNamedElementImpl implements SwtForm {
 				return;
 			case ModelPackage.SWT_FORM__LAYOUT:
 				setLayout((XLayout)newValue);
+				return;
+			case ModelPackage.SWT_FORM__PACKAGE_PATH:
+				setPackagePath((String)newValue);
 				return;
 			case ModelPackage.SWT_FORM__WIDGETS:
 				getWidgets().clear();
@@ -263,6 +310,9 @@ public class SwtFormImpl extends XNamedElementImpl implements SwtForm {
 			case ModelPackage.SWT_FORM__LAYOUT:
 				setLayout((XLayout)null);
 				return;
+			case ModelPackage.SWT_FORM__PACKAGE_PATH:
+				setPackagePath(PACKAGE_PATH_EDEFAULT);
+				return;
 			case ModelPackage.SWT_FORM__WIDGETS:
 				getWidgets().clear();
 				return;
@@ -282,6 +332,8 @@ public class SwtFormImpl extends XNamedElementImpl implements SwtForm {
 				return layoutData != null;
 			case ModelPackage.SWT_FORM__LAYOUT:
 				return layout != null;
+			case ModelPackage.SWT_FORM__PACKAGE_PATH:
+				return PACKAGE_PATH_EDEFAULT == null ? packagePath != null : !PACKAGE_PATH_EDEFAULT.equals(packagePath);
 			case ModelPackage.SWT_FORM__WIDGETS:
 				return widgets != null && !widgets.isEmpty();
 		}
@@ -330,6 +382,22 @@ public class SwtFormImpl extends XNamedElementImpl implements SwtForm {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (packagePath: ");
+		result.append(packagePath);
+		result.append(')');
+		return result.toString();
 	}
 
 } //SwtFormImpl

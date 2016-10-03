@@ -110,5 +110,18 @@
             restorable="true">
       </view>
    </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            id="de.dc.swtform.designer.editor.SwtFormObjectContribution"
+            objectClass="de.dc.swtform.xcore.model.SwtForm">
+         <action
+               class="de.dc.swtform.designer.action.GenerateUiaction"
+               id="de.dc.swtform.designer.editor.GenerateUiaction"
+               label="Generate UI">
+         </action>
+      </objectContribution>
+   </extension>
 
 </plugin>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model:SwtForm xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="de.dc.swtform.xcore.model" xmlns:model_1="de.dc.swtform.layout.model" xmlns:widget="de.dc.swtform.xcore.widget" packagePath="de.dc.swtform.example.control">
+<model:SwtForm xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="de.dc.swtform.xcore.model" xmlns:model_1="de.dc.swtform.layout.model" xmlns:widget="de.dc.swtform.xcore.widget" name="SwtForm" packagePath="de.dc.swtform.example.control">
   <Layout xsi:type="model_1:XGridLayout"/>
   <widgets xsi:type="widget:XComposite">
     <Layout xsi:type="model_1:XGridLayout" name="" numColumns="2"/>
@@ -68,4 +68,6 @@
   <widgets xsi:type="widget:XLabelCombo" name="Gender">
     <items name="Heute"/>
   </widgets>
+  <widgets xsi:type="widget:XButton" name="Ok"/>
+  <widgets xsi:type="widget:XButton" name="Abbrechen"/>
 </model:SwtForm>

@@ -16,6 +16,7 @@ import de.dc.swtform.xcore.widget.XDateTime;
 import de.dc.swtform.xcore.widget.XDialogText;
 import de.dc.swtform.xcore.widget.XDialogType;
 import de.dc.swtform.xcore.widget.XLabel;
+import de.dc.swtform.xcore.widget.XLabelCombo;
 import de.dc.swtform.xcore.widget.XLink;
 import de.dc.swtform.xcore.widget.XRadioButton;
 import de.dc.swtform.xcore.widget.XSpinner;
@@ -56,8 +57,8 @@ public class XWidgetToSwtMapper {
   @Extension
   private XLayoutMapper layoutMapper = new XLayoutMapper();
   
-  protected Object _createWidget(final Composite parent, final XButton w) {
-    Object _xblockexpression = null;
+  protected Control _createWidget(final Composite parent, final XButton w) {
+    Button _xblockexpression = null;
     {
       final Button control = new Button(parent, SWT.PUSH);
       String _name = w.getName();
@@ -66,14 +67,16 @@ public class XWidgetToSwtMapper {
         String _name_1 = w.getName();
         control.setText(_name_1);
       }
+      control.setData(w);
       XLayoutData _layoutData = w.getLayoutData();
-      _xblockexpression = this.initLayoutData(control, _layoutData);
+      this.initLayoutData(control, _layoutData);
+      _xblockexpression = control;
     }
     return _xblockexpression;
   }
   
-  protected Object _createWidget(final Composite parent, final XLabel w) {
-    Object _xblockexpression = null;
+  protected Control _createWidget(final Composite parent, final XLabel w) {
+    Label _xblockexpression = null;
     {
       final Label control = new Label(parent, SWT.NONE);
       String _name = w.getName();
@@ -82,14 +85,31 @@ public class XWidgetToSwtMapper {
         String _name_1 = w.getName();
         control.setText(_name_1);
       }
+      control.setData(w);
       XLayoutData _layoutData = w.getLayoutData();
-      _xblockexpression = this.initLayoutData(control, _layoutData);
+      this.initLayoutData(control, _layoutData);
+      _xblockexpression = control;
     }
     return _xblockexpression;
   }
   
-  protected Object _createWidget(final Composite parent, final XText w) {
-    Object _xblockexpression = null;
+  protected Control _createWidget(final Composite parent, final XLabelCombo w) {
+    Combo _xblockexpression = null;
+    {
+      final Composite container = this.createLabelContainer(parent, w);
+      final Combo combo = new Combo(container, SWT.NONE);
+      EList<XComboItem> _items = w.getItems();
+      this.createComboItems(combo, _items);
+      XLayoutData _layoutData = w.getLayoutData();
+      this.initLayoutData(combo, _layoutData);
+      combo.setData(w);
+      _xblockexpression = combo;
+    }
+    return _xblockexpression;
+  }
+  
+  protected Control _createWidget(final Composite parent, final XText w) {
+    Text _xblockexpression = null;
     {
       final Text control = new Text(parent, SWT.NONE);
       String _message = w.getMessage();
@@ -98,26 +118,30 @@ public class XWidgetToSwtMapper {
         String _message_1 = w.getMessage();
         control.setMessage(_message_1);
       }
+      control.setData(w);
       XLayoutData _layoutData = w.getLayoutData();
-      _xblockexpression = this.initLayoutData(control, _layoutData);
+      this.initLayoutData(control, _layoutData);
+      _xblockexpression = control;
     }
     return _xblockexpression;
   }
   
-  protected Object _createWidget(final Composite parent, final XCombo w) {
-    Object _xblockexpression = null;
+  protected Control _createWidget(final Composite parent, final XCombo w) {
+    Combo _xblockexpression = null;
     {
       final Combo control = new Combo(parent, SWT.NONE);
       EList<XComboItem> _items = w.getItems();
       this.createComboItems(control, _items);
       XLayoutData _layoutData = w.getLayoutData();
-      _xblockexpression = this.initLayoutData(control, _layoutData);
+      this.initLayoutData(control, _layoutData);
+      control.setData(w);
+      _xblockexpression = control;
     }
     return _xblockexpression;
   }
   
-  protected Object _createWidget(final Composite parent, final XTableViewer w) {
-    Object _xblockexpression = null;
+  protected Control _createWidget(final Composite parent, final XTableViewer w) {
+    Table _xblockexpression = null;
     {
       final Composite container = SwtFactory.createGridComposite(parent, 1, 0, 0);
       XLayoutData _layoutData = w.getLayoutData();
@@ -141,105 +165,132 @@ public class XWidgetToSwtMapper {
       _columns.forEach(_function);
       Control _control = control.getControl();
       XLayoutData _layoutData_1 = w.getLayoutData();
-      _xblockexpression = this.initLayoutData(_control, _layoutData_1);
+      this.initLayoutData(_control, _layoutData_1);
+      Table _table_2 = control.getTable();
+      _table_2.setData(w);
+      _xblockexpression = control.getTable();
     }
     return _xblockexpression;
   }
   
-  protected Object _createWidget(final Composite parent, final XComposite w) {
-    final Composite control = new Composite(parent, SWT.NONE);
-    XLayout _layout = w.getLayout();
-    this.layoutMapper.initialize(control, _layout);
-    XLayoutData _layoutData = w.getLayoutData();
-    this.initLayoutData(control, _layoutData);
-    EList<XWidget> _widgets = w.getWidgets();
-    final Consumer<XWidget> _function = (XWidget widget) -> {
-      this.createWidget(control, widget);
-    };
-    _widgets.forEach(_function);
-    return null;
+  protected Control _createWidget(final Composite parent, final XComposite w) {
+    Composite _xblockexpression = null;
+    {
+      final Composite control = new Composite(parent, SWT.NONE);
+      XLayout _layout = w.getLayout();
+      this.layoutMapper.initialize(control, _layout);
+      XLayoutData _layoutData = w.getLayoutData();
+      this.initLayoutData(control, _layoutData);
+      control.setData(w);
+      EList<XWidget> _widgets = w.getWidgets();
+      final Consumer<XWidget> _function = (XWidget widget) -> {
+        this.createWidget(control, widget);
+      };
+      _widgets.forEach(_function);
+      _xblockexpression = control;
+    }
+    return _xblockexpression;
   }
   
-  protected Object _createWidget(final Composite parent, final XDateTime w) {
-    Object _xblockexpression = null;
+  protected Control _createWidget(final Composite parent, final XDateTime w) {
+    DateTime _xblockexpression = null;
     {
       final DateTime control = new DateTime(parent, (SWT.DATE | SWT.DROP_DOWN));
+      control.setData(w);
       XLayoutData _layoutData = w.getLayoutData();
-      _xblockexpression = this.initLayoutData(control, _layoutData);
+      this.initLayoutData(control, _layoutData);
+      _xblockexpression = control;
     }
     return _xblockexpression;
   }
   
-  protected Object _createWidget(final Composite parent, final XCheckButton w) {
+  protected Control _createWidget(final Composite parent, final XCheckButton w) {
     return this.createButton(parent, SWT.CHECK, w);
   }
   
-  protected Object _createWidget(final Composite parent, final XRadioButton w) {
+  protected Control _createWidget(final Composite parent, final XRadioButton w) {
     return this.createButton(parent, SWT.RADIO, w);
   }
   
-  protected Object _createWidget(final Composite parent, final XToogleButton w) {
+  protected Control _createWidget(final Composite parent, final XToogleButton w) {
     return this.createButton(parent, SWT.TOGGLE, w);
   }
   
-  protected Object _createWidget(final Composite parent, final XDialogText w) {
-    final Composite container = SwtFactory.createGridComposite(parent, 3, 5, 0);
-    String _name = w.getName();
-    int _labelWidth = w.getLabelWidth();
-    SwtFactory.createLabel(container, _name, _labelWidth);
-    final Text text = SwtFactory.creatText(container);
-    final Button button = SwtFactory.createPushButton(container, "...");
-    button.addSelectionListener(new SelectionAdapter() {
-      @Override
-      public void widgetSelected(final SelectionEvent e) {
-        XDialogType _dialogType = w.getDialogType();
-        if (_dialogType != null) {
-          switch (_dialogType) {
-            case OPEN_FILE:
-              String _openFileDialog = SwtFactory.openFileDialog(SWT.OPEN);
-              text.setText(_openFileDialog);
-              return;
-            case OPEN_DIRECTORY:
-              Shell _shell = new Shell();
-              DirectoryDialog fd = new DirectoryDialog(_shell, SWT.OPEN);
-              final String path = fd.open();
-              boolean _notEquals = (!Objects.equal(path, null));
-              if (_notEquals) {
-                text.setText(path);
-              }
-              return;
-            case SAVE_FILE:
-              String _openFileDialog_1 = SwtFactory.openFileDialog(SWT.SAVE);
-              text.setText(_openFileDialog_1);
-              return;
-            default:
-              break;
-          }
-        } else {
-        }
-      }
-    });
+  protected Control _createWidget(final Composite parent, final XTableViewerColumn w) {
     return null;
   }
   
-  protected Object _createWidget(final Composite parent, final XUnitLabel w) {
-    Object _xblockexpression = null;
+  protected Control _createWidget(final Composite parent, final XComboItem w) {
+    return null;
+  }
+  
+  protected Control _createWidget(final Composite parent, final XDialogText w) {
+    Text _xblockexpression = null;
     {
       final Composite container = SwtFactory.createGridComposite(parent, 3, 5, 0);
+      XLayoutData _layoutData = w.getLayoutData();
+      this.initLayoutData(container, _layoutData);
       String _name = w.getName();
       int _labelWidth = w.getLabelWidth();
       SwtFactory.createLabel(container, _name, _labelWidth);
-      SwtFactory.creatText(container);
-      String _unit = w.getUnit();
-      SwtFactory.createLabel(container, _unit, 30);
-      XLayoutData _layoutData = w.getLayoutData();
-      _xblockexpression = this.initLayoutData(container, _layoutData);
+      final Text text = SwtFactory.creatText(container);
+      final Button button = SwtFactory.createPushButton(container, "...");
+      button.addSelectionListener(new SelectionAdapter() {
+        @Override
+        public void widgetSelected(final SelectionEvent e) {
+          XDialogType _dialogType = w.getDialogType();
+          if (_dialogType != null) {
+            switch (_dialogType) {
+              case OPEN_FILE:
+                String _openFileDialog = SwtFactory.openFileDialog(SWT.OPEN);
+                text.setText(_openFileDialog);
+                return;
+              case OPEN_DIRECTORY:
+                Shell _shell = new Shell();
+                DirectoryDialog fd = new DirectoryDialog(_shell, SWT.OPEN);
+                final String path = fd.open();
+                boolean _notEquals = (!Objects.equal(path, null));
+                if (_notEquals) {
+                  text.setText(path);
+                }
+                return;
+              case SAVE_FILE:
+                String _openFileDialog_1 = SwtFactory.openFileDialog(SWT.SAVE);
+                text.setText(_openFileDialog_1);
+                return;
+              default:
+                break;
+            }
+          } else {
+          }
+        }
+      });
+      text.setData(w);
+      _xblockexpression = text;
     }
     return _xblockexpression;
   }
   
-  protected Object _createWidget(final Composite parent, final XSpinner w) {
-    Object _xblockexpression = null;
+  protected Control _createWidget(final Composite parent, final XUnitLabel w) {
+    Text _xblockexpression = null;
+    {
+      final Composite container = SwtFactory.createGridComposite(parent, 3, 5, 0);
+      String _name = w.getName();
+      int _width = w.getWidth();
+      SwtFactory.createLabel(container, _name, _width);
+      final Text text = SwtFactory.creatText(container);
+      String _unit = w.getUnit();
+      SwtFactory.createLabel(container, _unit, 30);
+      text.setData(w);
+      XLayoutData _layoutData = w.getLayoutData();
+      this.initLayoutData(container, _layoutData);
+      _xblockexpression = text;
+    }
+    return _xblockexpression;
+  }
+  
+  protected Control _createWidget(final Composite parent, final XSpinner w) {
+    Spinner _xblockexpression = null;
     {
       final Spinner control = new Spinner(parent, SWT.READ_ONLY);
       control.setMinimum(0);
@@ -247,36 +298,56 @@ public class XWidgetToSwtMapper {
       control.setSelection(500);
       control.setIncrement(1);
       control.setPageIncrement(100);
+      control.setData(w);
       XLayoutData _layoutData = w.getLayoutData();
-      _xblockexpression = this.initLayoutData(control, _layoutData);
+      this.initLayoutData(control, _layoutData);
+      _xblockexpression = control;
     }
     return _xblockexpression;
   }
   
-  protected Object _createWidget(final Composite parent, final XLink w) {
-    Object _xblockexpression = null;
+  protected Control _createWidget(final Composite parent, final XLink w) {
+    Link _xblockexpression = null;
     {
       final Link control = new Link(parent, SWT.NONE);
       String _url = w.getUrl();
       String _plus = ("<a>" + _url);
       String _plus_1 = (_plus + "</a>");
       control.setText(_plus_1);
+      control.setData(w);
       XLayoutData _layoutData = w.getLayoutData();
-      _xblockexpression = this.initLayoutData(control, _layoutData);
+      this.initLayoutData(control, _layoutData);
+      _xblockexpression = control;
     }
     return _xblockexpression;
   }
   
-  public Object createButton(final Composite parent, final int style, final XButton w) {
-    Object _xblockexpression = null;
+  public Button createButton(final Composite parent, final int style, final XButton w) {
+    Button _xblockexpression = null;
     {
       final Button control = new Button(parent, style);
       Boolean _isSelected = w.getIsSelected();
       control.setSelection((_isSelected).booleanValue());
       String _name = w.getName();
       control.setText(_name);
+      control.setData(w);
       XLayoutData _layoutData = w.getLayoutData();
-      _xblockexpression = this.initLayoutData(control, _layoutData);
+      this.initLayoutData(control, _layoutData);
+      _xblockexpression = control;
+    }
+    return _xblockexpression;
+  }
+  
+  public Composite createLabelContainer(final Composite parent, final XLabel w) {
+    Composite _xblockexpression = null;
+    {
+      final Composite container = SwtFactory.createGridComposite(parent, 3, 5, 0);
+      String _name = w.getName();
+      int _width = w.getWidth();
+      SwtFactory.createLabel(container, _name, _width);
+      XLayoutData _layoutData = w.getLayoutData();
+      this.initLayoutData(container, _layoutData);
+      _xblockexpression = container;
     }
     return _xblockexpression;
   }
@@ -337,19 +408,25 @@ public class XWidgetToSwtMapper {
     return null;
   }
   
-  public Object createWidget(final Composite parent, final XWidget w) {
+  public Control createWidget(final Composite parent, final XWidget w) {
     if (w instanceof XCheckButton) {
       return _createWidget(parent, (XCheckButton)w);
+    } else if (w instanceof XLabelCombo) {
+      return _createWidget(parent, (XLabelCombo)w);
     } else if (w instanceof XRadioButton) {
       return _createWidget(parent, (XRadioButton)w);
     } else if (w instanceof XTableViewer) {
       return _createWidget(parent, (XTableViewer)w);
     } else if (w instanceof XToogleButton) {
       return _createWidget(parent, (XToogleButton)w);
+    } else if (w instanceof XUnitLabel) {
+      return _createWidget(parent, (XUnitLabel)w);
     } else if (w instanceof XButton) {
       return _createWidget(parent, (XButton)w);
     } else if (w instanceof XCombo) {
       return _createWidget(parent, (XCombo)w);
+    } else if (w instanceof XComboItem) {
+      return _createWidget(parent, (XComboItem)w);
     } else if (w instanceof XComposite) {
       return _createWidget(parent, (XComposite)w);
     } else if (w instanceof XDateTime) {
@@ -362,10 +439,10 @@ public class XWidgetToSwtMapper {
       return _createWidget(parent, (XLink)w);
     } else if (w instanceof XSpinner) {
       return _createWidget(parent, (XSpinner)w);
+    } else if (w instanceof XTableViewerColumn) {
+      return _createWidget(parent, (XTableViewerColumn)w);
     } else if (w instanceof XText) {
       return _createWidget(parent, (XText)w);
-    } else if (w instanceof XUnitLabel) {
-      return _createWidget(parent, (XUnitLabel)w);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(parent, w).toString());

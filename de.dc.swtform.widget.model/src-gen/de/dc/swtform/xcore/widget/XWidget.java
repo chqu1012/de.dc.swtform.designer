@@ -26,6 +26,7 @@ import de.dc.swtform.layout.model.XLayoutDataElement;
 public interface XWidget extends XLayoutDataElement {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
@@ -35,7 +36,7 @@ public interface XWidget extends XLayoutDataElement {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see de.dc.swtform.xcore.widget.WidgetPackage#getXWidget_Name()
-	 * @model unique="false"
+	 * @model default="" unique="false"
 	 * @generated
 	 */
 	String getName();
@@ -104,6 +105,7 @@ public interface XWidget extends XLayoutDataElement {
 
 	/**
 	 * Returns the value of the '<em><b>Message</b></em>' attribute.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Message</em>' attribute isn't clear,
@@ -113,7 +115,7 @@ public interface XWidget extends XLayoutDataElement {
 	 * @return the value of the '<em>Message</em>' attribute.
 	 * @see #setMessage(String)
 	 * @see de.dc.swtform.xcore.widget.WidgetPackage#getXWidget_Message()
-	 * @model unique="false"
+	 * @model default="" unique="false"
 	 * @generated
 	 */
 	String getMessage();

@@ -139,6 +139,10 @@ public class WidgetAdapterFactory extends AdapterFactoryImpl {
 				return createXLabelComboAdapter();
 			}
 			@Override
+			public Adapter caseXLabelText(XLabelText object) {
+				return createXLabelTextAdapter();
+			}
+			@Override
 			public Adapter caseXCombo(XCombo object) {
 				return createXComboAdapter();
 			}
@@ -473,6 +477,20 @@ public class WidgetAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createXLabelComboAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.swtform.xcore.widget.XLabelText <em>XLabel Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.swtform.xcore.widget.XLabelText
+	 * @generated
+	 */
+	public Adapter createXLabelTextAdapter() {
 		return null;
 	}
 

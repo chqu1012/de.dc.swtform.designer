@@ -101,5 +101,14 @@
             contributorClass="de.dc.swtform.xcore.model.presentation.ModelActionBarContributor">
       </editor>
    </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="de.dc.swtform.designer.editor.Preview"
+            id="de.dc.swtform.designer.editor.Preview"
+            name="Preview"
+            restorable="true">
+      </view>
+   </extension>
 
 </plugin>

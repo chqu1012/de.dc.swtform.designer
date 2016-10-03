@@ -37,6 +37,7 @@ import org.eclipse.swt.widgets.Link
 import org.eclipse.swt.widgets.Shell
 import org.eclipse.swt.widgets.Spinner
 import org.eclipse.swt.widgets.Text
+import de.dc.swtform.xcore.widget.XLabelCombo
 
 class XWidgetToSwtMapper {
 
@@ -47,8 +48,9 @@ class XWidgetToSwtMapper {
 		if (w.name != null) {
 			control.text = w.name
 		}
-
+		control.data = w
 		control.initLayoutData(w.layoutData)
+		control
 	}
 
 	dispatch def createWidget(Composite parent, XLabel w) {
@@ -56,8 +58,18 @@ class XWidgetToSwtMapper {
 		if (w.name != null) {
 			control.text = w.name
 		}
-
+		control.data = w
 		control.initLayoutData(w.layoutData)
+		control
+	}
+
+	dispatch def createWidget(Composite parent, XLabelCombo w) {
+		val container = createLabelContainer(parent, w)
+		val combo = new Combo(container, SWT.NONE)
+		combo.createComboItems(w.items)
+		combo.initLayoutData(w.layoutData)
+		combo.data = w
+		combo
 	}
 
 	dispatch def createWidget(Composite parent, XText w) {
@@ -65,20 +77,24 @@ class XWidgetToSwtMapper {
 		if (w.message != null) {
 			control.message = w.message
 		}
+		control.data = w
 		control.initLayoutData(w.layoutData)
+		control
 	}
 
 	dispatch def createWidget(Composite parent, XCombo w) {
 		val control = new Combo(parent, SWT.NONE)
 		control.createComboItems(w.items)
 		control.initLayoutData(w.layoutData)
+		control.data = w
+		control
 	}
 
 	dispatch def createWidget(Composite parent, XTableViewer w) {
 //		val styles = w.style?.map[value].reduce[p1, p2|p1.bitwiseOr(p2)]
 		val container = SwtFactory.createGridComposite(parent, 1, 0, 0)
 		container.initLayoutData(w.layoutData)
-		if(w.hasSearch){
+		if (w.hasSearch) {
 			val searchText = SwtFactory.creatText(container)
 			searchText.message = 'Search'
 		}
@@ -87,18 +103,24 @@ class XWidgetToSwtMapper {
 		control.table.linesVisible = w.showLines
 		w.columns.forEach[control.createTableViewerColumn(it)]
 		control.control.initLayoutData(w.layoutData)
+		control.table.data = w
+		control.table
 	}
 
 	dispatch def createWidget(Composite parent, XComposite w) {
 		val control = new Composite(parent, SWT.NONE)
 		control.initialize(w.layout)
 		control.initLayoutData(w.layoutData)
+		control.data = w
 		w.widgets.forEach[widget|control.createWidget(widget)]
+		control
 	}
 
 	dispatch def createWidget(Composite parent, XDateTime w) {
 		val control = new DateTime(parent, SWT.DATE.bitwiseOr(SWT.DROP_DOWN))
+		control.data = w
 		control.initLayoutData(w.layoutData)
+		control
 	}
 
 	dispatch def createWidget(Composite parent, XCheckButton w) {
@@ -113,20 +135,27 @@ class XWidgetToSwtMapper {
 		createButton(parent, SWT.TOGGLE, w)
 	}
 
+	dispatch def createWidget(Composite parent, XTableViewerColumn w) {
+	}
+
+	dispatch def createWidget(Composite parent, XComboItem w) {
+	}
+
 	dispatch def createWidget(Composite parent, XDialogText w) {
 		val container = SwtFactory.createGridComposite(parent, 3, 5, 0)
+		container.initLayoutData = w.layoutData
 		SwtFactory.createLabel(container, w.name, w.labelWidth)
 		val text = SwtFactory.creatText(container)
 		val button = SwtFactory.createPushButton(container, '...')
 		button.addSelectionListener(new SelectionAdapter() {
 			override widgetSelected(SelectionEvent e) {
-				switch w.dialogType{
-					case OPEN_FILE:{
+				switch w.dialogType {
+					case OPEN_FILE: {
 						text.text = SwtFactory.openFileDialog(SWT.OPEN)
 						return
 					}
 //					case OPEN_COLOR:
-					case OPEN_DIRECTORY:{
+					case OPEN_DIRECTORY: {
 						var fd = new DirectoryDialog(new Shell, SWT.OPEN)
 						val path = fd.open
 						if (path != null) {
@@ -135,7 +164,7 @@ class XWidgetToSwtMapper {
 						return
 					}
 //					case OPEN_FONT:
-					case SAVE_FILE:{
+					case SAVE_FILE: {
 						text.text = SwtFactory.openFileDialog(SWT.SAVE)
 						return
 					}
@@ -144,14 +173,18 @@ class XWidgetToSwtMapper {
 				}
 			}
 		})
+		text.data = w
+		text
 	}
 
 	dispatch def createWidget(Composite parent, XUnitLabel w) {
 		val container = SwtFactory.createGridComposite(parent, 3, 5, 0)
-		SwtFactory.createLabel(container, w.name, w.labelWidth)
-		SwtFactory.creatText(container)
+		SwtFactory.createLabel(container, w.name, w.width)
+		val text = SwtFactory.creatText(container)
 		SwtFactory.createLabel(container, w.unit, 30)
+		text.data = w
 		container.initLayoutData(w.layoutData)
+		text
 	}
 
 	dispatch def createWidget(Composite parent, XSpinner w) {
@@ -161,20 +194,33 @@ class XWidgetToSwtMapper {
 		control.setSelection(500)
 		control.setIncrement(1)
 		control.setPageIncrement(100)
+		control.data = w
 		control.initLayoutData(w.layoutData)
+		control
 	}
 
 	dispatch def createWidget(Composite parent, XLink w) {
 		val control = new Link(parent, SWT.NONE);
 		control.text = "<a>" + w.url + "</a>"
+		control.data = w
 		control.initLayoutData(w.layoutData)
+		control
 	}
 
-	def createButton(Composite parent, int style, XButton w){
+	def createButton(Composite parent, int style, XButton w) {
 		val control = new Button(parent, style)
 		control.selection = w.isSelected
 		control.text = w.name
+		control.data = w
 		control.initLayoutData(w.layoutData)
+		control
+	}
+
+	def createLabelContainer(Composite parent, XLabel w) {
+		val container = SwtFactory.createGridComposite(parent, 3, 5, 0)
+		SwtFactory.createLabel(container, w.name, w.width)
+		container.initLayoutData(w.layoutData)
+		container
 	}
 
 	def createComboItems(Combo combo, EList<XComboItem> items) {

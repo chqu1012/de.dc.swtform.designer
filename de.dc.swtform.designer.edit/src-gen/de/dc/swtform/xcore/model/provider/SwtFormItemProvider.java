@@ -211,6 +211,11 @@ public class SwtFormItemProvider extends XNamedElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ModelPackage.Literals.SWT_FORM__WIDGETS,
+				 WidgetFactory.eINSTANCE.createXLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.SWT_FORM__WIDGETS,
 				 WidgetFactory.eINSTANCE.createXUnitLabel()));
 
 		newChildDescriptors.add
@@ -246,12 +251,12 @@ public class SwtFormItemProvider extends XNamedElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ModelPackage.Literals.SWT_FORM__WIDGETS,
-				 WidgetFactory.eINSTANCE.createXLabel()));
+				 WidgetFactory.eINSTANCE.createXLabelCombo()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ModelPackage.Literals.SWT_FORM__WIDGETS,
-				 WidgetFactory.eINSTANCE.createXLabelCombo()));
+				 WidgetFactory.eINSTANCE.createXLabelText()));
 
 		newChildDescriptors.add
 			(createChildParameter

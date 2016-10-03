@@ -10,10 +10,10 @@ import de.dc.swtform.layout.model.XLayoutDataElement
 import de.dc.swtform.layout.model.XLayoutElement
 
 abstract class XWidget extends XLayoutDataElement{
-	String name
+	String name = ""
 	String text
 	Object data
-	String message
+	String message=""
 }
 
 class XButton extends XWidget{
@@ -51,10 +51,9 @@ class XDialogText extends XWidget{
 	XDialogType dialogType = "OpenFile"
 }
 
-class XUnitLabel extends XWidget{
+class XUnitLabel extends XLabel{
 	String value = ""
 	String unit = ""
-	int labelWidth = "100"
 }
 
 enum XDialogType{
@@ -85,12 +84,15 @@ class XLink extends XWidget{
 }
 
 class XLabel extends XWidget{
+	int width = "100"
 }
 
-class XLabelCombo extends XWidget{
-	int comboWidth = "100"
+class XLabelCombo extends XLabel{
 	boolean readOnly = "true"
 	contains XComboItem[] items
+}
+
+class XLabelText extends XLabel{
 }
 
 class XCombo extends XWidget{
@@ -151,8 +153,8 @@ class XTableViewer extends XViewer{
 }
 
 class XTableViewerColumn extends XWidget{
-	Integer alignment
 	Integer size= "100"
+	Integer alignment
 }
 
 class XTreeViewer extends XViewer{

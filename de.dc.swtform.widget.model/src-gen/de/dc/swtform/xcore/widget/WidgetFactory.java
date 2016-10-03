@@ -166,6 +166,15 @@ public interface WidgetFactory extends EFactory {
 	XLabelCombo createXLabelCombo();
 
 	/**
+	 * Returns a new object of class '<em>XLabel Text</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>XLabel Text</em>'.
+	 * @generated
+	 */
+	XLabelText createXLabelText();
+
+	/**
 	 * Returns a new object of class '<em>XCombo</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

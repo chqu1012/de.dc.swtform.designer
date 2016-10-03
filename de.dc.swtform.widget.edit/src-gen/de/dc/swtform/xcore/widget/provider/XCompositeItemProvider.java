@@ -198,6 +198,11 @@ public class XCompositeItemProvider extends XWidgetItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(WidgetPackage.eINSTANCE.getXComposite_Widgets(),
+				 WidgetFactory.eINSTANCE.createXLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WidgetPackage.eINSTANCE.getXComposite_Widgets(),
 				 WidgetFactory.eINSTANCE.createXUnitLabel()));
 
 		newChildDescriptors.add
@@ -233,12 +238,12 @@ public class XCompositeItemProvider extends XWidgetItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(WidgetPackage.eINSTANCE.getXComposite_Widgets(),
-				 WidgetFactory.eINSTANCE.createXLabel()));
+				 WidgetFactory.eINSTANCE.createXLabelCombo()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(WidgetPackage.eINSTANCE.getXComposite_Widgets(),
-				 WidgetFactory.eINSTANCE.createXLabelCombo()));
+				 WidgetFactory.eINSTANCE.createXLabelText()));
 
 		newChildDescriptors.add
 			(createChildParameter

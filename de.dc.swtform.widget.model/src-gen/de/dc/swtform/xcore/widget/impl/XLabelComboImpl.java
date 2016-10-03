@@ -29,34 +29,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.dc.swtform.xcore.widget.impl.XLabelComboImpl#getComboWidth <em>Combo Width</em>}</li>
  *   <li>{@link de.dc.swtform.xcore.widget.impl.XLabelComboImpl#isReadOnly <em>Read Only</em>}</li>
  *   <li>{@link de.dc.swtform.xcore.widget.impl.XLabelComboImpl#getItems <em>Items</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class XLabelComboImpl extends XWidgetImpl implements XLabelCombo {
-	/**
-	 * The default value of the '{@link #getComboWidth() <em>Combo Width</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getComboWidth()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int COMBO_WIDTH_EDEFAULT = 100;
-
-	/**
-	 * The cached value of the '{@link #getComboWidth() <em>Combo Width</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getComboWidth()
-	 * @generated
-	 * @ordered
-	 */
-	protected int comboWidth = COMBO_WIDTH_EDEFAULT;
-
+public class XLabelComboImpl extends XLabelImpl implements XLabelCombo {
 	/**
 	 * The default value of the '{@link #isReadOnly() <em>Read Only</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -104,27 +83,6 @@ public class XLabelComboImpl extends XWidgetImpl implements XLabelCombo {
 	@Override
 	protected EClass eStaticClass() {
 		return WidgetPackage.eINSTANCE.getXLabelCombo();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getComboWidth() {
-		return comboWidth;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setComboWidth(int newComboWidth) {
-		int oldComboWidth = comboWidth;
-		comboWidth = newComboWidth;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WidgetPackage.XLABEL_COMBO__COMBO_WIDTH, oldComboWidth, comboWidth));
 	}
 
 	/**
@@ -182,8 +140,6 @@ public class XLabelComboImpl extends XWidgetImpl implements XLabelCombo {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case WidgetPackage.XLABEL_COMBO__COMBO_WIDTH:
-				return getComboWidth();
 			case WidgetPackage.XLABEL_COMBO__READ_ONLY:
 				return isReadOnly();
 			case WidgetPackage.XLABEL_COMBO__ITEMS:
@@ -201,9 +157,6 @@ public class XLabelComboImpl extends XWidgetImpl implements XLabelCombo {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case WidgetPackage.XLABEL_COMBO__COMBO_WIDTH:
-				setComboWidth((Integer)newValue);
-				return;
 			case WidgetPackage.XLABEL_COMBO__READ_ONLY:
 				setReadOnly((Boolean)newValue);
 				return;
@@ -223,9 +176,6 @@ public class XLabelComboImpl extends XWidgetImpl implements XLabelCombo {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case WidgetPackage.XLABEL_COMBO__COMBO_WIDTH:
-				setComboWidth(COMBO_WIDTH_EDEFAULT);
-				return;
 			case WidgetPackage.XLABEL_COMBO__READ_ONLY:
 				setReadOnly(READ_ONLY_EDEFAULT);
 				return;
@@ -244,8 +194,6 @@ public class XLabelComboImpl extends XWidgetImpl implements XLabelCombo {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case WidgetPackage.XLABEL_COMBO__COMBO_WIDTH:
-				return comboWidth != COMBO_WIDTH_EDEFAULT;
 			case WidgetPackage.XLABEL_COMBO__READ_ONLY:
 				return readOnly != READ_ONLY_EDEFAULT;
 			case WidgetPackage.XLABEL_COMBO__ITEMS:
@@ -264,9 +212,7 @@ public class XLabelComboImpl extends XWidgetImpl implements XLabelCombo {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (comboWidth: ");
-		result.append(comboWidth);
-		result.append(", readOnly: ");
+		result.append(" (readOnly: ");
 		result.append(readOnly);
 		result.append(')');
 		return result.toString();

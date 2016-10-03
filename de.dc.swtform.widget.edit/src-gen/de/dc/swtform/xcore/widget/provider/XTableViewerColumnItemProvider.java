@@ -45,8 +45,8 @@ public class XTableViewerColumnItemProvider extends XWidgetItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addAlignmentPropertyDescriptor(object);
 			addSizePropertyDescriptor(object);
+			addAlignmentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -133,8 +133,8 @@ public class XTableViewerColumnItemProvider extends XWidgetItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(XTableViewerColumn.class)) {
-			case WidgetPackage.XTABLE_VIEWER_COLUMN__ALIGNMENT:
 			case WidgetPackage.XTABLE_VIEWER_COLUMN__SIZE:
+			case WidgetPackage.XTABLE_VIEWER_COLUMN__ALIGNMENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -440,6 +440,29 @@ public class WidgetItemProviderAdapterFactory extends WidgetAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.swtform.xcore.widget.XLabelText} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XLabelTextItemProvider xLabelTextItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.swtform.xcore.widget.XLabelText}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXLabelTextAdapter() {
+		if (xLabelTextItemProvider == null) {
+			xLabelTextItemProvider = new XLabelTextItemProvider(this);
+		}
+
+		return xLabelTextItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.swtform.xcore.widget.XCombo} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -945,6 +968,7 @@ public class WidgetItemProviderAdapterFactory extends WidgetAdapterFactory imple
 		if (xLinkItemProvider != null) xLinkItemProvider.dispose();
 		if (xLabelItemProvider != null) xLabelItemProvider.dispose();
 		if (xLabelComboItemProvider != null) xLabelComboItemProvider.dispose();
+		if (xLabelTextItemProvider != null) xLabelTextItemProvider.dispose();
 		if (xComboItemProvider != null) xComboItemProvider.dispose();
 		if (xComboItemItemProvider != null) xComboItemItemProvider.dispose();
 		if (xTextItemProvider != null) xTextItemProvider.dispose();

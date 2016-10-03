@@ -21,12 +21,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link de.dc.swtform.xcore.widget.impl.XUnitLabelImpl#getValue <em>Value</em>}</li>
  *   <li>{@link de.dc.swtform.xcore.widget.impl.XUnitLabelImpl#getUnit <em>Unit</em>}</li>
- *   <li>{@link de.dc.swtform.xcore.widget.impl.XUnitLabelImpl#getLabelWidth <em>Label Width</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class XUnitLabelImpl extends XWidgetImpl implements XUnitLabel {
+public class XUnitLabelImpl extends XLabelImpl implements XUnitLabel {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -66,26 +65,6 @@ public class XUnitLabelImpl extends XWidgetImpl implements XUnitLabel {
 	 * @ordered
 	 */
 	protected String unit = UNIT_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getLabelWidth() <em>Label Width</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLabelWidth()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int LABEL_WIDTH_EDEFAULT = 100;
-
-	/**
-	 * The cached value of the '{@link #getLabelWidth() <em>Label Width</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLabelWidth()
-	 * @generated
-	 * @ordered
-	 */
-	protected int labelWidth = LABEL_WIDTH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -153,27 +132,6 @@ public class XUnitLabelImpl extends XWidgetImpl implements XUnitLabel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getLabelWidth() {
-		return labelWidth;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLabelWidth(int newLabelWidth) {
-		int oldLabelWidth = labelWidth;
-		labelWidth = newLabelWidth;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WidgetPackage.XUNIT_LABEL__LABEL_WIDTH, oldLabelWidth, labelWidth));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -181,8 +139,6 @@ public class XUnitLabelImpl extends XWidgetImpl implements XUnitLabel {
 				return getValue();
 			case WidgetPackage.XUNIT_LABEL__UNIT:
 				return getUnit();
-			case WidgetPackage.XUNIT_LABEL__LABEL_WIDTH:
-				return getLabelWidth();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -200,9 +156,6 @@ public class XUnitLabelImpl extends XWidgetImpl implements XUnitLabel {
 				return;
 			case WidgetPackage.XUNIT_LABEL__UNIT:
 				setUnit((String)newValue);
-				return;
-			case WidgetPackage.XUNIT_LABEL__LABEL_WIDTH:
-				setLabelWidth((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -222,9 +175,6 @@ public class XUnitLabelImpl extends XWidgetImpl implements XUnitLabel {
 			case WidgetPackage.XUNIT_LABEL__UNIT:
 				setUnit(UNIT_EDEFAULT);
 				return;
-			case WidgetPackage.XUNIT_LABEL__LABEL_WIDTH:
-				setLabelWidth(LABEL_WIDTH_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -241,8 +191,6 @@ public class XUnitLabelImpl extends XWidgetImpl implements XUnitLabel {
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 			case WidgetPackage.XUNIT_LABEL__UNIT:
 				return UNIT_EDEFAULT == null ? unit != null : !UNIT_EDEFAULT.equals(unit);
-			case WidgetPackage.XUNIT_LABEL__LABEL_WIDTH:
-				return labelWidth != LABEL_WIDTH_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -261,8 +209,6 @@ public class XUnitLabelImpl extends XWidgetImpl implements XUnitLabel {
 		result.append(value);
 		result.append(", unit: ");
 		result.append(unit);
-		result.append(", labelWidth: ");
-		result.append(labelWidth);
 		result.append(')');
 		return result.toString();
 	}

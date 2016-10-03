@@ -138,6 +138,7 @@ public class WidgetSwitch<T> extends Switch<T> {
 			case WidgetPackage.XUNIT_LABEL: {
 				XUnitLabel xUnitLabel = (XUnitLabel)theEObject;
 				T result = caseXUnitLabel(xUnitLabel);
+				if (result == null) result = caseXLabel(xUnitLabel);
 				if (result == null) result = caseXWidget(xUnitLabel);
 				if (result == null) result = caseXLayoutDataElement(xUnitLabel);
 				if (result == null) result = defaultCase(theEObject);
@@ -202,8 +203,18 @@ public class WidgetSwitch<T> extends Switch<T> {
 			case WidgetPackage.XLABEL_COMBO: {
 				XLabelCombo xLabelCombo = (XLabelCombo)theEObject;
 				T result = caseXLabelCombo(xLabelCombo);
+				if (result == null) result = caseXLabel(xLabelCombo);
 				if (result == null) result = caseXWidget(xLabelCombo);
 				if (result == null) result = caseXLayoutDataElement(xLabelCombo);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WidgetPackage.XLABEL_TEXT: {
+				XLabelText xLabelText = (XLabelText)theEObject;
+				T result = caseXLabelText(xLabelText);
+				if (result == null) result = caseXLabel(xLabelText);
+				if (result == null) result = caseXWidget(xLabelText);
+				if (result == null) result = caseXLayoutDataElement(xLabelText);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -618,6 +629,21 @@ public class WidgetSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseXLabelCombo(XLabelCombo object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>XLabel Text</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>XLabel Text</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseXLabelText(XLabelText object) {
 		return null;
 	}
 

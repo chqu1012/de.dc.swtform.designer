@@ -2,11 +2,12 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="widget" nsURI="de.dc.swtform.xcore.widget" nsPrefix="widget">
   <eClassifiers xsi:type="ecore:EClass" name="XWidget" abstract="true" eSuperTypes="de.dc.swtform.layout.model#//XLayoutDataElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="data" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XButton" eSuperTypes="#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSelected" unique="false"
@@ -40,13 +41,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dialogType" unique="false"
         eType="#//XDialogType" defaultValueLiteral="OpenFile"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XUnitLabel" eSuperTypes="#//XWidget">
+  <eClassifiers xsi:type="ecore:EClass" name="XUnitLabel" eSuperTypes="#//XLabel">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelWidth" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="100"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="XDialogType">
     <eLiterals name="OpenFile"/>
@@ -63,15 +62,17 @@
   <eClassifiers xsi:type="ecore:EClass" name="XLink" eSuperTypes="#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XLabel" eSuperTypes="#//XWidget"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XLabelCombo" eSuperTypes="#//XWidget">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comboWidth" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="100"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XLabel" eSuperTypes="#//XWidget">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="100"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="XLabelCombo" eSuperTypes="#//XLabel">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="readOnly" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
         eType="#//XComboItem" containment="true" resolveProxies="false"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="XLabelText" eSuperTypes="#//XLabel"/>
   <eClassifiers xsi:type="ecore:EClass" name="XCombo" eSuperTypes="#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
         eType="#//XComboItem" containment="true" resolveProxies="false"/>
@@ -123,10 +124,10 @@
         eType="#//XTableViewerColumn" containment="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XTableViewerColumn" eSuperTypes="#//XWidget">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
         defaultValueLiteral="100"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XTreeViewer" eSuperTypes="#//XViewer"/>
   <eClassifiers xsi:type="ecore:EClass" name="XListViewer" eSuperTypes="#//XViewer"/>

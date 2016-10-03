@@ -25,7 +25,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XLabelComboItemProvider extends XWidgetItemProvider {
+public class XLabelComboItemProvider extends XLabelItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -47,32 +47,9 @@ public class XLabelComboItemProvider extends XWidgetItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addComboWidthPropertyDescriptor(object);
 			addReadOnlyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Combo Width feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addComboWidthPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XLabelCombo_comboWidth_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XLabelCombo_comboWidth_feature", "_UI_XLabelCombo_type"),
-				 WidgetPackage.eINSTANCE.getXLabelCombo_ComboWidth(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -165,7 +142,6 @@ public class XLabelComboItemProvider extends XWidgetItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(XLabelCombo.class)) {
-			case WidgetPackage.XLABEL_COMBO__COMBO_WIDTH:
 			case WidgetPackage.XLABEL_COMBO__READ_ONLY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

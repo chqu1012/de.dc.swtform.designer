@@ -3,6 +3,7 @@
 package de.dc.swtform.xcore.widget.provider;
 
 
+import de.dc.swtform.xcore.widget.WidgetPackage;
 import de.dc.swtform.xcore.widget.XLabel;
 
 import java.util.Collection;
@@ -11,7 +12,10 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link de.dc.swtform.xcore.widget.XLabel} object.
@@ -41,8 +45,31 @@ public class XLabelItemProvider extends XWidgetItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addWidthPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Width feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addWidthPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XLabel_width_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XLabel_width_feature", "_UI_XLabel_type"),
+				 WidgetPackage.eINSTANCE.getXLabel_Width(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -81,6 +108,12 @@ public class XLabelItemProvider extends XWidgetItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(XLabel.class)) {
+			case WidgetPackage.XLABEL__WIDTH:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

@@ -14,14 +14,13 @@ package de.dc.swtform.xcore.widget;
  * <ul>
  *   <li>{@link de.dc.swtform.xcore.widget.XUnitLabel#getValue <em>Value</em>}</li>
  *   <li>{@link de.dc.swtform.xcore.widget.XUnitLabel#getUnit <em>Unit</em>}</li>
- *   <li>{@link de.dc.swtform.xcore.widget.XUnitLabel#getLabelWidth <em>Label Width</em>}</li>
  * </ul>
  *
  * @see de.dc.swtform.xcore.widget.WidgetPackage#getXUnitLabel()
  * @model
  * @generated
  */
-public interface XUnitLabel extends XWidget {
+public interface XUnitLabel extends XLabel {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * The default value is <code>""</code>.
@@ -75,32 +74,5 @@ public interface XUnitLabel extends XWidget {
 	 * @generated
 	 */
 	void setUnit(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Label Width</b></em>' attribute.
-	 * The default value is <code>"100"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Label Width</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Label Width</em>' attribute.
-	 * @see #setLabelWidth(int)
-	 * @see de.dc.swtform.xcore.widget.WidgetPackage#getXUnitLabel_LabelWidth()
-	 * @model default="100" unique="false"
-	 * @generated
-	 */
-	int getLabelWidth();
-
-	/**
-	 * Sets the value of the '{@link de.dc.swtform.xcore.widget.XUnitLabel#getLabelWidth <em>Label Width</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Label Width</em>' attribute.
-	 * @see #getLabelWidth()
-	 * @generated
-	 */
-	void setLabelWidth(int value);
 
 } // XUnitLabel

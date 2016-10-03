@@ -23,7 +23,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XUnitLabelItemProvider extends XWidgetItemProvider {
+public class XUnitLabelItemProvider extends XLabelItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -47,7 +47,6 @@ public class XUnitLabelItemProvider extends XWidgetItemProvider {
 
 			addValuePropertyDescriptor(object);
 			addUnitPropertyDescriptor(object);
-			addLabelWidthPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -97,28 +96,6 @@ public class XUnitLabelItemProvider extends XWidgetItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Label Width feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLabelWidthPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XUnitLabel_labelWidth_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XUnitLabel_labelWidth_feature", "_UI_XUnitLabel_type"),
-				 WidgetPackage.eINSTANCE.getXUnitLabel_LabelWidth(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns XUnitLabel.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -158,7 +135,6 @@ public class XUnitLabelItemProvider extends XWidgetItemProvider {
 		switch (notification.getFeatureID(XUnitLabel.class)) {
 			case WidgetPackage.XUNIT_LABEL__VALUE:
 			case WidgetPackage.XUNIT_LABEL__UNIT:
-			case WidgetPackage.XUNIT_LABEL__LABEL_WIDTH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

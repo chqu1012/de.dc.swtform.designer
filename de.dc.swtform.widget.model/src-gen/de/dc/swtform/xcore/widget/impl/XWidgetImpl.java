@@ -38,7 +38,7 @@ public abstract class XWidgetImpl extends XLayoutDataElementImpl implements XWid
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -98,7 +98,7 @@ public abstract class XWidgetImpl extends XLayoutDataElementImpl implements XWid
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String MESSAGE_EDEFAULT = null;
+	protected static final String MESSAGE_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getMessage() <em>Message</em>}' attribute.

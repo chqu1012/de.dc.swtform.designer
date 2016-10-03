@@ -3,7 +3,6 @@
 package de.dc.swtform.xcore.widget.provider;
 
 
-import de.dc.swtform.xcore.widget.WidgetPackage;
 import de.dc.swtform.xcore.widget.XToogleButton;
 
 import java.util.Collection;
@@ -11,11 +10,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link de.dc.swtform.xcore.widget.XToogleButton} object.
@@ -23,7 +18,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XToogleButtonItemProvider extends XWidgetItemProvider {
+public class XToogleButtonItemProvider extends XButtonItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -45,31 +40,8 @@ public class XToogleButtonItemProvider extends XWidgetItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIsSelectedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Is Selected feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIsSelectedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XToogleButton_isSelected_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XToogleButton_isSelected_feature", "_UI_XToogleButton_type"),
-				 WidgetPackage.eINSTANCE.getXToogleButton_IsSelected(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -108,12 +80,6 @@ public class XToogleButtonItemProvider extends XWidgetItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(XToogleButton.class)) {
-			case WidgetPackage.XTOOGLE_BUTTON__IS_SELECTED:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

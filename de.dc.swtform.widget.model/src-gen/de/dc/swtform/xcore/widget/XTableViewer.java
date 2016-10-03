@@ -13,11 +13,12 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.dc.swtform.xcore.widget.XTableViewer#getShowHeader <em>Show Header</em>}</li>
- *   <li>{@link de.dc.swtform.xcore.widget.XTableViewer#getShowLines <em>Show Lines</em>}</li>
- *   <li>{@link de.dc.swtform.xcore.widget.XTableViewer#getShowBorder <em>Show Border</em>}</li>
- *   <li>{@link de.dc.swtform.xcore.widget.XTableViewer#getVerticalScroll <em>Vertical Scroll</em>}</li>
- *   <li>{@link de.dc.swtform.xcore.widget.XTableViewer#getHorizontalScroll <em>Horizontal Scroll</em>}</li>
+ *   <li>{@link de.dc.swtform.xcore.widget.XTableViewer#isShowHeader <em>Show Header</em>}</li>
+ *   <li>{@link de.dc.swtform.xcore.widget.XTableViewer#isShowLines <em>Show Lines</em>}</li>
+ *   <li>{@link de.dc.swtform.xcore.widget.XTableViewer#isShowBorder <em>Show Border</em>}</li>
+ *   <li>{@link de.dc.swtform.xcore.widget.XTableViewer#isVerticalScroll <em>Vertical Scroll</em>}</li>
+ *   <li>{@link de.dc.swtform.xcore.widget.XTableViewer#isHorizontalScroll <em>Horizontal Scroll</em>}</li>
+ *   <li>{@link de.dc.swtform.xcore.widget.XTableViewer#isHasSearch <em>Has Search</em>}</li>
  *   <li>{@link de.dc.swtform.xcore.widget.XTableViewer#getColumns <em>Columns</em>}</li>
  * </ul>
  *
@@ -36,22 +37,22 @@ public interface XTableViewer extends XViewer {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Show Header</em>' attribute.
-	 * @see #setShowHeader(Boolean)
+	 * @see #setShowHeader(boolean)
 	 * @see de.dc.swtform.xcore.widget.WidgetPackage#getXTableViewer_ShowHeader()
 	 * @model default="true" unique="false"
 	 * @generated
 	 */
-	Boolean getShowHeader();
+	boolean isShowHeader();
 
 	/**
-	 * Sets the value of the '{@link de.dc.swtform.xcore.widget.XTableViewer#getShowHeader <em>Show Header</em>}' attribute.
+	 * Sets the value of the '{@link de.dc.swtform.xcore.widget.XTableViewer#isShowHeader <em>Show Header</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Show Header</em>' attribute.
-	 * @see #getShowHeader()
+	 * @see #isShowHeader()
 	 * @generated
 	 */
-	void setShowHeader(Boolean value);
+	void setShowHeader(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Show Lines</b></em>' attribute.
@@ -63,22 +64,22 @@ public interface XTableViewer extends XViewer {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Show Lines</em>' attribute.
-	 * @see #setShowLines(Boolean)
+	 * @see #setShowLines(boolean)
 	 * @see de.dc.swtform.xcore.widget.WidgetPackage#getXTableViewer_ShowLines()
 	 * @model default="true" unique="false"
 	 * @generated
 	 */
-	Boolean getShowLines();
+	boolean isShowLines();
 
 	/**
-	 * Sets the value of the '{@link de.dc.swtform.xcore.widget.XTableViewer#getShowLines <em>Show Lines</em>}' attribute.
+	 * Sets the value of the '{@link de.dc.swtform.xcore.widget.XTableViewer#isShowLines <em>Show Lines</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Show Lines</em>' attribute.
-	 * @see #getShowLines()
+	 * @see #isShowLines()
 	 * @generated
 	 */
-	void setShowLines(Boolean value);
+	void setShowLines(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Show Border</b></em>' attribute.
@@ -90,22 +91,22 @@ public interface XTableViewer extends XViewer {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Show Border</em>' attribute.
-	 * @see #setShowBorder(Boolean)
+	 * @see #setShowBorder(boolean)
 	 * @see de.dc.swtform.xcore.widget.WidgetPackage#getXTableViewer_ShowBorder()
 	 * @model default="true" unique="false"
 	 * @generated
 	 */
-	Boolean getShowBorder();
+	boolean isShowBorder();
 
 	/**
-	 * Sets the value of the '{@link de.dc.swtform.xcore.widget.XTableViewer#getShowBorder <em>Show Border</em>}' attribute.
+	 * Sets the value of the '{@link de.dc.swtform.xcore.widget.XTableViewer#isShowBorder <em>Show Border</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Show Border</em>' attribute.
-	 * @see #getShowBorder()
+	 * @see #isShowBorder()
 	 * @generated
 	 */
-	void setShowBorder(Boolean value);
+	void setShowBorder(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Vertical Scroll</b></em>' attribute.
@@ -117,22 +118,22 @@ public interface XTableViewer extends XViewer {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Vertical Scroll</em>' attribute.
-	 * @see #setVerticalScroll(Boolean)
+	 * @see #setVerticalScroll(boolean)
 	 * @see de.dc.swtform.xcore.widget.WidgetPackage#getXTableViewer_VerticalScroll()
 	 * @model default="true" unique="false"
 	 * @generated
 	 */
-	Boolean getVerticalScroll();
+	boolean isVerticalScroll();
 
 	/**
-	 * Sets the value of the '{@link de.dc.swtform.xcore.widget.XTableViewer#getVerticalScroll <em>Vertical Scroll</em>}' attribute.
+	 * Sets the value of the '{@link de.dc.swtform.xcore.widget.XTableViewer#isVerticalScroll <em>Vertical Scroll</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Vertical Scroll</em>' attribute.
-	 * @see #getVerticalScroll()
+	 * @see #isVerticalScroll()
 	 * @generated
 	 */
-	void setVerticalScroll(Boolean value);
+	void setVerticalScroll(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Horizontal Scroll</b></em>' attribute.
@@ -144,22 +145,49 @@ public interface XTableViewer extends XViewer {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Horizontal Scroll</em>' attribute.
-	 * @see #setHorizontalScroll(Boolean)
+	 * @see #setHorizontalScroll(boolean)
 	 * @see de.dc.swtform.xcore.widget.WidgetPackage#getXTableViewer_HorizontalScroll()
 	 * @model default="true" unique="false"
 	 * @generated
 	 */
-	Boolean getHorizontalScroll();
+	boolean isHorizontalScroll();
 
 	/**
-	 * Sets the value of the '{@link de.dc.swtform.xcore.widget.XTableViewer#getHorizontalScroll <em>Horizontal Scroll</em>}' attribute.
+	 * Sets the value of the '{@link de.dc.swtform.xcore.widget.XTableViewer#isHorizontalScroll <em>Horizontal Scroll</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Horizontal Scroll</em>' attribute.
-	 * @see #getHorizontalScroll()
+	 * @see #isHorizontalScroll()
 	 * @generated
 	 */
-	void setHorizontalScroll(Boolean value);
+	void setHorizontalScroll(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Has Search</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Has Search</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Has Search</em>' attribute.
+	 * @see #setHasSearch(boolean)
+	 * @see de.dc.swtform.xcore.widget.WidgetPackage#getXTableViewer_HasSearch()
+	 * @model default="true" unique="false"
+	 * @generated
+	 */
+	boolean isHasSearch();
+
+	/**
+	 * Sets the value of the '{@link de.dc.swtform.xcore.widget.XTableViewer#isHasSearch <em>Has Search</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Has Search</em>' attribute.
+	 * @see #isHasSearch()
+	 * @generated
+	 */
+	void setHasSearch(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Columns</b></em>' containment reference list.

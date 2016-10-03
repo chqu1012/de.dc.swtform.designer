@@ -40,7 +40,7 @@ public class XGridLayoutImpl extends XLayoutImpl implements XGridLayout {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer NUM_COLUMNS_EDEFAULT = null;
+	protected static final Integer NUM_COLUMNS_EDEFAULT = new Integer(1);
 
 	/**
 	 * The cached value of the '{@link #getNumColumns() <em>Num Columns</em>}' attribute.
@@ -60,7 +60,7 @@ public class XGridLayoutImpl extends XLayoutImpl implements XGridLayout {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean MAKE_COLUMNS_EQUAL_WIDTH_EDEFAULT = null;
+	protected static final Boolean MAKE_COLUMNS_EQUAL_WIDTH_EDEFAULT = Boolean.FALSE;
 
 	/**
 	 * The cached value of the '{@link #getMakeColumnsEqualWidth() <em>Make Columns Equal Width</em>}' attribute.
@@ -80,7 +80,7 @@ public class XGridLayoutImpl extends XLayoutImpl implements XGridLayout {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer MARGIN_LEFT_EDEFAULT = null;
+	protected static final Integer MARGIN_LEFT_EDEFAULT = new Integer(0);
 
 	/**
 	 * The cached value of the '{@link #getMarginLeft() <em>Margin Left</em>}' attribute.
@@ -100,7 +100,7 @@ public class XGridLayoutImpl extends XLayoutImpl implements XGridLayout {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer MARGIN_TOP_EDEFAULT = null;
+	protected static final Integer MARGIN_TOP_EDEFAULT = new Integer(0);
 
 	/**
 	 * The cached value of the '{@link #getMarginTop() <em>Margin Top</em>}' attribute.
@@ -120,7 +120,7 @@ public class XGridLayoutImpl extends XLayoutImpl implements XGridLayout {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer MARGIN_RIGHT_EDEFAULT = null;
+	protected static final Integer MARGIN_RIGHT_EDEFAULT = new Integer(0);
 
 	/**
 	 * The cached value of the '{@link #getMarginRight() <em>Margin Right</em>}' attribute.
@@ -140,7 +140,7 @@ public class XGridLayoutImpl extends XLayoutImpl implements XGridLayout {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer MARGIN_BOTTOM_EDEFAULT = null;
+	protected static final Integer MARGIN_BOTTOM_EDEFAULT = new Integer(0);
 
 	/**
 	 * The cached value of the '{@link #getMarginBottom() <em>Margin Bottom</em>}' attribute.

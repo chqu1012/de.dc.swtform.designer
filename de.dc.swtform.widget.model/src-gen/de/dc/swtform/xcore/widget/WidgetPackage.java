@@ -189,13 +189,22 @@ public interface WidgetPackage extends EPackage {
 	int XBUTTON__MESSAGE = XWIDGET__MESSAGE;
 
 	/**
+	 * The feature id for the '<em><b>Is Selected</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XBUTTON__IS_SELECTED = XWIDGET_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>XButton</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XBUTTON_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 0;
+	int XBUTTON_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>XButton</em>' class.
@@ -223,7 +232,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XCHECK_BUTTON__LAYOUT_DATA = XWIDGET__LAYOUT_DATA;
+	int XCHECK_BUTTON__LAYOUT_DATA = XBUTTON__LAYOUT_DATA;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -232,7 +241,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XCHECK_BUTTON__NAME = XWIDGET__NAME;
+	int XCHECK_BUTTON__NAME = XBUTTON__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -241,7 +250,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XCHECK_BUTTON__TEXT = XWIDGET__TEXT;
+	int XCHECK_BUTTON__TEXT = XBUTTON__TEXT;
 
 	/**
 	 * The feature id for the '<em><b>Data</b></em>' attribute.
@@ -250,7 +259,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XCHECK_BUTTON__DATA = XWIDGET__DATA;
+	int XCHECK_BUTTON__DATA = XBUTTON__DATA;
 
 	/**
 	 * The feature id for the '<em><b>Message</b></em>' attribute.
@@ -259,7 +268,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XCHECK_BUTTON__MESSAGE = XWIDGET__MESSAGE;
+	int XCHECK_BUTTON__MESSAGE = XBUTTON__MESSAGE;
 
 	/**
 	 * The feature id for the '<em><b>Is Selected</b></em>' attribute.
@@ -268,7 +277,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XCHECK_BUTTON__IS_SELECTED = XWIDGET_FEATURE_COUNT + 0;
+	int XCHECK_BUTTON__IS_SELECTED = XBUTTON__IS_SELECTED;
 
 	/**
 	 * The number of structural features of the '<em>XCheck Button</em>' class.
@@ -277,7 +286,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XCHECK_BUTTON_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 1;
+	int XCHECK_BUTTON_FEATURE_COUNT = XBUTTON_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>XCheck Button</em>' class.
@@ -286,7 +295,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XCHECK_BUTTON_OPERATION_COUNT = XWIDGET_OPERATION_COUNT + 0;
+	int XCHECK_BUTTON_OPERATION_COUNT = XBUTTON_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.dc.swtform.xcore.widget.impl.XRadioButtonImpl <em>XRadio Button</em>}' class.
@@ -305,7 +314,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XRADIO_BUTTON__LAYOUT_DATA = XWIDGET__LAYOUT_DATA;
+	int XRADIO_BUTTON__LAYOUT_DATA = XBUTTON__LAYOUT_DATA;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -314,7 +323,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XRADIO_BUTTON__NAME = XWIDGET__NAME;
+	int XRADIO_BUTTON__NAME = XBUTTON__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -323,7 +332,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XRADIO_BUTTON__TEXT = XWIDGET__TEXT;
+	int XRADIO_BUTTON__TEXT = XBUTTON__TEXT;
 
 	/**
 	 * The feature id for the '<em><b>Data</b></em>' attribute.
@@ -332,7 +341,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XRADIO_BUTTON__DATA = XWIDGET__DATA;
+	int XRADIO_BUTTON__DATA = XBUTTON__DATA;
 
 	/**
 	 * The feature id for the '<em><b>Message</b></em>' attribute.
@@ -341,7 +350,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XRADIO_BUTTON__MESSAGE = XWIDGET__MESSAGE;
+	int XRADIO_BUTTON__MESSAGE = XBUTTON__MESSAGE;
 
 	/**
 	 * The feature id for the '<em><b>Is Selected</b></em>' attribute.
@@ -350,7 +359,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XRADIO_BUTTON__IS_SELECTED = XWIDGET_FEATURE_COUNT + 0;
+	int XRADIO_BUTTON__IS_SELECTED = XBUTTON__IS_SELECTED;
 
 	/**
 	 * The number of structural features of the '<em>XRadio Button</em>' class.
@@ -359,7 +368,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XRADIO_BUTTON_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 1;
+	int XRADIO_BUTTON_FEATURE_COUNT = XBUTTON_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>XRadio Button</em>' class.
@@ -368,7 +377,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XRADIO_BUTTON_OPERATION_COUNT = XWIDGET_OPERATION_COUNT + 0;
+	int XRADIO_BUTTON_OPERATION_COUNT = XBUTTON_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.dc.swtform.xcore.widget.impl.XToogleButtonImpl <em>XToogle Button</em>}' class.
@@ -387,7 +396,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTOOGLE_BUTTON__LAYOUT_DATA = XWIDGET__LAYOUT_DATA;
+	int XTOOGLE_BUTTON__LAYOUT_DATA = XBUTTON__LAYOUT_DATA;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -396,7 +405,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTOOGLE_BUTTON__NAME = XWIDGET__NAME;
+	int XTOOGLE_BUTTON__NAME = XBUTTON__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -405,7 +414,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTOOGLE_BUTTON__TEXT = XWIDGET__TEXT;
+	int XTOOGLE_BUTTON__TEXT = XBUTTON__TEXT;
 
 	/**
 	 * The feature id for the '<em><b>Data</b></em>' attribute.
@@ -414,7 +423,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTOOGLE_BUTTON__DATA = XWIDGET__DATA;
+	int XTOOGLE_BUTTON__DATA = XBUTTON__DATA;
 
 	/**
 	 * The feature id for the '<em><b>Message</b></em>' attribute.
@@ -423,7 +432,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTOOGLE_BUTTON__MESSAGE = XWIDGET__MESSAGE;
+	int XTOOGLE_BUTTON__MESSAGE = XBUTTON__MESSAGE;
 
 	/**
 	 * The feature id for the '<em><b>Is Selected</b></em>' attribute.
@@ -432,7 +441,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTOOGLE_BUTTON__IS_SELECTED = XWIDGET_FEATURE_COUNT + 0;
+	int XTOOGLE_BUTTON__IS_SELECTED = XBUTTON__IS_SELECTED;
 
 	/**
 	 * The number of structural features of the '<em>XToogle Button</em>' class.
@@ -441,7 +450,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTOOGLE_BUTTON_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 1;
+	int XTOOGLE_BUTTON_FEATURE_COUNT = XBUTTON_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>XToogle Button</em>' class.
@@ -450,7 +459,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTOOGLE_BUTTON_OPERATION_COUNT = XWIDGET_OPERATION_COUNT + 0;
+	int XTOOGLE_BUTTON_OPERATION_COUNT = XBUTTON_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.dc.swtform.xcore.widget.impl.XSpinnerImpl <em>XSpinner</em>}' class.
@@ -2666,13 +2675,22 @@ public interface WidgetPackage extends EPackage {
 	int XTABLE_VIEWER__HORIZONTAL_SCROLL = XVIEWER_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Has Search</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTABLE_VIEWER__HAS_SEARCH = XVIEWER_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XTABLE_VIEWER__COLUMNS = XVIEWER_FEATURE_COUNT + 5;
+	int XTABLE_VIEWER__COLUMNS = XVIEWER_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>XTable Viewer</em>' class.
@@ -2681,7 +2699,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTABLE_VIEWER_FEATURE_COUNT = XVIEWER_FEATURE_COUNT + 6;
+	int XTABLE_VIEWER_FEATURE_COUNT = XVIEWER_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>XTable Viewer</em>' class.
@@ -3152,6 +3170,17 @@ public interface WidgetPackage extends EPackage {
 	EClass getXButton();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XButton#getIsSelected <em>Is Selected</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Selected</em>'.
+	 * @see de.dc.swtform.xcore.widget.XButton#getIsSelected()
+	 * @see #getXButton()
+	 * @generated
+	 */
+	EAttribute getXButton_IsSelected();
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.swtform.xcore.widget.XCheckButton <em>XCheck Button</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3160,17 +3189,6 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getXCheckButton();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XCheckButton#getIsSelected <em>Is Selected</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Selected</em>'.
-	 * @see de.dc.swtform.xcore.widget.XCheckButton#getIsSelected()
-	 * @see #getXCheckButton()
-	 * @generated
-	 */
-	EAttribute getXCheckButton_IsSelected();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.swtform.xcore.widget.XRadioButton <em>XRadio Button</em>}'.
@@ -3183,17 +3201,6 @@ public interface WidgetPackage extends EPackage {
 	EClass getXRadioButton();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XRadioButton#getIsSelected <em>Is Selected</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Selected</em>'.
-	 * @see de.dc.swtform.xcore.widget.XRadioButton#getIsSelected()
-	 * @see #getXRadioButton()
-	 * @generated
-	 */
-	EAttribute getXRadioButton_IsSelected();
-
-	/**
 	 * Returns the meta object for class '{@link de.dc.swtform.xcore.widget.XToogleButton <em>XToogle Button</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3202,17 +3209,6 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getXToogleButton();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XToogleButton#getIsSelected <em>Is Selected</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Selected</em>'.
-	 * @see de.dc.swtform.xcore.widget.XToogleButton#getIsSelected()
-	 * @see #getXToogleButton()
-	 * @generated
-	 */
-	EAttribute getXToogleButton_IsSelected();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.swtform.xcore.widget.XSpinner <em>XSpinner</em>}'.
@@ -3706,59 +3702,70 @@ public interface WidgetPackage extends EPackage {
 	EClass getXTableViewer();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTableViewer#getShowHeader <em>Show Header</em>}'.
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTableViewer#isShowHeader <em>Show Header</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Show Header</em>'.
-	 * @see de.dc.swtform.xcore.widget.XTableViewer#getShowHeader()
+	 * @see de.dc.swtform.xcore.widget.XTableViewer#isShowHeader()
 	 * @see #getXTableViewer()
 	 * @generated
 	 */
 	EAttribute getXTableViewer_ShowHeader();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTableViewer#getShowLines <em>Show Lines</em>}'.
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTableViewer#isShowLines <em>Show Lines</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Show Lines</em>'.
-	 * @see de.dc.swtform.xcore.widget.XTableViewer#getShowLines()
+	 * @see de.dc.swtform.xcore.widget.XTableViewer#isShowLines()
 	 * @see #getXTableViewer()
 	 * @generated
 	 */
 	EAttribute getXTableViewer_ShowLines();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTableViewer#getShowBorder <em>Show Border</em>}'.
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTableViewer#isShowBorder <em>Show Border</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Show Border</em>'.
-	 * @see de.dc.swtform.xcore.widget.XTableViewer#getShowBorder()
+	 * @see de.dc.swtform.xcore.widget.XTableViewer#isShowBorder()
 	 * @see #getXTableViewer()
 	 * @generated
 	 */
 	EAttribute getXTableViewer_ShowBorder();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTableViewer#getVerticalScroll <em>Vertical Scroll</em>}'.
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTableViewer#isVerticalScroll <em>Vertical Scroll</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Vertical Scroll</em>'.
-	 * @see de.dc.swtform.xcore.widget.XTableViewer#getVerticalScroll()
+	 * @see de.dc.swtform.xcore.widget.XTableViewer#isVerticalScroll()
 	 * @see #getXTableViewer()
 	 * @generated
 	 */
 	EAttribute getXTableViewer_VerticalScroll();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTableViewer#getHorizontalScroll <em>Horizontal Scroll</em>}'.
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTableViewer#isHorizontalScroll <em>Horizontal Scroll</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Horizontal Scroll</em>'.
-	 * @see de.dc.swtform.xcore.widget.XTableViewer#getHorizontalScroll()
+	 * @see de.dc.swtform.xcore.widget.XTableViewer#isHorizontalScroll()
 	 * @see #getXTableViewer()
 	 * @generated
 	 */
 	EAttribute getXTableViewer_HorizontalScroll();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTableViewer#isHasSearch <em>Has Search</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Has Search</em>'.
+	 * @see de.dc.swtform.xcore.widget.XTableViewer#isHasSearch()
+	 * @see #getXTableViewer()
+	 * @generated
+	 */
+	EAttribute getXTableViewer_HasSearch();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link de.dc.swtform.xcore.widget.XTableViewer#getColumns <em>Columns</em>}'.

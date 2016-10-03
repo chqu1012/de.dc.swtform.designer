@@ -434,11 +434,8 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getXCheckButton() {
-		if (xCheckButtonEClass == null) {
-			xCheckButtonEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(2);
-		}
-		return xCheckButtonEClass;
+	public EAttribute getXButton_IsSelected() {
+        return (EAttribute)getXButton().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -446,8 +443,11 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getXCheckButton_IsSelected() {
-        return (EAttribute)getXCheckButton().getEStructuralFeatures().get(0);
+	public EClass getXCheckButton() {
+		if (xCheckButtonEClass == null) {
+			xCheckButtonEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(2);
+		}
+		return xCheckButtonEClass;
 	}
 
 	/**
@@ -467,29 +467,11 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getXRadioButton_IsSelected() {
-        return (EAttribute)getXRadioButton().getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getXToogleButton() {
 		if (xToogleButtonEClass == null) {
 			xToogleButtonEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(4);
 		}
 		return xToogleButtonEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getXToogleButton_IsSelected() {
-        return (EAttribute)getXToogleButton().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1043,8 +1025,17 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getXTableViewer_HasSearch() {
+        return (EAttribute)getXTableViewer().getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getXTableViewer_Columns() {
-        return (EReference)getXTableViewer().getEStructuralFeatures().get(5);
+        return (EReference)getXTableViewer().getEStructuralFeatures().get(6);
 	}
 
 	/**

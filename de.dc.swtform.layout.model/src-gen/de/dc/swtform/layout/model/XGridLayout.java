@@ -29,6 +29,7 @@ package de.dc.swtform.layout.model;
 public interface XGridLayout extends XLayout {
 	/**
 	 * Returns the value of the '<em><b>Num Columns</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Num Columns</em>' attribute isn't clear,
@@ -38,7 +39,7 @@ public interface XGridLayout extends XLayout {
 	 * @return the value of the '<em>Num Columns</em>' attribute.
 	 * @see #setNumColumns(Integer)
 	 * @see de.dc.swtform.layout.model.ModelPackage#getXGridLayout_NumColumns()
-	 * @model unique="false"
+	 * @model default="1" unique="false"
 	 * @generated
 	 */
 	Integer getNumColumns();
@@ -55,6 +56,7 @@ public interface XGridLayout extends XLayout {
 
 	/**
 	 * Returns the value of the '<em><b>Make Columns Equal Width</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Make Columns Equal Width</em>' attribute isn't clear,
@@ -64,7 +66,7 @@ public interface XGridLayout extends XLayout {
 	 * @return the value of the '<em>Make Columns Equal Width</em>' attribute.
 	 * @see #setMakeColumnsEqualWidth(Boolean)
 	 * @see de.dc.swtform.layout.model.ModelPackage#getXGridLayout_MakeColumnsEqualWidth()
-	 * @model unique="false"
+	 * @model default="false" unique="false"
 	 * @generated
 	 */
 	Boolean getMakeColumnsEqualWidth();
@@ -81,6 +83,7 @@ public interface XGridLayout extends XLayout {
 
 	/**
 	 * Returns the value of the '<em><b>Margin Left</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Margin Left</em>' attribute isn't clear,
@@ -90,7 +93,7 @@ public interface XGridLayout extends XLayout {
 	 * @return the value of the '<em>Margin Left</em>' attribute.
 	 * @see #setMarginLeft(Integer)
 	 * @see de.dc.swtform.layout.model.ModelPackage#getXGridLayout_MarginLeft()
-	 * @model unique="false"
+	 * @model default="0" unique="false"
 	 * @generated
 	 */
 	Integer getMarginLeft();
@@ -107,6 +110,7 @@ public interface XGridLayout extends XLayout {
 
 	/**
 	 * Returns the value of the '<em><b>Margin Top</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Margin Top</em>' attribute isn't clear,
@@ -116,7 +120,7 @@ public interface XGridLayout extends XLayout {
 	 * @return the value of the '<em>Margin Top</em>' attribute.
 	 * @see #setMarginTop(Integer)
 	 * @see de.dc.swtform.layout.model.ModelPackage#getXGridLayout_MarginTop()
-	 * @model unique="false"
+	 * @model default="0" unique="false"
 	 * @generated
 	 */
 	Integer getMarginTop();
@@ -133,6 +137,7 @@ public interface XGridLayout extends XLayout {
 
 	/**
 	 * Returns the value of the '<em><b>Margin Right</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Margin Right</em>' attribute isn't clear,
@@ -142,7 +147,7 @@ public interface XGridLayout extends XLayout {
 	 * @return the value of the '<em>Margin Right</em>' attribute.
 	 * @see #setMarginRight(Integer)
 	 * @see de.dc.swtform.layout.model.ModelPackage#getXGridLayout_MarginRight()
-	 * @model unique="false"
+	 * @model default="0" unique="false"
 	 * @generated
 	 */
 	Integer getMarginRight();
@@ -159,6 +164,7 @@ public interface XGridLayout extends XLayout {
 
 	/**
 	 * Returns the value of the '<em><b>Margin Bottom</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Margin Bottom</em>' attribute isn't clear,
@@ -168,7 +174,7 @@ public interface XGridLayout extends XLayout {
 	 * @return the value of the '<em>Margin Bottom</em>' attribute.
 	 * @see #setMarginBottom(Integer)
 	 * @see de.dc.swtform.layout.model.ModelPackage#getXGridLayout_MarginBottom()
-	 * @model unique="false"
+	 * @model default="0" unique="false"
 	 * @generated
 	 */
 	Integer getMarginBottom();

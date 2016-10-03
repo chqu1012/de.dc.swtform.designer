@@ -56,7 +56,7 @@ public abstract class XLayoutImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer MARGIN_WIDTH_EDEFAULT = null;
+	protected static final Integer MARGIN_WIDTH_EDEFAULT = new Integer(0);
 
 	/**
 	 * The cached value of the '{@link #getMarginWidth() <em>Margin Width</em>}' attribute.
@@ -76,7 +76,7 @@ public abstract class XLayoutImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer MARGIN_HEIGHT_EDEFAULT = null;
+	protected static final Integer MARGIN_HEIGHT_EDEFAULT = new Integer(0);
 
 	/**
 	 * The cached value of the '{@link #getMarginHeight() <em>Margin Height</em>}' attribute.

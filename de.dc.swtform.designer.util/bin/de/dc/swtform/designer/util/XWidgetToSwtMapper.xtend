@@ -76,7 +76,13 @@ class XWidgetToSwtMapper {
 
 	dispatch def createWidget(Composite parent, XTableViewer w) {
 //		val styles = w.style?.map[value].reduce[p1, p2|p1.bitwiseOr(p2)]
-		val control = new TableViewer(parent, SWT.BORDER)
+		val container = SwtFactory.createGridComposite(parent, 1, 0, 0)
+		container.initLayoutData(w.layoutData)
+		if(w.hasSearch){
+			val searchText = SwtFactory.creatText(container)
+			searchText.message = 'Search'
+		}
+		val control = new TableViewer(container, SWT.BORDER)
 		control.table.headerVisible = w.showHeader
 		control.table.linesVisible = w.showLines
 		w.columns.forEach[control.createTableViewerColumn(it)]
@@ -96,24 +102,15 @@ class XWidgetToSwtMapper {
 	}
 
 	dispatch def createWidget(Composite parent, XCheckButton w) {
-		val control = new Button(parent, SWT.CHECK)
-		control.selection = w.isSelected
-		control.text = w.name
-		control.initLayoutData(w.layoutData)
+		createButton(parent, SWT.CHECK, w)
 	}
 
 	dispatch def createWidget(Composite parent, XRadioButton w) {
-		val control = new Button(parent, SWT.RADIO)
-		control.selection = w.isSelected
-		control.text = w.name
-		control.initLayoutData(w.layoutData)
+		createButton(parent, SWT.RADIO, w)
 	}
 
 	dispatch def createWidget(Composite parent, XToogleButton w) {
-		val control = new Button(parent, SWT.TOGGLE)
-		control.selection = w.isSelected
-		control.text = w.name
-		control.initLayoutData(w.layoutData)
+		createButton(parent, SWT.TOGGLE, w)
 	}
 
 	dispatch def createWidget(Composite parent, XDialogText w) {
@@ -170,6 +167,13 @@ class XWidgetToSwtMapper {
 	dispatch def createWidget(Composite parent, XLink w) {
 		val control = new Link(parent, SWT.NONE);
 		control.text = "<a>" + w.url + "</a>"
+		control.initLayoutData(w.layoutData)
+	}
+
+	def createButton(Composite parent, int style, XButton w){
+		val control = new Button(parent, style)
+		control.selection = w.isSelected
+		control.text = w.name
 		control.initLayoutData(w.layoutData)
 	}
 

@@ -29,11 +29,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.dc.swtform.xcore.widget.impl.XTableViewerImpl#getShowHeader <em>Show Header</em>}</li>
- *   <li>{@link de.dc.swtform.xcore.widget.impl.XTableViewerImpl#getShowLines <em>Show Lines</em>}</li>
- *   <li>{@link de.dc.swtform.xcore.widget.impl.XTableViewerImpl#getShowBorder <em>Show Border</em>}</li>
- *   <li>{@link de.dc.swtform.xcore.widget.impl.XTableViewerImpl#getVerticalScroll <em>Vertical Scroll</em>}</li>
- *   <li>{@link de.dc.swtform.xcore.widget.impl.XTableViewerImpl#getHorizontalScroll <em>Horizontal Scroll</em>}</li>
+ *   <li>{@link de.dc.swtform.xcore.widget.impl.XTableViewerImpl#isShowHeader <em>Show Header</em>}</li>
+ *   <li>{@link de.dc.swtform.xcore.widget.impl.XTableViewerImpl#isShowLines <em>Show Lines</em>}</li>
+ *   <li>{@link de.dc.swtform.xcore.widget.impl.XTableViewerImpl#isShowBorder <em>Show Border</em>}</li>
+ *   <li>{@link de.dc.swtform.xcore.widget.impl.XTableViewerImpl#isVerticalScroll <em>Vertical Scroll</em>}</li>
+ *   <li>{@link de.dc.swtform.xcore.widget.impl.XTableViewerImpl#isHorizontalScroll <em>Horizontal Scroll</em>}</li>
+ *   <li>{@link de.dc.swtform.xcore.widget.impl.XTableViewerImpl#isHasSearch <em>Has Search</em>}</li>
  *   <li>{@link de.dc.swtform.xcore.widget.impl.XTableViewerImpl#getColumns <em>Columns</em>}</li>
  * </ul>
  *
@@ -41,104 +42,124 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 	/**
-	 * The default value of the '{@link #getShowHeader() <em>Show Header</em>}' attribute.
+	 * The default value of the '{@link #isShowHeader() <em>Show Header</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getShowHeader()
+	 * @see #isShowHeader()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean SHOW_HEADER_EDEFAULT = Boolean.TRUE;
+	protected static final boolean SHOW_HEADER_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #getShowHeader() <em>Show Header</em>}' attribute.
+	 * The cached value of the '{@link #isShowHeader() <em>Show Header</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getShowHeader()
+	 * @see #isShowHeader()
 	 * @generated
 	 * @ordered
 	 */
-	protected Boolean showHeader = SHOW_HEADER_EDEFAULT;
+	protected boolean showHeader = SHOW_HEADER_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getShowLines() <em>Show Lines</em>}' attribute.
+	 * The default value of the '{@link #isShowLines() <em>Show Lines</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getShowLines()
+	 * @see #isShowLines()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean SHOW_LINES_EDEFAULT = Boolean.TRUE;
+	protected static final boolean SHOW_LINES_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #getShowLines() <em>Show Lines</em>}' attribute.
+	 * The cached value of the '{@link #isShowLines() <em>Show Lines</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getShowLines()
+	 * @see #isShowLines()
 	 * @generated
 	 * @ordered
 	 */
-	protected Boolean showLines = SHOW_LINES_EDEFAULT;
+	protected boolean showLines = SHOW_LINES_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getShowBorder() <em>Show Border</em>}' attribute.
+	 * The default value of the '{@link #isShowBorder() <em>Show Border</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getShowBorder()
+	 * @see #isShowBorder()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean SHOW_BORDER_EDEFAULT = Boolean.TRUE;
+	protected static final boolean SHOW_BORDER_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #getShowBorder() <em>Show Border</em>}' attribute.
+	 * The cached value of the '{@link #isShowBorder() <em>Show Border</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getShowBorder()
+	 * @see #isShowBorder()
 	 * @generated
 	 * @ordered
 	 */
-	protected Boolean showBorder = SHOW_BORDER_EDEFAULT;
+	protected boolean showBorder = SHOW_BORDER_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getVerticalScroll() <em>Vertical Scroll</em>}' attribute.
+	 * The default value of the '{@link #isVerticalScroll() <em>Vertical Scroll</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVerticalScroll()
+	 * @see #isVerticalScroll()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean VERTICAL_SCROLL_EDEFAULT = Boolean.TRUE;
+	protected static final boolean VERTICAL_SCROLL_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #getVerticalScroll() <em>Vertical Scroll</em>}' attribute.
+	 * The cached value of the '{@link #isVerticalScroll() <em>Vertical Scroll</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVerticalScroll()
+	 * @see #isVerticalScroll()
 	 * @generated
 	 * @ordered
 	 */
-	protected Boolean verticalScroll = VERTICAL_SCROLL_EDEFAULT;
+	protected boolean verticalScroll = VERTICAL_SCROLL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getHorizontalScroll() <em>Horizontal Scroll</em>}' attribute.
+	 * The default value of the '{@link #isHorizontalScroll() <em>Horizontal Scroll</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getHorizontalScroll()
+	 * @see #isHorizontalScroll()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean HORIZONTAL_SCROLL_EDEFAULT = Boolean.TRUE;
+	protected static final boolean HORIZONTAL_SCROLL_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #getHorizontalScroll() <em>Horizontal Scroll</em>}' attribute.
+	 * The cached value of the '{@link #isHorizontalScroll() <em>Horizontal Scroll</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getHorizontalScroll()
+	 * @see #isHorizontalScroll()
 	 * @generated
 	 * @ordered
 	 */
-	protected Boolean horizontalScroll = HORIZONTAL_SCROLL_EDEFAULT;
+	protected boolean horizontalScroll = HORIZONTAL_SCROLL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isHasSearch() <em>Has Search</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHasSearch()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean HAS_SEARCH_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isHasSearch() <em>Has Search</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHasSearch()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean hasSearch = HAS_SEARCH_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' containment reference list.
@@ -174,7 +195,7 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean getShowHeader() {
+	public boolean isShowHeader() {
 		return showHeader;
 	}
 
@@ -183,8 +204,8 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setShowHeader(Boolean newShowHeader) {
-		Boolean oldShowHeader = showHeader;
+	public void setShowHeader(boolean newShowHeader) {
+		boolean oldShowHeader = showHeader;
 		showHeader = newShowHeader;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, WidgetPackage.XTABLE_VIEWER__SHOW_HEADER, oldShowHeader, showHeader));
@@ -195,7 +216,7 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean getShowLines() {
+	public boolean isShowLines() {
 		return showLines;
 	}
 
@@ -204,8 +225,8 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setShowLines(Boolean newShowLines) {
-		Boolean oldShowLines = showLines;
+	public void setShowLines(boolean newShowLines) {
+		boolean oldShowLines = showLines;
 		showLines = newShowLines;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, WidgetPackage.XTABLE_VIEWER__SHOW_LINES, oldShowLines, showLines));
@@ -216,7 +237,7 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean getShowBorder() {
+	public boolean isShowBorder() {
 		return showBorder;
 	}
 
@@ -225,8 +246,8 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setShowBorder(Boolean newShowBorder) {
-		Boolean oldShowBorder = showBorder;
+	public void setShowBorder(boolean newShowBorder) {
+		boolean oldShowBorder = showBorder;
 		showBorder = newShowBorder;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, WidgetPackage.XTABLE_VIEWER__SHOW_BORDER, oldShowBorder, showBorder));
@@ -237,7 +258,7 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean getVerticalScroll() {
+	public boolean isVerticalScroll() {
 		return verticalScroll;
 	}
 
@@ -246,8 +267,8 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVerticalScroll(Boolean newVerticalScroll) {
-		Boolean oldVerticalScroll = verticalScroll;
+	public void setVerticalScroll(boolean newVerticalScroll) {
+		boolean oldVerticalScroll = verticalScroll;
 		verticalScroll = newVerticalScroll;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, WidgetPackage.XTABLE_VIEWER__VERTICAL_SCROLL, oldVerticalScroll, verticalScroll));
@@ -258,7 +279,7 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean getHorizontalScroll() {
+	public boolean isHorizontalScroll() {
 		return horizontalScroll;
 	}
 
@@ -267,11 +288,32 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setHorizontalScroll(Boolean newHorizontalScroll) {
-		Boolean oldHorizontalScroll = horizontalScroll;
+	public void setHorizontalScroll(boolean newHorizontalScroll) {
+		boolean oldHorizontalScroll = horizontalScroll;
 		horizontalScroll = newHorizontalScroll;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, WidgetPackage.XTABLE_VIEWER__HORIZONTAL_SCROLL, oldHorizontalScroll, horizontalScroll));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isHasSearch() {
+		return hasSearch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHasSearch(boolean newHasSearch) {
+		boolean oldHasSearch = hasSearch;
+		hasSearch = newHasSearch;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WidgetPackage.XTABLE_VIEWER__HAS_SEARCH, oldHasSearch, hasSearch));
 	}
 
 	/**
@@ -309,15 +351,17 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case WidgetPackage.XTABLE_VIEWER__SHOW_HEADER:
-				return getShowHeader();
+				return isShowHeader();
 			case WidgetPackage.XTABLE_VIEWER__SHOW_LINES:
-				return getShowLines();
+				return isShowLines();
 			case WidgetPackage.XTABLE_VIEWER__SHOW_BORDER:
-				return getShowBorder();
+				return isShowBorder();
 			case WidgetPackage.XTABLE_VIEWER__VERTICAL_SCROLL:
-				return getVerticalScroll();
+				return isVerticalScroll();
 			case WidgetPackage.XTABLE_VIEWER__HORIZONTAL_SCROLL:
-				return getHorizontalScroll();
+				return isHorizontalScroll();
+			case WidgetPackage.XTABLE_VIEWER__HAS_SEARCH:
+				return isHasSearch();
 			case WidgetPackage.XTABLE_VIEWER__COLUMNS:
 				return getColumns();
 		}
@@ -347,6 +391,9 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 				return;
 			case WidgetPackage.XTABLE_VIEWER__HORIZONTAL_SCROLL:
 				setHorizontalScroll((Boolean)newValue);
+				return;
+			case WidgetPackage.XTABLE_VIEWER__HAS_SEARCH:
+				setHasSearch((Boolean)newValue);
 				return;
 			case WidgetPackage.XTABLE_VIEWER__COLUMNS:
 				getColumns().clear();
@@ -379,6 +426,9 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 			case WidgetPackage.XTABLE_VIEWER__HORIZONTAL_SCROLL:
 				setHorizontalScroll(HORIZONTAL_SCROLL_EDEFAULT);
 				return;
+			case WidgetPackage.XTABLE_VIEWER__HAS_SEARCH:
+				setHasSearch(HAS_SEARCH_EDEFAULT);
+				return;
 			case WidgetPackage.XTABLE_VIEWER__COLUMNS:
 				getColumns().clear();
 				return;
@@ -395,15 +445,17 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case WidgetPackage.XTABLE_VIEWER__SHOW_HEADER:
-				return SHOW_HEADER_EDEFAULT == null ? showHeader != null : !SHOW_HEADER_EDEFAULT.equals(showHeader);
+				return showHeader != SHOW_HEADER_EDEFAULT;
 			case WidgetPackage.XTABLE_VIEWER__SHOW_LINES:
-				return SHOW_LINES_EDEFAULT == null ? showLines != null : !SHOW_LINES_EDEFAULT.equals(showLines);
+				return showLines != SHOW_LINES_EDEFAULT;
 			case WidgetPackage.XTABLE_VIEWER__SHOW_BORDER:
-				return SHOW_BORDER_EDEFAULT == null ? showBorder != null : !SHOW_BORDER_EDEFAULT.equals(showBorder);
+				return showBorder != SHOW_BORDER_EDEFAULT;
 			case WidgetPackage.XTABLE_VIEWER__VERTICAL_SCROLL:
-				return VERTICAL_SCROLL_EDEFAULT == null ? verticalScroll != null : !VERTICAL_SCROLL_EDEFAULT.equals(verticalScroll);
+				return verticalScroll != VERTICAL_SCROLL_EDEFAULT;
 			case WidgetPackage.XTABLE_VIEWER__HORIZONTAL_SCROLL:
-				return HORIZONTAL_SCROLL_EDEFAULT == null ? horizontalScroll != null : !HORIZONTAL_SCROLL_EDEFAULT.equals(horizontalScroll);
+				return horizontalScroll != HORIZONTAL_SCROLL_EDEFAULT;
+			case WidgetPackage.XTABLE_VIEWER__HAS_SEARCH:
+				return hasSearch != HAS_SEARCH_EDEFAULT;
 			case WidgetPackage.XTABLE_VIEWER__COLUMNS:
 				return columns != null && !columns.isEmpty();
 		}
@@ -430,6 +482,8 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 		result.append(verticalScroll);
 		result.append(", horizontalScroll: ");
 		result.append(horizontalScroll);
+		result.append(", hasSearch: ");
+		result.append(hasSearch);
 		result.append(')');
 		return result.toString();
 	}

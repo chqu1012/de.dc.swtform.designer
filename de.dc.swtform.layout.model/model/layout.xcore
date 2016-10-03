@@ -19,21 +19,21 @@ abstract class XLayoutData{
 
 abstract class XLayout{
 	String name
-	Integer marginWidth
-	Integer marginHeight
+	Integer marginWidth = "0"
+	Integer marginHeight = "0"
 }
 
 class XGridData extends XLayoutData{
-	Integer verticalAlignment
-	Integer horizontalAlignment
-	Integer widthHint
-	Integer heightHint
+	Integer verticalAlignment = "4"
+	Integer horizontalAlignment = "4"
+	Integer widthHint = "-1"
+	Integer heightHint = "-1"
 	Integer horizontalIndent
 	Integer verticalIndent
-	Integer horizontalSpan
-	Integer verticalSpan
-	Boolean grabExcessHorizontalSpace
-	Boolean grabExcessVerticalSpace
+	Integer horizontalSpan = "1"
+	Integer verticalSpan = "1"
+	Boolean grabExcessHorizontalSpace = "true"
+	Boolean grabExcessVerticalSpace = "false"
 	Integer minimumWidth
 	Integer minimumHeight
 	Boolean exclude
@@ -55,12 +55,12 @@ class XRowData extends XLayoutData{
 }
 
 class XGridLayout extends XLayout{
-	Integer numColumns
-	Boolean makeColumnsEqualWidth
-	Integer marginLeft
-	Integer marginTop
-	Integer marginRight
-	Integer marginBottom
+	Integer numColumns = "1"
+	Boolean makeColumnsEqualWidth = "false"
+	Integer marginLeft = "0"
+	Integer marginTop = "0"
+	Integer marginRight = "0"
+	Integer marginBottom = "0"
 	Integer horizontalSpacing
 	Integer verticalSpacing
 }

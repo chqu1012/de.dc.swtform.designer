@@ -52,6 +52,7 @@ public class XTableViewerItemProvider extends XViewerItemProvider {
 			addShowBorderPropertyDescriptor(object);
 			addVerticalScrollPropertyDescriptor(object);
 			addHorizontalScrollPropertyDescriptor(object);
+			addHasSearchPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -73,7 +74,7 @@ public class XTableViewerItemProvider extends XViewerItemProvider {
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -95,7 +96,7 @@ public class XTableViewerItemProvider extends XViewerItemProvider {
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -117,7 +118,7 @@ public class XTableViewerItemProvider extends XViewerItemProvider {
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -139,7 +140,7 @@ public class XTableViewerItemProvider extends XViewerItemProvider {
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -161,7 +162,29 @@ public class XTableViewerItemProvider extends XViewerItemProvider {
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Has Search feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addHasSearchPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XTableViewer_hasSearch_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XTableViewer_hasSearch_feature", "_UI_XTableViewer_type"),
+				 WidgetPackage.eINSTANCE.getXTableViewer_HasSearch(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -239,6 +262,7 @@ public class XTableViewerItemProvider extends XViewerItemProvider {
 			case WidgetPackage.XTABLE_VIEWER__SHOW_BORDER:
 			case WidgetPackage.XTABLE_VIEWER__VERTICAL_SCROLL:
 			case WidgetPackage.XTABLE_VIEWER__HORIZONTAL_SCROLL:
+			case WidgetPackage.XTABLE_VIEWER__HAS_SEARCH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case WidgetPackage.XTABLE_VIEWER__COLUMNS:

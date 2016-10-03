@@ -34,6 +34,7 @@ package de.dc.swtform.layout.model;
 public interface XGridData extends XLayoutData {
 	/**
 	 * Returns the value of the '<em><b>Vertical Alignment</b></em>' attribute.
+	 * The default value is <code>"4"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Vertical Alignment</em>' attribute isn't clear,
@@ -43,7 +44,7 @@ public interface XGridData extends XLayoutData {
 	 * @return the value of the '<em>Vertical Alignment</em>' attribute.
 	 * @see #setVerticalAlignment(Integer)
 	 * @see de.dc.swtform.layout.model.ModelPackage#getXGridData_VerticalAlignment()
-	 * @model unique="false"
+	 * @model default="4" unique="false"
 	 * @generated
 	 */
 	Integer getVerticalAlignment();
@@ -60,6 +61,7 @@ public interface XGridData extends XLayoutData {
 
 	/**
 	 * Returns the value of the '<em><b>Horizontal Alignment</b></em>' attribute.
+	 * The default value is <code>"4"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Horizontal Alignment</em>' attribute isn't clear,
@@ -69,7 +71,7 @@ public interface XGridData extends XLayoutData {
 	 * @return the value of the '<em>Horizontal Alignment</em>' attribute.
 	 * @see #setHorizontalAlignment(Integer)
 	 * @see de.dc.swtform.layout.model.ModelPackage#getXGridData_HorizontalAlignment()
-	 * @model unique="false"
+	 * @model default="4" unique="false"
 	 * @generated
 	 */
 	Integer getHorizontalAlignment();
@@ -86,6 +88,7 @@ public interface XGridData extends XLayoutData {
 
 	/**
 	 * Returns the value of the '<em><b>Width Hint</b></em>' attribute.
+	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Width Hint</em>' attribute isn't clear,
@@ -95,7 +98,7 @@ public interface XGridData extends XLayoutData {
 	 * @return the value of the '<em>Width Hint</em>' attribute.
 	 * @see #setWidthHint(Integer)
 	 * @see de.dc.swtform.layout.model.ModelPackage#getXGridData_WidthHint()
-	 * @model unique="false"
+	 * @model default="-1" unique="false"
 	 * @generated
 	 */
 	Integer getWidthHint();
@@ -112,6 +115,7 @@ public interface XGridData extends XLayoutData {
 
 	/**
 	 * Returns the value of the '<em><b>Height Hint</b></em>' attribute.
+	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Height Hint</em>' attribute isn't clear,
@@ -121,7 +125,7 @@ public interface XGridData extends XLayoutData {
 	 * @return the value of the '<em>Height Hint</em>' attribute.
 	 * @see #setHeightHint(Integer)
 	 * @see de.dc.swtform.layout.model.ModelPackage#getXGridData_HeightHint()
-	 * @model unique="false"
+	 * @model default="-1" unique="false"
 	 * @generated
 	 */
 	Integer getHeightHint();
@@ -190,6 +194,7 @@ public interface XGridData extends XLayoutData {
 
 	/**
 	 * Returns the value of the '<em><b>Horizontal Span</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Horizontal Span</em>' attribute isn't clear,
@@ -199,7 +204,7 @@ public interface XGridData extends XLayoutData {
 	 * @return the value of the '<em>Horizontal Span</em>' attribute.
 	 * @see #setHorizontalSpan(Integer)
 	 * @see de.dc.swtform.layout.model.ModelPackage#getXGridData_HorizontalSpan()
-	 * @model unique="false"
+	 * @model default="1" unique="false"
 	 * @generated
 	 */
 	Integer getHorizontalSpan();
@@ -216,6 +221,7 @@ public interface XGridData extends XLayoutData {
 
 	/**
 	 * Returns the value of the '<em><b>Vertical Span</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Vertical Span</em>' attribute isn't clear,
@@ -225,7 +231,7 @@ public interface XGridData extends XLayoutData {
 	 * @return the value of the '<em>Vertical Span</em>' attribute.
 	 * @see #setVerticalSpan(Integer)
 	 * @see de.dc.swtform.layout.model.ModelPackage#getXGridData_VerticalSpan()
-	 * @model unique="false"
+	 * @model default="1" unique="false"
 	 * @generated
 	 */
 	Integer getVerticalSpan();
@@ -242,6 +248,7 @@ public interface XGridData extends XLayoutData {
 
 	/**
 	 * Returns the value of the '<em><b>Grab Excess Horizontal Space</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Grab Excess Horizontal Space</em>' attribute isn't clear,
@@ -251,7 +258,7 @@ public interface XGridData extends XLayoutData {
 	 * @return the value of the '<em>Grab Excess Horizontal Space</em>' attribute.
 	 * @see #setGrabExcessHorizontalSpace(Boolean)
 	 * @see de.dc.swtform.layout.model.ModelPackage#getXGridData_GrabExcessHorizontalSpace()
-	 * @model unique="false"
+	 * @model default="true" unique="false"
 	 * @generated
 	 */
 	Boolean getGrabExcessHorizontalSpace();
@@ -268,6 +275,7 @@ public interface XGridData extends XLayoutData {
 
 	/**
 	 * Returns the value of the '<em><b>Grab Excess Vertical Space</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Grab Excess Vertical Space</em>' attribute isn't clear,
@@ -277,7 +285,7 @@ public interface XGridData extends XLayoutData {
 	 * @return the value of the '<em>Grab Excess Vertical Space</em>' attribute.
 	 * @see #setGrabExcessVerticalSpace(Boolean)
 	 * @see de.dc.swtform.layout.model.ModelPackage#getXGridData_GrabExcessVerticalSpace()
-	 * @model unique="false"
+	 * @model default="false" unique="false"
 	 * @generated
 	 */
 	Boolean getGrabExcessVerticalSpace();

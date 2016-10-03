@@ -17,18 +17,16 @@ abstract class XWidget extends XLayoutDataElement{
 }
 
 class XButton extends XWidget{
-}
-
-class XCheckButton extends XWidget{
 	Boolean isSelected = "false"
 }
 
-class XRadioButton extends XWidget{
-	Boolean isSelected = "false"
+class XCheckButton extends XButton{
 }
 
-class XToogleButton extends XWidget{
-	Boolean isSelected = "false"
+class XRadioButton extends XButton{
+}
+
+class XToogleButton extends XButton{
 }
 
 class XSpinner extends XWidget{ 
@@ -143,11 +141,12 @@ class XContentProvider{
 }
 
 class XTableViewer extends XViewer{
-	Boolean showHeader = "true"
-	Boolean showLines= "true"
-	Boolean showBorder= "true"
-	Boolean verticalScroll= "true"
-	Boolean horizontalScroll= "true"
+	boolean showHeader = "true"
+	boolean showLines= "true"
+	boolean showBorder= "true"
+	boolean verticalScroll= "true"
+	boolean horizontalScroll= "true"
+	boolean hasSearch = "true"
 	contains XTableViewerColumn[] columns
 }
 

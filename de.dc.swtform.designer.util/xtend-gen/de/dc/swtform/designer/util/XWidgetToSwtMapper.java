@@ -119,21 +119,29 @@ public class XWidgetToSwtMapper {
   protected Object _createWidget(final Composite parent, final XTableViewer w) {
     Object _xblockexpression = null;
     {
-      final TableViewer control = new TableViewer(parent, SWT.BORDER);
+      final Composite container = SwtFactory.createGridComposite(parent, 1, 0, 0);
+      XLayoutData _layoutData = w.getLayoutData();
+      this.initLayoutData(container, _layoutData);
+      boolean _isHasSearch = w.isHasSearch();
+      if (_isHasSearch) {
+        final Text searchText = SwtFactory.creatText(container);
+        searchText.setMessage("Search");
+      }
+      final TableViewer control = new TableViewer(container, SWT.BORDER);
       Table _table = control.getTable();
-      Boolean _showHeader = w.getShowHeader();
-      _table.setHeaderVisible((_showHeader).booleanValue());
+      boolean _isShowHeader = w.isShowHeader();
+      _table.setHeaderVisible(_isShowHeader);
       Table _table_1 = control.getTable();
-      Boolean _showLines = w.getShowLines();
-      _table_1.setLinesVisible((_showLines).booleanValue());
+      boolean _isShowLines = w.isShowLines();
+      _table_1.setLinesVisible(_isShowLines);
       EList<XTableViewerColumn> _columns = w.getColumns();
       final Consumer<XTableViewerColumn> _function = (XTableViewerColumn it) -> {
         this.createTableViewerColumn(control, it);
       };
       _columns.forEach(_function);
       Control _control = control.getControl();
-      XLayoutData _layoutData = w.getLayoutData();
-      _xblockexpression = this.initLayoutData(_control, _layoutData);
+      XLayoutData _layoutData_1 = w.getLayoutData();
+      _xblockexpression = this.initLayoutData(_control, _layoutData_1);
     }
     return _xblockexpression;
   }
@@ -163,45 +171,15 @@ public class XWidgetToSwtMapper {
   }
   
   protected Object _createWidget(final Composite parent, final XCheckButton w) {
-    Object _xblockexpression = null;
-    {
-      final Button control = new Button(parent, SWT.CHECK);
-      Boolean _isSelected = w.getIsSelected();
-      control.setSelection((_isSelected).booleanValue());
-      String _name = w.getName();
-      control.setText(_name);
-      XLayoutData _layoutData = w.getLayoutData();
-      _xblockexpression = this.initLayoutData(control, _layoutData);
-    }
-    return _xblockexpression;
+    return this.createButton(parent, SWT.CHECK, w);
   }
   
   protected Object _createWidget(final Composite parent, final XRadioButton w) {
-    Object _xblockexpression = null;
-    {
-      final Button control = new Button(parent, SWT.RADIO);
-      Boolean _isSelected = w.getIsSelected();
-      control.setSelection((_isSelected).booleanValue());
-      String _name = w.getName();
-      control.setText(_name);
-      XLayoutData _layoutData = w.getLayoutData();
-      _xblockexpression = this.initLayoutData(control, _layoutData);
-    }
-    return _xblockexpression;
+    return this.createButton(parent, SWT.RADIO, w);
   }
   
   protected Object _createWidget(final Composite parent, final XToogleButton w) {
-    Object _xblockexpression = null;
-    {
-      final Button control = new Button(parent, SWT.TOGGLE);
-      Boolean _isSelected = w.getIsSelected();
-      control.setSelection((_isSelected).booleanValue());
-      String _name = w.getName();
-      control.setText(_name);
-      XLayoutData _layoutData = w.getLayoutData();
-      _xblockexpression = this.initLayoutData(control, _layoutData);
-    }
-    return _xblockexpression;
+    return this.createButton(parent, SWT.TOGGLE, w);
   }
   
   protected Object _createWidget(final Composite parent, final XDialogText w) {
@@ -289,6 +267,20 @@ public class XWidgetToSwtMapper {
     return _xblockexpression;
   }
   
+  public Object createButton(final Composite parent, final int style, final XButton w) {
+    Object _xblockexpression = null;
+    {
+      final Button control = new Button(parent, style);
+      Boolean _isSelected = w.getIsSelected();
+      control.setSelection((_isSelected).booleanValue());
+      String _name = w.getName();
+      control.setText(_name);
+      XLayoutData _layoutData = w.getLayoutData();
+      _xblockexpression = this.initLayoutData(control, _layoutData);
+    }
+    return _xblockexpression;
+  }
+  
   public void createComboItems(final Combo combo, final EList<XComboItem> items) {
     final Consumer<XComboItem> _function = (XComboItem it) -> {
       String _name = it.getName();
@@ -346,12 +338,16 @@ public class XWidgetToSwtMapper {
   }
   
   public Object createWidget(final Composite parent, final XWidget w) {
-    if (w instanceof XTableViewer) {
+    if (w instanceof XCheckButton) {
+      return _createWidget(parent, (XCheckButton)w);
+    } else if (w instanceof XRadioButton) {
+      return _createWidget(parent, (XRadioButton)w);
+    } else if (w instanceof XTableViewer) {
       return _createWidget(parent, (XTableViewer)w);
+    } else if (w instanceof XToogleButton) {
+      return _createWidget(parent, (XToogleButton)w);
     } else if (w instanceof XButton) {
       return _createWidget(parent, (XButton)w);
-    } else if (w instanceof XCheckButton) {
-      return _createWidget(parent, (XCheckButton)w);
     } else if (w instanceof XCombo) {
       return _createWidget(parent, (XCombo)w);
     } else if (w instanceof XComposite) {
@@ -364,14 +360,10 @@ public class XWidgetToSwtMapper {
       return _createWidget(parent, (XLabel)w);
     } else if (w instanceof XLink) {
       return _createWidget(parent, (XLink)w);
-    } else if (w instanceof XRadioButton) {
-      return _createWidget(parent, (XRadioButton)w);
     } else if (w instanceof XSpinner) {
       return _createWidget(parent, (XSpinner)w);
     } else if (w instanceof XText) {
       return _createWidget(parent, (XText)w);
-    } else if (w instanceof XToogleButton) {
-      return _createWidget(parent, (XToogleButton)w);
     } else if (w instanceof XUnitLabel) {
       return _createWidget(parent, (XUnitLabel)w);
     } else {

@@ -87,6 +87,7 @@ public class WidgetSwitch<T> extends Switch<T> {
 			case WidgetPackage.XCHECK_BUTTON: {
 				XCheckButton xCheckButton = (XCheckButton)theEObject;
 				T result = caseXCheckButton(xCheckButton);
+				if (result == null) result = caseXButton(xCheckButton);
 				if (result == null) result = caseXWidget(xCheckButton);
 				if (result == null) result = caseXLayoutDataElement(xCheckButton);
 				if (result == null) result = defaultCase(theEObject);
@@ -95,6 +96,7 @@ public class WidgetSwitch<T> extends Switch<T> {
 			case WidgetPackage.XRADIO_BUTTON: {
 				XRadioButton xRadioButton = (XRadioButton)theEObject;
 				T result = caseXRadioButton(xRadioButton);
+				if (result == null) result = caseXButton(xRadioButton);
 				if (result == null) result = caseXWidget(xRadioButton);
 				if (result == null) result = caseXLayoutDataElement(xRadioButton);
 				if (result == null) result = defaultCase(theEObject);
@@ -103,6 +105,7 @@ public class WidgetSwitch<T> extends Switch<T> {
 			case WidgetPackage.XTOOGLE_BUTTON: {
 				XToogleButton xToogleButton = (XToogleButton)theEObject;
 				T result = caseXToogleButton(xToogleButton);
+				if (result == null) result = caseXButton(xToogleButton);
 				if (result == null) result = caseXWidget(xToogleButton);
 				if (result == null) result = caseXLayoutDataElement(xToogleButton);
 				if (result == null) result = defaultCase(theEObject);

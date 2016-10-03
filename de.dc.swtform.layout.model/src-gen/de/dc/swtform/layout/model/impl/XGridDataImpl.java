@@ -45,7 +45,7 @@ public class XGridDataImpl extends XLayoutDataImpl implements XGridData {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer VERTICAL_ALIGNMENT_EDEFAULT = null;
+	protected static final Integer VERTICAL_ALIGNMENT_EDEFAULT = new Integer(4);
 
 	/**
 	 * The cached value of the '{@link #getVerticalAlignment() <em>Vertical Alignment</em>}' attribute.
@@ -65,7 +65,7 @@ public class XGridDataImpl extends XLayoutDataImpl implements XGridData {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer HORIZONTAL_ALIGNMENT_EDEFAULT = null;
+	protected static final Integer HORIZONTAL_ALIGNMENT_EDEFAULT = new Integer(4);
 
 	/**
 	 * The cached value of the '{@link #getHorizontalAlignment() <em>Horizontal Alignment</em>}' attribute.
@@ -85,7 +85,7 @@ public class XGridDataImpl extends XLayoutDataImpl implements XGridData {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer WIDTH_HINT_EDEFAULT = null;
+	protected static final Integer WIDTH_HINT_EDEFAULT = new Integer(-1);
 
 	/**
 	 * The cached value of the '{@link #getWidthHint() <em>Width Hint</em>}' attribute.
@@ -105,7 +105,7 @@ public class XGridDataImpl extends XLayoutDataImpl implements XGridData {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer HEIGHT_HINT_EDEFAULT = null;
+	protected static final Integer HEIGHT_HINT_EDEFAULT = new Integer(-1);
 
 	/**
 	 * The cached value of the '{@link #getHeightHint() <em>Height Hint</em>}' attribute.
@@ -165,7 +165,7 @@ public class XGridDataImpl extends XLayoutDataImpl implements XGridData {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer HORIZONTAL_SPAN_EDEFAULT = null;
+	protected static final Integer HORIZONTAL_SPAN_EDEFAULT = new Integer(1);
 
 	/**
 	 * The cached value of the '{@link #getHorizontalSpan() <em>Horizontal Span</em>}' attribute.
@@ -185,7 +185,7 @@ public class XGridDataImpl extends XLayoutDataImpl implements XGridData {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer VERTICAL_SPAN_EDEFAULT = null;
+	protected static final Integer VERTICAL_SPAN_EDEFAULT = new Integer(1);
 
 	/**
 	 * The cached value of the '{@link #getVerticalSpan() <em>Vertical Span</em>}' attribute.
@@ -205,7 +205,7 @@ public class XGridDataImpl extends XLayoutDataImpl implements XGridData {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean GRAB_EXCESS_HORIZONTAL_SPACE_EDEFAULT = null;
+	protected static final Boolean GRAB_EXCESS_HORIZONTAL_SPACE_EDEFAULT = Boolean.TRUE;
 
 	/**
 	 * The cached value of the '{@link #getGrabExcessHorizontalSpace() <em>Grab Excess Horizontal Space</em>}' attribute.
@@ -225,7 +225,7 @@ public class XGridDataImpl extends XLayoutDataImpl implements XGridData {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean GRAB_EXCESS_VERTICAL_SPACE_EDEFAULT = null;
+	protected static final Boolean GRAB_EXCESS_VERTICAL_SPACE_EDEFAULT = Boolean.FALSE;
 
 	/**
 	 * The cached value of the '{@link #getGrabExcessVerticalSpace() <em>Grab Excess Vertical Space</em>}' attribute.

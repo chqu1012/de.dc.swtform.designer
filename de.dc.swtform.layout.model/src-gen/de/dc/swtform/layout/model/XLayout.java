@@ -51,6 +51,7 @@ public interface XLayout extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Margin Width</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Margin Width</em>' attribute isn't clear,
@@ -60,7 +61,7 @@ public interface XLayout extends EObject {
 	 * @return the value of the '<em>Margin Width</em>' attribute.
 	 * @see #setMarginWidth(Integer)
 	 * @see de.dc.swtform.layout.model.ModelPackage#getXLayout_MarginWidth()
-	 * @model unique="false"
+	 * @model default="0" unique="false"
 	 * @generated
 	 */
 	Integer getMarginWidth();
@@ -77,6 +78,7 @@ public interface XLayout extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Margin Height</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Margin Height</em>' attribute isn't clear,
@@ -86,7 +88,7 @@ public interface XLayout extends EObject {
 	 * @return the value of the '<em>Margin Height</em>' attribute.
 	 * @see #setMarginHeight(Integer)
 	 * @see de.dc.swtform.layout.model.ModelPackage#getXLayout_MarginHeight()
-	 * @model unique="false"
+	 * @model default="0" unique="false"
 	 * @generated
 	 */
 	Integer getMarginHeight();

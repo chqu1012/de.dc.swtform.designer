@@ -238,6 +238,11 @@ public class XCompositeItemProvider extends XWidgetItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(WidgetPackage.eINSTANCE.getXComposite_Widgets(),
+				 WidgetFactory.eINSTANCE.createXLabelCombo()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WidgetPackage.eINSTANCE.getXComposite_Widgets(),
 				 WidgetFactory.eINSTANCE.createXCombo()));
 
 		newChildDescriptors.add

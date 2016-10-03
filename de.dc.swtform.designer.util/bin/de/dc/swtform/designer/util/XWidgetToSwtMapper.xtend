@@ -9,6 +9,7 @@ import de.dc.swtform.xcore.widget.XCombo
 import de.dc.swtform.xcore.widget.XComboItem
 import de.dc.swtform.xcore.widget.XComposite
 import de.dc.swtform.xcore.widget.XDateTime
+import de.dc.swtform.xcore.widget.XDialogText
 import de.dc.swtform.xcore.widget.XLabel
 import de.dc.swtform.xcore.widget.XLink
 import de.dc.swtform.xcore.widget.XRadioButton
@@ -17,6 +18,7 @@ import de.dc.swtform.xcore.widget.XTableViewer
 import de.dc.swtform.xcore.widget.XTableViewerColumn
 import de.dc.swtform.xcore.widget.XText
 import de.dc.swtform.xcore.widget.XToogleButton
+import de.dc.swtform.xcore.widget.XUnitLabel
 import org.eclipse.emf.common.util.EList
 import org.eclipse.jface.viewers.TableViewer
 import org.eclipse.jface.viewers.TableViewerColumn
@@ -24,21 +26,17 @@ import org.eclipse.swt.SWT
 import org.eclipse.swt.events.SelectionAdapter
 import org.eclipse.swt.events.SelectionEvent
 import org.eclipse.swt.layout.GridData
-import org.eclipse.swt.layout.GridLayout
 import org.eclipse.swt.widgets.Button
 import org.eclipse.swt.widgets.Combo
 import org.eclipse.swt.widgets.Composite
 import org.eclipse.swt.widgets.Control
 import org.eclipse.swt.widgets.DateTime
-import org.eclipse.swt.widgets.FileDialog
+import org.eclipse.swt.widgets.DirectoryDialog
 import org.eclipse.swt.widgets.Label
 import org.eclipse.swt.widgets.Link
 import org.eclipse.swt.widgets.Shell
 import org.eclipse.swt.widgets.Spinner
 import org.eclipse.swt.widgets.Text
-import de.dc.swtform.xcore.widget.XDialogText
-import org.eclipse.swt.widgets.DirectoryDialog
-import de.dc.swtform.xcore.widget.XUnitLabel
 
 class XWidgetToSwtMapper {
 
@@ -119,30 +117,15 @@ class XWidgetToSwtMapper {
 	}
 
 	dispatch def createWidget(Composite parent, XDialogText w) {
-		val container = new Composite(parent, SWT.NONE) => [
-			val layout= new GridLayout(3, false)
-			layout.marginHeight=0
-			layout.marginWidth=5
-			it.layout = layout
-		]
-		val label = new Label(container, SWT.NONE)
-		label.text = w.name
-		val labelGd = new GridData(SWT.FILL, SWT.FILL, false, false)
-		labelGd.widthHint=w.labelWidth
-		label.layoutData = labelGd
-		val text = new Text(container, SWT.BORDER)
-		text.layoutData = new GridData(SWT.FILL, SWT.FILL, true, false)
-		val button = new Button(container, SWT.PUSH)
-		button.text = '...'
+		val container = SwtFactory.createGridComposite(parent, 3, 5, 0)
+		SwtFactory.createLabel(container, w.name, w.labelWidth)
+		val text = SwtFactory.creatText(container)
+		val button = SwtFactory.createPushButton(container, '...')
 		button.addSelectionListener(new SelectionAdapter() {
 			override widgetSelected(SelectionEvent e) {
 				switch w.dialogType{
 					case OPEN_FILE:{
-						var fd = new FileDialog(new Shell, SWT.OPEN)
-						val path = fd.open
-						if (path != null) {
-							text.text = path
-						}
+						text.text = SwtFactory.openFileDialog(SWT.OPEN)
 						return
 					}
 //					case OPEN_COLOR:
@@ -156,35 +139,20 @@ class XWidgetToSwtMapper {
 					}
 //					case OPEN_FONT:
 					case SAVE_FILE:{
-						var fd = new FileDialog(new Shell, SWT.SAVE)
-						val path = fd.open
-						if (path != null) {
-							text.text = path
-						}
+						text.text = SwtFactory.openFileDialog(SWT.SAVE)
 						return
 					}
 					default: {
 					}
-				}
-				var fd = new FileDialog(new Shell, SWT.OPEN)
-				val code = fd.open
-				if (code != null) {
-					text.text = fd.text
 				}
 			}
 		})
 	}
 
 	dispatch def createWidget(Composite parent, XUnitLabel w) {
-		val container = new Composite(parent, SWT.NONE) => [
-			val layout= new GridLayout(3, false)
-			layout.marginHeight=0
-			layout.marginWidth=5
-			it.layout = layout
-		]
+		val container = SwtFactory.createGridComposite(parent, 3, 5, 0)
 		SwtFactory.createLabel(container, w.name, w.labelWidth)
-		val text = new Text(container, SWT.BORDER)
-		text.layoutData = new GridData(SWT.FILL, SWT.FILL, true, false)
+		SwtFactory.creatText(container)
 		SwtFactory.createLabel(container, w.unit, 30)
 		container.initLayoutData(w.layoutData)
 	}

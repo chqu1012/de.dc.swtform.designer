@@ -1346,6 +1346,106 @@ public interface WidgetPackage extends EPackage {
 	int XLABEL_OPERATION_COUNT = XWIDGET_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.swtform.xcore.widget.impl.XLabelComboImpl <em>XLabel Combo</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.swtform.xcore.widget.impl.XLabelComboImpl
+	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXLabelCombo()
+	 * @generated
+	 */
+	int XLABEL_COMBO = 16;
+
+	/**
+	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XLABEL_COMBO__LAYOUT_DATA = XWIDGET__LAYOUT_DATA;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XLABEL_COMBO__NAME = XWIDGET__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XLABEL_COMBO__TEXT = XWIDGET__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XLABEL_COMBO__DATA = XWIDGET__DATA;
+
+	/**
+	 * The feature id for the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XLABEL_COMBO__MESSAGE = XWIDGET__MESSAGE;
+
+	/**
+	 * The feature id for the '<em><b>Combo Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XLABEL_COMBO__COMBO_WIDTH = XWIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Read Only</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XLABEL_COMBO__READ_ONLY = XWIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XLABEL_COMBO__ITEMS = XWIDGET_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>XLabel Combo</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XLABEL_COMBO_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>XLabel Combo</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XLABEL_COMBO_OPERATION_COUNT = XWIDGET_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.swtform.xcore.widget.impl.XComboImpl <em>XCombo</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1353,7 +1453,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXCombo()
 	 * @generated
 	 */
-	int XCOMBO = 16;
+	int XCOMBO = 17;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -1435,7 +1535,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXComboItem()
 	 * @generated
 	 */
-	int XCOMBO_ITEM = 17;
+	int XCOMBO_ITEM = 18;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -1508,7 +1608,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXText()
 	 * @generated
 	 */
-	int XTEXT = 18;
+	int XTEXT = 19;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -1581,7 +1681,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXComposite()
 	 * @generated
 	 */
-	int XCOMPOSITE = 19;
+	int XCOMPOSITE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -1690,7 +1790,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXGroup()
 	 * @generated
 	 */
-	int XGROUP = 20;
+	int XGROUP = 21;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -1799,7 +1899,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXScrolledComposite()
 	 * @generated
 	 */
-	int XSCROLLED_COMPOSITE = 21;
+	int XSCROLLED_COMPOSITE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -1908,7 +2008,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXTabFolder()
 	 * @generated
 	 */
-	int XTAB_FOLDER = 22;
+	int XTAB_FOLDER = 23;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -1999,7 +2099,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXTabItem()
 	 * @generated
 	 */
-	int XTAB_ITEM = 23;
+	int XTAB_ITEM = 24;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -2108,7 +2208,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXCTabFolder()
 	 * @generated
 	 */
-	int XC_TAB_FOLDER = 24;
+	int XC_TAB_FOLDER = 25;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -2199,7 +2299,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXCTabItem()
 	 * @generated
 	 */
-	int XC_TAB_ITEM = 25;
+	int XC_TAB_ITEM = 26;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -2308,7 +2408,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXViewer()
 	 * @generated
 	 */
-	int XVIEWER = 26;
+	int XVIEWER = 27;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -2399,7 +2499,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXLabelProvider()
 	 * @generated
 	 */
-	int XLABEL_PROVIDER = 27;
+	int XLABEL_PROVIDER = 28;
 
 	/**
 	 * The number of structural features of the '<em>XLabel Provider</em>' class.
@@ -2427,7 +2527,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXContentProvider()
 	 * @generated
 	 */
-	int XCONTENT_PROVIDER = 28;
+	int XCONTENT_PROVIDER = 29;
 
 	/**
 	 * The number of structural features of the '<em>XContent Provider</em>' class.
@@ -2455,7 +2555,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXTableViewer()
 	 * @generated
 	 */
-	int XTABLE_VIEWER = 29;
+	int XTABLE_VIEWER = 30;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -2600,7 +2700,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXTableViewerColumn()
 	 * @generated
 	 */
-	int XTABLE_VIEWER_COLUMN = 30;
+	int XTABLE_VIEWER_COLUMN = 31;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -2691,7 +2791,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXTreeViewer()
 	 * @generated
 	 */
-	int XTREE_VIEWER = 31;
+	int XTREE_VIEWER = 32;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -2782,7 +2882,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXListViewer()
 	 * @generated
 	 */
-	int XLIST_VIEWER = 32;
+	int XLIST_VIEWER = 33;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -2873,7 +2973,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXComboViewer()
 	 * @generated
 	 */
-	int XCOMBO_VIEWER = 33;
+	int XCOMBO_VIEWER = 34;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -2964,7 +3064,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXDateTimeType()
 	 * @generated
 	 */
-	int XDATE_TIME_TYPE = 34;
+	int XDATE_TIME_TYPE = 35;
 
 	/**
 	 * The meta object id for the '{@link de.dc.swtform.xcore.widget.XDialogType <em>XDialog Type</em>}' enum.
@@ -2974,7 +3074,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXDialogType()
 	 * @generated
 	 */
-	int XDIALOG_TYPE = 35;
+	int XDIALOG_TYPE = 36;
 
 	/**
 	 * The meta object id for the '{@link de.dc.swtform.xcore.widget.Style <em>Style</em>}' enum.
@@ -2984,7 +3084,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getStyle()
 	 * @generated
 	 */
-	int STYLE = 36;
+	int STYLE = 37;
 
 
 	/**
@@ -3333,6 +3433,49 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getXLabel();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.swtform.xcore.widget.XLabelCombo <em>XLabel Combo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>XLabel Combo</em>'.
+	 * @see de.dc.swtform.xcore.widget.XLabelCombo
+	 * @generated
+	 */
+	EClass getXLabelCombo();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XLabelCombo#getComboWidth <em>Combo Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Combo Width</em>'.
+	 * @see de.dc.swtform.xcore.widget.XLabelCombo#getComboWidth()
+	 * @see #getXLabelCombo()
+	 * @generated
+	 */
+	EAttribute getXLabelCombo_ComboWidth();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XLabelCombo#isReadOnly <em>Read Only</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Read Only</em>'.
+	 * @see de.dc.swtform.xcore.widget.XLabelCombo#isReadOnly()
+	 * @see #getXLabelCombo()
+	 * @generated
+	 */
+	EAttribute getXLabelCombo_ReadOnly();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.swtform.xcore.widget.XLabelCombo#getItems <em>Items</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Items</em>'.
+	 * @see de.dc.swtform.xcore.widget.XLabelCombo#getItems()
+	 * @see #getXLabelCombo()
+	 * @generated
+	 */
+	EReference getXLabelCombo_Items();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.swtform.xcore.widget.XCombo <em>XCombo</em>}'.

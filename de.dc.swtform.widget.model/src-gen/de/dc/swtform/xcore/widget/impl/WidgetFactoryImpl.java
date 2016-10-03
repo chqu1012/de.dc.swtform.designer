@@ -72,6 +72,7 @@ public class WidgetFactoryImpl extends EFactoryImpl implements WidgetFactory {
 			case WidgetPackage.XBROWSER: return createXBrowser();
 			case WidgetPackage.XLINK: return createXLink();
 			case WidgetPackage.XLABEL: return createXLabel();
+			case WidgetPackage.XLABEL_COMBO: return createXLabelCombo();
 			case WidgetPackage.XCOMBO: return createXCombo();
 			case WidgetPackage.XCOMBO_ITEM: return createXComboItem();
 			case WidgetPackage.XTEXT: return createXText();
@@ -280,6 +281,16 @@ public class WidgetFactoryImpl extends EFactoryImpl implements WidgetFactory {
 	public XLabel createXLabel() {
 		XLabelImpl xLabel = new XLabelImpl();
 		return xLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public XLabelCombo createXLabelCombo() {
+		XLabelComboImpl xLabelCombo = new XLabelComboImpl();
+		return xLabelCombo;
 	}
 
 	/**

@@ -196,6 +196,14 @@ public class WidgetSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case WidgetPackage.XLABEL_COMBO: {
+				XLabelCombo xLabelCombo = (XLabelCombo)theEObject;
+				T result = caseXLabelCombo(xLabelCombo);
+				if (result == null) result = caseXWidget(xLabelCombo);
+				if (result == null) result = caseXLayoutDataElement(xLabelCombo);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case WidgetPackage.XCOMBO: {
 				XCombo xCombo = (XCombo)theEObject;
 				T result = caseXCombo(xCombo);
@@ -592,6 +600,21 @@ public class WidgetSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseXLabel(XLabel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>XLabel Combo</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>XLabel Combo</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseXLabelCombo(XLabelCombo object) {
 		return null;
 	}
 

@@ -34,14 +34,12 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.DateTime;
 import org.eclipse.swt.widgets.DirectoryDialog;
-import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Link;
 import org.eclipse.swt.widgets.Shell;
@@ -207,26 +205,12 @@ public class XWidgetToSwtMapper {
   }
   
   protected Object _createWidget(final Composite parent, final XDialogText w) {
-    Composite _composite = new Composite(parent, SWT.NONE);
-    final Procedure1<Composite> _function = (Composite it) -> {
-      final GridLayout layout = new GridLayout(3, false);
-      layout.marginHeight = 0;
-      layout.marginWidth = 5;
-      it.setLayout(layout);
-    };
-    final Composite container = ObjectExtensions.<Composite>operator_doubleArrow(_composite, _function);
-    final Label label = new Label(container, SWT.NONE);
+    final Composite container = SwtFactory.createGridComposite(parent, 3, 5, 0);
     String _name = w.getName();
-    label.setText(_name);
-    final GridData labelGd = new GridData(SWT.FILL, SWT.FILL, false, false);
     int _labelWidth = w.getLabelWidth();
-    labelGd.widthHint = _labelWidth;
-    label.setLayoutData(labelGd);
-    final Text text = new Text(container, SWT.BORDER);
-    GridData _gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
-    text.setLayoutData(_gridData);
-    final Button button = new Button(container, SWT.PUSH);
-    button.setText("...");
+    SwtFactory.createLabel(container, _name, _labelWidth);
+    final Text text = SwtFactory.creatText(container);
+    final Button button = SwtFactory.createPushButton(container, "...");
     button.addSelectionListener(new SelectionAdapter() {
       @Override
       public void widgetSelected(final SelectionEvent e) {
@@ -234,44 +218,26 @@ public class XWidgetToSwtMapper {
         if (_dialogType != null) {
           switch (_dialogType) {
             case OPEN_FILE:
+              String _openFileDialog = SwtFactory.openFileDialog(SWT.OPEN);
+              text.setText(_openFileDialog);
+              return;
+            case OPEN_DIRECTORY:
               Shell _shell = new Shell();
-              FileDialog fd = new FileDialog(_shell, SWT.OPEN);
+              DirectoryDialog fd = new DirectoryDialog(_shell, SWT.OPEN);
               final String path = fd.open();
               boolean _notEquals = (!Objects.equal(path, null));
               if (_notEquals) {
                 text.setText(path);
               }
               return;
-            case OPEN_DIRECTORY:
-              Shell _shell_1 = new Shell();
-              DirectoryDialog fd_1 = new DirectoryDialog(_shell_1, SWT.OPEN);
-              final String path_1 = fd_1.open();
-              boolean _notEquals_1 = (!Objects.equal(path_1, null));
-              if (_notEquals_1) {
-                text.setText(path_1);
-              }
-              return;
             case SAVE_FILE:
-              Shell _shell_2 = new Shell();
-              FileDialog fd_2 = new FileDialog(_shell_2, SWT.SAVE);
-              final String path_2 = fd_2.open();
-              boolean _notEquals_2 = (!Objects.equal(path_2, null));
-              if (_notEquals_2) {
-                text.setText(path_2);
-              }
+              String _openFileDialog_1 = SwtFactory.openFileDialog(SWT.SAVE);
+              text.setText(_openFileDialog_1);
               return;
             default:
               break;
           }
         } else {
-        }
-        Shell _shell_3 = new Shell();
-        FileDialog fd_3 = new FileDialog(_shell_3, SWT.OPEN);
-        final String code = fd_3.open();
-        boolean _notEquals_3 = (!Objects.equal(code, null));
-        if (_notEquals_3) {
-          String _text = fd_3.getText();
-          text.setText(_text);
         }
       }
     });
@@ -281,20 +247,11 @@ public class XWidgetToSwtMapper {
   protected Object _createWidget(final Composite parent, final XUnitLabel w) {
     Object _xblockexpression = null;
     {
-      Composite _composite = new Composite(parent, SWT.NONE);
-      final Procedure1<Composite> _function = (Composite it) -> {
-        final GridLayout layout = new GridLayout(3, false);
-        layout.marginHeight = 0;
-        layout.marginWidth = 5;
-        it.setLayout(layout);
-      };
-      final Composite container = ObjectExtensions.<Composite>operator_doubleArrow(_composite, _function);
+      final Composite container = SwtFactory.createGridComposite(parent, 3, 5, 0);
       String _name = w.getName();
       int _labelWidth = w.getLabelWidth();
       SwtFactory.createLabel(container, _name, _labelWidth);
-      final Text text = new Text(container, SWT.BORDER);
-      GridData _gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
-      text.setLayoutData(_gridData);
+      SwtFactory.creatText(container);
       String _unit = w.getUnit();
       SwtFactory.createLabel(container, _unit, 30);
       XLayoutData _layoutData = w.getLayoutData();

@@ -89,6 +89,12 @@ class XLink extends XWidget{
 class XLabel extends XWidget{
 }
 
+class XLabelCombo extends XWidget{
+	int comboWidth = "100"
+	boolean readOnly = "true"
+	contains XComboItem[] items
+}
+
 class XCombo extends XWidget{
 	contains XComboItem[] items
 }

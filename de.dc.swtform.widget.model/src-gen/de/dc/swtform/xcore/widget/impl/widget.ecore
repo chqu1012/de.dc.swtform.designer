@@ -72,6 +72,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XLabel" eSuperTypes="#//XWidget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XLabelCombo" eSuperTypes="#//XWidget">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comboWidth" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="100"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readOnly" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//XComboItem" containment="true" resolveProxies="false"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XCombo" eSuperTypes="#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
         eType="#//XComboItem" containment="true" resolveProxies="false"/>

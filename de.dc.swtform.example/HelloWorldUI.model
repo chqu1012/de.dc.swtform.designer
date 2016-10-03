@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<model:SwtForm xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:layout="de.dc.swtform.xcore.layout" xmlns:model="de.dc.swtform.xcore.model" xmlns:widget="de.dc.swtform.xcore.widget">
-  <Layout xsi:type="layout:XGridLayout" numColumns="3" makeColumnsEqualWidth="false"/>
-  <widgets xsi:type="widget:XButton" name="Hallo"/>
-  <widgets xsi:type="widget:XButton" name="Hallo"/>
-  <widgets xsi:type="widget:XLabel" name="Hallo Label"/>
-  <widgets xsi:type="widget:XLabel" name="Hallo Label"/>
-</model:SwtForm>

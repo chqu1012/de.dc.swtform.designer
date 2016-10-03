@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<model:SwtForm xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:layout="de.dc.swtform.xcore.layout" xmlns:model="de.dc.swtform.xcore.model" xmlns:widget="de.dc.swtform.xcore.widget">
-  <Layout xsi:type="layout:XFillLayout"/>
-  <widgets xsi:type="widget:XButton" name="Push me" message=""/>
-  <widgets xsi:type="widget:XButton" name="Push not me" message=""/>
-</model:SwtForm>

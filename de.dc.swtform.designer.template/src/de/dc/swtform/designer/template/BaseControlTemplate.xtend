@@ -1,34 +1,33 @@
 package de.dc.swtform.designer.template
 
+import de.dc.swtform.designer.util.XWidgetToStringMapper
 import de.dc.swtform.xcore.model.SwtForm
 import de.dc.swtform.xcore.widget.XButton
 
 class BaseControlTemplate implements IGenerator<SwtForm>{
 	
+	extension static XWidgetToStringMapper mapper = new XWidgetToStringMapper()
+	
 	override gen(SwtForm in)'''
 	package «in.packagePath»;
+
+	import de.dc.swtform.designer.util.SwtFactory;	
 	
-	import static de.dc.swtform.designer.util.SwtFactory.createPushButton;
-	
-	import org.eclipse.swt.events.SelectionEvent;
-	import org.eclipse.swt.events.SelectionListener;
-	import org.eclipse.swt.layout.FillLayout;
-	import org.eclipse.swt.widgets.Button;
-	import org.eclipse.swt.widgets.Composite;
+	import org.eclipse.swt.layout.*;
+	import org.eclipse.swt.events.*;
+	import org.eclipse.swt.widgets.*;
 	
 	public abstract class Base«in.name» extends Composite implements SelectionListener{
 		
-		«FOR w: in.widgets.filter[it instanceof XButton]»
-		protected Button «w.name»Button;
-		«ENDFOR»
+		«FOR w: in.widgets SEPARATOR '\n'»«w.field»«ENDFOR»
 		
 		public Base«in.name»(Composite parent){
-			super(parent, 0);
-			setLayout(new FillLayout());
+			super(parent, 0); 
+			setLayout(new GridLayout(1, false));
 			
-			«FOR w: in.widgets.filter[it instanceof XButton]»
-			«w.name»Button=createPushButton(this, "«w.name»");
-			«w.name»Button.addSelectionListener(this);
+			«FOR w: in.widgets»
+			«w.createWidget»
+«««			«w.controlName».addSelectionListener(this);
 			«ENDFOR»
 		}
 		
@@ -38,14 +37,14 @@ class BaseControlTemplate implements IGenerator<SwtForm>{
 	
 		@Override
 		public void widgetSelected(SelectionEvent e) {
-			«FOR w: in.widgets.filter[it instanceof XButton]»
-			if(«w.name»Button==e.getSource()){
-				on«w.name»Selection(e);
-			}
+			«FOR w: in.widgets»
+			if(«w.controlName»==e.getSource()){
+				on«w.name.toFirstUpper»Selection(e);
+			} 
 			«ENDFOR»
 		}
-		«FOR w: in.widgets.filter[it instanceof XButton]»
-		protected abstract void on«w.name»Selection(SelectionEvent e);
+		«FOR w: in.widgets»
+		protected abstract void on«w.name.toFirstUpper»Selection(SelectionEvent e);
 		«ENDFOR»
 	}
 	

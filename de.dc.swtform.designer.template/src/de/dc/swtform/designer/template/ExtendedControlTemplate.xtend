@@ -1,7 +1,6 @@
 package de.dc.swtform.designer.template
 
 import de.dc.swtform.xcore.model.SwtForm
-import de.dc.swtform.xcore.widget.XButton
 
 class ExtendedControlTemplate implements IGenerator<SwtForm>{
 	
@@ -16,10 +15,11 @@ class ExtendedControlTemplate implements IGenerator<SwtForm>{
 		public «in.name»(Composite parent) {
 			super(parent);
 		}
-		«FOR w: in.widgets.filter[it instanceof XButton]»
+		«FOR w: in.widgets»
 		@Override
-		protected void on«w.name»Selection(SelectionEvent e) {
+		protected void on«w.name.toFirstUpper»Selection(SelectionEvent e) {
 			// TODO: «w.name» button implementation
+			System.out.println("«w.name» button implementation");
 		}
 		«ENDFOR»
 	}

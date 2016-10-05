@@ -44,10 +44,11 @@ class TestControlTemplate implements IGenerator<SwtForm> {
 			display.dispose();
 		}
 	
-		«FOR w : in.widgets.filter[it instanceof XButton]»
+		«FOR w: in.widgets»
 		@Override
-		protected void on«w.name»Selection(SelectionEvent e) {
-			System.out.println("TODO: «w.name» BUTTON");
+		protected void on«w.name.toFirstUpper»Selection(SelectionEvent e) {
+			// TODO: «w.name» button implementation
+			System.out.println("«w.name» button implementation");
 		}
 		«ENDFOR»
 	}

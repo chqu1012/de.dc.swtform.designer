@@ -72,22 +72,22 @@ public class GenerateUiaction extends ActionDelegate {
 
 	private void createTestUIClass(IJavaProject javaProject, IFolder folder, String content) throws JavaModelException, CoreException {
 		String fileName = form.getName()+"Main.java";
-		createJavaClass(javaProject, folder, content, fileName);
+		createJavaClass(javaProject, folder, content, fileName, "test");
 	}
 	
 	private void createBaseUIClass(IJavaProject javaProject, IFolder folder, String content) throws JavaModelException, CoreException {
 		String fileName = "Base"+form.getName()+".java";
-		createJavaClass(javaProject, folder, content, fileName);
+		createJavaClass(javaProject, folder, content, fileName, "src-gen");
 	}
 
 	private void createExtendedUIClass(IJavaProject javaProject, IFolder folder, String content) throws JavaModelException, CoreException {
 		String fileName = form.getName()+".java";
-		createJavaClass(javaProject, folder, content, fileName);
+		createJavaClass(javaProject, folder, content, fileName, "src");
 	}
 
-	private void createJavaClass(IJavaProject javaProject, IFolder folder, String content, String fileName)
+	private void createJavaClass(IJavaProject javaProject, IFolder folder, String content, String fileName, String srcPath)
 			throws CoreException, JavaModelException {
-		IPackageFragment newPackage = createPackage(javaProject, folder, form.getPackagePath());
+		IPackageFragment newPackage = createPackage(javaProject, folder, form.getPackagePath(), srcPath);
 		newPackage.getResource().refreshLocal(DEPTH_INFINITE, null);
 		if(newPackage.getCompilationUnit(fileName).exists()){
 			newPackage.getCompilationUnit(fileName).delete(true, null);
@@ -98,8 +98,8 @@ public class GenerateUiaction extends ActionDelegate {
 	}
 
 	
-	private IPackageFragment createPackage(IJavaProject javaProject, IFolder folder, String path) throws CoreException {
-		IPackageFragmentRoot f = javaProject.getPackageFragmentRoot(getSrcFolder(javaProject));
+	private IPackageFragment createPackage(IJavaProject javaProject, IFolder folder, String path, String srcPath) throws CoreException {
+		IPackageFragmentRoot f = javaProject.getPackageFragmentRoot(getFolder(javaProject, srcPath));
 		IPackageFragment packFragment = f.createPackageFragment(path, true, null);
 		return packFragment;
 	}

@@ -4,28 +4,19 @@
   <widgets xsi:type="widget:XComposite">
     <Layout xsi:type="model_1:XGridLayout" name="" numColumns="2"/>
     <widgets xsi:type="widget:XLabel" name="Name"/>
-    <widgets xsi:type="widget:XText" message="Bitte geben sie einen Namen ein..."/>
+    <widgets xsi:type="widget:XText" name="name" message="Bitte geben sie einen Namen ein..."/>
   </widgets>
   <widgets xsi:type="widget:XComposite">
     <Layout xsi:type="model_1:XGridLayout" name="" numColumns="2"/>
     <widgets xsi:type="widget:XLabel" name="Geburtstag"/>
-    <widgets xsi:type="widget:XDateTime"/>
+    <widgets xsi:type="widget:XDateTime" name="birthday"/>
   </widgets>
   <widgets xsi:type="widget:XComposite">
     <Layout xsi:type="model_1:XGridLayout" name="" numColumns="2"/>
     <widgets xsi:type="widget:XLabel" name="Geschlecht"/>
-    <widgets xsi:type="widget:XCombo">
+    <widgets xsi:type="widget:XCombo" name="gender">
       <items name="Männlich"/>
       <items name="Weiblich"/>
-    </widgets>
-  </widgets>
-  <widgets xsi:type="widget:XComposite">
-    <layoutData xsi:type="model_1:XGridData" grabExcessVerticalSpace="true"/>
-    <Layout xsi:type="model_1:XFillLayout"/>
-    <widgets xsi:type="widget:XTableViewer">
-      <columns name="Name"/>
-      <columns name="Geschlecht"/>
-      <columns name="Geburtstag"/>
     </widgets>
   </widgets>
   <widgets xsi:type="widget:XComposite">
@@ -45,7 +36,7 @@
   <widgets xsi:type="widget:XComposite">
     <Layout xsi:type="model_1:XGridLayout" name="" numColumns="5"/>
     <widgets xsi:type="widget:XLabel" name="Homepage"/>
-    <widgets xsi:type="widget:XLink" url="www.home-page.org"/>
+    <widgets xsi:type="widget:XLink" text="homepage" url="www.home-page.org"/>
   </widgets>
   <widgets xsi:type="widget:XComposite">
     <layoutData xsi:type="model_1:XGridData"/>
@@ -55,11 +46,11 @@
   <widgets xsi:type="widget:XComposite">
     <layoutData xsi:type="model_1:XGridData"/>
     <Layout xsi:type="model_1:XFillLayout" marginWidth="5" marginHeight="5"/>
-    <widgets xsi:type="widget:XUnitLabel" name="Gewicht" unit="Kg"/>
+    <widgets xsi:type="widget:XUnitLabel" name="Gewichts" unit="Kg"/>
   </widgets>
   <widgets xsi:type="widget:XUnitLabel" name="Größe" unit="m"/>
   <widgets xsi:type="widget:XUnitLabel" name="Gewicht" unit="m"/>
-  <widgets xsi:type="widget:XTableViewer">
+  <widgets xsi:type="widget:XTableViewer" name="addressbuch">
     <layoutData xsi:type="model_1:XGridData" grabExcessVerticalSpace="true"/>
     <columns name="Name" size="200"/>
   </widgets>

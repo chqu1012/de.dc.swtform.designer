@@ -42,24 +42,14 @@ public class XLabelUnitShellMain extends BaseXLabelUnitShell {
 		System.out.println("unit button implementation");
 	}
 	@Override
-	protected void onHochkantSelection(SelectionEvent e) {
-		// TODO: Hochkant button implementation
-		System.out.println("Hochkant button implementation");
+	protected void onOkSelection(SelectionEvent e) {
+		// TODO: Ok button implementation
+		System.out.println("Ok button implementation");
 	}
 	@Override
-	protected void onTiefkantSelection(SelectionEvent e) {
-		// TODO: Tiefkant button implementation
-		System.out.println("Tiefkant button implementation");
-	}
-	@Override
-	protected void onQuerSelection(SelectionEvent e) {
-		// TODO: Quer button implementation
-		System.out.println("Quer button implementation");
-	}
-	@Override
-	protected void onQuerSelection(SelectionEvent e) {
-		// TODO: Quer button implementation
-		System.out.println("Quer button implementation");
+	protected void onCancelActionSelection(SelectionEvent e) {
+		// TODO: Cancel button implementation
+		System.out.println("Cancel button implementation");
 	}
 }
 

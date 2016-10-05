@@ -189,13 +189,31 @@ public interface WidgetPackage extends EPackage {
 	int XBUTTON__MESSAGE = XWIDGET__MESSAGE;
 
 	/**
+	 * The feature id for the '<em><b>Selection Listener Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XBUTTON__SELECTION_LISTENER_NAME = XWIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Has Selection Listener</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XBUTTON__HAS_SELECTION_LISTENER = XWIDGET_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Is Selected</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XBUTTON__IS_SELECTED = XWIDGET_FEATURE_COUNT + 0;
+	int XBUTTON__IS_SELECTED = XWIDGET_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>XButton</em>' class.
@@ -204,7 +222,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XBUTTON_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 1;
+	int XBUTTON_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>XButton</em>' class.
@@ -269,6 +287,24 @@ public interface WidgetPackage extends EPackage {
 	 * @ordered
 	 */
 	int XCHECK_BUTTON__MESSAGE = XBUTTON__MESSAGE;
+
+	/**
+	 * The feature id for the '<em><b>Selection Listener Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XCHECK_BUTTON__SELECTION_LISTENER_NAME = XBUTTON__SELECTION_LISTENER_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Has Selection Listener</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XCHECK_BUTTON__HAS_SELECTION_LISTENER = XBUTTON__HAS_SELECTION_LISTENER;
 
 	/**
 	 * The feature id for the '<em><b>Is Selected</b></em>' attribute.
@@ -353,6 +389,24 @@ public interface WidgetPackage extends EPackage {
 	int XRADIO_BUTTON__MESSAGE = XBUTTON__MESSAGE;
 
 	/**
+	 * The feature id for the '<em><b>Selection Listener Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XRADIO_BUTTON__SELECTION_LISTENER_NAME = XBUTTON__SELECTION_LISTENER_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Has Selection Listener</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XRADIO_BUTTON__HAS_SELECTION_LISTENER = XBUTTON__HAS_SELECTION_LISTENER;
+
+	/**
 	 * The feature id for the '<em><b>Is Selected</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -433,6 +487,24 @@ public interface WidgetPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTOOGLE_BUTTON__MESSAGE = XBUTTON__MESSAGE;
+
+	/**
+	 * The feature id for the '<em><b>Selection Listener Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTOOGLE_BUTTON__SELECTION_LISTENER_NAME = XBUTTON__SELECTION_LISTENER_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Has Selection Listener</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTOOGLE_BUTTON__HAS_SELECTION_LISTENER = XBUTTON__HAS_SELECTION_LISTENER;
 
 	/**
 	 * The feature id for the '<em><b>Is Selected</b></em>' attribute.
@@ -608,13 +680,31 @@ public interface WidgetPackage extends EPackage {
 	int XDATE_TIME__MESSAGE = XWIDGET__MESSAGE;
 
 	/**
+	 * The feature id for the '<em><b>Selection Listener Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XDATE_TIME__SELECTION_LISTENER_NAME = XWIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Has Selection Listener</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XDATE_TIME__HAS_SELECTION_LISTENER = XWIDGET_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Date Time Type</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XDATE_TIME__DATE_TIME_TYPE = XWIDGET_FEATURE_COUNT + 0;
+	int XDATE_TIME__DATE_TIME_TYPE = XWIDGET_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>XDate Time</em>' class.
@@ -623,7 +713,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XDATE_TIME_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 1;
+	int XDATE_TIME_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>XDate Time</em>' class.
@@ -790,13 +880,31 @@ public interface WidgetPackage extends EPackage {
 	int XLABEL__MESSAGE = XWIDGET__MESSAGE;
 
 	/**
+	 * The feature id for the '<em><b>Selection Listener Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XLABEL__SELECTION_LISTENER_NAME = XWIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Has Selection Listener</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XLABEL__HAS_SELECTION_LISTENER = XWIDGET_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Width</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XLABEL__WIDTH = XWIDGET_FEATURE_COUNT + 0;
+	int XLABEL__WIDTH = XWIDGET_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>XLabel</em>' class.
@@ -805,7 +913,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XLABEL_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 1;
+	int XLABEL_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>XLabel</em>' class.
@@ -870,6 +978,24 @@ public interface WidgetPackage extends EPackage {
 	 * @ordered
 	 */
 	int XUNIT_LABEL__MESSAGE = XLABEL__MESSAGE;
+
+	/**
+	 * The feature id for the '<em><b>Selection Listener Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XUNIT_LABEL__SELECTION_LISTENER_NAME = XLABEL__SELECTION_LISTENER_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Has Selection Listener</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XUNIT_LABEL__HAS_SELECTION_LISTENER = XLABEL__HAS_SELECTION_LISTENER;
 
 	/**
 	 * The feature id for the '<em><b>Width</b></em>' attribute.
@@ -1045,13 +1171,31 @@ public interface WidgetPackage extends EPackage {
 	int XTOOL_BAR_ITEM__MESSAGE = XWIDGET__MESSAGE;
 
 	/**
+	 * The feature id for the '<em><b>Selection Listener Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTOOL_BAR_ITEM__SELECTION_LISTENER_NAME = XWIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Has Selection Listener</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTOOL_BAR_ITEM__HAS_SELECTION_LISTENER = XWIDGET_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>XTool Bar Item</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XTOOL_BAR_ITEM_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 0;
+	int XTOOL_BAR_ITEM_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>XTool Bar Item</em>' class.
@@ -1191,13 +1335,31 @@ public interface WidgetPackage extends EPackage {
 	int XCOOL_BAR_ITEM__MESSAGE = XWIDGET__MESSAGE;
 
 	/**
+	 * The feature id for the '<em><b>Selection Listener Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XCOOL_BAR_ITEM__SELECTION_LISTENER_NAME = XWIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Has Selection Listener</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XCOOL_BAR_ITEM__HAS_SELECTION_LISTENER = XWIDGET_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>XCool Bar Item</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XCOOL_BAR_ITEM_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 0;
+	int XCOOL_BAR_ITEM_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>XCool Bar Item</em>' class.
@@ -1419,6 +1581,24 @@ public interface WidgetPackage extends EPackage {
 	int XLABEL_COMBO__MESSAGE = XLABEL__MESSAGE;
 
 	/**
+	 * The feature id for the '<em><b>Selection Listener Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XLABEL_COMBO__SELECTION_LISTENER_NAME = XLABEL__SELECTION_LISTENER_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Has Selection Listener</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XLABEL_COMBO__HAS_SELECTION_LISTENER = XLABEL__HAS_SELECTION_LISTENER;
+
+	/**
 	 * The feature id for the '<em><b>Width</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1517,6 +1697,24 @@ public interface WidgetPackage extends EPackage {
 	 * @ordered
 	 */
 	int XLABEL_TEXT__MESSAGE = XLABEL__MESSAGE;
+
+	/**
+	 * The feature id for the '<em><b>Selection Listener Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XLABEL_TEXT__SELECTION_LISTENER_NAME = XLABEL__SELECTION_LISTENER_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Has Selection Listener</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XLABEL_TEXT__HAS_SELECTION_LISTENER = XLABEL__HAS_SELECTION_LISTENER;
 
 	/**
 	 * The feature id for the '<em><b>Width</b></em>' attribute.
@@ -3166,6 +3364,52 @@ public interface WidgetPackage extends EPackage {
 	int XCOMBO_VIEWER_OPERATION_COUNT = XVIEWER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.swtform.xcore.widget.impl.ISelectableImpl <em>ISelectable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.swtform.xcore.widget.impl.ISelectableImpl
+	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getISelectable()
+	 * @generated
+	 */
+	int ISELECTABLE = 36;
+
+	/**
+	 * The feature id for the '<em><b>Selection Listener Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISELECTABLE__SELECTION_LISTENER_NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Has Selection Listener</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISELECTABLE__HAS_SELECTION_LISTENER = 1;
+
+	/**
+	 * The number of structural features of the '<em>ISelectable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISELECTABLE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>ISelectable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISELECTABLE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.swtform.xcore.widget.XDateTimeType <em>XDate Time Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3173,7 +3417,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXDateTimeType()
 	 * @generated
 	 */
-	int XDATE_TIME_TYPE = 36;
+	int XDATE_TIME_TYPE = 37;
 
 	/**
 	 * The meta object id for the '{@link de.dc.swtform.xcore.widget.XDialogType <em>XDialog Type</em>}' enum.
@@ -3183,7 +3427,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXDialogType()
 	 * @generated
 	 */
-	int XDIALOG_TYPE = 37;
+	int XDIALOG_TYPE = 38;
 
 	/**
 	 * The meta object id for the '{@link de.dc.swtform.xcore.widget.Style <em>Style</em>}' enum.
@@ -3193,7 +3437,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getStyle()
 	 * @generated
 	 */
-	int STYLE = 38;
+	int STYLE = 39;
 
 
 	/**
@@ -3929,6 +4173,38 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getXComboViewer();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.swtform.xcore.widget.ISelectable <em>ISelectable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>ISelectable</em>'.
+	 * @see de.dc.swtform.xcore.widget.ISelectable
+	 * @generated
+	 */
+	EClass getISelectable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.ISelectable#getSelectionListenerName <em>Selection Listener Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selection Listener Name</em>'.
+	 * @see de.dc.swtform.xcore.widget.ISelectable#getSelectionListenerName()
+	 * @see #getISelectable()
+	 * @generated
+	 */
+	EAttribute getISelectable_SelectionListenerName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.ISelectable#isHasSelectionListener <em>Has Selection Listener</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Has Selection Listener</em>'.
+	 * @see de.dc.swtform.xcore.widget.ISelectable#isHasSelectionListener()
+	 * @see #getISelectable()
+	 * @generated
+	 */
+	EAttribute getISelectable_HasSelectionListener();
 
 	/**
 	 * Returns the meta object for enum '{@link de.dc.swtform.xcore.widget.XDateTimeType <em>XDate Time Type</em>}'.

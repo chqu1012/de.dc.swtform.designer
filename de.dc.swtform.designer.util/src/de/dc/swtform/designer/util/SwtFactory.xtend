@@ -22,7 +22,7 @@ class SwtFactory {
 	def static createLabelUnit(Composite parent, String label, String unit, int labelWidth, int numOfCol, int marginWith, int marginHeight,
 		int hAlign, int vAlign, boolean hGrab, boolean vGrab, int hSpan, int vSpan, int widthHint, int heightHint){
 		val composite = SwtFactory.createGridComposite(parent, numOfCol, marginWith, marginHeight);
-		composite.setLayoutData(LayoutFactory.griddata(hAlign, vAlign, hGrab, vGrab, hSpan, vSpan, widthHint, heightHint));
+		composite.setLayoutData(LayoutFactory.gridData(hAlign, vAlign, hGrab, vGrab, hSpan, vSpan, widthHint, heightHint));
 		SwtFactory.createLabel(composite, label, labelWidth);
 		val text = SwtFactory.createText(composite);
 		SwtFactory.createLabel(composite, unit, 30);
@@ -43,7 +43,7 @@ class SwtFactory {
 	
 	def static createLabel(Composite parent, String text, int width){
 		val label = new Label(parent, SWT.NONE)
-		val gd = LayoutFactory::griddata(SWT.FILL, SWT.CENTER, false, false, width)
+		val gd = LayoutFactory::gridData(SWT.FILL, SWT.CENTER, false, false, width)
 		label.layoutData = gd
 		label.text = text
 		label
@@ -51,7 +51,7 @@ class SwtFactory {
 	
 	def static createText(Composite parent){
 		val text = new Text(parent, SWT.BORDER)
-		val gd = LayoutFactory::griddata(SWT.FILL, SWT.FILL, true, false)
+		val gd = LayoutFactory::gridData(SWT.FILL, SWT.FILL, true, false)
 		text.layoutData=gd
 		text
 	}

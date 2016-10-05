@@ -1,12 +1,16 @@
 package de.dc.swtform.designer.template;
 
+import com.google.common.base.Objects;
 import de.dc.swtform.designer.template.IGenerator;
 import de.dc.swtform.designer.util.XWidgetToStringMapper;
 import de.dc.swtform.xcore.model.SwtForm;
+import de.dc.swtform.xcore.widget.ISelectable;
 import de.dc.swtform.xcore.widget.XWidget;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 @SuppressWarnings("all")
@@ -23,7 +27,7 @@ public class BaseControlTemplate implements IGenerator<SwtForm> {
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("import de.dc.swtform.designer.util.SwtFactory;\t");
+    _builder.append("import de.dc.swtform.designer.util.*;\t");
     _builder.newLine();
     _builder.newLine();
     _builder.append("import org.eclipse.swt.layout.*;");
@@ -80,6 +84,28 @@ public class BaseControlTemplate implements IGenerator<SwtForm> {
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("\t\t");
+    {
+      EList<XWidget> _widgets_2 = in.getWidgets();
+      final Function1<XWidget, Boolean> _function = (XWidget it) -> {
+        return Boolean.valueOf((it instanceof ISelectable));
+      };
+      Iterable<XWidget> _filter = IterableExtensions.<XWidget>filter(_widgets_2, _function);
+      for(final XWidget w_2 : _filter) {
+        final ISelectable selection = ((ISelectable) w_2);
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        {
+          boolean _isHasSelectionListener = selection.isHasSelectionListener();
+          if (_isHasSelectionListener) {
+            String _controlName = BaseControlTemplate.mapper.controlName(w_2);
+            _builder.append(_controlName, "\t\t");
+            _builder.append(".addSelectionListener(this);");
+          }
+        }
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("\t");
     _builder.append("}");
     _builder.newLine();
@@ -102,40 +128,84 @@ public class BaseControlTemplate implements IGenerator<SwtForm> {
     _builder.append("public void widgetSelected(SelectionEvent e) {");
     _builder.newLine();
     {
-      EList<XWidget> _widgets_2 = in.getWidgets();
-      for(final XWidget w_2 : _widgets_2) {
+      EList<XWidget> _widgets_3 = in.getWidgets();
+      final Function1<XWidget, Boolean> _function_1 = (XWidget it) -> {
+        return Boolean.valueOf((it instanceof ISelectable));
+      };
+      Iterable<XWidget> _filter_1 = IterableExtensions.<XWidget>filter(_widgets_3, _function_1);
+      for(final XWidget w_3 : _filter_1) {
         _builder.append("\t\t");
-        _builder.append("if(");
-        String _controlName = BaseControlTemplate.mapper.controlName(w_2);
-        _builder.append(_controlName, "\t\t");
-        _builder.append("==e.getSource()){");
+        final ISelectable selection_1 = ((ISelectable) w_3);
         _builder.newLineIfNotEmpty();
-        _builder.append("\t\t");
-        _builder.append("\t");
-        _builder.append("on");
-        String _name_2 = w_2.getName();
-        String _firstUpper = StringExtensions.toFirstUpper(_name_2);
-        _builder.append(_firstUpper, "\t\t\t");
-        _builder.append("Selection(e);");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t\t");
-        _builder.append("} ");
-        _builder.newLine();
+        {
+          boolean _isHasSelectionListener_1 = selection_1.isHasSelectionListener();
+          if (_isHasSelectionListener_1) {
+            _builder.append("\t\t");
+            _builder.append("if(");
+            String _controlName_1 = BaseControlTemplate.mapper.controlName(w_3);
+            _builder.append(_controlName_1, "\t\t");
+            _builder.append("==e.getSource()){");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t\t");
+            _builder.append("\t");
+            _builder.append("on");
+            {
+              String _selectionListenerName = selection_1.getSelectionListenerName();
+              boolean _equals = Objects.equal(_selectionListenerName, null);
+              if (_equals) {
+                String _name_2 = w_3.getName();
+                String _firstUpper = StringExtensions.toFirstUpper(_name_2);
+                _builder.append(_firstUpper, "\t\t\t");
+              } else {
+                String _selectionListenerName_1 = selection_1.getSelectionListenerName();
+                String _firstUpper_1 = StringExtensions.toFirstUpper(_selectionListenerName_1);
+                _builder.append(_firstUpper_1, "\t\t\t");
+              }
+            }
+            _builder.append("Selection(e);");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t\t");
+            _builder.append("} ");
+            _builder.newLine();
+          }
+        }
       }
     }
     _builder.append("\t");
     _builder.append("}");
     _builder.newLine();
     {
-      EList<XWidget> _widgets_3 = in.getWidgets();
-      for(final XWidget w_3 : _widgets_3) {
+      EList<XWidget> _widgets_4 = in.getWidgets();
+      final Function1<XWidget, Boolean> _function_2 = (XWidget it) -> {
+        return Boolean.valueOf((it instanceof ISelectable));
+      };
+      Iterable<XWidget> _filter_2 = IterableExtensions.<XWidget>filter(_widgets_4, _function_2);
+      for(final XWidget w_4 : _filter_2) {
         _builder.append("\t");
-        _builder.append("protected abstract void on");
-        String _name_3 = w_3.getName();
-        String _firstUpper_1 = StringExtensions.toFirstUpper(_name_3);
-        _builder.append(_firstUpper_1, "\t");
-        _builder.append("Selection(SelectionEvent e);");
+        final ISelectable selection_2 = ((ISelectable) w_4);
         _builder.newLineIfNotEmpty();
+        {
+          boolean _isHasSelectionListener_2 = selection_2.isHasSelectionListener();
+          if (_isHasSelectionListener_2) {
+            _builder.append("\t");
+            _builder.append("protected abstract void on");
+            {
+              String _selectionListenerName_2 = selection_2.getSelectionListenerName();
+              boolean _equals_1 = Objects.equal(_selectionListenerName_2, null);
+              if (_equals_1) {
+                String _name_3 = w_4.getName();
+                String _firstUpper_2 = StringExtensions.toFirstUpper(_name_3);
+                _builder.append(_firstUpper_2, "\t");
+              } else {
+                String _selectionListenerName_3 = selection_2.getSelectionListenerName();
+                String _firstUpper_3 = StringExtensions.toFirstUpper(_selectionListenerName_3);
+                _builder.append(_firstUpper_3, "\t");
+              }
+            }
+            _builder.append("Selection(SelectionEvent e);");
+            _builder.newLineIfNotEmpty();
+          }
+        }
       }
     }
     _builder.append("}");

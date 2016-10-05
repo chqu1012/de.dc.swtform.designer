@@ -13,5 +13,5 @@ package de.dc.swtform.xcore.widget;
  * @model
  * @generated
  */
-public interface XCheckButton extends XButton {
+public interface XCheckButton extends XButton, ISelectable {
 } // XCheckButton

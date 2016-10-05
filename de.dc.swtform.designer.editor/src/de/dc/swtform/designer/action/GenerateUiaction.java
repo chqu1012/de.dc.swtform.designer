@@ -48,6 +48,7 @@ public class GenerateUiaction extends ActionDelegate {
 	@Override
 	public void run(IAction action) {
 		super.run(action);
+		lastDoubleWidget=null;
 		uiMap = new HashMap<String, XWidget>();
 		
 		ISelectionService selectionService = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getSelectionService();
@@ -63,7 +64,7 @@ public class GenerateUiaction extends ActionDelegate {
 			iterate((XWidget) o);
 		}
 		
-		if(!isValid){
+		if(!isValid && lastDoubleWidget!=null){
 			MessageDialog.openInformation(new Shell(), "Doppelte Steuerelementname!", "Die Namen müssen für jedes Element eindeutig definiert sein. \""+lastDoubleWidget.getName()+"\" kommt zweimal vor.");
 			ModelEditor activeEditor = (ModelEditor) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 			((TreeViewer)activeEditor.getViewer()).setSelection(new StructuredSelection(lastDoubleWidget), true);

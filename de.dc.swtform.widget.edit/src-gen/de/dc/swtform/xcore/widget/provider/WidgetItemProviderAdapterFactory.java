@@ -854,6 +854,29 @@ public class WidgetItemProviderAdapterFactory extends WidgetAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.swtform.xcore.widget.ISelectable} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ISelectableItemProvider iSelectableItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.swtform.xcore.widget.ISelectable}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createISelectableAdapter() {
+		if (iSelectableItemProvider == null) {
+			iSelectableItemProvider = new ISelectableItemProvider(this);
+		}
+
+		return iSelectableItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -986,6 +1009,7 @@ public class WidgetItemProviderAdapterFactory extends WidgetAdapterFactory imple
 		if (xTreeViewerItemProvider != null) xTreeViewerItemProvider.dispose();
 		if (xListViewerItemProvider != null) xListViewerItemProvider.dispose();
 		if (xComboViewerItemProvider != null) xComboViewerItemProvider.dispose();
+		if (iSelectableItemProvider != null) iSelectableItemProvider.dispose();
 	}
 
 }

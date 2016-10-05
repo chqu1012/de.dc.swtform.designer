@@ -2,7 +2,7 @@ package de.dc.swtform.designer.template
 
 import de.dc.swtform.designer.util.XWidgetToStringMapper
 import de.dc.swtform.xcore.model.SwtForm
-import de.dc.swtform.xcore.widget.XButton
+import de.dc.swtform.xcore.widget.ISelectable
 
 class BaseControlTemplate implements IGenerator<SwtForm>{
 	
@@ -11,7 +11,7 @@ class BaseControlTemplate implements IGenerator<SwtForm>{
 	override gen(SwtForm in)'''
 	package «in.packagePath»;
 
-	import de.dc.swtform.designer.util.SwtFactory;	
+	import de.dc.swtform.designer.util.*;	
 	
 	import org.eclipse.swt.layout.*;
 	import org.eclipse.swt.events.*;
@@ -27,7 +27,9 @@ class BaseControlTemplate implements IGenerator<SwtForm>{
 			
 			«FOR w: in.widgets»
 			«w.createWidget»
-«««			«w.controlName».addSelectionListener(this);
+			«ENDFOR»
+			«FOR w: in.widgets.filter[it instanceof ISelectable]»«val selection = w as ISelectable»
+			«IF selection.hasSelectionListener»«w.controlName».addSelectionListener(this);«ENDIF»
 			«ENDFOR»
 		}
 		
@@ -37,14 +39,20 @@ class BaseControlTemplate implements IGenerator<SwtForm>{
 	
 		@Override
 		public void widgetSelected(SelectionEvent e) {
-			«FOR w: in.widgets»
+			«FOR w: in.widgets.filter[it instanceof ISelectable]»
+			«val selection = w as ISelectable»
+			«IF selection.hasSelectionListener»
 			if(«w.controlName»==e.getSource()){
-				on«w.name.toFirstUpper»Selection(e);
+				on«IF selection.selectionListenerName==null»«w.name.toFirstUpper»«ELSE»«selection.selectionListenerName.toFirstUpper»«ENDIF»Selection(e);
 			} 
+			«ENDIF»
 			«ENDFOR»
 		}
-		«FOR w: in.widgets»
-		protected abstract void on«w.name.toFirstUpper»Selection(SelectionEvent e);
+		«FOR w: in.widgets.filter[it instanceof ISelectable]»
+		«val selection = w as ISelectable»
+		«IF selection.hasSelectionListener»
+		protected abstract void on«IF selection.selectionListenerName==null»«w.name.toFirstUpper»«ELSE»«selection.selectionListenerName.toFirstUpper»«ENDIF»Selection(SelectionEvent e);
+		«ENDIF»
 		«ENDFOR»
 	}
 	

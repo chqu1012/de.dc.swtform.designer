@@ -4,7 +4,7 @@ import org.eclipse.swt.layout.GridData;
 
 @SuppressWarnings("all")
 public class LayoutFactory {
-  public static GridData griddata(final int hAlign, final int vAlign, final boolean hGrab, final boolean vGrab, final int hSpan, final int vSpan, final int heightHint, final int widthHint) {
+  public static GridData gridData(final int hAlign, final int vAlign, final boolean hGrab, final boolean vGrab, final int hSpan, final int vSpan, final int heightHint, final int widthHint) {
     GridData _xblockexpression = null;
     {
       final GridData gd = new GridData(hAlign, vAlign, hGrab, vGrab, hSpan, vSpan);
@@ -15,7 +15,7 @@ public class LayoutFactory {
     return _xblockexpression;
   }
   
-  public static GridData griddata(final int hAlign, final int vAlign, final boolean hGrab, final boolean vGrab, final int widthHinh) {
+  public static GridData gridData(final int hAlign, final int vAlign, final boolean hGrab, final boolean vGrab, final int widthHinh) {
     GridData _xblockexpression = null;
     {
       final GridData gd = new GridData(hAlign, vAlign, hGrab, vGrab);
@@ -25,11 +25,11 @@ public class LayoutFactory {
     return _xblockexpression;
   }
   
-  public static GridData griddata(final int hAlign, final int vAlign, final boolean hGrab, final boolean vGrab) {
+  public static GridData gridData(final int hAlign, final int vAlign, final boolean hGrab, final boolean vGrab) {
     return new GridData(hAlign, vAlign, hGrab, vGrab);
   }
   
-  public static GridData griddata(final int hAlign, final int vAlign, final boolean hGrab, final boolean vGrab, final int hSpan, final int vSpan) {
+  public static GridData gridData(final int hAlign, final int vAlign, final boolean hGrab, final boolean vGrab, final int hSpan, final int vSpan) {
     return new GridData(hAlign, vAlign, hGrab, vGrab, hSpan, vSpan);
   }
 }

@@ -91,6 +91,7 @@ public class WidgetFactoryImpl extends EFactoryImpl implements WidgetFactory {
 			case WidgetPackage.XTREE_VIEWER: return createXTreeViewer();
 			case WidgetPackage.XLIST_VIEWER: return createXListViewer();
 			case WidgetPackage.XCOMBO_VIEWER: return createXComboViewer();
+			case WidgetPackage.ISELECTABLE: return createISelectable();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -472,6 +473,16 @@ public class WidgetFactoryImpl extends EFactoryImpl implements WidgetFactory {
 	public XComboViewer createXComboViewer() {
 		XComboViewerImpl xComboViewer = new XComboViewerImpl();
 		return xComboViewer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ISelectable createISelectable() {
+		ISelectableImpl iSelectable = new ISelectableImpl();
+		return iSelectable;
 	}
 
 	/**

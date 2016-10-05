@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface XDateTime extends XWidget {
+public interface XDateTime extends XWidget, ISelectable {
 	/**
 	 * Returns the value of the '<em><b>Date Time Type</b></em>' attribute list.
 	 * The list contents are of type {@link de.dc.swtform.xcore.widget.XDateTimeType}.

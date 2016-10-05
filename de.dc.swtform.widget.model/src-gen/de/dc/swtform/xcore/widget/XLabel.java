@@ -19,7 +19,7 @@ package de.dc.swtform.xcore.widget;
  * @model
  * @generated
  */
-public interface XLabel extends XWidget {
+public interface XLabel extends XWidget, ISelectable {
 	/**
 	 * Returns the value of the '<em><b>Width</b></em>' attribute.
 	 * The default value is <code>"100"</code>.

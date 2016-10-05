@@ -13,5 +13,5 @@ package de.dc.swtform.xcore.widget;
  * @model
  * @generated
  */
-public interface XToolBarItem extends XWidget {
+public interface XToolBarItem extends XWidget, ISelectable {
 } // XToolBarItem

@@ -16,17 +16,17 @@ abstract class XWidget extends XLayoutDataElement{
 	String message=""
 }
 
-class XButton extends XWidget{
+class XButton extends XWidget, ISelectable{
 	Boolean isSelected = "false"
 }
 
-class XCheckButton extends XButton{
+class XCheckButton extends XButton, ISelectable{
 }
 
-class XRadioButton extends XButton{
+class XRadioButton extends XButton, ISelectable{
 }
 
-class XToogleButton extends XButton{
+class XToogleButton extends XButton, ISelectable{
 }
 
 class XSpinner extends XWidget{ 
@@ -34,7 +34,7 @@ class XSpinner extends XWidget{
 	Integer digits
 } 
 
-class XDateTime extends XWidget{
+class XDateTime extends XWidget, ISelectable{
 	XDateTimeType[] dateTimeType
 }
 
@@ -67,13 +67,13 @@ enum XDialogType{
 class XToolBar extends XWidget{
 }
 
-class XToolBarItem extends XWidget{
+class XToolBarItem extends XWidget, ISelectable{
 }
 
 class XCoolBar extends XWidget{
 }
 
-class XCoolBarItem extends XWidget{
+class XCoolBarItem extends XWidget, ISelectable{
 }
 
 class XBrowser extends XWidget{
@@ -83,7 +83,7 @@ class XLink extends XWidget{
 	String url
 }
 
-class XLabel extends XWidget{
+class XLabel extends XWidget, ISelectable{
 	int width = "100"
 }
 
@@ -164,6 +164,11 @@ class XListViewer extends XViewer{
 }
 
 class XComboViewer extends XViewer{
+}
+
+class ISelectable{
+	String selectionListenerName
+	boolean hasSelectionListener
 }
 
 enum Style{

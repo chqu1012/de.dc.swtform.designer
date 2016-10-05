@@ -45,9 +45,55 @@ public class XLabelItemProvider extends XWidgetItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addSelectionListenerNamePropertyDescriptor(object);
+			addHasSelectionListenerPropertyDescriptor(object);
 			addWidthPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Selection Listener Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSelectionListenerNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ISelectable_selectionListenerName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ISelectable_selectionListenerName_feature", "_UI_ISelectable_type"),
+				 WidgetPackage.eINSTANCE.getISelectable_SelectionListenerName(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Has Selection Listener feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addHasSelectionListenerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ISelectable_hasSelectionListener_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ISelectable_hasSelectionListener_feature", "_UI_ISelectable_type"),
+				 WidgetPackage.eINSTANCE.getISelectable_HasSelectionListener(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -110,6 +156,8 @@ public class XLabelItemProvider extends XWidgetItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(XLabel.class)) {
+			case WidgetPackage.XLABEL__SELECTION_LISTENER_NAME:
+			case WidgetPackage.XLABEL__HAS_SELECTION_LISTENER:
 			case WidgetPackage.XLABEL__WIDTH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

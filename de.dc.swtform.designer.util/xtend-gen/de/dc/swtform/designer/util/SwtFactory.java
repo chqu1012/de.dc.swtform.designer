@@ -31,8 +31,8 @@ public class SwtFactory {
     Text _xblockexpression = null;
     {
       final Composite composite = SwtFactory.createGridComposite(parent, numOfCol, marginWith, marginHeight);
-      GridData _griddata = LayoutFactory.griddata(hAlign, vAlign, hGrab, vGrab, hSpan, vSpan, widthHint, heightHint);
-      composite.setLayoutData(_griddata);
+      GridData _gridData = LayoutFactory.gridData(hAlign, vAlign, hGrab, vGrab, hSpan, vSpan, widthHint, heightHint);
+      composite.setLayoutData(_gridData);
       SwtFactory.createLabel(composite, label, labelWidth);
       final Text text = SwtFactory.createText(composite);
       SwtFactory.createLabel(composite, unit, 30);
@@ -65,7 +65,7 @@ public class SwtFactory {
     Label _xblockexpression = null;
     {
       final Label label = new Label(parent, SWT.NONE);
-      final GridData gd = LayoutFactory.griddata(SWT.FILL, SWT.CENTER, false, false, width);
+      final GridData gd = LayoutFactory.gridData(SWT.FILL, SWT.CENTER, false, false, width);
       label.setLayoutData(gd);
       label.setText(text);
       _xblockexpression = label;
@@ -77,7 +77,7 @@ public class SwtFactory {
     Text _xblockexpression = null;
     {
       final Text text = new Text(parent, SWT.BORDER);
-      final GridData gd = LayoutFactory.griddata(SWT.FILL, SWT.FILL, true, false);
+      final GridData gd = LayoutFactory.gridData(SWT.FILL, SWT.FILL, true, false);
       text.setLayoutData(gd);
       _xblockexpression = text;
     }

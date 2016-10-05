@@ -215,6 +215,10 @@ public class WidgetAdapterFactory extends AdapterFactoryImpl {
 				return createXComboViewerAdapter();
 			}
 			@Override
+			public Adapter caseISelectable(ISelectable object) {
+				return createISelectableAdapter();
+			}
+			@Override
 			public Adapter caseXLayoutDataElement(XLayoutDataElement object) {
 				return createXLayoutDataElementAdapter();
 			}
@@ -743,6 +747,20 @@ public class WidgetAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createXComboViewerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.dc.swtform.xcore.widget.ISelectable <em>ISelectable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.dc.swtform.xcore.widget.ISelectable
+	 * @generated
+	 */
+	public Adapter createISelectableAdapter() {
 		return null;
 	}
 

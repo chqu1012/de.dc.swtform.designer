@@ -1,6 +1,6 @@
 package de.dc.swtform.example.control;
 
-import de.dc.swtform.designer.util.SwtFactory;	
+import de.dc.swtform.designer.util.*;	
 
 import org.eclipse.swt.layout.*;
 import org.eclipse.swt.events.*;
@@ -12,7 +12,8 @@ public abstract class BaseXLabelUnitShell extends Composite implements Selection
 	protected Text hochkantText;
 	protected Text tiefkantText;
 	protected Text querText;
-	protected Text querText;
+	protected Button okButton;
+	protected Button cancelButton;
 	
 	public BaseXLabelUnitShell(Composite parent){
 		super(parent, 0); 
@@ -22,7 +23,13 @@ public abstract class BaseXLabelUnitShell extends Composite implements Selection
 		hochkantText = SwtFactory.createLabelUnit(this, "Hochkant", "Km", 100, 3, 5, 0 );
 		tiefkantText = SwtFactory.createLabelUnit(this, "Tiefkant", "Km", 100, 3, 5, 0 );
 		querText = SwtFactory.createLabelUnit(this, "Quer", "Km", 100, 3, 5, 0 );
-		querText = SwtFactory.createLabelUnit(this, "Quer", "Km", 100, 3, 5, 0 );
+		okButton = SwtFactory.createPushButton(this, "Ok");
+		okButton.setLayoutData(LayoutFactory.gridData(4, 4, true, false, 1, 1, -1, -1));
+		cancelButton = SwtFactory.createPushButton(this, "Cancel");
+		cancelButton.setLayoutData(LayoutFactory.gridData(4, 4, true, false, 1, 1, -1, -1));
+		unitText.addSelectionListener(this);
+		okButton.addSelectionListener(this);
+		cancelButton.addSelectionListener(this);
 	}
 	
 	@Override
@@ -34,23 +41,15 @@ public abstract class BaseXLabelUnitShell extends Composite implements Selection
 		if(unitText==e.getSource()){
 			onUnitSelection(e);
 		} 
-		if(hochkantText==e.getSource()){
-			onHochkantSelection(e);
+		if(okButton==e.getSource()){
+			onOkSelection(e);
 		} 
-		if(tiefkantText==e.getSource()){
-			onTiefkantSelection(e);
-		} 
-		if(querText==e.getSource()){
-			onQuerSelection(e);
-		} 
-		if(querText==e.getSource()){
-			onQuerSelection(e);
+		if(cancelButton==e.getSource()){
+			onCancelActionSelection(e);
 		} 
 	}
 	protected abstract void onUnitSelection(SelectionEvent e);
-	protected abstract void onHochkantSelection(SelectionEvent e);
-	protected abstract void onTiefkantSelection(SelectionEvent e);
-	protected abstract void onQuerSelection(SelectionEvent e);
-	protected abstract void onQuerSelection(SelectionEvent e);
+	protected abstract void onOkSelection(SelectionEvent e);
+	protected abstract void onCancelActionSelection(SelectionEvent e);
 }
 

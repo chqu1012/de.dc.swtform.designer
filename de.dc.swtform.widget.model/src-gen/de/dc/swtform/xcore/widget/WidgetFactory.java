@@ -328,6 +328,15 @@ public interface WidgetFactory extends EFactory {
 	XComboViewer createXComboViewer();
 
 	/**
+	 * Returns a new object of class '<em>ISelectable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>ISelectable</em>'.
+	 * @generated
+	 */
+	ISelectable createISelectable();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

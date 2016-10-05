@@ -298,6 +298,13 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass iSelectableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum xDateTimeTypeEEnum = null;
 
 	/**
@@ -1119,6 +1126,36 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getISelectable() {
+		if (iSelectableEClass == null) {
+			iSelectableEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(38);
+		}
+		return iSelectableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getISelectable_SelectionListenerName() {
+        return (EAttribute)getISelectable().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getISelectable_HasSelectionListener() {
+        return (EAttribute)getISelectable().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getXDateTimeType() {
 		if (xDateTimeTypeEEnum == null) {
 			xDateTimeTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(7);
@@ -1145,7 +1182,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EEnum getStyle() {
 		if (styleEEnum == null) {
-			styleEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(38);
+			styleEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(39);
 		}
 		return styleEEnum;
 	}

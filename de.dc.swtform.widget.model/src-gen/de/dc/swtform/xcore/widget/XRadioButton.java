@@ -13,5 +13,5 @@ package de.dc.swtform.xcore.widget;
  * @model
  * @generated
  */
-public interface XRadioButton extends XButton {
+public interface XRadioButton extends XButton, ISelectable {
 } // XRadioButton

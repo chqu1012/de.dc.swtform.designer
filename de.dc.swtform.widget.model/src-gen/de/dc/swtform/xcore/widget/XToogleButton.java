@@ -13,5 +13,5 @@ package de.dc.swtform.xcore.widget;
  * @model
  * @generated
  */
-public interface XToogleButton extends XButton {
+public interface XToogleButton extends XButton, ISelectable {
 } // XToogleButton

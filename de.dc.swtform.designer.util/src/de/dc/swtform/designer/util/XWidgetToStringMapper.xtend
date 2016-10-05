@@ -1,28 +1,25 @@
 package de.dc.swtform.designer.util
 
+import de.dc.swtform.layout.model.XFillData
 import de.dc.swtform.layout.model.XGridData
 import de.dc.swtform.xcore.widget.XButton
 import de.dc.swtform.xcore.widget.XCheckButton
 import de.dc.swtform.xcore.widget.XCombo
+import de.dc.swtform.xcore.widget.XComboItem
 import de.dc.swtform.xcore.widget.XComposite
 import de.dc.swtform.xcore.widget.XDateTime
+import de.dc.swtform.xcore.widget.XDialogText
 import de.dc.swtform.xcore.widget.XLabel
 import de.dc.swtform.xcore.widget.XLabelCombo
+import de.dc.swtform.xcore.widget.XLink
 import de.dc.swtform.xcore.widget.XRadioButton
+import de.dc.swtform.xcore.widget.XSpinner
 import de.dc.swtform.xcore.widget.XTableViewer
+import de.dc.swtform.xcore.widget.XTableViewerColumn
 import de.dc.swtform.xcore.widget.XText
 import de.dc.swtform.xcore.widget.XToogleButton
-import de.dc.swtform.xcore.widget.XWidget
-import org.eclipse.swt.widgets.Composite
-import de.dc.swtform.xcore.widget.XTableViewerColumn
-import de.dc.swtform.xcore.widget.XComboItem
-import de.dc.swtform.xcore.widget.XDialogText
 import de.dc.swtform.xcore.widget.XUnitLabel
-import de.dc.swtform.xcore.widget.XSpinner
-import de.dc.swtform.xcore.widget.XLink
-import org.eclipse.swt.layout.GridData
-import de.dc.swtform.layout.model.XFillData
-import de.dc.swtform.layout.model.XLayoutData
+import de.dc.swtform.xcore.widget.XWidget
 
 class XWidgetToStringMapper {
 	extension XLayoutMapper layoutMapper = new XLayoutMapper
@@ -63,36 +60,29 @@ class XWidgetToStringMapper {
 
 
 	dispatch def createWidget(XButton w)'''
-	«w.name»Button = SwtFactory.createPushButton(parent, «w.name»);
-	«w.getGridData('Button')»
-	'''
+	«w.name.toFirstLower»Button = SwtFactory.createPushButton(this, "«w.name»");
+	«w.getGridData('Button')»'''
 
 	dispatch def createWidget(XLabel w)'''
-	«w.name»Label = SwtFactory.createLabel(parent, "«w.name»", «w.width»);
-	«w.getGridData('Label')»
-	'''
+	«w.name»Label = SwtFactory.createLabel(this, "«w.name»", «w.width»);
+	«w.getGridData('Label')»'''
 
 	dispatch def createWidget(XLabelCombo w)'''
-	Composite «w.name»Container = SwtFactory.createGridComposite(parent, 3, 5, 0);
+	Composite «w.name»Container = SwtFactory.createGridComposite(this, 3, 5, 0);
 	SwtFactory.createLabel(«w.name»Container, «w.name», «w.width»);
 	container.setLayoutDate(«w.getGridData('Label')»);
 	«w.name»Combo = new Combo(«w.name»Container, SWT.NONE);
 	«w.name»Combo.createComboItems(new String(){«w.items.map['\"'+it.name+'\"'].reduce[p1, p2|p1+','+p2]»});
-	«w.getGridData('Combo')»
-	''' 
+	«w.getGridData('Combo')»''' 
 
-	dispatch def createWidget(XText w)'''
-	«w.name»Text = SwtFactory.createText(parent, "«w.message»");
-	«w.getGridData('Text')»;
-	'''  
+	dispatch def createWidget(XText w)'''«w.name»Text = SwtFactory.createText(this, "«w.message»");
+	«w.getGridData('Text')»;'''  
 
-	dispatch def createWidget(XCombo w)'''
-	Combo  «w.name»Combo = new Combo(parent, SWT.NONE);
-	«w.getGridData('Text')»
-	'''
+	dispatch def createWidget(XCombo w)'''Combo  «w.name»Combo = new Combo(this, SWT.NONE);
+	«w.getGridData('Text')»'''
 
 	dispatch def createWidget(XTableViewer w)'''
-	Compposite «w.name»Container = SwtFactory.createGridComposite(parent, 1, 0, 0);
+	Compposite «w.name»Container = SwtFactory.createGridComposite(this, 1, 0, 0);
 	«w.getGridData('Composite')»
 	«IF w.hasSearch»
 	Text search«w.name»Text = SwtFactory.creatText(«w.name»Container);
@@ -102,34 +92,18 @@ class XWidgetToStringMapper {
 	«w.name»TableViewer.getTable().setHeaderVisible(«w.showHeader»);
 	«w.name»TableViewer.getTable().setLinesVisible(«w.showLines»);
 	'''
-	
-	dispatch def createWidget(XComposite w)'''
-	Composite «w.name»Composite = new Composite(parent, SWT.NONE);
-	'''
-	
-	dispatch def createWidget(XDateTime w)'''
-	DateTime «w.name»DateTime = new DateTime(parent, SWT.DATE | SWT.DROP_DOWN);
-	«w.getGridData('Composite')»
-	'''
+	dispatch def createWidget(XDateTime w)'''DateTime «w.name»DateTime = new DateTime(this, SWT.DATE | SWT.DROP_DOWN);
+	«w.getGridData('Composite')»'''
 
-	dispatch def createWidget(XCheckButton w)'''
-	Button «w.name»Button = new Bubtton(parent, SWT.CHECK);
-	'''
-
-	dispatch def createWidget(XRadioButton w)'''
-	Button «w.name»Button = new Bubtton(parent, SWT.READIO);
-	'''
-
-	dispatch def createWidget(XToogleButton w) '''
-	Button «w.name»Button = new Bubtton(parent, SWT.TOGGLE);
-	'''
-
+	dispatch def createWidget(XComposite w)'''Composite «w.name»Composite = new Composite(this, SWT.NONE);'''
+	dispatch def createWidget(XCheckButton w)'''Button «w.name»Button = new Bubtton(this, SWT.CHECK);'''
+	dispatch def createWidget(XRadioButton w)'''Button «w.name»Button = new Bubtton(this, SWT.READIO);'''
+	dispatch def createWidget(XToogleButton w)'''Button «w.name»Button = new Bubtton(this, SWT.TOGGLE);'''
 	dispatch def createWidget(XTableViewerColumn w)''''''
-
 	dispatch def createWidget(XComboItem w)''''''
 
 //	dispatch def createWidget(XDialogText w) {
-//		val container = SwtFactory.createGridComposite(parent, 3, 5, 0)
+//		val container = SwtFactory.createGridComposite(this, 3, 5, 0)
 //		container.initLayoutData = w.layoutData
 //		SwtFactory.createLabel(container, w.name, w.labelWidth)
 //		val text = SwtFactory.creatText(container)
@@ -173,7 +147,7 @@ class XWidgetToStringMapper {
 	
 	
 //	dispatch def createWidget(XSpinner w) {
-//		val control = new Spinner(parent, SWT.READ_ONLY)
+//		val control = new Spinner(this, SWT.READ_ONLY)
 //		control.setMinimum(0)
 //		control.setMaximum(1000)
 //		control.setSelection(500)
@@ -185,7 +159,7 @@ class XWidgetToStringMapper {
 //	}
 //
 //	dispatch def createWidget(XLink w) {
-//		val control = new Link(parent, SWT.NONE);
+//		val control = new Link(this, SWT.NONE);
 //		control.text = "<a>" + w.url + "</a>"
 //		control.data = w
 //		control.initLayoutData(w.layoutData)
@@ -193,7 +167,7 @@ class XWidgetToStringMapper {
 //	}
 //
 //	def createButton(int style, XButton w) {
-//		val control = new Button(parent, style)
+//		val control = new Button(this, style)
 //		control.selection = w.isSelected
 //		control.text = w.name
 //		control.data = w
@@ -202,7 +176,7 @@ class XWidgetToStringMapper {
 //	}
 //
 //	def createLabelContainer(XLabel w) {
-//		val container = SwtFactory.createGridComposite(parent, 3, 5, 0)
+//		val container = SwtFactory.createGridComposite(this, 3, 5, 0)
 //		SwtFactory.createLabel(container, w.name, w.width)
 //		container.initLayoutData(w.layoutData)
 //		container
@@ -226,7 +200,7 @@ class XWidgetToStringMapper {
 
 	def getGridData(XWidget w, String widgetType)'''
 	«IF w.layoutData instanceof XGridData»
-	«w.name»«widgetType».setLayoutData(LayoutFactory.gridData(«(w.layoutData as XGridData).horizontalAlignment»), «(w.layoutData as XGridData).verticalAlignment», «(w.layoutData as XGridData).grabExcessHorizontalSpace», «(w.layoutData as XGridData).grabExcessVerticalSpace», «(w.layoutData as XGridData).horizontalSpan», «(w.layoutData as XGridData).verticalSpan», «(w.layoutData as XGridData).widthHint», «(w.layoutData as XGridData).heightHint»);
+	«w.name.toFirstLower»«widgetType».setLayoutData(LayoutFactory.gridData(«(w.layoutData as XGridData).horizontalAlignment», «(w.layoutData as XGridData).verticalAlignment», «(w.layoutData as XGridData).grabExcessHorizontalSpace», «(w.layoutData as XGridData).grabExcessVerticalSpace», «(w.layoutData as XGridData).horizontalSpan», «(w.layoutData as XGridData).verticalSpan», «(w.layoutData as XGridData).widthHint», «(w.layoutData as XGridData).heightHint»));
 	«ENDIF»
 	'''
 

@@ -80,6 +80,7 @@ public class WidgetSwitch<T> extends Switch<T> {
 				XButton xButton = (XButton)theEObject;
 				T result = caseXButton(xButton);
 				if (result == null) result = caseXWidget(xButton);
+				if (result == null) result = caseISelectable(xButton);
 				if (result == null) result = caseXLayoutDataElement(xButton);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -89,6 +90,7 @@ public class WidgetSwitch<T> extends Switch<T> {
 				T result = caseXCheckButton(xCheckButton);
 				if (result == null) result = caseXButton(xCheckButton);
 				if (result == null) result = caseXWidget(xCheckButton);
+				if (result == null) result = caseISelectable(xCheckButton);
 				if (result == null) result = caseXLayoutDataElement(xCheckButton);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -98,6 +100,7 @@ public class WidgetSwitch<T> extends Switch<T> {
 				T result = caseXRadioButton(xRadioButton);
 				if (result == null) result = caseXButton(xRadioButton);
 				if (result == null) result = caseXWidget(xRadioButton);
+				if (result == null) result = caseISelectable(xRadioButton);
 				if (result == null) result = caseXLayoutDataElement(xRadioButton);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -107,6 +110,7 @@ public class WidgetSwitch<T> extends Switch<T> {
 				T result = caseXToogleButton(xToogleButton);
 				if (result == null) result = caseXButton(xToogleButton);
 				if (result == null) result = caseXWidget(xToogleButton);
+				if (result == null) result = caseISelectable(xToogleButton);
 				if (result == null) result = caseXLayoutDataElement(xToogleButton);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -123,6 +127,7 @@ public class WidgetSwitch<T> extends Switch<T> {
 				XDateTime xDateTime = (XDateTime)theEObject;
 				T result = caseXDateTime(xDateTime);
 				if (result == null) result = caseXWidget(xDateTime);
+				if (result == null) result = caseISelectable(xDateTime);
 				if (result == null) result = caseXLayoutDataElement(xDateTime);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -140,6 +145,7 @@ public class WidgetSwitch<T> extends Switch<T> {
 				T result = caseXUnitLabel(xUnitLabel);
 				if (result == null) result = caseXLabel(xUnitLabel);
 				if (result == null) result = caseXWidget(xUnitLabel);
+				if (result == null) result = caseISelectable(xUnitLabel);
 				if (result == null) result = caseXLayoutDataElement(xUnitLabel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -156,6 +162,7 @@ public class WidgetSwitch<T> extends Switch<T> {
 				XToolBarItem xToolBarItem = (XToolBarItem)theEObject;
 				T result = caseXToolBarItem(xToolBarItem);
 				if (result == null) result = caseXWidget(xToolBarItem);
+				if (result == null) result = caseISelectable(xToolBarItem);
 				if (result == null) result = caseXLayoutDataElement(xToolBarItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -172,6 +179,7 @@ public class WidgetSwitch<T> extends Switch<T> {
 				XCoolBarItem xCoolBarItem = (XCoolBarItem)theEObject;
 				T result = caseXCoolBarItem(xCoolBarItem);
 				if (result == null) result = caseXWidget(xCoolBarItem);
+				if (result == null) result = caseISelectable(xCoolBarItem);
 				if (result == null) result = caseXLayoutDataElement(xCoolBarItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -196,6 +204,7 @@ public class WidgetSwitch<T> extends Switch<T> {
 				XLabel xLabel = (XLabel)theEObject;
 				T result = caseXLabel(xLabel);
 				if (result == null) result = caseXWidget(xLabel);
+				if (result == null) result = caseISelectable(xLabel);
 				if (result == null) result = caseXLayoutDataElement(xLabel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -205,6 +214,7 @@ public class WidgetSwitch<T> extends Switch<T> {
 				T result = caseXLabelCombo(xLabelCombo);
 				if (result == null) result = caseXLabel(xLabelCombo);
 				if (result == null) result = caseXWidget(xLabelCombo);
+				if (result == null) result = caseISelectable(xLabelCombo);
 				if (result == null) result = caseXLayoutDataElement(xLabelCombo);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -214,6 +224,7 @@ public class WidgetSwitch<T> extends Switch<T> {
 				T result = caseXLabelText(xLabelText);
 				if (result == null) result = caseXLabel(xLabelText);
 				if (result == null) result = caseXWidget(xLabelText);
+				if (result == null) result = caseISelectable(xLabelText);
 				if (result == null) result = caseXLayoutDataElement(xLabelText);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -370,6 +381,12 @@ public class WidgetSwitch<T> extends Switch<T> {
 				if (result == null) result = caseXViewer(xComboViewer);
 				if (result == null) result = caseXWidget(xComboViewer);
 				if (result == null) result = caseXLayoutDataElement(xComboViewer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WidgetPackage.ISELECTABLE: {
+				ISelectable iSelectable = (ISelectable)theEObject;
+				T result = caseISelectable(iSelectable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -914,6 +931,21 @@ public class WidgetSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseXComboViewer(XComboViewer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ISelectable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ISelectable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseISelectable(ISelectable object) {
 		return null;
 	}
 

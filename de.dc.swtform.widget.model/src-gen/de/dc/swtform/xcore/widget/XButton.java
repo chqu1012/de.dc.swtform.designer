@@ -19,7 +19,7 @@ package de.dc.swtform.xcore.widget;
  * @model
  * @generated
  */
-public interface XButton extends XWidget {
+public interface XButton extends XWidget, ISelectable {
 	/**
 	 * Returns the value of the '<em><b>Is Selected</b></em>' attribute.
 	 * The default value is <code>"false"</code>.

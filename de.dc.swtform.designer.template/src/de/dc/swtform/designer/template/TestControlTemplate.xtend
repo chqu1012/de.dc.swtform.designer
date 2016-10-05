@@ -2,6 +2,7 @@ package de.dc.swtform.designer.template
 
 import de.dc.swtform.xcore.model.SwtForm
 import de.dc.swtform.xcore.widget.XButton
+import de.dc.swtform.xcore.widget.ISelectable
 
 class TestControlTemplate implements IGenerator<SwtForm> {
 	
@@ -44,12 +45,15 @@ class TestControlTemplate implements IGenerator<SwtForm> {
 			display.dispose();
 		}
 	
-		«FOR w: in.widgets»
+		«FOR w: in.widgets.filter[it instanceof ISelectable]»
+		«val selection = w as ISelectable»
+		«IF selection.hasSelectionListener»
 		@Override
-		protected void on«w.name.toFirstUpper»Selection(SelectionEvent e) {
+		protected void on«IF selection.selectionListenerName==null»«w.name.toFirstUpper»«ELSE»«selection.selectionListenerName.toFirstUpper»«ENDIF»Selection(SelectionEvent e) {
 			// TODO: «w.name» button implementation
 			System.out.println("«w.name» button implementation");
 		}
+		«ENDIF»
 		«ENDFOR»
 	}
 	

@@ -15,12 +15,48 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @SuppressWarnings("all")
 public class SwtFactory {
+  public static Text createLabelUnit(final Composite parent, final String label, final String unit, final int labelWidth, final int numOfCol, final int marginWith, final int marginHeight) {
+    Text _xblockexpression = null;
+    {
+      final Composite composite = SwtFactory.createGridComposite(parent, numOfCol, marginWith, marginHeight);
+      SwtFactory.createLabel(composite, label, labelWidth);
+      final Text text = SwtFactory.createText(composite);
+      SwtFactory.createLabel(composite, unit, 30);
+      _xblockexpression = text;
+    }
+    return _xblockexpression;
+  }
+  
+  public static Text createLabelUnit(final Composite parent, final String label, final String unit, final int labelWidth, final int numOfCol, final int marginWith, final int marginHeight, final int hAlign, final int vAlign, final boolean hGrab, final boolean vGrab, final int hSpan, final int vSpan, final int widthHint, final int heightHint) {
+    Text _xblockexpression = null;
+    {
+      final Composite composite = SwtFactory.createGridComposite(parent, numOfCol, marginWith, marginHeight);
+      GridData _griddata = LayoutFactory.griddata(hAlign, vAlign, hGrab, vGrab, hSpan, vSpan, widthHint, heightHint);
+      composite.setLayoutData(_griddata);
+      SwtFactory.createLabel(composite, label, labelWidth);
+      final Text text = SwtFactory.createText(composite);
+      SwtFactory.createLabel(composite, unit, 30);
+      _xblockexpression = text;
+    }
+    return _xblockexpression;
+  }
+  
   public static Label createLabel(final Composite parent, final String text) {
     Label _xblockexpression = null;
     {
       final Label label = new Label(parent, SWT.NONE);
       label.setText(text);
       _xblockexpression = label;
+    }
+    return _xblockexpression;
+  }
+  
+  public static Text createText(final Composite parent, final String message) {
+    Text _xblockexpression = null;
+    {
+      final Text text = SwtFactory.createText(parent);
+      text.setMessage(message);
+      _xblockexpression = text;
     }
     return _xblockexpression;
   }
@@ -37,7 +73,7 @@ public class SwtFactory {
     return _xblockexpression;
   }
   
-  public static Text creatText(final Composite parent) {
+  public static Text createText(final Composite parent) {
     Text _xblockexpression = null;
     {
       final Text text = new Text(parent, SWT.BORDER);

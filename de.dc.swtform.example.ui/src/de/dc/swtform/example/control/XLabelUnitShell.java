@@ -28,4 +28,9 @@ public class XLabelUnitShell extends BaseXLabelUnitShell {
 		// TODO: Quer button implementation
 		System.out.println("Quer button implementation");
 	}
+	@Override
+	protected void onQuerSelection(SelectionEvent e) {
+		// TODO: Quer button implementation
+		System.out.println("Quer button implementation");
+	}
 }

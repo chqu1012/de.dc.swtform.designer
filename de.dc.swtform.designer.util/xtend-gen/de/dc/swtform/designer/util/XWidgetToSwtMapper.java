@@ -60,16 +60,11 @@ public class XWidgetToSwtMapper {
   protected Control _createWidget(final Composite parent, final XButton w) {
     Button _xblockexpression = null;
     {
-      final Button control = new Button(parent, SWT.PUSH);
       String _name = w.getName();
-      boolean _notEquals = (!Objects.equal(_name, null));
-      if (_notEquals) {
-        String _name_1 = w.getName();
-        control.setText(_name_1);
-      }
-      control.setData(w);
+      final Button control = SwtFactory.createPushButton(parent, _name);
       XLayoutData _layoutData = w.getLayoutData();
       this.initLayoutData(control, _layoutData);
+      control.setData(w);
       _xblockexpression = control;
     }
     return _xblockexpression;
@@ -148,7 +143,7 @@ public class XWidgetToSwtMapper {
       this.initLayoutData(container, _layoutData);
       boolean _isHasSearch = w.isHasSearch();
       if (_isHasSearch) {
-        final Text searchText = SwtFactory.creatText(container);
+        final Text searchText = SwtFactory.createText(container);
         searchText.setMessage("Search");
       }
       final TableViewer control = new TableViewer(container, SWT.BORDER);
@@ -233,7 +228,7 @@ public class XWidgetToSwtMapper {
       String _name = w.getName();
       int _labelWidth = w.getLabelWidth();
       SwtFactory.createLabel(container, _name, _labelWidth);
-      final Text text = SwtFactory.creatText(container);
+      final Text text = SwtFactory.createText(container);
       final Button button = SwtFactory.createPushButton(container, "...");
       button.addSelectionListener(new SelectionAdapter() {
         @Override
@@ -278,7 +273,7 @@ public class XWidgetToSwtMapper {
       String _name = w.getName();
       int _width = w.getWidth();
       SwtFactory.createLabel(container, _name, _width);
-      final Text text = SwtFactory.creatText(container);
+      final Text text = SwtFactory.createText(container);
       String _unit = w.getUnit();
       SwtFactory.createLabel(container, _unit, 30);
       text.setData(w);

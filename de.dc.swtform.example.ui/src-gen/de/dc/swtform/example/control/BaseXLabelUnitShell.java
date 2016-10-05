@@ -12,6 +12,7 @@ public abstract class BaseXLabelUnitShell extends Composite implements Selection
 	protected Text hochkantText;
 	protected Text tiefkantText;
 	protected Text querText;
+	protected Text querText;
 	
 	public BaseXLabelUnitShell(Composite parent){
 		super(parent, 0); 
@@ -20,6 +21,7 @@ public abstract class BaseXLabelUnitShell extends Composite implements Selection
 		unitText = SwtFactory.createLabelUnit(this, "Unit", "Km", 100, 3, 5, 0 , 4, 4, true, false, 1, 1, -1, -1);
 		hochkantText = SwtFactory.createLabelUnit(this, "Hochkant", "Km", 100, 3, 5, 0 );
 		tiefkantText = SwtFactory.createLabelUnit(this, "Tiefkant", "Km", 100, 3, 5, 0 );
+		querText = SwtFactory.createLabelUnit(this, "Quer", "Km", 100, 3, 5, 0 );
 		querText = SwtFactory.createLabelUnit(this, "Quer", "Km", 100, 3, 5, 0 );
 	}
 	
@@ -41,10 +43,14 @@ public abstract class BaseXLabelUnitShell extends Composite implements Selection
 		if(querText==e.getSource()){
 			onQuerSelection(e);
 		} 
+		if(querText==e.getSource()){
+			onQuerSelection(e);
+		} 
 	}
 	protected abstract void onUnitSelection(SelectionEvent e);
 	protected abstract void onHochkantSelection(SelectionEvent e);
 	protected abstract void onTiefkantSelection(SelectionEvent e);
+	protected abstract void onQuerSelection(SelectionEvent e);
 	protected abstract void onQuerSelection(SelectionEvent e);
 }
 

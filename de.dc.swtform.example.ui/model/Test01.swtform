@@ -4,6 +4,7 @@
     <layoutData xsi:type="model_1:XGridData"/>
   </widgets>
   <widgets xsi:type="widget:XUnitLabel" name="Hochkant" unit="km"/>
+  <widgets xsi:type="widget:XUnitLabel" name="Hochkant" unit="km"/>
   <widgets xsi:type="widget:XUnitLabel" name="Tiefkant" unit="km"/>
   <widgets xsi:type="widget:XUnitLabel" name="Quer" unit="km"/>
 </model:SwtForm>

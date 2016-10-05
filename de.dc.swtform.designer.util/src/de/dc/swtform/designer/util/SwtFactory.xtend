@@ -11,10 +11,34 @@ import org.eclipse.swt.layout.GridLayout
 
 class SwtFactory {
 	
+	def static createLabelUnit(Composite parent, String label, String unit, int labelWidth, int numOfCol, int marginWith, int marginHeight){
+		val composite = SwtFactory.createGridComposite(parent, numOfCol, marginWith, marginHeight);
+		SwtFactory.createLabel(composite, label, labelWidth);
+		val text = SwtFactory.createText(composite);
+		SwtFactory.createLabel(composite, unit, 30);
+		text
+	}
+	
+	def static createLabelUnit(Composite parent, String label, String unit, int labelWidth, int numOfCol, int marginWith, int marginHeight,
+		int hAlign, int vAlign, boolean hGrab, boolean vGrab, int hSpan, int vSpan, int widthHint, int heightHint){
+		val composite = SwtFactory.createGridComposite(parent, numOfCol, marginWith, marginHeight);
+		composite.setLayoutData(LayoutFactory.griddata(hAlign, vAlign, hGrab, vGrab, hSpan, vSpan, widthHint, heightHint));
+		SwtFactory.createLabel(composite, label, labelWidth);
+		val text = SwtFactory.createText(composite);
+		SwtFactory.createLabel(composite, unit, 30);
+		text
+	}
+	
 	def static createLabel(Composite parent, String text){
 		val label = new Label(parent, SWT.NONE)
 		label.text = text
 		label
+	}
+	
+	def static createText(Composite parent, String message){
+		val text = createText( parent);
+		text.message = message
+		text
 	}
 	
 	def static createLabel(Composite parent, String text, int width){
@@ -25,7 +49,7 @@ class SwtFactory {
 		label
 	}
 	
-	def static creatText(Composite parent){
+	def static createText(Composite parent){
 		val text = new Text(parent, SWT.BORDER)
 		val gd = LayoutFactory::griddata(SWT.FILL, SWT.FILL, true, false)
 		text.layoutData=gd

@@ -2,10 +2,14 @@ package de.dc.swtform.designer.action;
 
 import static org.eclipse.core.resources.IResource.DEPTH_INFINITE;
 
+import java.awt.event.ActionEvent;
+import java.util.HashMap;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
@@ -13,8 +17,12 @@ import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.ISelectionService;
@@ -26,15 +34,22 @@ import de.dc.swtform.designer.template.ExtendedControlTemplate;
 import de.dc.swtform.designer.template.IGenerator;
 import de.dc.swtform.designer.template.TestControlTemplate;
 import de.dc.swtform.xcore.model.SwtForm;
+import de.dc.swtform.xcore.model.presentation.ModelEditor;
+import de.dc.swtform.xcore.widget.XWidget;
 
 public class GenerateUiaction extends ActionDelegate {
 
 	private SwtForm form;
-
+	private boolean isValid = true;
+	private HashMap<String, XWidget> uiMap;
+	
+	private XWidget lastDoubleWidget;
+	
 	@Override
 	public void run(IAction action) {
 		super.run(action);
-
+		uiMap = new HashMap<String, XWidget>();
+		
 		ISelectionService selectionService = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getSelectionService();
 		ISelection selection = selectionService.getSelection();
 		if (selection instanceof IStructuredSelection) {
@@ -44,7 +59,15 @@ public class GenerateUiaction extends ActionDelegate {
 			}
 		}
 
-		if (form != null) {
+		for (EObject o : form.eContents()) {
+			iterate((XWidget) o);
+		}
+		
+		if(!isValid){
+			MessageDialog.openInformation(new Shell(), "Doppelte Steuerelementname!", "Die Namen müssen für jedes Element eindeutig definiert sein. \""+lastDoubleWidget.getName()+"\" kommt zweimal vor.");
+			ModelEditor activeEditor = (ModelEditor) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+			((TreeViewer)activeEditor.getViewer()).setSelection(new StructuredSelection(lastDoubleWidget), true);
+		}else if (form != null) {
 			try {
 				IProject project = getCurrentProject();
 				project.open(null);
@@ -68,6 +91,16 @@ public class GenerateUiaction extends ActionDelegate {
 			}
 		}
 
+	}
+	
+	private void iterate(XWidget w){
+		boolean containsKey = uiMap.containsKey(w.getName());
+		if(containsKey){
+			lastDoubleWidget=w;
+			isValid=false;
+		}else{
+			uiMap.put(w.getName(), w);
+		}
 	}
 
 	private void createTestUIClass(IJavaProject javaProject, IFolder folder, String content) throws JavaModelException, CoreException {

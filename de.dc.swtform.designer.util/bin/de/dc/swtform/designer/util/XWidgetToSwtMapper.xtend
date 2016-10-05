@@ -44,12 +44,9 @@ class XWidgetToSwtMapper {
 	extension XLayoutMapper layoutMapper = new XLayoutMapper
 
 	dispatch def createWidget(Composite parent, XButton w) {
-		val control = new Button(parent, SWT.PUSH)
-		if (w.name != null) {
-			control.text = w.name
-		}
-		control.data = w
+		val control = SwtFactory.createPushButton(parent, w.name)
 		control.initLayoutData(w.layoutData)
+		control.data = w
 		control
 	}
 
@@ -95,7 +92,7 @@ class XWidgetToSwtMapper {
 		val container = SwtFactory.createGridComposite(parent, 1, 0, 0)
 		container.initLayoutData(w.layoutData)
 		if (w.hasSearch) {
-			val searchText = SwtFactory.creatText(container)
+			val searchText = SwtFactory.createText(container)
 			searchText.message = 'Search'
 		}
 		val control = new TableViewer(container, SWT.BORDER)
@@ -145,7 +142,7 @@ class XWidgetToSwtMapper {
 		val container = SwtFactory.createGridComposite(parent, 3, 5, 0)
 		container.initLayoutData = w.layoutData
 		SwtFactory.createLabel(container, w.name, w.labelWidth)
-		val text = SwtFactory.creatText(container)
+		val text = SwtFactory.createText(container)
 		val button = SwtFactory.createPushButton(container, '...')
 		button.addSelectionListener(new SelectionAdapter() {
 			override widgetSelected(SelectionEvent e) {
@@ -180,7 +177,7 @@ class XWidgetToSwtMapper {
 	dispatch def createWidget(Composite parent, XUnitLabel w) {
 		val container = SwtFactory.createGridComposite(parent, 3, 5, 0)
 		SwtFactory.createLabel(container, w.name, w.width)
-		val text = SwtFactory.creatText(container)
+		val text = SwtFactory.createText(container)
 		SwtFactory.createLabel(container, w.unit, 30)
 		text.data = w
 		container.initLayoutData(w.layoutData)

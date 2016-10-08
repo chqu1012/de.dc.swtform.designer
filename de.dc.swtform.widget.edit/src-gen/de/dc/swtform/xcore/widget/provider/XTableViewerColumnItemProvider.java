@@ -45,10 +45,33 @@ public class XTableViewerColumnItemProvider extends XWidgetItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addTypPropertyDescriptor(object);
 			addSizePropertyDescriptor(object);
 			addAlignmentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Typ feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XTableViewerColumn_typ_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XTableViewerColumn_typ_feature", "_UI_XTableViewerColumn_type"),
+				 WidgetPackage.eINSTANCE.getXTableViewerColumn_Typ(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -133,6 +156,7 @@ public class XTableViewerColumnItemProvider extends XWidgetItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(XTableViewerColumn.class)) {
+			case WidgetPackage.XTABLE_VIEWER_COLUMN__TYP:
 			case WidgetPackage.XTABLE_VIEWER_COLUMN__SIZE:
 			case WidgetPackage.XTABLE_VIEWER_COLUMN__ALIGNMENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

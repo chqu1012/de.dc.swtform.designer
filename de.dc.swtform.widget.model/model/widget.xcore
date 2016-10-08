@@ -153,6 +153,7 @@ class XTableViewer extends XViewer{
 }
 
 class XTableViewerColumn extends XWidget{
+	String typ = "String"
 	Integer size= "100"
 	Integer alignment
 }

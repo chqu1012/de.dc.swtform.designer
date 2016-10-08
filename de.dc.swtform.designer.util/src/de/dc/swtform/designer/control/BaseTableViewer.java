@@ -38,14 +38,18 @@ public class BaseTableViewer extends Composite implements KeyListener{
 		table.setHeaderVisible(showHeader);
 		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		
-		viewer.setContentProvider(ArrayContentProvider.getInstance());
-		viewer.setLabelProvider(labelProvider);
-		
 		for (int i = 0; i < bounds.length; i++) {
 			createColumn(titles[i], bounds[i]);
 		}
+
+		viewer.setContentProvider(ArrayContentProvider.getInstance());
+		viewer.setLabelProvider(labelProvider);
 	}
 
+	public TableViewer getViewer(){
+		return viewer;
+	}
+	
 	public void setLabelProvider(LabelProvider labelProvider){
 		viewer.setLabelProvider(labelProvider);
 	}

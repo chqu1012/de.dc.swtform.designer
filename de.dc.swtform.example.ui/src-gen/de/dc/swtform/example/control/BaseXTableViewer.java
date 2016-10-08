@@ -13,8 +13,8 @@ import de.dc.swtform.example.control.provider.*;
 
 public abstract class BaseXTableViewer extends Composite implements SelectionListener{
 	
-	protected TableViewer personsTableViewer;
-	protected Text searchPersonsText;
+	protected TableViewer contactsTableViewer;
+	protected Text searchContactsText;
 	
 	public BaseXTableViewer(Composite parent){
 		super(parent, 0); 
@@ -22,9 +22,10 @@ public abstract class BaseXTableViewer extends Composite implements SelectionLis
 		
 		String[] titles = new String[]{"Name", "Vorname", "Handy"};
 		int[] bounds = new int[]{100, 100, 100};
-		LabelProvider labelProvider = new PersonsLabelProvider();
-		BaseTableViewer personsComposite = SwtFactory.createSearchTableViewer(this, titles, bounds, true, labelProvider);
-		personsComposite.setLayoutData(LayoutFactory.gridData(4, 4, true, true, 1, 1, -1, -1));
+		LabelProvider labelProvider = new ContactsLabelProvider();
+		BaseTableViewer contactsComposite = SwtFactory.createSearchTableViewer(this, titles, bounds, true, labelProvider);
+		contactsTableViewer = contactsComposite.getViewer();
+		contactsComposite.setLayoutData(LayoutFactory.gridData(4, 4, true, true, 1, 1, -1, -1));
 			}
 	
 	@Override

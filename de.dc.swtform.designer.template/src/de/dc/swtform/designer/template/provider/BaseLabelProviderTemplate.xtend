@@ -5,7 +5,7 @@ import de.dc.swtform.designer.template.IGenerator
 import org.eclipse.emf.ecore.util.EcoreUtil
 import de.dc.swtform.xcore.model.SwtForm
 
-class LabelProviderTemplate implements IGenerator<XTableViewer>{
+class BaseLabelProviderTemplate implements IGenerator<XTableViewer>{
 	
 	override gen(XTableViewer in)'''
 	«val name = in.name.toFirstUpper»
@@ -16,9 +16,9 @@ class LabelProviderTemplate implements IGenerator<XTableViewer>{
 	import org.eclipse.jface.viewers.LabelProvider;
 	import org.eclipse.swt.graphics.Image;
 	
-	import «form.packagePath».model.«name»Model;
+	import «form.packagePath».model.Base«name»Model;
 	
-	public class «name»LabelProvider extends LabelProvider implements ITableLabelProvider {
+	public abstract class Base«name»LabelProvider extends LabelProvider implements ITableLabelProvider {
 	
 		@Override
 		public Image getColumnImage(Object o, int i) {
@@ -27,12 +27,12 @@ class LabelProviderTemplate implements IGenerator<XTableViewer>{
 	
 		@Override
 		public String getColumnText(Object o, int i) {
-			if (o instanceof «name»Model) {
-				«name»Model model = («name»Model) o;
+			if (o instanceof Base«name»Model) {
+				Base«name»Model model = (Base«name»Model) o;
 				switch (i) {
 				«FOR i : 0..(in.columns.size-1)»
 				case «i»:
-					return model.get«in.columns.get(i).name.toFirstUpper»()+"";
+					return getColumnText«i»(model);
 				«ENDFOR»
 				default:
 					return "";
@@ -40,6 +40,9 @@ class LabelProviderTemplate implements IGenerator<XTableViewer>{
 			}
 			return "";
 		}
+		«FOR i : 0..(in.columns.size-1)»
+		abstract String getColumnText«i»(Base«name»Model model);
+		«ENDFOR»
 	}
 	'''
 }

@@ -92,6 +92,7 @@ class XWidgetToStringMapper {
 	int[] bounds = new int[]{«w.columns.map[size+''].reduce[p1, p2|p1+', '+p2]»};
 	LabelProvider labelProvider = new «w.name.toFirstUpper»LabelProvider();
 	BaseTableViewer «name» = SwtFactory.createSearchTableViewer(this, titles, bounds, «w.hasSearch», labelProvider);
+	«w.name.toFirstLower»TableViewer = «name».getViewer();
 	«w.getGridData('Composite')»
 	'''
 	dispatch def createWidget(XDateTime w)'''DateTime «w.name»DateTime = new DateTime(this, SWT.DATE | SWT.DROP_DOWN);

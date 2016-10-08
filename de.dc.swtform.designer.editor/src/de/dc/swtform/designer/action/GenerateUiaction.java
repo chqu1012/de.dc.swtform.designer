@@ -10,6 +10,7 @@ import java.util.HashMap;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jdt.core.ICompilationUnit;
@@ -80,11 +81,22 @@ public class GenerateUiaction extends ActionDelegate {
 //			String baseContent = baseTpl.gen(form);
 //			String testContent = testTpl.gen(form);
 			
+			cleanFolders(srcFolder, srcGenFolder, testFolder);
+			
 			for (XWidget  w : form.getWidgets()) {
 				if (w instanceof XViewer) {
 					XViewer viewer = (XViewer) w;
 					String providerContent = TemplateManager.Instance.get(Template.LabelProvider).gen(viewer);
-					createJavaClass(javaProject, srcFolder, providerContent, viewer.getName()+"LabelProvider.java", form.getPackagePath()+".provider","src");
+					String baseProviderContent = TemplateManager.Instance.get(Template.BaseLabelProvider).gen(viewer);
+					String modelContent = TemplateManager.Instance.get(Template.TableViewerModel).gen(viewer);
+					String labelProviderName = viewer.getName()+"LabelProvider.java";
+					String modelName = viewer.getName()+"Model.java";
+					String baseLabelProviderName = "Base"+labelProviderName;
+					String baseModelName = "Base"+modelName;
+					createJavaClass(javaProject, srcGenFolder, baseProviderContent, baseLabelProviderName, form.getPackagePath()+".provider","src-gen");
+					createJavaClass(javaProject, srcGenFolder, modelContent, baseModelName, form.getPackagePath()+".model","src-gen");
+					createJavaClass(javaProject, srcFolder, providerContent, labelProviderName, form.getPackagePath()+".provider","src");
+//					createJavaClass(javaProject, srcFolder, modelContent, modelName, form.getPackagePath()+".model","src");
 				}
 			}
 			
@@ -95,6 +107,23 @@ public class GenerateUiaction extends ActionDelegate {
 			createBaseUIClass(javaProject, srcGenFolder,baseContent);
 			createExtendedUIClass(javaProject, srcFolder, extendedContent);
 			createTestUIClass(javaProject, testFolder, testContent);
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void cleanFolders(IFolder srcFolder, IFolder srcGenFolder, IFolder testFolder) {
+		deleteFiles(srcFolder);
+		deleteFiles(srcGenFolder);
+		deleteFiles(testFolder);
+	}
+
+	private void deleteFiles(IFolder folder) {
+		try {
+			for (IResource r : folder.members()) {
+				r.delete(true, null);
+			}
+			folder.refreshLocal(DEPTH_INFINITE, null);
 		} catch (CoreException e) {
 			e.printStackTrace();
 		}

@@ -1,21 +1,28 @@
 package de.dc.swtform.example.control;
 
-import static de.dc.swtform.designer.util.SwtFactory.createPushButton;
+import java.util.*;
+import java.util.List;
 
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.layout.FillLayout;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
-
+import org.eclipse.jface.viewers.*;
+import org.eclipse.swt.layout.*;
+import org.eclipse.swt.widgets.*;
+import de.dc.swtform.designer.util.*;
+import de.dc.swtform.example.control.model.*;
 public class XTableViewerMain extends BaseXTableViewer {
-
-	protected Button OkButton;
-	protected Button AbbrechenButton;
 
 	public XTableViewerMain(Composite parent) {
 		super(parent);
+		fillContactsDummies(contactsTableViewer);
+	}
+	private void fillContactsDummies(TableViewer viewer) {
+		List<BaseContactsModel> entries = new ArrayList<BaseContactsModel>();
+		for (int i = 0; i < 100; i++) {
+			entries.add(create(Dummy.getRandomString(),Dummy.getRandomString(),Dummy.getRandomInt(1000000)));
+		}
+		viewer.setInput(entries);
+	}
+	public BaseContactsModel create(String Name, String Vorname, int Handy){
+		return new BaseContactsModel(Name, Vorname, Handy);
 	}
 
 	public static void main(String[] args) {

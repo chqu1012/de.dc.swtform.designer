@@ -4,7 +4,9 @@ public enum Template {
 	BaseControl,
 	ExtendedBaseControl,
 	TestControl,
-	BaseLabelProvider,
-	LabelProvider,
-	TableViewerModel
+	TableViewerBaseLabelProvider,
+	TableViewerExtendedLabelProvider,
+	TableViewerModel,
+	TableViewerBaseFilter,
+	TableViewerExtendedFilter
 }

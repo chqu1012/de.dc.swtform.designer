@@ -15,7 +15,7 @@ class BaseFilterTemplate implements IGenerator<XTableViewer>{
 	import de.dc.swtform.designer.control.filter.BaseFilter;
 	import de.dc.swtform.example.control.model.BaseContactsModel;
 	
-	public class Base南ame肇ilter extends BaseFilter<Base南ame膂odel>{
+	public abstract class Base南ame肇ilter extends BaseFilter<Base南ame膂odel>{
 	
 		@Override
 		public boolean match(Base南ame膂odel element, String searchString) {

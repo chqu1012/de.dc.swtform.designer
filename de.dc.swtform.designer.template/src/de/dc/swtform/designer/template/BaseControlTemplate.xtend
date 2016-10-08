@@ -19,7 +19,8 @@ class BaseControlTemplate implements IGenerator<SwtForm>{
 	import org.eclipse.swt.widgets.*;
 	import org.eclipse.jface.viewers.*;
 	import org.eclipse.swt.*;
-	
+
+	import «in.packagePath».filter.*;	
 	import «in.packagePath».provider.*;
 	
 	public abstract class Base«in.name» extends Composite implements SelectionListener{

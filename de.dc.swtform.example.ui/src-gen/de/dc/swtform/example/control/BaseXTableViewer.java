@@ -1,18 +1,16 @@
 package de.dc.swtform.example.control;
 
-import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.SelectionListener;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Text;
+import de.dc.swtform.designer.control.*;
+import de.dc.swtform.designer.util.*;	
 
-import de.dc.swtform.designer.control.BaseTableViewer;
-import de.dc.swtform.designer.util.LayoutFactory;
-import de.dc.swtform.designer.util.SwtFactory;
-import de.dc.swtform.example.control.filter.ContactsFilter;
-import de.dc.swtform.example.control.provider.ContactsLabelProvider;
+import org.eclipse.swt.layout.*;
+import org.eclipse.swt.events.*;
+import org.eclipse.swt.widgets.*;
+import org.eclipse.jface.viewers.*;
+import org.eclipse.swt.*;
+
+import de.dc.swtform.example.control.filter.*;	
+import de.dc.swtform.example.control.provider.*;
 
 public abstract class BaseXTableViewer extends Composite implements SelectionListener{
 	

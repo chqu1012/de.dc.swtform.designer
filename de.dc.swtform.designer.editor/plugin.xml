@@ -36,6 +36,11 @@
             description="%_UI_Menu_Open_description"
             categoryId="org.eclipse.ui.category.file"
             id="de.dc.swtform.xcore.model.presentation.ModelEditorAdvisorOpenCommand"/>
+      <command
+            defaultHandler="de.dc.swtform.designer.command.GenerateUICommand"
+            id="de.dc.swtform.designer.editor.GenerateUI"
+            name="Generate UI">
+      </command>
    </extension>
 
    <extension point="org.eclipse.ui.bindings">
@@ -149,6 +154,22 @@
                relative="org.eclipse.ui.editorss">
          </view>
       </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="de.dc.swtform.designer.editor.toolbar">
+            <command
+                  commandId="de.dc.swtform.designer.editor.GenerateUI"
+                  label="Generate UI"
+                  style="push"
+                  tooltip="Generate UI">
+            </command>
+         </toolbar>
+      </menuContribution>
    </extension>
 
 </plugin>

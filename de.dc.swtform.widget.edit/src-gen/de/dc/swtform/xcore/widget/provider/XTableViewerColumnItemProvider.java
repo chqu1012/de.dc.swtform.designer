@@ -48,6 +48,7 @@ public class XTableViewerColumnItemProvider extends XWidgetItemProvider {
 			addTypPropertyDescriptor(object);
 			addSizePropertyDescriptor(object);
 			addAlignmentPropertyDescriptor(object);
+			addIsFilterCriteriaPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -92,6 +93,28 @@ public class XTableViewerColumnItemProvider extends XWidgetItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Is Filter Criteria feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsFilterCriteriaPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XTableViewerColumn_isFilterCriteria_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XTableViewerColumn_isFilterCriteria_feature", "_UI_XTableViewerColumn_type"),
+				 WidgetPackage.eINSTANCE.getXTableViewerColumn_IsFilterCriteria(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -159,6 +182,7 @@ public class XTableViewerColumnItemProvider extends XWidgetItemProvider {
 			case WidgetPackage.XTABLE_VIEWER_COLUMN__TYP:
 			case WidgetPackage.XTABLE_VIEWER_COLUMN__SIZE:
 			case WidgetPackage.XTABLE_VIEWER_COLUMN__ALIGNMENT:
+			case WidgetPackage.XTABLE_VIEWER_COLUMN__IS_FILTER_CRITERIA:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -29,7 +29,7 @@ public class XTableViewerMain extends BaseXTableViewer {
 		Display display = new Display();
 		Shell shell = new Shell(display);
 		shell.setText("Shell");
-		shell.setSize(600, 800);
+		shell.setSize(600, 600);
 		shell.setLayout(new FillLayout());
 
 		new XTableViewerMain(shell);

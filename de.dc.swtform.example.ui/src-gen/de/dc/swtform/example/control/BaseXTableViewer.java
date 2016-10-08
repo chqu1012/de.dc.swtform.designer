@@ -1,15 +1,18 @@
 package de.dc.swtform.example.control;
 
-import de.dc.swtform.designer.control.*;
-import de.dc.swtform.designer.util.*;	
+import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Text;
 
-import org.eclipse.swt.layout.*;
-import org.eclipse.swt.events.*;
-import org.eclipse.swt.widgets.*;
-import org.eclipse.jface.viewers.*;
-import org.eclipse.swt.*;
-
-import de.dc.swtform.example.control.provider.*;
+import de.dc.swtform.designer.control.BaseTableViewer;
+import de.dc.swtform.designer.util.LayoutFactory;
+import de.dc.swtform.designer.util.SwtFactory;
+import de.dc.swtform.example.control.filter.BaseContactsFilter;
+import de.dc.swtform.example.control.provider.ContactsLabelProvider;
 
 public abstract class BaseXTableViewer extends Composite implements SelectionListener{
 	
@@ -24,6 +27,7 @@ public abstract class BaseXTableViewer extends Composite implements SelectionLis
 		int[] bounds = new int[]{100, 100, 100};
 		LabelProvider labelProvider = new ContactsLabelProvider();
 		BaseTableViewer contactsComposite = SwtFactory.createSearchTableViewer(this, titles, bounds, true, labelProvider);
+		contactsComposite.addFilter(new BaseContactsFilter());
 		contactsTableViewer = contactsComposite.getViewer();
 		contactsComposite.setLayoutData(LayoutFactory.gridData(4, 4, true, true, 1, 1, -1, -1));
 			}

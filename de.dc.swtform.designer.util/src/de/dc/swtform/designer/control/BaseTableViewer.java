@@ -11,8 +11,12 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
+
+import de.dc.swtform.designer.control.filter.BaseFilter;
+
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.jface.viewers.TableViewerColumn;
+import org.eclipse.jface.viewers.ViewerFilter;
 
 public class BaseTableViewer extends Composite implements KeyListener{
 	private Text searchText;
@@ -20,9 +24,12 @@ public class BaseTableViewer extends Composite implements KeyListener{
 	private TableViewer viewer;
 	private boolean showHeader=true;
 	private boolean showLines=true;
+	private BaseFilter<?> filter;
+	private boolean hasSearch;
 
 	public BaseTableViewer(Composite parent, int style, String[] titles, int[] bounds, boolean hasSearch, LabelProvider labelProvider) {
 		super(parent, style);
+		this.hasSearch = hasSearch;
 		setLayout(new GridLayout(1, false));
 		
 		if(hasSearch){
@@ -41,11 +48,16 @@ public class BaseTableViewer extends Composite implements KeyListener{
 		for (int i = 0; i < bounds.length; i++) {
 			createColumn(titles[i], bounds[i]);
 		}
-
+		
 		viewer.setContentProvider(ArrayContentProvider.getInstance());
 		viewer.setLabelProvider(labelProvider);
 	}
 
+	public void addFilter(BaseFilter<?> filter){
+		this.filter = filter;
+		viewer.addFilter(filter);
+	}
+	
 	public TableViewer getViewer(){
 		return viewer;
 	}
@@ -71,6 +83,10 @@ public class BaseTableViewer extends Composite implements KeyListener{
 
 	@Override
 	public void keyReleased(KeyEvent e) {
+		if(hasSearch){
+			filter.setSearchText(searchText.getText());
+			viewer.refresh();
+		}
 	}
 
 	public void setShowLines(boolean showLines) {

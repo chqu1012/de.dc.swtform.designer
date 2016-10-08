@@ -3,6 +3,7 @@ package de.dc.swtform.designer.template
 import de.dc.swtform.xcore.model.SwtForm
 import de.dc.swtform.xcore.widget.ISelectable
 import de.dc.swtform.xcore.widget.XTableViewer
+import de.dc.swtform.xcore.widget.XTreeViewer
 
 class TestControlTemplate implements IGenerator<SwtForm> {
 	
@@ -16,6 +17,9 @@ class TestControlTemplate implements IGenerator<SwtForm> {
 	import org.eclipse.swt.layout.*;
 	import org.eclipse.swt.widgets.*;
 	import de.dc.swtform.designer.util.*;
+	«FOR w : in.widgets.filter[it instanceof XTreeViewer]»
+	import de.dc.swtform.designer.control.model.TreeNode;
+	«ENDFOR»
 	«IF in.widgets.filter[it instanceof XTableViewer].size>0»
 	import «in.packagePath».model.*;
 	«ENDIF»
@@ -24,9 +28,33 @@ class TestControlTemplate implements IGenerator<SwtForm> {
 		public «in.name»Main(Composite parent) {
 			super(parent);
 			«FOR w : in.widgets.filter[it instanceof XTableViewer]»
-			fill«w.name.toFirstUpper»Dummies(«w.name.toLowerCase»TableViewer);
+			fill«w.name.toFirstUpper»Dummies(«w.name.toFirstLower»TableViewer);
+			«ENDFOR»
+			«FOR w : in.widgets.filter[it instanceof XTreeViewer]»
+			fill«w.name.toFirstUpper»Dummies(«w.name.toFirstLower»TreeViewer);
 			«ENDFOR»
 		}
+		
+		«FOR w : in.widgets.filter[it instanceof XTreeViewer]»
+		private void fill«w.name.toFirstUpper»Dummies(TreeViewer viewer) {
+			TreeNode parent = new TreeNode(null, "parent");
+			TreeNode current = createTreeNode(parent, Dummy.getRandomString());
+			for (int i = 0; i < 100; i++) {
+				parent.getChildren().add(current);
+				current = createTreeNode(current, Dummy.getRandomString());
+			}
+			viewer.setInput(parent);
+		}
+		private TreeNode createTreeNode(TreeNode parent, String value) {
+			TreeNode node = new TreeNode(parent, value);
+			for (int i = 0; i < 5; i++) {
+				TreeNode newNode= new TreeNode(node, Dummy.getRandomString());
+				node.getChildren().add(newNode);
+			}
+			return node;
+		}
+		«ENDFOR»
+		
 		«FOR w : in.widgets.filter[it instanceof XTableViewer]»
 		private void fill«w.name.toFirstUpper»Dummies(TableViewer viewer) {
 			List<Base«w.name.toFirstUpper»Model> entries = new ArrayList<Base«w.name.toFirstUpper»Model>();

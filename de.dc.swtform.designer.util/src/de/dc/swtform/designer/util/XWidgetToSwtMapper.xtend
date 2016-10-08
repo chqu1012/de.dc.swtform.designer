@@ -106,7 +106,7 @@ class XWidgetToSwtMapper {
 	}
 	
 	dispatch def createWidget(Composite parent, XTreeViewer w){
-		val viewer = SwtFactory.createTreeViewer(parent)
+		val viewer = SwtFactory.createTreeViewer(parent, w.hasFilter)
 		viewer.tree.headerVisible=true
 		viewer.tree.linesVisible = true
 		viewer.control.initLayoutData(w.layoutData)

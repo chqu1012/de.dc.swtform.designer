@@ -101,7 +101,7 @@ class XWidgetToStringMapper {
 	'''
     dispatch def createWidget(XTreeViewer w)'''
 	«val name = w.name.toFirstLower+"TreeViewer"»
-	«name» = SwtFactory.createTreeViewer(this);
+	«name» = SwtFactory.createTreeViewer(this, «w.hasFilter»);
 	«w.getGridData('TreeViewer.getTree()')»
 	'''
 	dispatch def createWidget(XDateTime w)'''DateTime «w.name»DateTime = new DateTime(this, SWT.DATE | SWT.DROP_DOWN);

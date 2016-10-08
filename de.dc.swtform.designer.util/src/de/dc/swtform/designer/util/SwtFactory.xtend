@@ -17,14 +17,24 @@ import org.eclipse.swt.widgets.Text
 import org.eclipse.jface.viewers.TreeViewer
 import de.dc.swtform.designer.control.TreeContentProvider
 import de.dc.swtform.designer.control.TreeLabelProvider
+import org.eclipse.ui.dialogs.PatternFilter
+import org.eclipse.ui.dialogs.FilteredTree
 
 class SwtFactory {
 
-	def static createTreeViewer(Composite parent){
-		val treeViewer = new TreeViewer(parent, SWT.MULTI.bitwiseOr(SWT.H_SCROLL).bitwiseOr(SWT.V_SCROLL))
-		treeViewer.contentProvider = new TreeContentProvider
-		treeViewer.labelProvider = new TreeLabelProvider
-		treeViewer
+	def static createTreeViewer(Composite parent, boolean hasFilter){
+		var TreeViewer viewer = null
+		if(hasFilter){
+			val filter = new PatternFilter
+			val tree = new FilteredTree(parent, SWT.MULTI.bitwiseOr(SWT.H_SCROLL).bitwiseOr(SWT.V_SCROLL), filter, true);
+			viewer = tree.viewer
+		}else{
+			val treeViewer = new TreeViewer(parent, SWT.MULTI.bitwiseOr(SWT.H_SCROLL).bitwiseOr(SWT.V_SCROLL))
+			treeViewer.contentProvider = new TreeContentProvider
+			treeViewer.labelProvider = new TreeLabelProvider
+			viewer=treeViewer
+		}
+		viewer
 	}
 
 	def static createComboItems(Combo combo, String[] items){

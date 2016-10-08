@@ -1,20 +1,25 @@
 package de.dc.swtform.designer.util
 
+import de.dc.swtform.designer.control.BaseTableViewer
+import org.eclipse.jface.viewers.ArrayContentProvider
+import org.eclipse.jface.viewers.LabelProvider
+import org.eclipse.jface.viewers.TableViewer
+import org.eclipse.jface.viewers.TableViewerColumn
 import org.eclipse.swt.SWT
-import org.eclipse.swt.widgets.Composite
-import org.eclipse.swt.widgets.Label
+import org.eclipse.swt.layout.GridLayout
 import org.eclipse.swt.widgets.Button
+import org.eclipse.swt.widgets.Combo
+import org.eclipse.swt.widgets.Composite
 import org.eclipse.swt.widgets.FileDialog
+import org.eclipse.swt.widgets.Label
 import org.eclipse.swt.widgets.Shell
 import org.eclipse.swt.widgets.Text
-import org.eclipse.swt.layout.GridLayout
-import org.eclipse.jface.viewers.TableViewer
-import org.eclipse.jface.viewers.ArrayContentProvider
-import org.eclipse.jface.viewers.TableViewerColumn
-import de.dc.swtform.designer.control.BaseTableViewer
-import org.eclipse.jface.viewers.LabelProvider
 
 class SwtFactory {
+
+	def static createComboItems(Combo combo, String[] items){
+		items.forEach[combo.add(it)]
+	}
 
 	def static createSearchTableViewer(Composite parent, String[] titles, int[] bounds, boolean hasSearch, LabelProvider labelProvider){
 			new BaseTableViewer(parent, SWT.NONE, titles, bounds, hasSearch, labelProvider)

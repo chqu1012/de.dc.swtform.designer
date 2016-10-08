@@ -74,10 +74,10 @@ class XWidgetToStringMapper {
 
 	dispatch def createWidget(XLabelCombo w)'''
 	Composite «w.name»Container = SwtFactory.createGridComposite(this, 3, 5, 0);
-	SwtFactory.createLabel(«w.name»Container, «w.name», «w.width»);
+	SwtFactory.createLabel(«w.name»Container, "«w.name»", «w.width»);
 	container.setLayoutDate(«w.getGridData('Label')»);
-	«w.name»Combo = new Combo(«w.name»Container, SWT.NONE);
-	«w.name»Combo.createComboItems(new String(){«w.items.map['\"'+it.name+'\"'].reduce[p1, p2|p1+','+p2]»});
+	«w.name.toFirstLower»Combo = new Combo(«w.name»Container, SWT.NONE);
+	SwtFactory.createComboItems(«w.name.toFirstLower»Combo,new String[]{«w.items.map['\"'+it.name+'\"'].reduce[p1, p2|p1+','+p2]»});
 	«w.getGridData('Combo')»''' 
 
 	dispatch def createWidget(XText w)'''«w.name»Text = SwtFactory.createText(this, "«w.message»");

@@ -166,5 +166,17 @@
          </toolbar>
       </menuContribution>
    </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="de.dc.swtform.designer.model.editor.ModelEditorAdvisorApplication"
+            name="SwtFormDesigner">
+         <property
+               name="appName"
+               value="SwtFormDesigner">
+         </property>
+      </product>
+   </extension>
 
 </plugin>

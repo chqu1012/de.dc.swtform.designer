@@ -39,6 +39,7 @@ import org.eclipse.swt.widgets.Spinner
 import org.eclipse.swt.widgets.Text
 import de.dc.swtform.xcore.widget.XLabelCombo
 import de.dc.swtform.xcore.widget.XTreeViewer
+import de.dc.swtform.xcore.widget.XTreeViewerColumn
 
 class XWidgetToSwtMapper {
 
@@ -110,7 +111,11 @@ class XWidgetToSwtMapper {
 		viewer.tree.headerVisible=true
 		viewer.tree.linesVisible = true
 		viewer.control.initLayoutData(w.layoutData)
+		w.columns.forEach[SwtFactory.createTreeViewerColumn(viewer, it.name, it.size)]
 		viewer.control
+	}
+	
+	dispatch def createWidget(Composite parent, XTreeViewerColumn w){
 	}
 
 	dispatch def createWidget(Composite parent, XComposite w) {

@@ -21,6 +21,7 @@ import de.dc.swtform.xcore.widget.XToogleButton
 import de.dc.swtform.xcore.widget.XUnitLabel
 import de.dc.swtform.xcore.widget.XWidget
 import de.dc.swtform.xcore.widget.XTreeViewer
+import de.dc.swtform.xcore.widget.XTreeViewerColumn
 
 class XWidgetToStringMapper {
 	extension XLayoutMapper layoutMapper = new XLayoutMapper
@@ -37,6 +38,7 @@ class XWidgetToStringMapper {
 	dispatch def String controlName(XCheckButton w)'''«w.name.toFirstLower»CheckButton'''
 	dispatch def String controlName(XRadioButton w)'''«w.name.toFirstLower»RadioButton'''
 	dispatch def String controlName(XTableViewerColumn w)''''''
+	dispatch def String controlName(XTreeViewerColumn w)''''''
 	dispatch def String controlName(XComboItem w)''''''
 	dispatch def String controlName(XDialogText w)'''«w.name.toFirstLower»DialogText'''
 	dispatch def String controlName(XUnitLabel w)'''«w.name.toFirstLower»Text'''
@@ -60,6 +62,7 @@ class XWidgetToStringMapper {
 	dispatch def String field(XCheckButton w)'''protected Button «w.controlName»;'''
 	dispatch def String field(XRadioButton w)'''protected Button «w.controlName»;'''
 	dispatch def String field(XTableViewerColumn w)''''''
+	dispatch def String field(XTreeViewerColumn w)''''''
 	dispatch def String field(XComboItem w)''''''
 	dispatch def String field(XDialogText w)'''protected Text «w.controlName»;'''
 	dispatch def String field(XUnitLabel w)'''protected Text «w.controlName»;'''
@@ -102,6 +105,9 @@ class XWidgetToStringMapper {
     dispatch def createWidget(XTreeViewer w)'''
 	«val name = w.name.toFirstLower+"TreeViewer"»
 	«name» = SwtFactory.createTreeViewer(this, «w.hasFilter»);
+	«FOR c : w.columns»
+	SwtFactory.createTreeViewerColumn(«name», "«c.text»", «c.size»);
+	«ENDFOR»
 	«w.getGridData('TreeViewer.getTree()')»
 	'''
 	dispatch def createWidget(XDateTime w)'''DateTime «w.name»DateTime = new DateTime(this, SWT.DATE | SWT.DROP_DOWN);
@@ -112,6 +118,7 @@ class XWidgetToStringMapper {
 	dispatch def createWidget(XRadioButton w)'''Button «w.name»Button = new Button(this, SWT.READIO);'''
 	dispatch def createWidget(XToogleButton w)'''Button «w.name»Button = new Button(this, SWT.TOGGLE);'''
 	dispatch def createWidget(XTableViewerColumn w)''''''
+	dispatch def createWidget(XTreeViewerColumn w)''''''
 	dispatch def createWidget(XComboItem w)''''''
 
 //	dispatch def createWidget(XDialogText w) {

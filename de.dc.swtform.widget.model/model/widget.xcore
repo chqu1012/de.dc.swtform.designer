@@ -161,6 +161,17 @@ class XTableViewerColumn extends XWidget{
 }
 
 class XTreeViewer extends XViewer{
+	boolean showHeader = "true"
+	boolean showLines= "true"
+	boolean hasFilter = "false"
+	contains XTreeViewerColumn[] columns
+}
+
+class XTreeViewerColumn extends XWidget{
+	String typ = "String"
+	Integer size= "100"
+	Integer alignment
+	boolean isFilterCriteria
 }
 
 class XListViewer extends XViewer{

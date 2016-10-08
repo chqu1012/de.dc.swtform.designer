@@ -1,8 +1,5 @@
 package de.dc.swtform.designer.action;
 
-import static de.dc.swtform.designer.template.Template.BaseControl;
-import static de.dc.swtform.designer.template.Template.ExtendedBaseControl;
-import static de.dc.swtform.designer.template.Template.TestControl;
 import static org.eclipse.core.resources.IResource.DEPTH_INFINITE;
 
 import java.util.HashMap;
@@ -32,16 +29,11 @@ import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionDelegate;
 
-import de.dc.swtform.designer.template.BaseControlTemplate;
-import de.dc.swtform.designer.template.ExtendedControlTemplate;
-import de.dc.swtform.designer.template.IGenerator;
 import de.dc.swtform.designer.template.Template;
 import de.dc.swtform.designer.template.TemplateManager;
-import de.dc.swtform.designer.template.TestControlTemplate;
 import de.dc.swtform.xcore.model.SwtForm;
 import de.dc.swtform.xcore.model.presentation.ModelEditor;
 import de.dc.swtform.xcore.widget.XTableViewer;
-import de.dc.swtform.xcore.widget.XViewer;
 import de.dc.swtform.xcore.widget.XWidget;
 
 public class GenerateUiaction extends ActionDelegate {
@@ -127,7 +119,11 @@ public class GenerateUiaction extends ActionDelegate {
 		IFolder newSrcFolder = srcFolder.getFolder(form.getPackagePath().replaceAll("\\.", "/"));
 		IFolder newSrcGenFolder = srcGenFolder.getFolder(form.getPackagePath().replaceAll("\\.", "/"));
 		IFolder newTestFolder = testFolder.getFolder(form.getPackagePath().replaceAll("\\.", "/"));
-		deleteFiles(newSrcFolder);
+		if(newSrcFolder.exists()){
+			if(MessageDialog.openQuestion(new Shell(), "Src Verzeichnis löschen?", "Möchten sie wirklich das Verzeichnis "+srcFolder.getRawLocation().toString()+" und sämtliche Dateien rekursiv löschen?")){
+				deleteFiles(newSrcFolder);
+			}
+		}
 		deleteFiles(newSrcGenFolder);
 		deleteFiles(newTestFolder);
 	}

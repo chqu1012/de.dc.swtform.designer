@@ -19,6 +19,9 @@ import de.dc.swtform.designer.control.TreeContentProvider
 import de.dc.swtform.designer.control.TreeLabelProvider
 import org.eclipse.ui.dialogs.PatternFilter
 import org.eclipse.ui.dialogs.FilteredTree
+import org.eclipse.jface.viewers.TreeViewerColumn
+import org.eclipse.jface.viewers.CellLabelProvider
+import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider
 
 class SwtFactory {
 
@@ -26,15 +29,26 @@ class SwtFactory {
 		var TreeViewer viewer = null
 		if(hasFilter){
 			val filter = new PatternFilter
-			val tree = new FilteredTree(parent, SWT.MULTI.bitwiseOr(SWT.H_SCROLL).bitwiseOr(SWT.V_SCROLL), filter, true);
+			val tree = new FilteredTree(parent, SWT.BORDER.bitwiseOr(SWT.MULTI).bitwiseOr(SWT.H_SCROLL).bitwiseOr(SWT.V_SCROLL), filter, true)
 			viewer = tree.viewer
 		}else{
-			val treeViewer = new TreeViewer(parent, SWT.MULTI.bitwiseOr(SWT.H_SCROLL).bitwiseOr(SWT.V_SCROLL))
+			val treeViewer = new TreeViewer(parent, SWT.BORDER.bitwiseOr(SWT.MULTI).bitwiseOr(SWT.H_SCROLL).bitwiseOr(SWT.V_SCROLL))
 			treeViewer.contentProvider = new TreeContentProvider
 			treeViewer.labelProvider = new TreeLabelProvider
+			treeViewer.tree.headerVisible = true
+			treeViewer.tree.linesVisible = true
 			viewer=treeViewer
 		}
 		viewer
+	}
+
+	def static createTreeViewerColumn(TreeViewer viewer, String text, int size){
+		val col = new TreeViewerColumn(viewer, SWT.NONE)
+        col.getColumn().setText(text)
+        col.getColumn().setWidth(size)
+        col.getColumn().setAlignment(SWT.LEFT)
+        col.labelProvider = new DelegatingStyledCellLabelProvider(new TreeLabelProvider)
+        col
 	}
 
 	def static createComboItems(Combo combo, String[] items){
@@ -66,6 +80,7 @@ class SwtFactory {
 		val col = new TableViewerColumn(viewer, SWT.NONE)
 		col.getColumn().setWidth(width)
 		col.getColumn().setText(text)
+		col.labelProvider = new DelegatingStyledCellLabelProvider(new TreeLabelProvider)
 		col
 	}
 

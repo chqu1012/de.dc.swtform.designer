@@ -36,11 +36,6 @@
             description="%_UI_Menu_Open_description"
             categoryId="org.eclipse.ui.category.file"
             id="de.dc.swtform.xcore.model.presentation.ModelEditorAdvisorOpenCommand"/>
-      <command
-            defaultHandler="de.dc.swtform.designer.command.GenerateUICommand"
-            id="de.dc.swtform.designer.editor.GenerateUI"
-            name="Generate UI">
-      </command>
    </extension>
 
    <extension point="org.eclipse.ui.bindings">

@@ -8,5 +8,7 @@ public enum Template {
 	TableViewerExtendedLabelProvider,
 	TableViewerModel,
 	TableViewerBaseFilter,
-	TableViewerExtendedFilter
+	TableViewerExtendedFilter,
+	TableViewerBaseSorter,
+	TableViewerExtendedSorter
 }

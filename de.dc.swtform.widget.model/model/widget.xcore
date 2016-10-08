@@ -11,7 +11,7 @@ import de.dc.swtform.layout.model.XLayoutElement
 
 abstract class XWidget extends XLayoutDataElement{
 	String name = ""
-	String text
+	String text=""
 	Object data
 	String message=""
 }
@@ -149,6 +149,7 @@ class XTableViewer extends XViewer{
 	boolean verticalScroll= "true"
 	boolean horizontalScroll= "true"
 	boolean hasSearch = "true"
+	boolean hasSorter = "true"
 	contains XTableViewerColumn[] columns
 }
 

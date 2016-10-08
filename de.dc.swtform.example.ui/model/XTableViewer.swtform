@@ -2,8 +2,16 @@
 <model:SwtForm xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="de.dc.swtform.xcore.model" xmlns:model_1="de.dc.swtform.layout.model" xmlns:widget="de.dc.swtform.xcore.widget" name="XTableViewer" packagePath="de.dc.swtform.example.control">
   <widgets xsi:type="widget:XTableViewer" name="Contacts">
     <layoutData xsi:type="model_1:XGridData" grabExcessVerticalSpace="true"/>
-    <columns name="Name"/>
-    <columns name="Vorname"/>
-    <columns name="Handy" typ="int"/>
+    <columns name="Name" text="Name"/>
+    <columns name="Vorname" text="Vorname"/>
+    <columns name="Handy" text="Handy" typ="int"/>
   </widgets>
+  <widgets xsi:type="widget:XUnitLabel" text="Kilometerstand" unit="km"/>
+  <widgets xsi:type="widget:XLabelCombo" name="titel" text="Titel">
+    <items name="Dr." text="Dr."/>
+    <items name="Bachelor" text="Bachelor"/>
+    <items name="Master" text="Master"/>
+    <items name="Diplom" text="Diplom"/>
+  </widgets>
+  <widgets xsi:type="widget:XLabel" name="beschreibung" text="Hallo Welt kann man auch anders benutzen"/>
 </model:SwtForm>

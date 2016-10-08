@@ -95,6 +95,15 @@ public class GenerateUiaction extends ActionDelegate {
 						createJavaClass(javaProject, srcFolder, extendedFilterContent, extendedFilterName, form.getPackagePath()+".filter","src");
 						createJavaClass(javaProject, srcGenFolder, baseFilterContent, baseFilterName, form.getPackagePath()+".filter","src-gen");
 					}
+					if(viewer.isHasSorter()){
+						String baseSorterName = "Base"+ viewer.getName()+"Sorter.java";
+						String baseSorterContent = TemplateManager.Instance.get(Template.TableViewerBaseSorter).gen(viewer);
+						createJavaClass(javaProject, srcFolder, baseSorterContent, baseSorterName, form.getPackagePath()+".sorter","src-gen");
+						
+						String extendedSorterName = viewer.getName()+"Sorter.java";
+						String extendedSorterContent = TemplateManager.Instance.get(Template.TableViewerExtendedSorter).gen(viewer);
+						createJavaClass(javaProject, srcGenFolder, extendedSorterContent, extendedSorterName, form.getPackagePath()+".sorter","src");
+					}
 					createJavaClass(javaProject, srcGenFolder, baseProviderContent, baseLabelProviderName, form.getPackagePath()+".provider","src-gen");
 					createJavaClass(javaProject, srcGenFolder, modelContent, baseModelName, form.getPackagePath()+".model","src-gen");
 					createJavaClass(javaProject, srcFolder, providerContent, labelProviderName, form.getPackagePath()+".provider","src");

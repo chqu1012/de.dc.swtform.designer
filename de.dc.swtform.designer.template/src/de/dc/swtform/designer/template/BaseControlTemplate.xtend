@@ -22,6 +22,7 @@ class BaseControlTemplate implements IGenerator<SwtForm>{
 
 	import «in.packagePath».filter.*;	
 	import «in.packagePath».provider.*;
+	import «in.packagePath».sorter.*;
 	
 	public abstract class Base«in.name» extends Composite implements SelectionListener{
 		

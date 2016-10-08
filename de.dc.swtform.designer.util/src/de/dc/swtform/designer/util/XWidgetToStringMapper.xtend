@@ -65,19 +65,18 @@ class XWidgetToStringMapper {
 
 
 	dispatch def createWidget(XButton w)'''
-	«w.name.toFirstLower»Button = SwtFactory.createPushButton(this, "«w.name»");
+	«w.name.toFirstLower»Button = SwtFactory.createPushButton(this, "«w.text»");
 	«w.getGridData('Button')»'''
 
 	dispatch def createWidget(XLabel w)'''
-	«w.name»Label = SwtFactory.createLabel(this, "«w.name»", «w.width»);
+	«w.name»Label = SwtFactory.createLabel(this, "«w.text»", «w.width»);
 	«w.getGridData('Label')»'''
 
 	dispatch def createWidget(XLabelCombo w)'''
 	Composite «w.name»Container = SwtFactory.createGridComposite(this, 3, 5, 0);
-	SwtFactory.createLabel(«w.name»Container, "«w.name»", «w.width»);
-	container.setLayoutDate(«w.getGridData('Label')»);
+	SwtFactory.createLabel(«w.name»Container, "«w.text»", «w.width»);
 	«w.name.toFirstLower»Combo = new Combo(«w.name»Container, SWT.NONE);
-	SwtFactory.createComboItems(«w.name.toFirstLower»Combo,new String[]{«w.items.map['\"'+it.name+'\"'].reduce[p1, p2|p1+','+p2]»});
+	SwtFactory.createComboItems(«w.name.toFirstLower»Combo,new String[]{«w.items.map['\"'+it.text+'\"'].reduce[p1, p2|p1+','+p2]»});
 	«w.getGridData('Combo')»''' 
 
 	dispatch def createWidget(XText w)'''«w.name»Text = SwtFactory.createText(this, "«w.message»");
@@ -88,11 +87,12 @@ class XWidgetToStringMapper {
 
 	dispatch def createWidget(XTableViewer w)'''
 	«val name = w.name.toFirstLower+"Composite"»
-	String[] titles = new String[]{«w.columns.map['"'+it.name+'"'].reduce[p1, p2|p1+', '+p2]»};
+	String[] titles = new String[]{«w.columns.map['"'+it.text+'"'].reduce[p1, p2|p1+', '+p2]»};
 	int[] bounds = new int[]{«w.columns.map[size+''].reduce[p1, p2|p1+', '+p2]»};
 	LabelProvider labelProvider = new «w.name.toFirstUpper»LabelProvider();
 	BaseTableViewer «name» = SwtFactory.createSearchTableViewer(this, titles, bounds, «w.hasSearch», labelProvider);
 	«name».addFilter(new «w.name.toFirstUpper»Filter());
+	«name».addSorter(new «w.name.toFirstUpper»Sorter());
 	«w.name.toFirstLower»TableViewer = «name».getViewer();
 	«w.getGridData('Composite')»
 	'''
@@ -109,7 +109,7 @@ class XWidgetToStringMapper {
 //	dispatch def createWidget(XDialogText w) {
 //		val container = SwtFactory.createGridComposite(this, 3, 5, 0)
 //		container.initLayoutData = w.layoutData
-//		SwtFactory.createLabel(container, w.name, w.labelWidth)
+//		SwtFactory.createLabel(container, w.text, w.labelWidth)
 //		val text = SwtFactory.createText(container)
 //		val button = SwtFactory.createPushButton(container, '...')
 //		button.addSelectionListener(new SelectionAdapter() {
@@ -143,7 +143,7 @@ class XWidgetToStringMapper {
 //	}
 
 	dispatch def createWidget(XUnitLabel w)'''
-	«w.name.toFirstLower»Text = SwtFactory.createLabelUnit(this, "«w.name.toFirstUpper»", "«w.unit.toFirstUpper»", «w.width», 3, 5, 0 «IF w.layoutData!=null»«w.layoutData.fillLayoutData»«ENDIF»);
+	«w.name.toFirstLower»Text = SwtFactory.createLabelUnit(this, "«w.text.toFirstUpper»", "«w.unit.toFirstUpper»", «w.width», 3, 5, 0 «IF w.layoutData!=null»«w.layoutData.fillLayoutData»«ENDIF»);
 	''' 
 	
 	dispatch def fillLayoutData(XGridData d)'''«val gd = d as XGridData», «gd.horizontalAlignment», «gd.verticalAlignment», «gd.grabExcessHorizontalSpace», «gd.grabExcessVerticalSpace», «gd.horizontalSpan», «gd.verticalSpan», «gd.widthHint», «gd.heightHint»'''
@@ -173,7 +173,7 @@ class XWidgetToStringMapper {
 //	def createButton(int style, XButton w) {
 //		val control = new Button(this, style)
 //		control.selection = w.isSelected
-//		control.text = w.name
+//		control.text = w.text
 //		control.data = w
 //		control.initLayoutData(w.layoutData)
 //		control
@@ -181,19 +181,19 @@ class XWidgetToStringMapper {
 //
 //	def createLabelContainer(XLabel w) {
 //		val container = SwtFactory.createGridComposite(this, 3, 5, 0)
-//		SwtFactory.createLabel(container, w.name, w.width)
+//		SwtFactory.createLabel(container, w.text, w.width)
 //		container.initLayoutData(w.layoutData)
 //		container
 //	}
 //
 //	def createComboItems(Combo combo, EList<XComboItem> items) {
-//		items.forEach[combo.add = it.name]
+//		items.forEach[combo.add = it.text]
 //	}
 //
 //	def createTableViewerColumn(TableViewer viewer, XTableViewerColumn w) {
 //		val col = new TableViewerColumn(viewer, SWT.NONE)
 //		col.column.width = w.size
-//		col.column.text = w.name
+//		col.column.text = w.text
 //	}
 //
 //	def initLayoutData(Control control, XLayoutData ld) {
@@ -203,7 +203,7 @@ class XWidgetToStringMapper {
 //	}
 
 	def getGridData(XWidget w, String widgetType)'''
-	«IF w.layoutData instanceof XGridData»
+	«IF w.layoutData!=null && w.layoutData instanceof XGridData»
 	«w.name.toFirstLower»«widgetType».setLayoutData(LayoutFactory.gridData(«(w.layoutData as XGridData).horizontalAlignment», «(w.layoutData as XGridData).verticalAlignment», «(w.layoutData as XGridData).grabExcessHorizontalSpace», «(w.layoutData as XGridData).grabExcessVerticalSpace», «(w.layoutData as XGridData).horizontalSpan», «(w.layoutData as XGridData).verticalSpan», «(w.layoutData as XGridData).widthHint», «(w.layoutData as XGridData).heightHint»));
 	«ENDIF»
 	'''

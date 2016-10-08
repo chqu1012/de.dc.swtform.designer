@@ -53,6 +53,7 @@ public class XTableViewerItemProvider extends XViewerItemProvider {
 			addVerticalScrollPropertyDescriptor(object);
 			addHorizontalScrollPropertyDescriptor(object);
 			addHasSearchPropertyDescriptor(object);
+			addHasSorterPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -190,6 +191,28 @@ public class XTableViewerItemProvider extends XViewerItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Has Sorter feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addHasSorterPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XTableViewer_hasSorter_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XTableViewer_hasSorter_feature", "_UI_XTableViewer_type"),
+				 WidgetPackage.eINSTANCE.getXTableViewer_HasSorter(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -263,6 +286,7 @@ public class XTableViewerItemProvider extends XViewerItemProvider {
 			case WidgetPackage.XTABLE_VIEWER__VERTICAL_SCROLL:
 			case WidgetPackage.XTABLE_VIEWER__HORIZONTAL_SCROLL:
 			case WidgetPackage.XTABLE_VIEWER__HAS_SEARCH:
+			case WidgetPackage.XTABLE_VIEWER__HAS_SORTER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case WidgetPackage.XTABLE_VIEWER__COLUMNS:

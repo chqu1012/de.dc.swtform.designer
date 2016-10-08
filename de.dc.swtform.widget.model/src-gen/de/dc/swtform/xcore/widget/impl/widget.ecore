@@ -9,21 +9,21 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XButton" eSuperTypes="#//XWidget">
+  <eClassifiers xsi:type="ecore:EClass" name="XButton" eSuperTypes="#//XWidget #//ISelectable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSelected" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
         defaultValueLiteral="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XCheckButton" eSuperTypes="#//XButton"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XRadioButton" eSuperTypes="#//XButton"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XToogleButton" eSuperTypes="#//XButton"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XCheckButton" eSuperTypes="#//XButton #//ISelectable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XRadioButton" eSuperTypes="#//XButton #//ISelectable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XToogleButton" eSuperTypes="#//XButton #//ISelectable"/>
   <eClassifiers xsi:type="ecore:EClass" name="XSpinner" eSuperTypes="#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pageIncrement" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="digits" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XDateTime" eSuperTypes="#//XWidget">
+  <eClassifiers xsi:type="ecore:EClass" name="XDateTime" eSuperTypes="#//XWidget #//ISelectable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dateTimeType" unique="false"
         upperBound="-1" eType="#//XDateTimeType"/>
   </eClassifiers>
@@ -55,14 +55,14 @@
     <eLiterals name="OpenColor"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XToolBar" eSuperTypes="#//XWidget"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XToolBarItem" eSuperTypes="#//XWidget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XToolBarItem" eSuperTypes="#//XWidget #//ISelectable"/>
   <eClassifiers xsi:type="ecore:EClass" name="XCoolBar" eSuperTypes="#//XWidget"/>
-  <eClassifiers xsi:type="ecore:EClass" name="XCoolBarItem" eSuperTypes="#//XWidget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XCoolBarItem" eSuperTypes="#//XWidget #//ISelectable"/>
   <eClassifiers xsi:type="ecore:EClass" name="XBrowser" eSuperTypes="#//XWidget"/>
   <eClassifiers xsi:type="ecore:EClass" name="XLink" eSuperTypes="#//XWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XLabel" eSuperTypes="#//XWidget">
+  <eClassifiers xsi:type="ecore:EClass" name="XLabel" eSuperTypes="#//XWidget #//ISelectable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="100"/>
   </eClassifiers>
@@ -132,6 +132,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="XTreeViewer" eSuperTypes="#//XViewer"/>
   <eClassifiers xsi:type="ecore:EClass" name="XListViewer" eSuperTypes="#//XViewer"/>
   <eClassifiers xsi:type="ecore:EClass" name="XComboViewer" eSuperTypes="#//XViewer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ISelectable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectionListenerName"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasSelectionListener" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Style">
     <eLiterals name="None"/>
     <eLiterals name="KeyDown" value="1"/>

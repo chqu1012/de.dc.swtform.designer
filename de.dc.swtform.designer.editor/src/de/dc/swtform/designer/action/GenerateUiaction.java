@@ -1,8 +1,10 @@
 package de.dc.swtform.designer.action;
 
+import static de.dc.swtform.designer.template.Template.BaseControl;
+import static de.dc.swtform.designer.template.Template.ExtendedBaseControl;
+import static de.dc.swtform.designer.template.Template.TestControl;
 import static org.eclipse.core.resources.IResource.DEPTH_INFINITE;
 
-import java.awt.event.ActionEvent;
 import java.util.HashMap;
 
 import org.eclipse.core.resources.IFile;
@@ -32,15 +34,17 @@ import org.eclipse.ui.actions.ActionDelegate;
 import de.dc.swtform.designer.template.BaseControlTemplate;
 import de.dc.swtform.designer.template.ExtendedControlTemplate;
 import de.dc.swtform.designer.template.IGenerator;
+import de.dc.swtform.designer.template.Template;
+import de.dc.swtform.designer.template.TemplateManager;
 import de.dc.swtform.designer.template.TestControlTemplate;
 import de.dc.swtform.xcore.model.SwtForm;
 import de.dc.swtform.xcore.model.presentation.ModelEditor;
+import de.dc.swtform.xcore.widget.XViewer;
 import de.dc.swtform.xcore.widget.XWidget;
 
 public class GenerateUiaction extends ActionDelegate {
 
 	private SwtForm form;
-	private boolean isValid = true;
 	private HashMap<String, XWidget> uiMap;
 	
 	private XWidget lastDoubleWidget;
@@ -51,6 +55,58 @@ public class GenerateUiaction extends ActionDelegate {
 		lastDoubleWidget=null;
 		uiMap = new HashMap<String, XWidget>();
 		
+		getSelectedForm();
+		
+		if(!isValidForm() && lastDoubleWidget!=null){
+			showInValidFormAndSelectTreeItem();
+		}else if (form != null) {
+			generateUI();
+		}
+	}
+
+	private void generateUI() {
+		try {
+			IProject project = getCurrentProject();
+			project.open(null);
+			IJavaProject javaProject = JavaCore.create(project);
+			IFolder srcFolder = getFolder(javaProject, "src");
+			IFolder srcGenFolder = getFolder(javaProject, "src-gen");
+			IFolder testFolder = getFolder(javaProject, "test");
+			
+//			IGenerator<SwtForm> extendedTpl = new ExtendedControlTemplate();
+//			IGenerator<SwtForm> baseTpl = new BaseControlTemplate();
+//			IGenerator<SwtForm> testTpl = new TestControlTemplate();
+//			String extendedContent = extendedTpl.gen(form);
+//			String baseContent = baseTpl.gen(form);
+//			String testContent = testTpl.gen(form);
+			
+			for (XWidget  w : form.getWidgets()) {
+				if (w instanceof XViewer) {
+					XViewer viewer = (XViewer) w;
+					String providerContent = TemplateManager.Instance.get(Template.LabelProvider).gen(viewer);
+					createJavaClass(javaProject, srcFolder, providerContent, viewer.getName()+"LabelProvider.java", form.getPackagePath()+".provider","src");
+				}
+			}
+			
+			String baseContent = TemplateManager.Instance.get(Template.BaseControl).gen(form);
+			String extendedContent = TemplateManager.Instance.get(Template.ExtendedBaseControl).gen(form);
+			String testContent = TemplateManager.Instance.get(Template.TestControl).gen(form);
+
+			createBaseUIClass(javaProject, srcGenFolder,baseContent);
+			createExtendedUIClass(javaProject, srcFolder, extendedContent);
+			createTestUIClass(javaProject, testFolder, testContent);
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void showInValidFormAndSelectTreeItem() {
+		MessageDialog.openInformation(new Shell(), "Doppelte Steuerelementname!", "Die Namen müssen für jedes Element eindeutig definiert sein. \""+lastDoubleWidget.getName()+"\" kommt zweimal vor.");
+		ModelEditor activeEditor = (ModelEditor) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		((TreeViewer)activeEditor.getViewer()).setSelection(new StructuredSelection(lastDoubleWidget), true);
+	}
+
+	private void getSelectedForm() {
 		ISelectionService selectionService = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getSelectionService();
 		ISelection selection = selectionService.getSelection();
 		if (selection instanceof IStructuredSelection) {
@@ -59,69 +115,39 @@ public class GenerateUiaction extends ActionDelegate {
 				form = (SwtForm) ss.getFirstElement();
 			}
 		}
+	}
 
+	private boolean isValidForm() {
 		for (EObject o : form.eContents()) {
-			iterate((XWidget) o);
-		}
-		
-		if(!isValid && lastDoubleWidget!=null){
-			MessageDialog.openInformation(new Shell(), "Doppelte Steuerelementname!", "Die Namen müssen für jedes Element eindeutig definiert sein. \""+lastDoubleWidget.getName()+"\" kommt zweimal vor.");
-			ModelEditor activeEditor = (ModelEditor) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-			((TreeViewer)activeEditor.getViewer()).setSelection(new StructuredSelection(lastDoubleWidget), true);
-		}else if (form != null) {
-			try {
-				IProject project = getCurrentProject();
-				project.open(null);
-				IJavaProject javaProject = JavaCore.create(project);
-				IFolder srcFolder = getSrcFolder(javaProject);
-				IFolder srcGenFolder = getFolder(javaProject, "src-gen");
-				IFolder testFolder = getFolder(javaProject, "test");
-				
-				IGenerator<SwtForm> extendedTpl = new ExtendedControlTemplate();
-				IGenerator<SwtForm> baseTpl = new BaseControlTemplate();
-				IGenerator<SwtForm> testTpl = new TestControlTemplate();
-				String extendedContent = extendedTpl.gen(form);
-				String baseContent = baseTpl.gen(form);
-				String testContent = testTpl.gen(form);
-				
-				createBaseUIClass(javaProject, srcGenFolder,baseContent);
-				createExtendedUIClass(javaProject, srcFolder, extendedContent);
-				createTestUIClass(javaProject, testFolder, testContent);
-			} catch (CoreException e) {
-				e.printStackTrace();
+			XWidget widget = (XWidget)o;
+			boolean containsKey = uiMap.containsKey(widget.getName());
+			if(containsKey){
+				return !containsKey;
+			}else{
+				uiMap.put(widget.getName(), widget);
 			}
 		}
-
+		return true;
 	}
 	
-	private void iterate(XWidget w){
-		boolean containsKey = uiMap.containsKey(w.getName());
-		if(containsKey){
-			lastDoubleWidget=w;
-			isValid=false;
-		}else{
-			uiMap.put(w.getName(), w);
-		}
-	}
-
 	private void createTestUIClass(IJavaProject javaProject, IFolder folder, String content) throws JavaModelException, CoreException {
 		String fileName = form.getName()+"Main.java";
-		createJavaClass(javaProject, folder, content, fileName, "test");
+		createJavaClass(javaProject, folder, content, fileName, form.getPackagePath(), "test");
 	}
 	
 	private void createBaseUIClass(IJavaProject javaProject, IFolder folder, String content) throws JavaModelException, CoreException {
 		String fileName = "Base"+form.getName()+".java";
-		createJavaClass(javaProject, folder, content, fileName, "src-gen");
+		createJavaClass(javaProject, folder, content, fileName, form.getPackagePath(), "src-gen");
 	}
 
 	private void createExtendedUIClass(IJavaProject javaProject, IFolder folder, String content) throws JavaModelException, CoreException {
 		String fileName = form.getName()+".java";
-		createJavaClass(javaProject, folder, content, fileName, "src");
+		createJavaClass(javaProject, folder, content, fileName, form.getPackagePath(), "src");
 	}
 
-	private void createJavaClass(IJavaProject javaProject, IFolder folder, String content, String fileName, String srcPath)
+	private void createJavaClass(IJavaProject javaProject, IFolder folder, String content, String fileName, String packagePath, String srcPath)
 			throws CoreException, JavaModelException {
-		IPackageFragment newPackage = createPackage(javaProject, folder, form.getPackagePath(), srcPath);
+		IPackageFragment newPackage = createPackage(javaProject, folder, packagePath, srcPath);
 		newPackage.getResource().refreshLocal(DEPTH_INFINITE, null);
 		if(newPackage.getCompilationUnit(fileName).exists()){
 			newPackage.getCompilationUnit(fileName).delete(true, null);
@@ -136,10 +162,6 @@ public class GenerateUiaction extends ActionDelegate {
 		IPackageFragmentRoot f = javaProject.getPackageFragmentRoot(getFolder(javaProject, srcPath));
 		IPackageFragment packFragment = f.createPackageFragment(path, true, null);
 		return packFragment;
-	}
-
-	private IFolder getSrcFolder(IJavaProject javaProject) throws CoreException {
-		return getFolder(javaProject, "src");
 	}
 
 	private IFolder getFolder(IJavaProject javaProject, String name) throws CoreException {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model:SwtForm xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="de.dc.swtform.xcore.model" xmlns:widget="de.dc.swtform.xcore.widget" name="Test01" packagePath="de.dc.swtform.example.control">
+<model:SwtForm xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="de.dc.swtform.xcore.model" xmlns:widget="de.dc.swtform.xcore.widget" name="XUnitLabel" packagePath="de.dc.swtform.example.control">
   <widgets xsi:type="widget:XUnitLabel" name="unit" unit="km"/>
   <widgets xsi:type="widget:XUnitLabel" name="Hochkant" unit="km"/>
   <widgets xsi:type="widget:XUnitLabel" name="Tiefkant" unit="km"/>
+  <widgets xsi:type="widget:XButton" name="Abnehmen" selectionListenerName="Record" hasSelectionListener="true"/>
 </model:SwtForm>

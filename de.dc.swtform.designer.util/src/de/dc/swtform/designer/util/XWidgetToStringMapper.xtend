@@ -46,7 +46,12 @@ class XWidgetToStringMapper {
 	dispatch def String field(XLabelCombo w)'''protected Combo «w.controlName»;'''
 	dispatch def String field(XCombo w)'''protected Combo «w.controlName»;'''
 	dispatch def String field(XText w)'''protected Text «w.controlName»;'''
-	dispatch def String field(XTableViewer w)'''protected TableViewer «w.controlName»;'''
+	dispatch def String field(XTableViewer w)'''
+	protected TableViewer «w.controlName»;
+	«IF w.hasSearch»
+	protected Text search«w.name.toFirstUpper»Text;
+	«ENDIF»
+	'''
 	dispatch def String field(XComposite w)'''«FOR child : w.widgets SEPARATOR '\n'»«child.field»«ENDFOR»'''
 	dispatch def String field(XDateTime w)'''protected DateTime «w.controlName»;'''
 	dispatch def String field(XCheckButton w)'''protected Button «w.controlName»;'''
@@ -82,23 +87,20 @@ class XWidgetToStringMapper {
 	«w.getGridData('Text')»'''
 
 	dispatch def createWidget(XTableViewer w)'''
-	Compposite «w.name»Container = SwtFactory.createGridComposite(this, 1, 0, 0);
+	«val name = w.name.toFirstLower+"Composite"»
+	String[] titles = new String[]{«w.columns.map['"'+it.name+'"'].reduce[p1, p2|p1+', '+p2]»};
+	int[] bounds = new int[]{«w.columns.map[size+''].reduce[p1, p2|p1+', '+p2]»};
+	LabelProvider labelProvider = new «w.name.toFirstUpper»LabelProvider();
+	BaseTableViewer «name» = SwtFactory.createSearchTableViewer(this, titles, bounds, «w.hasSearch», labelProvider);
 	«w.getGridData('Composite')»
-	«IF w.hasSearch»
-	Text search«w.name»Text = SwtFactory.creatText(«w.name»Container);
-	search«w.name»Text.setMessage("Search");
-	«ENDIF»
-	TableViewer «w.name»TableViewer = new TableViewer(«w.name»Container, SWT.BORDER);
-	«w.name»TableViewer.getTable().setHeaderVisible(«w.showHeader»);
-	«w.name»TableViewer.getTable().setLinesVisible(«w.showLines»);
 	'''
 	dispatch def createWidget(XDateTime w)'''DateTime «w.name»DateTime = new DateTime(this, SWT.DATE | SWT.DROP_DOWN);
 	«w.getGridData('Composite')»'''
 
 	dispatch def createWidget(XComposite w)'''Composite «w.name»Composite = new Composite(this, SWT.NONE);'''
-	dispatch def createWidget(XCheckButton w)'''Button «w.name»Button = new Bubtton(this, SWT.CHECK);'''
-	dispatch def createWidget(XRadioButton w)'''Button «w.name»Button = new Bubtton(this, SWT.READIO);'''
-	dispatch def createWidget(XToogleButton w)'''Button «w.name»Button = new Bubtton(this, SWT.TOGGLE);'''
+	dispatch def createWidget(XCheckButton w)'''Button «w.name»Button = new Button(this, SWT.CHECK);'''
+	dispatch def createWidget(XRadioButton w)'''Button «w.name»Button = new Button(this, SWT.READIO);'''
+	dispatch def createWidget(XToogleButton w)'''Button «w.name»Button = new Button(this, SWT.TOGGLE);'''
 	dispatch def createWidget(XTableViewerColumn w)''''''
 	dispatch def createWidget(XComboItem w)''''''
 
@@ -106,7 +108,7 @@ class XWidgetToStringMapper {
 //		val container = SwtFactory.createGridComposite(this, 3, 5, 0)
 //		container.initLayoutData = w.layoutData
 //		SwtFactory.createLabel(container, w.name, w.labelWidth)
-//		val text = SwtFactory.creatText(container)
+//		val text = SwtFactory.createText(container)
 //		val button = SwtFactory.createPushButton(container, '...')
 //		button.addSelectionListener(new SelectionAdapter() {
 //			override widgetSelected(SelectionEvent e) {

@@ -9,7 +9,5 @@
   <widgets xsi:type="widget:XButton" name="Ok" hasSelectionListener="true">
     <layoutData xsi:type="model_1:XGridData"/>
   </widgets>
-  <widgets xsi:type="widget:XButton" name="Cancel" selectionListenerName="CancelAction" hasSelectionListener="true">
-    <layoutData xsi:type="model_1:XGridData"/>
-  </widgets>
+  <widgets xsi:type="widget:XButton" name="Cancel" selectionListenerName="CancelAction" hasSelectionListener="true"/>
 </model:SwtForm>

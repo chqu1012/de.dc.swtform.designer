@@ -27,6 +27,8 @@ public class BaseControlTemplate implements IGenerator<SwtForm> {
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
+    _builder.append("import de.dc.swtform.designer.control.*;");
+    _builder.newLine();
     _builder.append("import de.dc.swtform.designer.util.*;\t");
     _builder.newLine();
     _builder.newLine();
@@ -36,6 +38,16 @@ public class BaseControlTemplate implements IGenerator<SwtForm> {
     _builder.newLine();
     _builder.append("import org.eclipse.swt.widgets.*;");
     _builder.newLine();
+    _builder.append("import org.eclipse.jface.viewers.*;");
+    _builder.newLine();
+    _builder.append("import org.eclipse.swt.*;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("import ");
+    String _packagePath_1 = in.getPackagePath();
+    _builder.append(_packagePath_1, "");
+    _builder.append(".provider.*;");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("public abstract class Base");
     String _name = in.getName();

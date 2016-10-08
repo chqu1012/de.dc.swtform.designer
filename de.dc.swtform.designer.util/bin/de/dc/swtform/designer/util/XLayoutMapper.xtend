@@ -14,7 +14,9 @@ class XLayoutMapper {
 		if(l!=null){
 			init(parent, l)
 		}else{
-			val layout = ModelFactory.eINSTANCE.createXFillLayout
+			val layout = ModelFactory.eINSTANCE.createXGridLayout
+			layout.numColumns =1
+			layout.makeColumnsEqualWidth = false
 			init(parent, layout)
 		}
 	}

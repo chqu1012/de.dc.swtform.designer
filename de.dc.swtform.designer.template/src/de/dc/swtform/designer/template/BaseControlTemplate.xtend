@@ -11,11 +11,16 @@ class BaseControlTemplate implements IGenerator<SwtForm>{
 	override gen(SwtForm in)'''
 	package «in.packagePath»;
 
+	import de.dc.swtform.designer.control.*;
 	import de.dc.swtform.designer.util.*;	
 	
 	import org.eclipse.swt.layout.*;
 	import org.eclipse.swt.events.*;
 	import org.eclipse.swt.widgets.*;
+	import org.eclipse.jface.viewers.*;
+	import org.eclipse.swt.*;
+	
+	import «in.packagePath».provider.*;
 	
 	public abstract class Base«in.name» extends Composite implements SelectionListener{
 		

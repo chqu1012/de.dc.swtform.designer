@@ -17,7 +17,9 @@ public class XLayoutMapper {
     if (_notEquals) {
       this.init(parent, l);
     } else {
-      final XFillLayout layout = ModelFactory.eINSTANCE.createXFillLayout();
+      final XGridLayout layout = ModelFactory.eINSTANCE.createXGridLayout();
+      layout.setNumColumns(Integer.valueOf(1));
+      layout.setMakeColumnsEqualWidth(Boolean.valueOf(false));
       this.init(parent, layout);
     }
   }

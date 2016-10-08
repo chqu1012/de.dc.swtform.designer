@@ -92,6 +92,7 @@ class XWidgetToStringMapper {
 	int[] bounds = new int[]{«w.columns.map[size+''].reduce[p1, p2|p1+', '+p2]»};
 	LabelProvider labelProvider = new «w.name.toFirstUpper»LabelProvider();
 	BaseTableViewer «name» = SwtFactory.createSearchTableViewer(this, titles, bounds, «w.hasSearch», labelProvider);
+	contactsComposite.addFilter(new «w.name.toFirstUpper»Filter());
 	«w.name.toFirstLower»TableViewer = «name».getViewer();
 	«w.getGridData('Composite')»
 	'''

@@ -40,6 +40,7 @@ import de.dc.swtform.designer.template.TemplateManager;
 import de.dc.swtform.designer.template.TestControlTemplate;
 import de.dc.swtform.xcore.model.SwtForm;
 import de.dc.swtform.xcore.model.presentation.ModelEditor;
+import de.dc.swtform.xcore.widget.XTableViewer;
 import de.dc.swtform.xcore.widget.XViewer;
 import de.dc.swtform.xcore.widget.XWidget;
 
@@ -74,25 +75,26 @@ public class GenerateUiaction extends ActionDelegate {
 			IFolder srcGenFolder = getFolder(javaProject, "src-gen");
 			IFolder testFolder = getFolder(javaProject, "test");
 			
-//			IGenerator<SwtForm> extendedTpl = new ExtendedControlTemplate();
-//			IGenerator<SwtForm> baseTpl = new BaseControlTemplate();
-//			IGenerator<SwtForm> testTpl = new TestControlTemplate();
-//			String extendedContent = extendedTpl.gen(form);
-//			String baseContent = baseTpl.gen(form);
-//			String testContent = testTpl.gen(form);
-			
 			cleanFolders(srcFolder, srcGenFolder, testFolder);
 			
 			for (XWidget  w : form.getWidgets()) {
-				if (w instanceof XViewer) {
-					XViewer viewer = (XViewer) w;
-					String providerContent = TemplateManager.Instance.get(Template.LabelProvider).gen(viewer);
-					String baseProviderContent = TemplateManager.Instance.get(Template.BaseLabelProvider).gen(viewer);
+				if (w instanceof XTableViewer) {
+					XTableViewer viewer = (XTableViewer) w;
+					String providerContent = TemplateManager.Instance.get(Template.TableViewerExtendedLabelProvider).gen(viewer);
+					String baseProviderContent = TemplateManager.Instance.get(Template.TableViewerBaseLabelProvider).gen(viewer);
 					String modelContent = TemplateManager.Instance.get(Template.TableViewerModel).gen(viewer);
 					String labelProviderName = viewer.getName()+"LabelProvider.java";
 					String modelName = viewer.getName()+"Model.java";
 					String baseLabelProviderName = "Base"+labelProviderName;
 					String baseModelName = "Base"+modelName;
+					if (viewer.isHasSearch()) {
+						String baseFilterContent = TemplateManager.Instance.get(Template.TableViewerBaseFilter).gen(viewer);
+						String baseFilterName = "Base"+ viewer.getName()+"Filter.java";
+						String extendedFilterContent = TemplateManager.Instance.get(Template.TableViewerExtendedFilter).gen(viewer);
+						String extendedFilterName = viewer.getName()+"Filter.java";
+						createJavaClass(javaProject, srcFolder, extendedFilterContent, extendedFilterName, form.getPackagePath()+".filter","src");
+						createJavaClass(javaProject, srcGenFolder, baseFilterContent, baseFilterName, form.getPackagePath()+".filter","src-gen");
+					}
 					createJavaClass(javaProject, srcGenFolder, baseProviderContent, baseLabelProviderName, form.getPackagePath()+".provider","src-gen");
 					createJavaClass(javaProject, srcGenFolder, modelContent, baseModelName, form.getPackagePath()+".model","src-gen");
 					createJavaClass(javaProject, srcFolder, providerContent, labelProviderName, form.getPackagePath()+".provider","src");

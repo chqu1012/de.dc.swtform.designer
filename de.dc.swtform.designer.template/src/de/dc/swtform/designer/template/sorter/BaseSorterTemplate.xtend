@@ -13,7 +13,7 @@ class BaseSorterTemplate implements IGenerator<XTableViewer> {
 		package «form.packagePath».sorter;
 		
 		import de.dc.swtform.designer.control.sorter.BaseViewerComparator;
-		import de.dc.swtform.example.control.model.Base«name»Model;
+		import «form.packagePath».model.Base«name»Model;
 		
 		public abstract class Base«name»Sorter extends BaseViewerComparator<Base«name»Model> {
 		

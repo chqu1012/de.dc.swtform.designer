@@ -14,8 +14,18 @@ import org.eclipse.swt.widgets.FileDialog
 import org.eclipse.swt.widgets.Label
 import org.eclipse.swt.widgets.Shell
 import org.eclipse.swt.widgets.Text
+import org.eclipse.jface.viewers.TreeViewer
+import de.dc.swtform.designer.control.TreeContentProvider
+import de.dc.swtform.designer.control.TreeLabelProvider
 
 class SwtFactory {
+
+	def static createTreeViewer(Composite parent){
+		val treeViewer = new TreeViewer(parent, SWT.MULTI.bitwiseOr(SWT.H_SCROLL).bitwiseOr(SWT.V_SCROLL))
+		treeViewer.contentProvider = new TreeContentProvider
+		treeViewer.labelProvider = new TreeLabelProvider
+		treeViewer
+	}
 
 	def static createComboItems(Combo combo, String[] items){
 		items.forEach[combo.add(it)]

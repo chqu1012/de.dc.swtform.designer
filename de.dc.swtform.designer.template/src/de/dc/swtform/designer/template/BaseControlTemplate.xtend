@@ -3,6 +3,7 @@ package de.dc.swtform.designer.template
 import de.dc.swtform.designer.util.XWidgetToStringMapper
 import de.dc.swtform.xcore.model.SwtForm
 import de.dc.swtform.xcore.widget.ISelectable
+import de.dc.swtform.xcore.widget.XTableViewer
 
 class BaseControlTemplate implements IGenerator<SwtForm>{
 	
@@ -19,11 +20,11 @@ class BaseControlTemplate implements IGenerator<SwtForm>{
 	import org.eclipse.swt.widgets.*;
 	import org.eclipse.jface.viewers.*;
 	import org.eclipse.swt.*;
-
+	«IF in.widgets.exists[it instanceof XTableViewer]»
 	import «in.packagePath».filter.*;	
 	import «in.packagePath».provider.*;
 	import «in.packagePath».sorter.*;
-	
+	«ENDIF»
 	public abstract class Base«in.name» extends Composite implements SelectionListener{
 		
 		«FOR w: in.widgets SEPARATOR '\n'»«w.field»«ENDFOR»

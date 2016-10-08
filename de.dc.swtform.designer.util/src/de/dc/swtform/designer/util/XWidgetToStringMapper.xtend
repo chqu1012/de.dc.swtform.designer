@@ -20,6 +20,7 @@ import de.dc.swtform.xcore.widget.XText
 import de.dc.swtform.xcore.widget.XToogleButton
 import de.dc.swtform.xcore.widget.XUnitLabel
 import de.dc.swtform.xcore.widget.XWidget
+import de.dc.swtform.xcore.widget.XTreeViewer
 
 class XWidgetToStringMapper {
 	extension XLayoutMapper layoutMapper = new XLayoutMapper
@@ -30,6 +31,7 @@ class XWidgetToStringMapper {
 	dispatch def String controlName(XCombo w)'''«w.name.toFirstLower»Combo'''
 	dispatch def String controlName(XText w)'''«w.name.toFirstLower»Text'''
 	dispatch def String controlName(XTableViewer w)'''«w.name.toFirstLower»TableViewer'''
+	dispatch def String controlName(XTreeViewer w)'''«w.name.toFirstLower»TreeViewer'''
 	dispatch def String controlName(XComposite w)'''«FOR child : w.widgets SEPARATOR '\n'»«child.name.toFirstLower»«ENDFOR»'''
 	dispatch def String controlName(XDateTime w)'''«w.name.toFirstLower»DateTime'''
 	dispatch def String controlName(XCheckButton w)'''«w.name.toFirstLower»CheckButton'''
@@ -46,6 +48,7 @@ class XWidgetToStringMapper {
 	dispatch def String field(XLabelCombo w)'''protected Combo «w.controlName»;'''
 	dispatch def String field(XCombo w)'''protected Combo «w.controlName»;'''
 	dispatch def String field(XText w)'''protected Text «w.controlName»;'''
+	dispatch def String field(XTreeViewer w)'''protected TreeViewer «w.controlName»;'''
 	dispatch def String field(XTableViewer w)'''
 	protected TableViewer «w.controlName»;
 	«IF w.hasSearch»
@@ -95,6 +98,11 @@ class XWidgetToStringMapper {
 	«name».addSorter(new «w.name.toFirstUpper»Sorter());
 	«w.name.toFirstLower»TableViewer = «name».getViewer();
 	«w.getGridData('Composite')»
+	'''
+    dispatch def createWidget(XTreeViewer w)'''
+	«val name = w.name.toFirstLower+"TreeViewer"»
+	«name» = SwtFactory.createTreeViewer(this);
+	«w.getGridData('TreeViewer.getTree()')»
 	'''
 	dispatch def createWidget(XDateTime w)'''DateTime «w.name»DateTime = new DateTime(this, SWT.DATE | SWT.DROP_DOWN);
 	«w.getGridData('Composite')»'''

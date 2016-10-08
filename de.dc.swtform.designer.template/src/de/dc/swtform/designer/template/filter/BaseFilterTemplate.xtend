@@ -13,7 +13,7 @@ class BaseFilterTemplate implements IGenerator<XTableViewer>{
 	package «form.packagePath».filter;
 	
 	import de.dc.swtform.designer.control.filter.BaseFilter;
-	import de.dc.swtform.example.control.model.Base«name»Model;
+	import «form.packagePath».model.Base«name»Model;
 	
 	public abstract class Base«name»Filter extends BaseFilter<Base«name»Model>{
 	

@@ -12,7 +12,7 @@ class ExtendedSorterTemplate implements IGenerator<XTableViewer>{
 	«val form = EcoreUtil.getRootContainer(in) as SwtForm»
 	package «form.packagePath».sorter;
 	
-	import de.dc.swtform.example.control.model.*;
+	import «form.packagePath».model.*;
 		
 	public class «name»Sorter extends Base«name»Sorter{
 		

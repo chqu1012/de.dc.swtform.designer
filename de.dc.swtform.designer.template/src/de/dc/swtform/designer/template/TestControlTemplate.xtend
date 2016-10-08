@@ -17,7 +17,7 @@ class TestControlTemplate implements IGenerator<SwtForm> {
 	import org.eclipse.swt.widgets.*;
 	import de.dc.swtform.designer.util.*;
 	«IF in.widgets.filter[it instanceof XTableViewer].size>0»
-	import de.dc.swtform.example.control.model.*;
+	import «in.packagePath».model.*;
 	«ENDIF»
 	public class «in.name»Main extends Base«in.name» {
 	

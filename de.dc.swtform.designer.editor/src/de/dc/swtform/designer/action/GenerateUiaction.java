@@ -124,9 +124,12 @@ public class GenerateUiaction extends ActionDelegate {
 	}
 
 	private void cleanFolders(IFolder srcFolder, IFolder srcGenFolder, IFolder testFolder) {
-		deleteFiles(srcFolder);
-		deleteFiles(srcGenFolder);
-		deleteFiles(testFolder);
+		IFolder newSrcFolder = srcFolder.getFolder(form.getPackagePath().replaceAll("\\.", "/"));
+		IFolder newSrcGenFolder = srcGenFolder.getFolder(form.getPackagePath().replaceAll("\\.", "/"));
+		IFolder newTestFolder = testFolder.getFolder(form.getPackagePath().replaceAll("\\.", "/"));
+		deleteFiles(newSrcFolder);
+		deleteFiles(newSrcGenFolder);
+		deleteFiles(newTestFolder);
 	}
 
 	private void deleteFiles(IFolder folder) {

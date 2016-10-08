@@ -12,7 +12,7 @@ class ExtendedFilterTemplate implements IGenerator<XTableViewer>{
 	«val form = EcoreUtil.getRootContainer(in) as SwtForm»
 	package «form.packagePath».filter;
 	
-	import de.dc.swtform.example.control.model.*;
+	import «form.packagePath».model.*;
 	
 	public class «name»Filter extends Base«name»Filter{
 		

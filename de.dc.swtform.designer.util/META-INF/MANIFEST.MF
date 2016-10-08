@@ -13,6 +13,7 @@ Require-Bundle: com.google.guava,
  org.eclipse.ui;bundle-version="3.109.0"
 Export-Package: de.dc.swtform.designer.control,
  de.dc.swtform.designer.control.filter,
+ de.dc.swtform.designer.control.model,
  de.dc.swtform.designer.control.sorter,
  de.dc.swtform.designer.util
 

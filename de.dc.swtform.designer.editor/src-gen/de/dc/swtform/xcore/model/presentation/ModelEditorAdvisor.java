@@ -139,14 +139,14 @@ public final class ModelEditorAdvisor extends WorkbenchAdvisor {
 		/**
 		 * @see org.eclipse.ui.IPerspectiveFactory#createInitialLayout(org.eclipse.ui.IPageLayout)
 		 *      <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
+		 * @generated not
 		 */
 		public void createInitialLayout(IPageLayout layout) {
 			layout.setEditorAreaVisible(true);
 			layout.addPerspectiveShortcut(ID_PERSPECTIVE);
 
-			IFolderLayout right = layout.createFolder("right", IPageLayout.RIGHT, (float)0.66, layout.getEditorArea());
-			right.addView(IPageLayout.ID_OUTLINE);
+//			IFolderLayout right = layout.createFolder("right", IPageLayout.RIGHT, (float)0.66, layout.getEditorArea());
+//			right.addView(IPageLayout.ID_OUTLINE);
 
 			IFolderLayout bottonRight = layout.createFolder("bottonRight", IPageLayout.BOTTOM, (float)0.60, "right");
 			bottonRight.addView(IPageLayout.ID_PROP_SHEET);
@@ -171,13 +171,14 @@ public final class ModelEditorAdvisor extends WorkbenchAdvisor {
 		/**
 		 * @see org.eclipse.ui.application.WorkbenchWindowAdvisor#preWindowOpen()
 		 *      <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
+		 * @generated not
 		 */
 		@Override
 		public void preWindowOpen() {
 			IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
-			configurer.setInitialSize(new Point(600, 450));
-			configurer.setShowCoolBar(false);
+			configurer.setInitialSize(new Point(1200, 800));
+			configurer.setShowCoolBar(true);
+			configurer.setShowPerspectiveBar(true);
 			configurer.setShowStatusLine(true);
 			configurer.setTitle(getString("_UI_Application_title"));
 		}
@@ -258,7 +259,7 @@ public final class ModelEditorAdvisor extends WorkbenchAdvisor {
 		 * Creates the 'Edit' menu. <!-- begin-user-doc --> <!-- end-user-doc
 		 * -->
 		 * 
-		 * @generated
+		 * @generated not
 		 */
 		protected IMenuManager createEditMenu(IWorkbenchWindow window) {
 			IMenuManager menu = new MenuManager(getString("_UI_Menu_Edit_label"),
@@ -284,6 +285,8 @@ public final class ModelEditorAdvisor extends WorkbenchAdvisor {
 	
 			menu.add(new GroupMarker(IWorkbenchActionConstants.EDIT_END));
 			menu.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
+			
+			menu.add(new GroupMarker(IWorkbenchActionConstants.FIND_EXT) );
 			return menu;
 		}
 

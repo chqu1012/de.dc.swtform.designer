@@ -339,6 +339,16 @@ public class SwtFormItemProvider extends XNamedElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ModelPackage.Literals.SWT_FORM__WIDGETS,
+				 WidgetFactory.eINSTANCE.createXMenu()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.SWT_FORM__WIDGETS,
+				 WidgetFactory.eINSTANCE.createXMenuItem()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.SWT_FORM__WIDGETS,
 				 WidgetFactory.eINSTANCE.createXTableViewer()));
 
 		newChildDescriptors.add

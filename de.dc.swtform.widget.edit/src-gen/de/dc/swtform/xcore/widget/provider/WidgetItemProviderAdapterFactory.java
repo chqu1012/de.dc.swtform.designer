@@ -693,6 +693,52 @@ public class WidgetItemProviderAdapterFactory extends WidgetAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.swtform.xcore.widget.XMenu} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XMenuItemProvider xMenuItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.swtform.xcore.widget.XMenu}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXMenuAdapter() {
+		if (xMenuItemProvider == null) {
+			xMenuItemProvider = new XMenuItemProvider(this);
+		}
+
+		return xMenuItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.swtform.xcore.widget.XMenuItem} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XMenuItemItemProvider xMenuItemItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.swtform.xcore.widget.XMenuItem}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXMenuItemAdapter() {
+		if (xMenuItemItemProvider == null) {
+			xMenuItemItemProvider = new XMenuItemItemProvider(this);
+		}
+
+		return xMenuItemItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.dc.swtform.xcore.widget.XLabelProvider} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -805,6 +851,29 @@ public class WidgetItemProviderAdapterFactory extends WidgetAdapterFactory imple
 		}
 
 		return xTreeViewerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.dc.swtform.xcore.widget.XTreeViewerColumn} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XTreeViewerColumnItemProvider xTreeViewerColumnItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.dc.swtform.xcore.widget.XTreeViewerColumn}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXTreeViewerColumnAdapter() {
+		if (xTreeViewerColumnItemProvider == null) {
+			xTreeViewerColumnItemProvider = new XTreeViewerColumnItemProvider(this);
+		}
+
+		return xTreeViewerColumnItemProvider;
 	}
 
 	/**
@@ -1002,11 +1071,14 @@ public class WidgetItemProviderAdapterFactory extends WidgetAdapterFactory imple
 		if (xTabItemItemProvider != null) xTabItemItemProvider.dispose();
 		if (xcTabFolderItemProvider != null) xcTabFolderItemProvider.dispose();
 		if (xcTabItemItemProvider != null) xcTabItemItemProvider.dispose();
+		if (xMenuItemProvider != null) xMenuItemProvider.dispose();
+		if (xMenuItemItemProvider != null) xMenuItemItemProvider.dispose();
 		if (xLabelProviderItemProvider != null) xLabelProviderItemProvider.dispose();
 		if (xContentProviderItemProvider != null) xContentProviderItemProvider.dispose();
 		if (xTableViewerItemProvider != null) xTableViewerItemProvider.dispose();
 		if (xTableViewerColumnItemProvider != null) xTableViewerColumnItemProvider.dispose();
 		if (xTreeViewerItemProvider != null) xTreeViewerItemProvider.dispose();
+		if (xTreeViewerColumnItemProvider != null) xTreeViewerColumnItemProvider.dispose();
 		if (xListViewerItemProvider != null) xListViewerItemProvider.dispose();
 		if (xComboViewerItemProvider != null) xComboViewerItemProvider.dispose();
 		if (iSelectableItemProvider != null) iSelectableItemProvider.dispose();

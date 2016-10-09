@@ -134,6 +134,14 @@ class XCTabItem extends XComposite{
 abstract class XViewer extends XWidget{
 	contains XLabelProvider[0..1] labelProvider
 	contains XContentProvider[0..1] contentProvider
+	contains XMenu[0..1] menu
+}
+
+class XMenu extends XWidget{
+	contains XMenuItem[] items
+}
+
+class XMenuItem extends XWidget{
 }
 
 class XLabelProvider{

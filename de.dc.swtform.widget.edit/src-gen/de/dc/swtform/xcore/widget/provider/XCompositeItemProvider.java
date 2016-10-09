@@ -298,6 +298,16 @@ public class XCompositeItemProvider extends XWidgetItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(WidgetPackage.eINSTANCE.getXComposite_Widgets(),
+				 WidgetFactory.eINSTANCE.createXMenu()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WidgetPackage.eINSTANCE.getXComposite_Widgets(),
+				 WidgetFactory.eINSTANCE.createXMenuItem()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WidgetPackage.eINSTANCE.getXComposite_Widgets(),
 				 WidgetFactory.eINSTANCE.createXTableViewer()));
 
 		newChildDescriptors.add
@@ -309,6 +319,11 @@ public class XCompositeItemProvider extends XWidgetItemProvider {
 			(createChildParameter
 				(WidgetPackage.eINSTANCE.getXComposite_Widgets(),
 				 WidgetFactory.eINSTANCE.createXTreeViewer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WidgetPackage.eINSTANCE.getXComposite_Widgets(),
+				 WidgetFactory.eINSTANCE.createXTreeViewerColumn()));
 
 		newChildDescriptors.add
 			(createChildParameter

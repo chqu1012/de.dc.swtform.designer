@@ -5,7 +5,7 @@ package de.dc.swtform.xcore.widget.provider;
 
 import de.dc.swtform.xcore.widget.WidgetFactory;
 import de.dc.swtform.xcore.widget.WidgetPackage;
-import de.dc.swtform.xcore.widget.XViewer;
+import de.dc.swtform.xcore.widget.XMenu;
 
 import java.util.Collection;
 import java.util.List;
@@ -19,19 +19,19 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.dc.swtform.xcore.widget.XViewer} object.
+ * This is the item provider adapter for a {@link de.dc.swtform.xcore.widget.XMenu} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class XViewerItemProvider extends XWidgetItemProvider {
+public class XMenuItemProvider extends XWidgetItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XViewerItemProvider(AdapterFactory adapterFactory) {
+	public XMenuItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,9 +62,7 @@ public class XViewerItemProvider extends XWidgetItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(WidgetPackage.eINSTANCE.getXViewer_LabelProvider());
-			childrenFeatures.add(WidgetPackage.eINSTANCE.getXViewer_ContentProvider());
-			childrenFeatures.add(WidgetPackage.eINSTANCE.getXViewer_Menu());
+			childrenFeatures.add(WidgetPackage.eINSTANCE.getXMenu_Items());
 		}
 		return childrenFeatures;
 	}
@@ -83,6 +81,17 @@ public class XViewerItemProvider extends XWidgetItemProvider {
 	}
 
 	/**
+	 * This returns XMenu.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XMenu"));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -90,10 +99,10 @@ public class XViewerItemProvider extends XWidgetItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((XViewer)object).getName();
+		String label = ((XMenu)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_XViewer_type") :
-			getString("_UI_XViewer_type") + " " + label;
+			getString("_UI_XMenu_type") :
+			getString("_UI_XMenu_type") + " " + label;
 	}
 	
 
@@ -108,10 +117,8 @@ public class XViewerItemProvider extends XWidgetItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(XViewer.class)) {
-			case WidgetPackage.XVIEWER__LABEL_PROVIDER:
-			case WidgetPackage.XVIEWER__CONTENT_PROVIDER:
-			case WidgetPackage.XVIEWER__MENU:
+		switch (notification.getFeatureID(XMenu.class)) {
+			case WidgetPackage.XMENU__ITEMS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -131,18 +138,8 @@ public class XViewerItemProvider extends XWidgetItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WidgetPackage.eINSTANCE.getXViewer_LabelProvider(),
-				 WidgetFactory.eINSTANCE.createXLabelProvider()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(WidgetPackage.eINSTANCE.getXViewer_ContentProvider(),
-				 WidgetFactory.eINSTANCE.createXContentProvider()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(WidgetPackage.eINSTANCE.getXViewer_Menu(),
-				 WidgetFactory.eINSTANCE.createXMenu()));
+				(WidgetPackage.eINSTANCE.getXMenu_Items(),
+				 WidgetFactory.eINSTANCE.createXMenuItem()));
 	}
 
 }

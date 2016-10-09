@@ -29,6 +29,7 @@ import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionDelegate;
 
+import de.dc.swtform.designer.dialog.DeleteOptionDialog;
 import de.dc.swtform.designer.template.Template;
 import de.dc.swtform.designer.template.TemplateManager;
 import de.dc.swtform.xcore.model.SwtForm;
@@ -119,13 +120,20 @@ public class GenerateUiaction extends ActionDelegate {
 		IFolder newSrcFolder = srcFolder.getFolder(form.getPackagePath().replaceAll("\\.", "/"));
 		IFolder newSrcGenFolder = srcGenFolder.getFolder(form.getPackagePath().replaceAll("\\.", "/"));
 		IFolder newTestFolder = testFolder.getFolder(form.getPackagePath().replaceAll("\\.", "/"));
-		if(newSrcFolder.exists()){
-			if(MessageDialog.openQuestion(new Shell(), "Src Verzeichnis löschen?", "Möchten sie wirklich das Verzeichnis "+srcFolder.getRawLocation().toString()+" und sämtliche Dateien rekursiv löschen?")){
+		
+		DeleteOptionDialog dialog = new DeleteOptionDialog(new Shell(), srcFolder.getRawLocation().toString());
+		int open = dialog.open();
+		if(open== 0){
+			if(dialog.isSrcSelected()){
 				deleteFiles(newSrcFolder);
 			}
+			if(dialog.isSrcGenSelected()){
+				deleteFiles(newSrcGenFolder);
+			}
+			if (dialog.isTestSelected()) {
+				deleteFiles(newTestFolder);
+			}
 		}
-		deleteFiles(newSrcGenFolder);
-		deleteFiles(newTestFolder);
 	}
 
 	private void deleteFiles(IFolder folder) {

@@ -142,14 +142,12 @@ public final class ModelEditorAdvisor extends WorkbenchAdvisor {
 		 * @generated not
 		 */
 		public void createInitialLayout(IPageLayout layout) {
-			layout.setEditorAreaVisible(true);
-			layout.addPerspectiveShortcut(ID_PERSPECTIVE);
-
+//			layout.setEditorAreaVisible(true);
+//			layout.addPerspectiveShortcut(ID_PERSPECTIVE);
 //			IFolderLayout right = layout.createFolder("right", IPageLayout.RIGHT, (float)0.66, layout.getEditorArea());
 //			right.addView(IPageLayout.ID_OUTLINE);
-
-			IFolderLayout bottonRight = layout.createFolder("bottonRight", IPageLayout.BOTTOM, (float)0.60, "right");
-			bottonRight.addView(IPageLayout.ID_PROP_SHEET);
+//			IFolderLayout bottonRight = layout.createFolder("bottonRight", IPageLayout.BOTTOM, (float)0.60, "right");
+//			bottonRight.addView(IPageLayout.ID_PROP_SHEET);
 		}
 	}
 

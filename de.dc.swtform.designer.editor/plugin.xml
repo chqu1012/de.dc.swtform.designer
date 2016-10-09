@@ -144,9 +144,16 @@
          <view
                id="org.eclipse.ui.views.PropertySheet"
                minimized="false"
-               ratio="0.25f"
-               relationship="top"
+               ratio="0.75f"
+               relationship="bottom"
                relative="org.eclipse.ui.editorss">
+         </view>
+         <view
+               id="org.eclipse.ui.console.ConsoleView"
+               minimized="false"
+               ratio="0.75f"
+               relationship="bottom"
+               relative="org.eclipse.jdt.ui.PackageExplorer">
          </view>
       </perspectiveExtension>
    </extension>

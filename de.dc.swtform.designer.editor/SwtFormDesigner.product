@@ -3,7 +3,6 @@
 
 <product name="SwtFormDesigner" id="de.dc.swtform.designer.model.editor.product" application="de.dc.swtform.designer.model.editor.ModelEditorAdvisorApplication" useFeatures="false" includeLaunchers="true">
 
-
    <configIni use="default">
    </configIni>
 
@@ -23,7 +22,6 @@
       </win>
    </launcher>
 
-
    <vm>
       <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</windows>
    </vm>
@@ -37,8 +35,6 @@
       <plugin id="de.dc.swtform.designer.model"/>
       <plugin id="de.dc.swtform.designer.model.edit"/>
       <plugin id="de.dc.swtform.designer.model.editor"/>
-      <plugin id="de.dc.swtform.designer.template"/>
-      <plugin id="de.dc.swtform.designer.util"/>
       <plugin id="de.dc.swtform.layout.edit"/>
       <plugin id="de.dc.swtform.layout.model"/>
       <plugin id="de.dc.swtform.widget.edit"/>

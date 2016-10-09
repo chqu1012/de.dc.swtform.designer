@@ -1,4 +1,4 @@
-SwtFormDesigner is a framework for describing user interface declarativly and generates a lot of supported features.
+SwtFormDesigner is a framework for describing user interface declarativly and generates a lot of supported features. Mainly its grouped controls to a form. 
 * Generating user interface classes in java
 * Preview Part of described ui
 * A lot of combined widgets
@@ -6,7 +6,7 @@ SwtFormDesigner is a framework for describing user interface declarativly and ge
 * Easy integrating of databinding in the user interface
 
 ##Screenhot
-(https://github.com/chqu1012/de.dc.swtform.designer/blob/master/readme/images/application-v0.1.0.PNG "SwtFormDesigner")
+![SwtFormDesigner screenshot](https://github.com/chqu1012/de.dc.swtform.designer/blob/master/readme/images/application-v0.1.0.PNG "SwtFormDesigner")
 
 ##Download
 

@@ -22,6 +22,8 @@ import de.dc.swtform.xcore.widget.XUnitLabel
 import de.dc.swtform.xcore.widget.XWidget
 import de.dc.swtform.xcore.widget.XTreeViewer
 import de.dc.swtform.xcore.widget.XTreeViewerColumn
+import de.dc.swtform.xcore.widget.XMenu
+import de.dc.swtform.xcore.widget.XMenuItem
 
 class XWidgetToStringMapper {
 	extension XLayoutMapper layoutMapper = new XLayoutMapper
@@ -36,6 +38,8 @@ class XWidgetToStringMapper {
 	dispatch def String controlName(XComposite w)'''«FOR child : w.widgets SEPARATOR '\n'»«child.name.toFirstLower»«ENDFOR»'''
 	dispatch def String controlName(XDateTime w)'''«w.name.toFirstLower»DateTime'''
 	dispatch def String controlName(XCheckButton w)'''«w.name.toFirstLower»CheckButton'''
+	dispatch def String controlName(XMenu w)'''«w.name.toFirstLower»Menu'''
+	dispatch def String controlName(XMenuItem w)'''«w.name.toFirstLower»MenuItem'''
 	dispatch def String controlName(XRadioButton w)'''«w.name.toFirstLower»RadioButton'''
 	dispatch def String controlName(XTableViewerColumn w)''''''
 	dispatch def String controlName(XTreeViewerColumn w)''''''
@@ -68,7 +72,8 @@ class XWidgetToStringMapper {
 	dispatch def String field(XUnitLabel w)'''protected Text «w.controlName»;'''
 	dispatch def String field(XSpinner w)'''protected Spinner «w.controlName»;'''
 	dispatch def String field(XLink w)'''protected Link «w.controlName»;'''
-
+	dispatch def String field(XMenu w)'''protected Menu «w.controlName»;'''
+    dispatch def String field(XMenuItem w)'''protected MenuItem «w.controlName»;'''
 
 	dispatch def createWidget(XButton w)'''
 	«w.name.toFirstLower»Button = SwtFactory.createPushButton(this, "«w.text»");
@@ -117,6 +122,8 @@ class XWidgetToStringMapper {
 	dispatch def createWidget(XCheckButton w)'''Button «w.name»Button = new Button(this, SWT.CHECK);'''
 	dispatch def createWidget(XRadioButton w)'''Button «w.name»Button = new Button(this, SWT.READIO);'''
 	dispatch def createWidget(XToogleButton w)'''Button «w.name»Button = new Button(this, SWT.TOGGLE);'''
+	dispatch def createWidget(XMenu w)'''«w.name»Menu = new Menu(this);'''
+	dispatch def createWidget(XMenuItem w)'''«w.name»MenuItem = new MenuItem(this);'''
 	dispatch def createWidget(XTableViewerColumn w)''''''
 	dispatch def createWidget(XTreeViewerColumn w)''''''
 	dispatch def createWidget(XComboItem w)''''''

@@ -40,6 +40,10 @@ import org.eclipse.swt.widgets.Text
 import de.dc.swtform.xcore.widget.XLabelCombo
 import de.dc.swtform.xcore.widget.XTreeViewer
 import de.dc.swtform.xcore.widget.XTreeViewerColumn
+import de.dc.swtform.xcore.widget.XMenu
+import de.dc.swtform.xcore.widget.XMenuItem
+import org.eclipse.swt.widgets.Menu
+import org.eclipse.swt.widgets.MenuItem
 
 class XWidgetToSwtMapper {
 
@@ -100,6 +104,14 @@ class XWidgetToSwtMapper {
 		val control = new TableViewer(container, SWT.BORDER)
 		control.table.headerVisible = w.showHeader
 		control.table.linesVisible = w.showLines
+		if(w.menu!=null){
+			val menu = new Menu(control.table)
+			control.table.setMenu(menu)
+			for(item: w.menu.items){
+				 val mItem = new MenuItem(menu, SWT.NONE);
+	   			 mItem.text = item.text
+			}
+		}
 		w.columns.forEach[control.createTableViewerColumn(it)]
 		control.control.initLayoutData(w.layoutData)
 		control.table.data = w
@@ -112,6 +124,7 @@ class XWidgetToSwtMapper {
 		viewer.tree.linesVisible = true
 		viewer.control.initLayoutData(w.layoutData)
 		w.columns.forEach[SwtFactory.createTreeViewerColumn(viewer, it.name, it.size)]
+		viewer.tree.data = w
 		viewer.control
 	}
 	
@@ -146,11 +159,8 @@ class XWidgetToSwtMapper {
 		createButton(parent, SWT.TOGGLE, w)
 	}
 
-	dispatch def createWidget(Composite parent, XTableViewerColumn w) {
-	}
-
-	dispatch def createWidget(Composite parent, XComboItem w) {
-	}
+	dispatch def createWidget(Composite parent, XTableViewerColumn w) {}
+	dispatch def createWidget(Composite parent, XComboItem w) {}
 
 	dispatch def createWidget(Composite parent, XDialogText w) {
 		val container = SwtFactory.createGridComposite(parent, 3, 5, 0)
@@ -187,7 +197,9 @@ class XWidgetToSwtMapper {
 		text.data = w
 		text
 	}
-
+	dispatch def createWidget(Composite parent, XMenu w) {}
+	dispatch def createWidget(Composite parent, XMenuItem w) {}
+	
 	dispatch def createWidget(Composite parent, XUnitLabel w) {
 		val container = SwtFactory.createGridComposite(parent, 3, 5, 0)
 		SwtFactory.createLabel(container, w.text, w.width)
@@ -264,6 +276,5 @@ class XWidgetToSwtMapper {
 		control.layoutData = gd
 	}
 
-	dispatch def layoutData(Control control, XFillData ld) {
-	}
+	dispatch def layoutData(Control control, XFillData ld) {	}
 }

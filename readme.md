@@ -7,7 +7,7 @@ SwtFormDesigner is a framework for describing user interface declarativly and ge
 * Easy integrating of databinding in the user interface
 
 ##Screenhot
-![SwtFormDesigner screenshot](https://github.com/chqu1012/de.dc.swtform.designer/blob/master/readme/images/application-v0.1.0.PNG "SwtFormDesigner")
+![SwtFormDesigner screenshot](https://github.com/chqu1012/de.dc.swtform.designer/blob/master/readme/images/application-v0.1.1.PNG "SwtFormDesigner")
 
 ##Download
 

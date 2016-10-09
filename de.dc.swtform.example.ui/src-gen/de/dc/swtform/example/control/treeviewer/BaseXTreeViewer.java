@@ -1,4 +1,4 @@
-package de.dc.swtform.example.control.tree;
+package de.dc.swtform.example.control.treeviewer;
 
 import de.dc.swtform.designer.control.*;
 import de.dc.swtform.designer.util.*;	

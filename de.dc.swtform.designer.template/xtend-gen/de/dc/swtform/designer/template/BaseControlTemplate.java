@@ -5,6 +5,7 @@ import de.dc.swtform.designer.template.IGenerator;
 import de.dc.swtform.designer.util.XWidgetToStringMapper;
 import de.dc.swtform.xcore.model.SwtForm;
 import de.dc.swtform.xcore.widget.ISelectable;
+import de.dc.swtform.xcore.widget.XTableViewer;
 import de.dc.swtform.xcore.widget.XWidget;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -42,13 +43,30 @@ public class BaseControlTemplate implements IGenerator<SwtForm> {
     _builder.newLine();
     _builder.append("import org.eclipse.swt.*;");
     _builder.newLine();
-    _builder.newLine();
-    _builder.append("import ");
-    String _packagePath_1 = in.getPackagePath();
-    _builder.append(_packagePath_1, "");
-    _builder.append(".provider.*;");
-    _builder.newLineIfNotEmpty();
-    _builder.newLine();
+    {
+      EList<XWidget> _widgets = in.getWidgets();
+      final Function1<XWidget, Boolean> _function = (XWidget it) -> {
+        return Boolean.valueOf((it instanceof XTableViewer));
+      };
+      boolean _exists = IterableExtensions.<XWidget>exists(_widgets, _function);
+      if (_exists) {
+        _builder.append("import ");
+        String _packagePath_1 = in.getPackagePath();
+        _builder.append(_packagePath_1, "");
+        _builder.append(".filter.*;\t");
+        _builder.newLineIfNotEmpty();
+        _builder.append("import ");
+        String _packagePath_2 = in.getPackagePath();
+        _builder.append(_packagePath_2, "");
+        _builder.append(".provider.*;");
+        _builder.newLineIfNotEmpty();
+        _builder.append("import ");
+        String _packagePath_3 = in.getPackagePath();
+        _builder.append(_packagePath_3, "");
+        _builder.append(".sorter.*;");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("public abstract class Base");
     String _name = in.getName();
     _builder.append(_name, "");
@@ -58,9 +76,9 @@ public class BaseControlTemplate implements IGenerator<SwtForm> {
     _builder.newLine();
     _builder.append("\t");
     {
-      EList<XWidget> _widgets = in.getWidgets();
+      EList<XWidget> _widgets_1 = in.getWidgets();
       boolean _hasElements = false;
-      for(final XWidget w : _widgets) {
+      for(final XWidget w : _widgets_1) {
         if (!_hasElements) {
           _hasElements = true;
         } else {
@@ -88,8 +106,8 @@ public class BaseControlTemplate implements IGenerator<SwtForm> {
     _builder.append("\t\t");
     _builder.newLine();
     {
-      EList<XWidget> _widgets_1 = in.getWidgets();
-      for(final XWidget w_1 : _widgets_1) {
+      EList<XWidget> _widgets_2 = in.getWidgets();
+      for(final XWidget w_1 : _widgets_2) {
         _builder.append("\t\t");
         CharSequence _createWidget = BaseControlTemplate.mapper.createWidget(w_1);
         _builder.append(_createWidget, "\t\t");
@@ -98,11 +116,11 @@ public class BaseControlTemplate implements IGenerator<SwtForm> {
     }
     _builder.append("\t\t");
     {
-      EList<XWidget> _widgets_2 = in.getWidgets();
-      final Function1<XWidget, Boolean> _function = (XWidget it) -> {
+      EList<XWidget> _widgets_3 = in.getWidgets();
+      final Function1<XWidget, Boolean> _function_1 = (XWidget it) -> {
         return Boolean.valueOf((it instanceof ISelectable));
       };
-      Iterable<XWidget> _filter = IterableExtensions.<XWidget>filter(_widgets_2, _function);
+      Iterable<XWidget> _filter = IterableExtensions.<XWidget>filter(_widgets_3, _function_1);
       for(final XWidget w_2 : _filter) {
         final ISelectable selection = ((ISelectable) w_2);
         _builder.newLineIfNotEmpty();
@@ -140,11 +158,11 @@ public class BaseControlTemplate implements IGenerator<SwtForm> {
     _builder.append("public void widgetSelected(SelectionEvent e) {");
     _builder.newLine();
     {
-      EList<XWidget> _widgets_3 = in.getWidgets();
-      final Function1<XWidget, Boolean> _function_1 = (XWidget it) -> {
+      EList<XWidget> _widgets_4 = in.getWidgets();
+      final Function1<XWidget, Boolean> _function_2 = (XWidget it) -> {
         return Boolean.valueOf((it instanceof ISelectable));
       };
-      Iterable<XWidget> _filter_1 = IterableExtensions.<XWidget>filter(_widgets_3, _function_1);
+      Iterable<XWidget> _filter_1 = IterableExtensions.<XWidget>filter(_widgets_4, _function_2);
       for(final XWidget w_3 : _filter_1) {
         _builder.append("\t\t");
         final ISelectable selection_1 = ((ISelectable) w_3);
@@ -187,11 +205,11 @@ public class BaseControlTemplate implements IGenerator<SwtForm> {
     _builder.append("}");
     _builder.newLine();
     {
-      EList<XWidget> _widgets_4 = in.getWidgets();
-      final Function1<XWidget, Boolean> _function_2 = (XWidget it) -> {
+      EList<XWidget> _widgets_5 = in.getWidgets();
+      final Function1<XWidget, Boolean> _function_3 = (XWidget it) -> {
         return Boolean.valueOf((it instanceof ISelectable));
       };
-      Iterable<XWidget> _filter_2 = IterableExtensions.<XWidget>filter(_widgets_4, _function_2);
+      Iterable<XWidget> _filter_2 = IterableExtensions.<XWidget>filter(_widgets_5, _function_3);
       for(final XWidget w_4 : _filter_2) {
         _builder.append("\t");
         final ISelectable selection_2 = ((ISelectable) w_4);

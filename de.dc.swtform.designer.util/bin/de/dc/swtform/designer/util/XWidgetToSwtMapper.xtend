@@ -38,13 +38,19 @@ import org.eclipse.swt.widgets.Shell
 import org.eclipse.swt.widgets.Spinner
 import org.eclipse.swt.widgets.Text
 import de.dc.swtform.xcore.widget.XLabelCombo
+import de.dc.swtform.xcore.widget.XTreeViewer
+import de.dc.swtform.xcore.widget.XTreeViewerColumn
+import de.dc.swtform.xcore.widget.XMenu
+import de.dc.swtform.xcore.widget.XMenuItem
+import org.eclipse.swt.widgets.Menu
+import org.eclipse.swt.widgets.MenuItem
 
 class XWidgetToSwtMapper {
 
 	extension XLayoutMapper layoutMapper = new XLayoutMapper
 
 	dispatch def createWidget(Composite parent, XButton w) {
-		val control = SwtFactory.createPushButton(parent, w.name)
+		val control = SwtFactory.createPushButton(parent, w.text)
 		control.initLayoutData(w.layoutData)
 		control.data = w
 		control
@@ -52,8 +58,8 @@ class XWidgetToSwtMapper {
 
 	dispatch def createWidget(Composite parent, XLabel w) {
 		val control = new Label(parent, SWT.NONE)
-		if (w.name != null) {
-			control.text = w.name
+		if (w.text != null) {
+			control.text = w.text
 		}
 		control.data = w
 		control.initLayoutData(w.layoutData)
@@ -98,10 +104,31 @@ class XWidgetToSwtMapper {
 		val control = new TableViewer(container, SWT.BORDER)
 		control.table.headerVisible = w.showHeader
 		control.table.linesVisible = w.showLines
+		if(w.menu!=null){
+			val menu = new Menu(control.table)
+			control.table.setMenu(menu)
+			for(item: w.menu.items){
+				 val mItem = new MenuItem(menu, SWT.NONE);
+	   			 mItem.text = item.text
+			}
+		}
 		w.columns.forEach[control.createTableViewerColumn(it)]
 		control.control.initLayoutData(w.layoutData)
 		control.table.data = w
 		control.table
+	}
+	
+	dispatch def createWidget(Composite parent, XTreeViewer w){
+		val viewer = SwtFactory.createTreeViewer(parent, w.hasFilter)
+		viewer.tree.headerVisible=true
+		viewer.tree.linesVisible = true
+		viewer.control.initLayoutData(w.layoutData)
+		w.columns.forEach[SwtFactory.createTreeViewerColumn(viewer, it.name, it.size)]
+		viewer.tree.data = w
+		viewer.control
+	}
+	
+	dispatch def createWidget(Composite parent, XTreeViewerColumn w){
 	}
 
 	dispatch def createWidget(Composite parent, XComposite w) {
@@ -132,16 +159,13 @@ class XWidgetToSwtMapper {
 		createButton(parent, SWT.TOGGLE, w)
 	}
 
-	dispatch def createWidget(Composite parent, XTableViewerColumn w) {
-	}
-
-	dispatch def createWidget(Composite parent, XComboItem w) {
-	}
+	dispatch def createWidget(Composite parent, XTableViewerColumn w) {}
+	dispatch def createWidget(Composite parent, XComboItem w) {}
 
 	dispatch def createWidget(Composite parent, XDialogText w) {
 		val container = SwtFactory.createGridComposite(parent, 3, 5, 0)
 		container.initLayoutData = w.layoutData
-		SwtFactory.createLabel(container, w.name, w.labelWidth)
+		SwtFactory.createLabel(container, w.text, w.labelWidth)
 		val text = SwtFactory.createText(container)
 		val button = SwtFactory.createPushButton(container, '...')
 		button.addSelectionListener(new SelectionAdapter() {
@@ -173,10 +197,12 @@ class XWidgetToSwtMapper {
 		text.data = w
 		text
 	}
-
+	dispatch def createWidget(Composite parent, XMenu w) {}
+	dispatch def createWidget(Composite parent, XMenuItem w) {}
+	
 	dispatch def createWidget(Composite parent, XUnitLabel w) {
 		val container = SwtFactory.createGridComposite(parent, 3, 5, 0)
-		SwtFactory.createLabel(container, w.name, w.width)
+		SwtFactory.createLabel(container, w.text, w.width)
 		val text = SwtFactory.createText(container)
 		SwtFactory.createLabel(container, w.unit, 30)
 		text.data = w
@@ -207,7 +233,7 @@ class XWidgetToSwtMapper {
 	def createButton(Composite parent, int style, XButton w) {
 		val control = new Button(parent, style)
 		control.selection = w.isSelected
-		control.text = w.name
+		control.text = w.text
 		control.data = w
 		control.initLayoutData(w.layoutData)
 		control
@@ -215,19 +241,19 @@ class XWidgetToSwtMapper {
 
 	def createLabelContainer(Composite parent, XLabel w) {
 		val container = SwtFactory.createGridComposite(parent, 3, 5, 0)
-		SwtFactory.createLabel(container, w.name, w.width)
+		SwtFactory.createLabel(container, w.text, w.width)
 		container.initLayoutData(w.layoutData)
 		container
 	}
 
 	def createComboItems(Combo combo, EList<XComboItem> items) {
-		items.forEach[combo.add = it.name]
+		items.forEach[combo.add = it.text]
 	}
 
 	def createTableViewerColumn(TableViewer viewer, XTableViewerColumn w) {
 		val col = new TableViewerColumn(viewer, SWT.NONE)
 		col.column.width = w.size
-		col.column.text = w.name
+		col.column.text = w.text
 	}
 
 	def initLayoutData(Control control, XLayoutData ld) {
@@ -250,6 +276,5 @@ class XWidgetToSwtMapper {
 		control.layoutData = gd
 	}
 
-	dispatch def layoutData(Control control, XFillData ld) {
-	}
+	dispatch def layoutData(Control control, XFillData ld) {	}
 }

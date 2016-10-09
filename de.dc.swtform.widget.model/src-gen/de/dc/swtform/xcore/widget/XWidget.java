@@ -53,6 +53,7 @@ public interface XWidget extends XLayoutDataElement {
 
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' attribute.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Text</em>' attribute isn't clear,
@@ -62,7 +63,7 @@ public interface XWidget extends XLayoutDataElement {
 	 * @return the value of the '<em>Text</em>' attribute.
 	 * @see #setText(String)
 	 * @see de.dc.swtform.xcore.widget.WidgetPackage#getXWidget_Text()
-	 * @model unique="false"
+	 * @model default="" unique="false"
 	 * @generated
 	 */
 	String getText();

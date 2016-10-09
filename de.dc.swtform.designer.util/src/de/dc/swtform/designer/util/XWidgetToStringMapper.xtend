@@ -60,6 +60,10 @@ class XWidgetToStringMapper {
 	«IF w.hasSearch»
 	protected Text search«w.name.toFirstUpper»Text;
 	«ENDIF»
+	«IF w.menu!=null»
+	«w.menu.field»
+	«FOR item : w.menu.items»«item.field»«ENDFOR»
+	«ENDIF»
 	'''
 	dispatch def String field(XComposite w)'''«FOR child : w.widgets SEPARATOR '\n'»«child.field»«ENDFOR»'''
 	dispatch def String field(XDateTime w)'''protected DateTime «w.controlName»;'''
@@ -105,6 +109,12 @@ class XWidgetToStringMapper {
 	«name».addFilter(new «w.name.toFirstUpper»Filter());
 	«name».addSorter(new «w.name.toFirstUpper»Sorter());
 	«w.name.toFirstLower»TableViewer = «name».getViewer();
+	«IF w.menu!=null»
+	«w.menu.name.toFirstLower»Menu = SwtFactory.createMenu(«w.name.toFirstLower»TableViewer.getTable());
+	«FOR item: w.menu.items»
+	«item.name.toFirstLower»MenuItem = SwtFactory.createMenuItem(«w.menu.name.toFirstLower»Menu, "«item.text»");
+	«ENDFOR»
+	«ENDIF»
 	«w.getGridData('Composite')»
 	'''
     dispatch def createWidget(XTreeViewer w)'''

@@ -8,15 +8,16 @@ import org.eclipse.swt.events.*;
 import org.eclipse.swt.widgets.*;
 import org.eclipse.jface.viewers.*;
 import org.eclipse.swt.*;
-
 import de.dc.swtform.example.control.table.filter.*;	
 import de.dc.swtform.example.control.table.provider.*;
 import de.dc.swtform.example.control.table.sorter.*;
-
 public abstract class BaseXTableViewer extends Composite implements SelectionListener{
 	
 	protected TableViewer contactsTableViewer;
 	protected Text searchContactsText;
+	protected Menu menuMenu;
+	protected MenuItem neuMenuItem;
+	protected MenuItem bearbeitenMenuItem;
 	
 	protected Text Text;
 	protected Combo titelCombo;
@@ -33,6 +34,9 @@ public abstract class BaseXTableViewer extends Composite implements SelectionLis
 		contactsComposite.addFilter(new ContactsFilter());
 		contactsComposite.addSorter(new ContactsSorter());
 		contactsTableViewer = contactsComposite.getViewer();
+		menuMenu = SwtFactory.createMenu(contactsTableViewer.getTable());
+		neuMenuItem = SwtFactory.createMenuItem(menuMenu, "Neu");
+		bearbeitenMenuItem = SwtFactory.createMenuItem(menuMenu, "Bearbeiten");
 		contactsComposite.setLayoutData(LayoutFactory.gridData(4, 4, true, true, 1, 1, -1, -1));
 		Text = SwtFactory.createLabelUnit(this, "Kilometerstand", "Km", 100, 3, 5, 0 );
 		Composite titelContainer = SwtFactory.createGridComposite(this, 3, 5, 0);

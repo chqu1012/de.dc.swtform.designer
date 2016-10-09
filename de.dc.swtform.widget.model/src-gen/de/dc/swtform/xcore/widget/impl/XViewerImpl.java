@@ -5,6 +5,7 @@ package de.dc.swtform.xcore.widget.impl;
 import de.dc.swtform.xcore.widget.WidgetPackage;
 import de.dc.swtform.xcore.widget.XContentProvider;
 import de.dc.swtform.xcore.widget.XLabelProvider;
+import de.dc.swtform.xcore.widget.XMenu;
 import de.dc.swtform.xcore.widget.XViewer;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -25,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link de.dc.swtform.xcore.widget.impl.XViewerImpl#getLabelProvider <em>Label Provider</em>}</li>
  *   <li>{@link de.dc.swtform.xcore.widget.impl.XViewerImpl#getContentProvider <em>Content Provider</em>}</li>
+ *   <li>{@link de.dc.swtform.xcore.widget.impl.XViewerImpl#getMenu <em>Menu</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,6 +51,16 @@ public abstract class XViewerImpl extends XWidgetImpl implements XViewer {
 	 * @ordered
 	 */
 	protected XContentProvider contentProvider;
+
+	/**
+	 * The cached value of the '{@link #getMenu() <em>Menu</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMenu()
+	 * @generated
+	 * @ordered
+	 */
+	protected XMenu menu;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -160,6 +172,49 @@ public abstract class XViewerImpl extends XWidgetImpl implements XViewer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public XMenu getMenu() {
+		return menu;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMenu(XMenu newMenu, NotificationChain msgs) {
+		XMenu oldMenu = menu;
+		menu = newMenu;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WidgetPackage.XVIEWER__MENU, oldMenu, newMenu);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMenu(XMenu newMenu) {
+		if (newMenu != menu) {
+			NotificationChain msgs = null;
+			if (menu != null)
+				msgs = ((InternalEObject)menu).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WidgetPackage.XVIEWER__MENU, null, msgs);
+			if (newMenu != null)
+				msgs = ((InternalEObject)newMenu).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WidgetPackage.XVIEWER__MENU, null, msgs);
+			msgs = basicSetMenu(newMenu, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WidgetPackage.XVIEWER__MENU, newMenu, newMenu));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -167,6 +222,8 @@ public abstract class XViewerImpl extends XWidgetImpl implements XViewer {
 				return basicSetLabelProvider(null, msgs);
 			case WidgetPackage.XVIEWER__CONTENT_PROVIDER:
 				return basicSetContentProvider(null, msgs);
+			case WidgetPackage.XVIEWER__MENU:
+				return basicSetMenu(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -183,6 +240,8 @@ public abstract class XViewerImpl extends XWidgetImpl implements XViewer {
 				return getLabelProvider();
 			case WidgetPackage.XVIEWER__CONTENT_PROVIDER:
 				return getContentProvider();
+			case WidgetPackage.XVIEWER__MENU:
+				return getMenu();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -200,6 +259,9 @@ public abstract class XViewerImpl extends XWidgetImpl implements XViewer {
 				return;
 			case WidgetPackage.XVIEWER__CONTENT_PROVIDER:
 				setContentProvider((XContentProvider)newValue);
+				return;
+			case WidgetPackage.XVIEWER__MENU:
+				setMenu((XMenu)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -219,6 +281,9 @@ public abstract class XViewerImpl extends XWidgetImpl implements XViewer {
 			case WidgetPackage.XVIEWER__CONTENT_PROVIDER:
 				setContentProvider((XContentProvider)null);
 				return;
+			case WidgetPackage.XVIEWER__MENU:
+				setMenu((XMenu)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -235,6 +300,8 @@ public abstract class XViewerImpl extends XWidgetImpl implements XViewer {
 				return labelProvider != null;
 			case WidgetPackage.XVIEWER__CONTENT_PROVIDER:
 				return contentProvider != null;
+			case WidgetPackage.XVIEWER__MENU:
+				return menu != null;
 		}
 		return super.eIsSet(featureID);
 	}

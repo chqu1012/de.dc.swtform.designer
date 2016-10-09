@@ -18,12 +18,16 @@ import de.dc.swtform.xcore.widget.XDialogType;
 import de.dc.swtform.xcore.widget.XLabel;
 import de.dc.swtform.xcore.widget.XLabelCombo;
 import de.dc.swtform.xcore.widget.XLink;
+import de.dc.swtform.xcore.widget.XMenu;
+import de.dc.swtform.xcore.widget.XMenuItem;
 import de.dc.swtform.xcore.widget.XRadioButton;
 import de.dc.swtform.xcore.widget.XSpinner;
 import de.dc.swtform.xcore.widget.XTableViewer;
 import de.dc.swtform.xcore.widget.XTableViewerColumn;
 import de.dc.swtform.xcore.widget.XText;
 import de.dc.swtform.xcore.widget.XToogleButton;
+import de.dc.swtform.xcore.widget.XTreeViewer;
+import de.dc.swtform.xcore.widget.XTreeViewerColumn;
 import de.dc.swtform.xcore.widget.XUnitLabel;
 import de.dc.swtform.xcore.widget.XWidget;
 import java.util.Arrays;
@@ -31,6 +35,7 @@ import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
+import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -43,11 +48,14 @@ import org.eclipse.swt.widgets.DateTime;
 import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Link;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Spinner;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.Tree;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
@@ -60,8 +68,8 @@ public class XWidgetToSwtMapper {
   protected Control _createWidget(final Composite parent, final XButton w) {
     Button _xblockexpression = null;
     {
-      String _name = w.getName();
-      final Button control = SwtFactory.createPushButton(parent, _name);
+      String _text = w.getText();
+      final Button control = SwtFactory.createPushButton(parent, _text);
       XLayoutData _layoutData = w.getLayoutData();
       this.initLayoutData(control, _layoutData);
       control.setData(w);
@@ -74,11 +82,11 @@ public class XWidgetToSwtMapper {
     Label _xblockexpression = null;
     {
       final Label control = new Label(parent, SWT.NONE);
-      String _name = w.getName();
-      boolean _notEquals = (!Objects.equal(_name, null));
+      String _text = w.getText();
+      boolean _notEquals = (!Objects.equal(_text, null));
       if (_notEquals) {
-        String _name_1 = w.getName();
-        control.setText(_name_1);
+        String _text_1 = w.getText();
+        control.setText(_text_1);
       }
       control.setData(w);
       XLayoutData _layoutData = w.getLayoutData();
@@ -153,6 +161,23 @@ public class XWidgetToSwtMapper {
       Table _table_1 = control.getTable();
       boolean _isShowLines = w.isShowLines();
       _table_1.setLinesVisible(_isShowLines);
+      XMenu _menu = w.getMenu();
+      boolean _notEquals = (!Objects.equal(_menu, null));
+      if (_notEquals) {
+        Table _table_2 = control.getTable();
+        final Menu menu = new Menu(_table_2);
+        Table _table_3 = control.getTable();
+        _table_3.setMenu(menu);
+        XMenu _menu_1 = w.getMenu();
+        EList<XMenuItem> _items = _menu_1.getItems();
+        for (final XMenuItem item : _items) {
+          {
+            final MenuItem mItem = new MenuItem(menu, SWT.NONE);
+            String _text = item.getText();
+            mItem.setText(_text);
+          }
+        }
+      }
       EList<XTableViewerColumn> _columns = w.getColumns();
       final Consumer<XTableViewerColumn> _function = (XTableViewerColumn it) -> {
         this.createTableViewerColumn(control, it);
@@ -161,11 +186,41 @@ public class XWidgetToSwtMapper {
       Control _control = control.getControl();
       XLayoutData _layoutData_1 = w.getLayoutData();
       this.initLayoutData(_control, _layoutData_1);
-      Table _table_2 = control.getTable();
-      _table_2.setData(w);
+      Table _table_4 = control.getTable();
+      _table_4.setData(w);
       _xblockexpression = control.getTable();
     }
     return _xblockexpression;
+  }
+  
+  protected Control _createWidget(final Composite parent, final XTreeViewer w) {
+    Control _xblockexpression = null;
+    {
+      boolean _isHasFilter = w.isHasFilter();
+      final TreeViewer viewer = SwtFactory.createTreeViewer(parent, _isHasFilter);
+      Tree _tree = viewer.getTree();
+      _tree.setHeaderVisible(true);
+      Tree _tree_1 = viewer.getTree();
+      _tree_1.setLinesVisible(true);
+      Control _control = viewer.getControl();
+      XLayoutData _layoutData = w.getLayoutData();
+      this.initLayoutData(_control, _layoutData);
+      EList<XTreeViewerColumn> _columns = w.getColumns();
+      final Consumer<XTreeViewerColumn> _function = (XTreeViewerColumn it) -> {
+        String _name = it.getName();
+        Integer _size = it.getSize();
+        SwtFactory.createTreeViewerColumn(viewer, _name, (_size).intValue());
+      };
+      _columns.forEach(_function);
+      Tree _tree_2 = viewer.getTree();
+      _tree_2.setData(w);
+      _xblockexpression = viewer.getControl();
+    }
+    return _xblockexpression;
+  }
+  
+  protected Control _createWidget(final Composite parent, final XTreeViewerColumn w) {
+    return null;
   }
   
   protected Control _createWidget(final Composite parent, final XComposite w) {
@@ -225,9 +280,9 @@ public class XWidgetToSwtMapper {
       final Composite container = SwtFactory.createGridComposite(parent, 3, 5, 0);
       XLayoutData _layoutData = w.getLayoutData();
       this.initLayoutData(container, _layoutData);
-      String _name = w.getName();
+      String _text = w.getText();
       int _labelWidth = w.getLabelWidth();
-      SwtFactory.createLabel(container, _name, _labelWidth);
+      SwtFactory.createLabel(container, _text, _labelWidth);
       final Text text = SwtFactory.createText(container);
       final Button button = SwtFactory.createPushButton(container, "...");
       button.addSelectionListener(new SelectionAdapter() {
@@ -266,13 +321,21 @@ public class XWidgetToSwtMapper {
     return _xblockexpression;
   }
   
+  protected Control _createWidget(final Composite parent, final XMenu w) {
+    return null;
+  }
+  
+  protected Control _createWidget(final Composite parent, final XMenuItem w) {
+    return null;
+  }
+  
   protected Control _createWidget(final Composite parent, final XUnitLabel w) {
     Text _xblockexpression = null;
     {
       final Composite container = SwtFactory.createGridComposite(parent, 3, 5, 0);
-      String _name = w.getName();
+      String _text = w.getText();
       int _width = w.getWidth();
-      SwtFactory.createLabel(container, _name, _width);
+      SwtFactory.createLabel(container, _text, _width);
       final Text text = SwtFactory.createText(container);
       String _unit = w.getUnit();
       SwtFactory.createLabel(container, _unit, 30);
@@ -323,8 +386,8 @@ public class XWidgetToSwtMapper {
       final Button control = new Button(parent, style);
       Boolean _isSelected = w.getIsSelected();
       control.setSelection((_isSelected).booleanValue());
-      String _name = w.getName();
-      control.setText(_name);
+      String _text = w.getText();
+      control.setText(_text);
       control.setData(w);
       XLayoutData _layoutData = w.getLayoutData();
       this.initLayoutData(control, _layoutData);
@@ -337,9 +400,9 @@ public class XWidgetToSwtMapper {
     Composite _xblockexpression = null;
     {
       final Composite container = SwtFactory.createGridComposite(parent, 3, 5, 0);
-      String _name = w.getName();
+      String _text = w.getText();
       int _width = w.getWidth();
-      SwtFactory.createLabel(container, _name, _width);
+      SwtFactory.createLabel(container, _text, _width);
       XLayoutData _layoutData = w.getLayoutData();
       this.initLayoutData(container, _layoutData);
       _xblockexpression = container;
@@ -349,8 +412,8 @@ public class XWidgetToSwtMapper {
   
   public void createComboItems(final Combo combo, final EList<XComboItem> items) {
     final Consumer<XComboItem> _function = (XComboItem it) -> {
-      String _name = it.getName();
-      combo.add(_name);
+      String _text = it.getText();
+      combo.add(_text);
     };
     items.forEach(_function);
   }
@@ -361,8 +424,8 @@ public class XWidgetToSwtMapper {
     Integer _size = w.getSize();
     _column.setWidth((_size).intValue());
     TableColumn _column_1 = col.getColumn();
-    String _name = w.getName();
-    _column_1.setText(_name);
+    String _text = w.getText();
+    _column_1.setText(_text);
   }
   
   public Object initLayoutData(final Control control, final XLayoutData ld) {
@@ -414,6 +477,8 @@ public class XWidgetToSwtMapper {
       return _createWidget(parent, (XTableViewer)w);
     } else if (w instanceof XToogleButton) {
       return _createWidget(parent, (XToogleButton)w);
+    } else if (w instanceof XTreeViewer) {
+      return _createWidget(parent, (XTreeViewer)w);
     } else if (w instanceof XUnitLabel) {
       return _createWidget(parent, (XUnitLabel)w);
     } else if (w instanceof XButton) {
@@ -432,12 +497,18 @@ public class XWidgetToSwtMapper {
       return _createWidget(parent, (XLabel)w);
     } else if (w instanceof XLink) {
       return _createWidget(parent, (XLink)w);
+    } else if (w instanceof XMenu) {
+      return _createWidget(parent, (XMenu)w);
+    } else if (w instanceof XMenuItem) {
+      return _createWidget(parent, (XMenuItem)w);
     } else if (w instanceof XSpinner) {
       return _createWidget(parent, (XSpinner)w);
     } else if (w instanceof XTableViewerColumn) {
       return _createWidget(parent, (XTableViewerColumn)w);
     } else if (w instanceof XText) {
       return _createWidget(parent, (XText)w);
+    } else if (w instanceof XTreeViewerColumn) {
+      return _createWidget(parent, (XTreeViewerColumn)w);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(parent, w).toString());

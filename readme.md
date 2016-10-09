@@ -18,6 +18,7 @@ SwtFormDesigner is a framework for describing user interface declarativly and ge
 * Initial version
 
 ##Help / FAQ
+First steps: [Link](https://github.com/chqu1012/de.dc.swtform.designer/wiki)
 
 ## Third libraries
 This project is based on a list of frameworks and libraries.

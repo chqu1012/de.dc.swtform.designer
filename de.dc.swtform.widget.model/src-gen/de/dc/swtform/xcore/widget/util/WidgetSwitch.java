@@ -328,6 +328,23 @@ public class WidgetSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case WidgetPackage.XMENU: {
+				XMenu xMenu = (XMenu)theEObject;
+				T result = caseXMenu(xMenu);
+				if (result == null) result = caseXWidget(xMenu);
+				if (result == null) result = caseXLayoutDataElement(xMenu);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WidgetPackage.XMENU_ITEM: {
+				XMenuItem xMenuItem = (XMenuItem)theEObject;
+				T result = caseXMenuItem(xMenuItem);
+				if (result == null) result = caseXWidget(xMenuItem);
+				if (result == null) result = caseISelectable(xMenuItem);
+				if (result == null) result = caseXLayoutDataElement(xMenuItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case WidgetPackage.XLABEL_PROVIDER: {
 				XLabelProvider xLabelProvider = (XLabelProvider)theEObject;
 				T result = caseXLabelProvider(xLabelProvider);
@@ -363,6 +380,14 @@ public class WidgetSwitch<T> extends Switch<T> {
 				if (result == null) result = caseXViewer(xTreeViewer);
 				if (result == null) result = caseXWidget(xTreeViewer);
 				if (result == null) result = caseXLayoutDataElement(xTreeViewer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WidgetPackage.XTREE_VIEWER_COLUMN: {
+				XTreeViewerColumn xTreeViewerColumn = (XTreeViewerColumn)theEObject;
+				T result = caseXTreeViewerColumn(xTreeViewerColumn);
+				if (result == null) result = caseXWidget(xTreeViewerColumn);
+				if (result == null) result = caseXLayoutDataElement(xTreeViewerColumn);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -830,6 +855,36 @@ public class WidgetSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>XMenu</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>XMenu</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseXMenu(XMenu object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>XMenu Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>XMenu Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseXMenuItem(XMenuItem object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>XLabel Provider</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -901,6 +956,21 @@ public class WidgetSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseXTreeViewer(XTreeViewer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>XTree Viewer Column</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>XTree Viewer Column</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseXTreeViewerColumn(XTreeViewerColumn object) {
 		return null;
 	}
 

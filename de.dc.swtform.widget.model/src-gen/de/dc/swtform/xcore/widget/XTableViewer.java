@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.dc.swtform.xcore.widget.XTableViewer#isVerticalScroll <em>Vertical Scroll</em>}</li>
  *   <li>{@link de.dc.swtform.xcore.widget.XTableViewer#isHorizontalScroll <em>Horizontal Scroll</em>}</li>
  *   <li>{@link de.dc.swtform.xcore.widget.XTableViewer#isHasSearch <em>Has Search</em>}</li>
+ *   <li>{@link de.dc.swtform.xcore.widget.XTableViewer#isHasSorter <em>Has Sorter</em>}</li>
  *   <li>{@link de.dc.swtform.xcore.widget.XTableViewer#getColumns <em>Columns</em>}</li>
  * </ul>
  *
@@ -188,6 +189,33 @@ public interface XTableViewer extends XViewer {
 	 * @generated
 	 */
 	void setHasSearch(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Has Sorter</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Has Sorter</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Has Sorter</em>' attribute.
+	 * @see #setHasSorter(boolean)
+	 * @see de.dc.swtform.xcore.widget.WidgetPackage#getXTableViewer_HasSorter()
+	 * @model default="true" unique="false"
+	 * @generated
+	 */
+	boolean isHasSorter();
+
+	/**
+	 * Sets the value of the '{@link de.dc.swtform.xcore.widget.XTableViewer#isHasSorter <em>Has Sorter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Has Sorter</em>' attribute.
+	 * @see #isHasSorter()
+	 * @generated
+	 */
+	void setHasSorter(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Columns</b></em>' containment reference list.

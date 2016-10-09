@@ -25,6 +25,9 @@ import de.dc.swtform.xcore.widget.XTreeViewerColumn
 import de.dc.swtform.xcore.widget.XMenu
 import de.dc.swtform.xcore.widget.XMenuItem
 import de.dc.swtform.xcore.widget.ISelectable
+import de.dc.swtform.xcore.widget.XDialogType
+import org.eclipse.swt.widgets.Spinner
+import org.eclipse.swt.SWT
 
 class XWidgetToStringMapper {
 	extension XLayoutMapper layoutMapper = new XLayoutMapper
@@ -242,42 +245,26 @@ class XWidgetToStringMapper {
 	dispatch def createWidget(XTreeViewerColumn w)''''''
 	dispatch def createWidget(XComboItem w)''''''
 
-//	dispatch def createWidget(XDialogText w) {
-//		val container = SwtFactory.createGridComposite(this, 3, 5, 0)
-//		container.initLayoutData = w.layoutData
-//		SwtFactory.createLabel(container, w.text, w.labelWidth)
-//		val text = SwtFactory.createText(container)
-//		val button = SwtFactory.createPushButton(container, '...')
-//		button.addSelectionListener(new SelectionAdapter() {
-//			override widgetSelected(SelectionEvent e) {
-//				switch w.dialogType {
-//					case OPEN_FILE: {
-//						text.text = SwtFactory.openFileDialog(SWT.OPEN)
-//						return
-//					}
-////					case OPEN_COLOR:
-//					case OPEN_DIRECTORY: {
-//						var fd = new DirectoryDialog(new Shell, SWT.OPEN)
-//						val path = fd.open
-//						if (path != null) {
-//							text.text = path
-//						}
-//						return
-//					}
-////					case OPEN_FONT:
-//					case SAVE_FILE: {
-//						text.text = SwtFactory.openFileDialog(SWT.SAVE)
-//						return
-//					}
-//					default: {
-//					}
-//				}
-//			}
-//		})
-//		text.data = w
-//		text
-//	}
-
+	dispatch def createWidget(XDialogText w)'''«val name = w.name.toFirstLower»«val container = name+'Container'»
+	Composite «container» = SwtFactory.createGridComposite(this, 3, 5, 0);
+	«w.getGridData('Container')»
+	SwtFactory.createLabel( «container», "«w.text»", «w.labelWidth»);
+	«name»DialogText = SwtFactory.createText(«container»);
+	Button «name»Button = SwtFactory.createPushButton(«container», "...");
+	«name»Button.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+			«switch (w.dialogType) {
+				case OPEN_COLOR: {}
+				case OPEN_DIRECTORY: {'''«name»DialogText.setText(SwtFactory.openDirectoryDialog());'''}
+				case OPEN_FILE: {'''«name»DialogText.setText(SwtFactory.openFileDialog(SWT.OPEN));'''}
+				case OPEN_FONT: {}
+				case SAVE_FILE:{'''«name»DialogText.setText(SwtFactory.openFileDialog(SWT.SAVE));'''}
+				default: { return "";}
+			}»
+		}
+	});
+	'''
 	dispatch def createWidget(XUnitLabel w)'''
 	«w.name.toFirstLower»Text = SwtFactory.createLabelUnit(this, "«w.text.toFirstUpper»", "«w.unit.toFirstUpper»", «w.width», 3, 5, 0 «IF w.layoutData!=null»«w.layoutData.fillLayoutData»«ENDIF»);
 	''' 
@@ -285,19 +272,11 @@ class XWidgetToStringMapper {
 	dispatch def fillLayoutData(XGridData d)'''«val gd = d as XGridData», «gd.horizontalAlignment», «gd.verticalAlignment», «gd.grabExcessHorizontalSpace», «gd.grabExcessVerticalSpace», «gd.horizontalSpan», «gd.verticalSpan», «gd.widthHint», «gd.heightHint»'''
 	dispatch def fillLayoutData(XFillData d)''''''
 	
-	
-//	dispatch def createWidget(XSpinner w) {
-//		val control = new Spinner(this, SWT.READ_ONLY)
-//		control.setMinimum(0)
-//		control.setMaximum(1000)
-//		control.setSelection(500)
-//		control.setIncrement(1)
-//		control.setPageIncrement(100)
-//		control.data = w
-//		control.initLayoutData(w.layoutData)
-//		control
-//	}
-//
+	dispatch def createWidget(XSpinner w)'''
+	«w.name.toFirstLower»Spinner = SwtFactory.createSpinner(this, «w.readOnly», «w.minimum», «w.maximum», «w.selection», «w.increment», «w.pageIncrement»);
+	«w.getGridData('Spinner')»
+	'''
+
 //	dispatch def createWidget(XLink w) {
 //		val control = new Link(this, SWT.NONE);
 //		control.text = "<a>" + w.url + "</a>"

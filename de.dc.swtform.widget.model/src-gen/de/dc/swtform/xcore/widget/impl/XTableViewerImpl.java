@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.dc.swtform.xcore.widget.impl.XTableViewerImpl#isVerticalScroll <em>Vertical Scroll</em>}</li>
  *   <li>{@link de.dc.swtform.xcore.widget.impl.XTableViewerImpl#isHorizontalScroll <em>Horizontal Scroll</em>}</li>
  *   <li>{@link de.dc.swtform.xcore.widget.impl.XTableViewerImpl#isHasSearch <em>Has Search</em>}</li>
+ *   <li>{@link de.dc.swtform.xcore.widget.impl.XTableViewerImpl#isHasSorter <em>Has Sorter</em>}</li>
  *   <li>{@link de.dc.swtform.xcore.widget.impl.XTableViewerImpl#getColumns <em>Columns</em>}</li>
  * </ul>
  *
@@ -160,6 +161,26 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 	 * @ordered
 	 */
 	protected boolean hasSearch = HAS_SEARCH_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isHasSorter() <em>Has Sorter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHasSorter()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean HAS_SORTER_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isHasSorter() <em>Has Sorter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHasSorter()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean hasSorter = HAS_SORTER_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' containment reference list.
@@ -321,6 +342,27 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isHasSorter() {
+		return hasSorter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHasSorter(boolean newHasSorter) {
+		boolean oldHasSorter = hasSorter;
+		hasSorter = newHasSorter;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WidgetPackage.XTABLE_VIEWER__HAS_SORTER, oldHasSorter, hasSorter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<XTableViewerColumn> getColumns() {
 		if (columns == null) {
 			columns = new EObjectContainmentEList<XTableViewerColumn>(XTableViewerColumn.class, this, WidgetPackage.XTABLE_VIEWER__COLUMNS);
@@ -362,6 +404,8 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 				return isHorizontalScroll();
 			case WidgetPackage.XTABLE_VIEWER__HAS_SEARCH:
 				return isHasSearch();
+			case WidgetPackage.XTABLE_VIEWER__HAS_SORTER:
+				return isHasSorter();
 			case WidgetPackage.XTABLE_VIEWER__COLUMNS:
 				return getColumns();
 		}
@@ -394,6 +438,9 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 				return;
 			case WidgetPackage.XTABLE_VIEWER__HAS_SEARCH:
 				setHasSearch((Boolean)newValue);
+				return;
+			case WidgetPackage.XTABLE_VIEWER__HAS_SORTER:
+				setHasSorter((Boolean)newValue);
 				return;
 			case WidgetPackage.XTABLE_VIEWER__COLUMNS:
 				getColumns().clear();
@@ -429,6 +476,9 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 			case WidgetPackage.XTABLE_VIEWER__HAS_SEARCH:
 				setHasSearch(HAS_SEARCH_EDEFAULT);
 				return;
+			case WidgetPackage.XTABLE_VIEWER__HAS_SORTER:
+				setHasSorter(HAS_SORTER_EDEFAULT);
+				return;
 			case WidgetPackage.XTABLE_VIEWER__COLUMNS:
 				getColumns().clear();
 				return;
@@ -456,6 +506,8 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 				return horizontalScroll != HORIZONTAL_SCROLL_EDEFAULT;
 			case WidgetPackage.XTABLE_VIEWER__HAS_SEARCH:
 				return hasSearch != HAS_SEARCH_EDEFAULT;
+			case WidgetPackage.XTABLE_VIEWER__HAS_SORTER:
+				return hasSorter != HAS_SORTER_EDEFAULT;
 			case WidgetPackage.XTABLE_VIEWER__COLUMNS:
 				return columns != null && !columns.isEmpty();
 		}
@@ -484,6 +536,8 @@ public class XTableViewerImpl extends XViewerImpl implements XTableViewer {
 		result.append(horizontalScroll);
 		result.append(", hasSearch: ");
 		result.append(hasSearch);
+		result.append(", hasSorter: ");
+		result.append(hasSorter);
 		result.append(')');
 		return result.toString();
 	}

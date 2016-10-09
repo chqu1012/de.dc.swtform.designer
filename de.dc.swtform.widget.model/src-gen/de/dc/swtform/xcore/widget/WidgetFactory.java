@@ -265,6 +265,24 @@ public interface WidgetFactory extends EFactory {
 	XCTabItem createXCTabItem();
 
 	/**
+	 * Returns a new object of class '<em>XMenu</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>XMenu</em>'.
+	 * @generated
+	 */
+	XMenu createXMenu();
+
+	/**
+	 * Returns a new object of class '<em>XMenu Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>XMenu Item</em>'.
+	 * @generated
+	 */
+	XMenuItem createXMenuItem();
+
+	/**
 	 * Returns a new object of class '<em>XLabel Provider</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -308,6 +326,15 @@ public interface WidgetFactory extends EFactory {
 	 * @generated
 	 */
 	XTreeViewer createXTreeViewer();
+
+	/**
+	 * Returns a new object of class '<em>XTree Viewer Column</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>XTree Viewer Column</em>'.
+	 * @generated
+	 */
+	XTreeViewerColumn createXTreeViewerColumn();
 
 	/**
 	 * Returns a new object of class '<em>XList Viewer</em>'.

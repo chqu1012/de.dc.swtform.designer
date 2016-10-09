@@ -47,6 +47,11 @@ public class XSpinnerItemProvider extends XWidgetItemProvider {
 
 			addPageIncrementPropertyDescriptor(object);
 			addDigitsPropertyDescriptor(object);
+			addReadOnlyPropertyDescriptor(object);
+			addMinimumPropertyDescriptor(object);
+			addMaximumPropertyDescriptor(object);
+			addSelectionPropertyDescriptor(object);
+			addIncrementPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -96,6 +101,116 @@ public class XSpinnerItemProvider extends XWidgetItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Read Only feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReadOnlyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XSpinner_readOnly_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XSpinner_readOnly_feature", "_UI_XSpinner_type"),
+				 WidgetPackage.eINSTANCE.getXSpinner_ReadOnly(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Minimum feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMinimumPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XSpinner_minimum_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XSpinner_minimum_feature", "_UI_XSpinner_type"),
+				 WidgetPackage.eINSTANCE.getXSpinner_Minimum(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Maximum feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaximumPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XSpinner_maximum_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XSpinner_maximum_feature", "_UI_XSpinner_type"),
+				 WidgetPackage.eINSTANCE.getXSpinner_Maximum(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Selection feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSelectionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XSpinner_selection_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XSpinner_selection_feature", "_UI_XSpinner_type"),
+				 WidgetPackage.eINSTANCE.getXSpinner_Selection(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Increment feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIncrementPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XSpinner_increment_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XSpinner_increment_feature", "_UI_XSpinner_type"),
+				 WidgetPackage.eINSTANCE.getXSpinner_Increment(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns XSpinner.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -135,6 +250,11 @@ public class XSpinnerItemProvider extends XWidgetItemProvider {
 		switch (notification.getFeatureID(XSpinner.class)) {
 			case WidgetPackage.XSPINNER__PAGE_INCREMENT:
 			case WidgetPackage.XSPINNER__DIGITS:
+			case WidgetPackage.XSPINNER__READ_ONLY:
+			case WidgetPackage.XSPINNER__MINIMUM:
+			case WidgetPackage.XSPINNER__MAXIMUM:
+			case WidgetPackage.XSPINNER__SELECTION:
+			case WidgetPackage.XSPINNER__INCREMENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

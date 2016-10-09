@@ -24,8 +24,21 @@ import org.eclipse.swt.widgets.Shell
 import org.eclipse.swt.widgets.Text
 import org.eclipse.ui.dialogs.FilteredTree
 import org.eclipse.ui.dialogs.PatternFilter
+import org.eclipse.swt.widgets.DirectoryDialog
+import org.eclipse.swt.widgets.Spinner
 
 class SwtFactory {
+	
+	def static createSpinner(Composite parent, boolean readOnly,  int min, int max, int selection, int increment, int pageIncrement){
+		val style = if(readOnly){SWT.READ_ONLY}else{SWT.NONE}
+		val control = new Spinner(parent, style)
+		control.minimum = min
+		control.maximum = max
+		control.selection = selection
+		control.increment = increment
+		control.pageIncrement = pageIncrement
+		control
+	}
 
 	def static createMenuItem(Menu menu, String text) {
 		val menuItem = new MenuItem(menu, SWT.NONE)
@@ -166,9 +179,19 @@ class SwtFactory {
 
 	def static openFileDialog(int style) {
 		val fd = new FileDialog(new Shell, style)
-		var path = ""
-		path = fd.open
-		path
+		val path = fd.open
+		if(path!=null){
+			return path
+		}
+		""
 	}
 
+	def static openDirectoryDialog() {
+		var fd = new DirectoryDialog(new Shell, SWT.OPEN)
+		val path = fd.open
+		if (path != null) {
+			return path
+		}
+		""
+	}
 }

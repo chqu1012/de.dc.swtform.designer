@@ -84,11 +84,14 @@ public class WidgetFactoryImpl extends EFactoryImpl implements WidgetFactory {
 			case WidgetPackage.XTAB_ITEM: return createXTabItem();
 			case WidgetPackage.XC_TAB_FOLDER: return createXCTabFolder();
 			case WidgetPackage.XC_TAB_ITEM: return createXCTabItem();
+			case WidgetPackage.XMENU: return createXMenu();
+			case WidgetPackage.XMENU_ITEM: return createXMenuItem();
 			case WidgetPackage.XLABEL_PROVIDER: return createXLabelProvider();
 			case WidgetPackage.XCONTENT_PROVIDER: return createXContentProvider();
 			case WidgetPackage.XTABLE_VIEWER: return createXTableViewer();
 			case WidgetPackage.XTABLE_VIEWER_COLUMN: return createXTableViewerColumn();
 			case WidgetPackage.XTREE_VIEWER: return createXTreeViewer();
+			case WidgetPackage.XTREE_VIEWER_COLUMN: return createXTreeViewerColumn();
 			case WidgetPackage.XLIST_VIEWER: return createXListViewer();
 			case WidgetPackage.XCOMBO_VIEWER: return createXComboViewer();
 			case WidgetPackage.ISELECTABLE: return createISelectable();
@@ -410,6 +413,26 @@ public class WidgetFactoryImpl extends EFactoryImpl implements WidgetFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public XMenu createXMenu() {
+		XMenuImpl xMenu = new XMenuImpl();
+		return xMenu;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public XMenuItem createXMenuItem() {
+		XMenuItemImpl xMenuItem = new XMenuItemImpl();
+		return xMenuItem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public XLabelProvider createXLabelProvider() {
 		XLabelProviderImpl xLabelProvider = new XLabelProviderImpl();
 		return xLabelProvider;
@@ -453,6 +476,16 @@ public class WidgetFactoryImpl extends EFactoryImpl implements WidgetFactory {
 	public XTreeViewer createXTreeViewer() {
 		XTreeViewerImpl xTreeViewer = new XTreeViewerImpl();
 		return xTreeViewer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public XTreeViewerColumn createXTreeViewerColumn() {
+		XTreeViewerColumnImpl xTreeViewerColumn = new XTreeViewerColumnImpl();
+		return xTreeViewerColumn;
 	}
 
 	/**

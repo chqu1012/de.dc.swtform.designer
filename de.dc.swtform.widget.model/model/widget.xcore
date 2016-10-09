@@ -1,9 +1,7 @@
-@GenModel(
-	runtimePlatform="RCP",
+@GenModel(runtimePlatform="RCP",
 	modelDirectory="/de.dc.swtform.widget.model/src-gen",
 	editDirectory="/de.dc.swtform.widget.edit/src-gen", 
-	editPluginID="de.dc.swtform.widget.edit"
-)  
+	editPluginID="de.dc.swtform.widget.edit")
 package de.dc.swtform.xcore.widget
 
 import de.dc.swtform.layout.model.XLayoutDataElement
@@ -29,10 +27,15 @@ class XRadioButton extends XButton, ISelectable{
 class XToogleButton extends XButton, ISelectable{
 }
 
-class XSpinner extends XWidget{ 
+class XSpinner extends XWidget{
 	Integer pageIncrement
 	Integer digits
-} 
+	boolean readOnly = "true"
+	Integer minimum="0"
+	Integer maximum="1000"
+	Integer selection="500"
+	Integer increment="1"
+}
 
 class XDateTime extends XWidget, ISelectable{
 	XDateTimeType[] dateTimeType
@@ -107,7 +110,7 @@ class XText extends XWidget{
 
 class XComposite extends XWidget, XLayoutElement{
 	contains XWidget[] widgets
-	contains XViewer[] viewers 
+	contains XViewer[] viewers
 	contains XComposite[] composites
 }
 

@@ -1,5 +1,6 @@
 package de.dc.swtform.designer.util;
 
+import com.google.common.base.Objects;
 import de.dc.swtform.designer.control.BaseTableViewer;
 import de.dc.swtform.designer.control.TreeContentProvider;
 import de.dc.swtform.designer.control.TreeLabelProvider;
@@ -20,11 +21,13 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Spinner;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Text;
@@ -39,6 +42,27 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @SuppressWarnings("all")
 public class SwtFactory {
+  public static Spinner createSpinner(final Composite parent, final boolean readOnly, final int min, final int max, final int selection, final int increment, final int pageIncrement) {
+    Spinner _xblockexpression = null;
+    {
+      int _xifexpression = (int) 0;
+      if (readOnly) {
+        _xifexpression = SWT.READ_ONLY;
+      } else {
+        _xifexpression = SWT.NONE;
+      }
+      final int style = _xifexpression;
+      final Spinner control = new Spinner(parent, style);
+      control.setMinimum(min);
+      control.setMaximum(max);
+      control.setSelection(selection);
+      control.setIncrement(increment);
+      control.setPageIncrement(pageIncrement);
+      _xblockexpression = control;
+    }
+    return _xblockexpression;
+  }
+  
   public static MenuItem createMenuItem(final Menu menu, final String text) {
     MenuItem _xblockexpression = null;
     {
@@ -259,10 +283,27 @@ public class SwtFactory {
     {
       Shell _shell = new Shell();
       final FileDialog fd = new FileDialog(_shell, style);
-      String path = "";
-      String _open = fd.open();
-      path = _open;
-      _xblockexpression = path;
+      final String path = fd.open();
+      boolean _notEquals = (!Objects.equal(path, null));
+      if (_notEquals) {
+        return path;
+      }
+      _xblockexpression = "";
+    }
+    return _xblockexpression;
+  }
+  
+  public static String openDirectoryDialog() {
+    String _xblockexpression = null;
+    {
+      Shell _shell = new Shell();
+      DirectoryDialog fd = new DirectoryDialog(_shell, SWT.OPEN);
+      final String path = fd.open();
+      boolean _notEquals = (!Objects.equal(path, null));
+      if (_notEquals) {
+        return path;
+      }
+      _xblockexpression = "";
     }
     return _xblockexpression;
   }

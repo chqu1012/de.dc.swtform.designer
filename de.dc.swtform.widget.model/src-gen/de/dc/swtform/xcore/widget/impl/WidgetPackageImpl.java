@@ -249,6 +249,20 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass xMenuEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass xMenuItemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass xLabelProviderEClass = null;
 
 	/**
@@ -278,6 +292,13 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 * @generated
 	 */
 	private EClass xTreeViewerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass xTreeViewerColumnEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -516,6 +537,51 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EAttribute getXSpinner_Digits() {
         return (EAttribute)getXSpinner().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXSpinner_ReadOnly() {
+        return (EAttribute)getXSpinner().getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXSpinner_Minimum() {
+        return (EAttribute)getXSpinner().getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXSpinner_Maximum() {
+        return (EAttribute)getXSpinner().getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXSpinner_Selection() {
+        return (EAttribute)getXSpinner().getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXSpinner_Increment() {
+        return (EAttribute)getXSpinner().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -961,9 +1027,51 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getXViewer_Menu() {
+        return (EReference)getXViewer().getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getXMenu() {
+		if (xMenuEClass == null) {
+			xMenuEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(31);
+		}
+		return xMenuEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getXMenu_Items() {
+        return (EReference)getXMenu().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getXMenuItem() {
+		if (xMenuItemEClass == null) {
+			xMenuItemEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(32);
+		}
+		return xMenuItemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getXLabelProvider() {
 		if (xLabelProviderEClass == null) {
-			xLabelProviderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(31);
+			xLabelProviderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(33);
 		}
 		return xLabelProviderEClass;
 	}
@@ -975,7 +1083,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXContentProvider() {
 		if (xContentProviderEClass == null) {
-			xContentProviderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(32);
+			xContentProviderEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(34);
 		}
 		return xContentProviderEClass;
 	}
@@ -987,7 +1095,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXTableViewer() {
 		if (xTableViewerEClass == null) {
-			xTableViewerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(33);
+			xTableViewerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(35);
 		}
 		return xTableViewerEClass;
 	}
@@ -1051,8 +1159,17 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getXTableViewer_HasSorter() {
+        return (EAttribute)getXTableViewer().getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getXTableViewer_Columns() {
-        return (EReference)getXTableViewer().getEStructuralFeatures().get(6);
+        return (EReference)getXTableViewer().getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1062,7 +1179,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXTableViewerColumn() {
 		if (xTableViewerColumnEClass == null) {
-			xTableViewerColumnEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(34);
+			xTableViewerColumnEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(36);
 		}
 		return xTableViewerColumnEClass;
 	}
@@ -1072,7 +1189,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getXTableViewerColumn_Size() {
+	public EAttribute getXTableViewerColumn_Typ() {
         return (EAttribute)getXTableViewerColumn().getEStructuralFeatures().get(0);
 	}
 
@@ -1081,8 +1198,26 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getXTableViewerColumn_Alignment() {
+	public EAttribute getXTableViewerColumn_Size() {
         return (EAttribute)getXTableViewerColumn().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXTableViewerColumn_Alignment() {
+        return (EAttribute)getXTableViewerColumn().getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXTableViewerColumn_IsFilterCriteria() {
+        return (EAttribute)getXTableViewerColumn().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1092,7 +1227,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXTreeViewer() {
 		if (xTreeViewerEClass == null) {
-			xTreeViewerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(35);
+			xTreeViewerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(37);
 		}
 		return xTreeViewerEClass;
 	}
@@ -1102,9 +1237,93 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getXTreeViewer_ShowHeader() {
+        return (EAttribute)getXTreeViewer().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXTreeViewer_ShowLines() {
+        return (EAttribute)getXTreeViewer().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXTreeViewer_HasFilter() {
+        return (EAttribute)getXTreeViewer().getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getXTreeViewer_Columns() {
+        return (EReference)getXTreeViewer().getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getXTreeViewerColumn() {
+		if (xTreeViewerColumnEClass == null) {
+			xTreeViewerColumnEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(38);
+		}
+		return xTreeViewerColumnEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXTreeViewerColumn_Typ() {
+        return (EAttribute)getXTreeViewerColumn().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXTreeViewerColumn_Size() {
+        return (EAttribute)getXTreeViewerColumn().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXTreeViewerColumn_Alignment() {
+        return (EAttribute)getXTreeViewerColumn().getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getXTreeViewerColumn_IsFilterCriteria() {
+        return (EAttribute)getXTreeViewerColumn().getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getXListViewer() {
 		if (xListViewerEClass == null) {
-			xListViewerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(36);
+			xListViewerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(39);
 		}
 		return xListViewerEClass;
 	}
@@ -1116,7 +1335,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getXComboViewer() {
 		if (xComboViewerEClass == null) {
-			xComboViewerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(37);
+			xComboViewerEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(40);
 		}
 		return xComboViewerEClass;
 	}
@@ -1128,7 +1347,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EClass getISelectable() {
 		if (iSelectableEClass == null) {
-			iSelectableEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(38);
+			iSelectableEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(41);
 		}
 		return iSelectableEClass;
 	}
@@ -1182,7 +1401,7 @@ public class WidgetPackageImpl extends EPackageImpl implements WidgetPackage {
 	 */
 	public EEnum getStyle() {
 		if (styleEEnum == null) {
-			styleEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(39);
+			styleEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(WidgetPackage.eNS_URI).getEClassifiers().get(42);
 		}
 		return styleEEnum;
 	}

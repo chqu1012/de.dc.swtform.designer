@@ -607,13 +607,58 @@ public interface WidgetPackage extends EPackage {
 	int XSPINNER__DIGITS = XWIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Read Only</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XSPINNER__READ_ONLY = XWIDGET_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XSPINNER__MINIMUM = XWIDGET_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XSPINNER__MAXIMUM = XWIDGET_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Selection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XSPINNER__SELECTION = XWIDGET_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Increment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XSPINNER__INCREMENT = XWIDGET_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>XSpinner</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XSPINNER_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 2;
+	int XSPINNER_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>XSpinner</em>' class.
@@ -2772,13 +2817,22 @@ public interface WidgetPackage extends EPackage {
 	int XVIEWER__CONTENT_PROVIDER = XWIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Menu</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XVIEWER__MENU = XWIDGET_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>XViewer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XVIEWER_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 2;
+	int XVIEWER_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>XViewer</em>' class.
@@ -2790,6 +2844,179 @@ public interface WidgetPackage extends EPackage {
 	int XVIEWER_OPERATION_COUNT = XWIDGET_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.swtform.xcore.widget.impl.XMenuImpl <em>XMenu</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.swtform.xcore.widget.impl.XMenuImpl
+	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXMenu()
+	 * @generated
+	 */
+	int XMENU = 29;
+
+	/**
+	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XMENU__LAYOUT_DATA = XWIDGET__LAYOUT_DATA;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XMENU__NAME = XWIDGET__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XMENU__TEXT = XWIDGET__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XMENU__DATA = XWIDGET__DATA;
+
+	/**
+	 * The feature id for the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XMENU__MESSAGE = XWIDGET__MESSAGE;
+
+	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XMENU__ITEMS = XWIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>XMenu</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XMENU_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>XMenu</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XMENU_OPERATION_COUNT = XWIDGET_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.dc.swtform.xcore.widget.impl.XMenuItemImpl <em>XMenu Item</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.swtform.xcore.widget.impl.XMenuItemImpl
+	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXMenuItem()
+	 * @generated
+	 */
+	int XMENU_ITEM = 30;
+
+	/**
+	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XMENU_ITEM__LAYOUT_DATA = XWIDGET__LAYOUT_DATA;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XMENU_ITEM__NAME = XWIDGET__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XMENU_ITEM__TEXT = XWIDGET__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XMENU_ITEM__DATA = XWIDGET__DATA;
+
+	/**
+	 * The feature id for the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XMENU_ITEM__MESSAGE = XWIDGET__MESSAGE;
+
+	/**
+	 * The feature id for the '<em><b>Selection Listener Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XMENU_ITEM__SELECTION_LISTENER_NAME = XWIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Has Selection Listener</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XMENU_ITEM__HAS_SELECTION_LISTENER = XWIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>XMenu Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XMENU_ITEM_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>XMenu Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XMENU_ITEM_OPERATION_COUNT = XWIDGET_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.swtform.xcore.widget.impl.XLabelProviderImpl <em>XLabel Provider</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2797,7 +3024,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXLabelProvider()
 	 * @generated
 	 */
-	int XLABEL_PROVIDER = 29;
+	int XLABEL_PROVIDER = 31;
 
 	/**
 	 * The number of structural features of the '<em>XLabel Provider</em>' class.
@@ -2825,7 +3052,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXContentProvider()
 	 * @generated
 	 */
-	int XCONTENT_PROVIDER = 30;
+	int XCONTENT_PROVIDER = 32;
 
 	/**
 	 * The number of structural features of the '<em>XContent Provider</em>' class.
@@ -2853,7 +3080,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXTableViewer()
 	 * @generated
 	 */
-	int XTABLE_VIEWER = 31;
+	int XTABLE_VIEWER = 33;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -2919,6 +3146,15 @@ public interface WidgetPackage extends EPackage {
 	int XTABLE_VIEWER__CONTENT_PROVIDER = XVIEWER__CONTENT_PROVIDER;
 
 	/**
+	 * The feature id for the '<em><b>Menu</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTABLE_VIEWER__MENU = XVIEWER__MENU;
+
+	/**
 	 * The feature id for the '<em><b>Show Header</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2973,13 +3209,22 @@ public interface WidgetPackage extends EPackage {
 	int XTABLE_VIEWER__HAS_SEARCH = XVIEWER_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Has Sorter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTABLE_VIEWER__HAS_SORTER = XVIEWER_FEATURE_COUNT + 6;
+
+	/**
 	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XTABLE_VIEWER__COLUMNS = XVIEWER_FEATURE_COUNT + 6;
+	int XTABLE_VIEWER__COLUMNS = XVIEWER_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>XTable Viewer</em>' class.
@@ -2988,7 +3233,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTABLE_VIEWER_FEATURE_COUNT = XVIEWER_FEATURE_COUNT + 7;
+	int XTABLE_VIEWER_FEATURE_COUNT = XVIEWER_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>XTable Viewer</em>' class.
@@ -3007,7 +3252,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXTableViewerColumn()
 	 * @generated
 	 */
-	int XTABLE_VIEWER_COLUMN = 32;
+	int XTABLE_VIEWER_COLUMN = 34;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -3055,13 +3300,22 @@ public interface WidgetPackage extends EPackage {
 	int XTABLE_VIEWER_COLUMN__MESSAGE = XWIDGET__MESSAGE;
 
 	/**
+	 * The feature id for the '<em><b>Typ</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTABLE_VIEWER_COLUMN__TYP = XWIDGET_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XTABLE_VIEWER_COLUMN__SIZE = XWIDGET_FEATURE_COUNT + 0;
+	int XTABLE_VIEWER_COLUMN__SIZE = XWIDGET_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Alignment</b></em>' attribute.
@@ -3070,7 +3324,16 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTABLE_VIEWER_COLUMN__ALIGNMENT = XWIDGET_FEATURE_COUNT + 1;
+	int XTABLE_VIEWER_COLUMN__ALIGNMENT = XWIDGET_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Is Filter Criteria</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTABLE_VIEWER_COLUMN__IS_FILTER_CRITERIA = XWIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>XTable Viewer Column</em>' class.
@@ -3079,7 +3342,7 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTABLE_VIEWER_COLUMN_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 2;
+	int XTABLE_VIEWER_COLUMN_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>XTable Viewer Column</em>' class.
@@ -3098,7 +3361,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXTreeViewer()
 	 * @generated
 	 */
-	int XTREE_VIEWER = 33;
+	int XTREE_VIEWER = 35;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -3164,13 +3427,58 @@ public interface WidgetPackage extends EPackage {
 	int XTREE_VIEWER__CONTENT_PROVIDER = XVIEWER__CONTENT_PROVIDER;
 
 	/**
+	 * The feature id for the '<em><b>Menu</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTREE_VIEWER__MENU = XVIEWER__MENU;
+
+	/**
+	 * The feature id for the '<em><b>Show Header</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTREE_VIEWER__SHOW_HEADER = XVIEWER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Show Lines</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTREE_VIEWER__SHOW_LINES = XVIEWER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Has Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTREE_VIEWER__HAS_FILTER = XVIEWER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTREE_VIEWER__COLUMNS = XVIEWER_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>XTree Viewer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XTREE_VIEWER_FEATURE_COUNT = XVIEWER_FEATURE_COUNT + 0;
+	int XTREE_VIEWER_FEATURE_COUNT = XVIEWER_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>XTree Viewer</em>' class.
@@ -3182,6 +3490,115 @@ public interface WidgetPackage extends EPackage {
 	int XTREE_VIEWER_OPERATION_COUNT = XVIEWER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.dc.swtform.xcore.widget.impl.XTreeViewerColumnImpl <em>XTree Viewer Column</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.dc.swtform.xcore.widget.impl.XTreeViewerColumnImpl
+	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXTreeViewerColumn()
+	 * @generated
+	 */
+	int XTREE_VIEWER_COLUMN = 36;
+
+	/**
+	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTREE_VIEWER_COLUMN__LAYOUT_DATA = XWIDGET__LAYOUT_DATA;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTREE_VIEWER_COLUMN__NAME = XWIDGET__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTREE_VIEWER_COLUMN__TEXT = XWIDGET__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTREE_VIEWER_COLUMN__DATA = XWIDGET__DATA;
+
+	/**
+	 * The feature id for the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTREE_VIEWER_COLUMN__MESSAGE = XWIDGET__MESSAGE;
+
+	/**
+	 * The feature id for the '<em><b>Typ</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTREE_VIEWER_COLUMN__TYP = XWIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTREE_VIEWER_COLUMN__SIZE = XWIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Alignment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTREE_VIEWER_COLUMN__ALIGNMENT = XWIDGET_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Is Filter Criteria</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTREE_VIEWER_COLUMN__IS_FILTER_CRITERIA = XWIDGET_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>XTree Viewer Column</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTREE_VIEWER_COLUMN_FEATURE_COUNT = XWIDGET_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>XTree Viewer Column</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTREE_VIEWER_COLUMN_OPERATION_COUNT = XWIDGET_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.dc.swtform.xcore.widget.impl.XListViewerImpl <em>XList Viewer</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3189,7 +3606,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXListViewer()
 	 * @generated
 	 */
-	int XLIST_VIEWER = 34;
+	int XLIST_VIEWER = 37;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -3255,6 +3672,15 @@ public interface WidgetPackage extends EPackage {
 	int XLIST_VIEWER__CONTENT_PROVIDER = XVIEWER__CONTENT_PROVIDER;
 
 	/**
+	 * The feature id for the '<em><b>Menu</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XLIST_VIEWER__MENU = XVIEWER__MENU;
+
+	/**
 	 * The number of structural features of the '<em>XList Viewer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3280,7 +3706,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXComboViewer()
 	 * @generated
 	 */
-	int XCOMBO_VIEWER = 35;
+	int XCOMBO_VIEWER = 38;
 
 	/**
 	 * The feature id for the '<em><b>Layout Data</b></em>' containment reference.
@@ -3346,6 +3772,15 @@ public interface WidgetPackage extends EPackage {
 	int XCOMBO_VIEWER__CONTENT_PROVIDER = XVIEWER__CONTENT_PROVIDER;
 
 	/**
+	 * The feature id for the '<em><b>Menu</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XCOMBO_VIEWER__MENU = XVIEWER__MENU;
+
+	/**
 	 * The number of structural features of the '<em>XCombo Viewer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3371,7 +3806,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getISelectable()
 	 * @generated
 	 */
-	int ISELECTABLE = 36;
+	int ISELECTABLE = 39;
 
 	/**
 	 * The feature id for the '<em><b>Selection Listener Name</b></em>' attribute.
@@ -3417,7 +3852,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXDateTimeType()
 	 * @generated
 	 */
-	int XDATE_TIME_TYPE = 37;
+	int XDATE_TIME_TYPE = 40;
 
 	/**
 	 * The meta object id for the '{@link de.dc.swtform.xcore.widget.XDialogType <em>XDialog Type</em>}' enum.
@@ -3427,7 +3862,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getXDialogType()
 	 * @generated
 	 */
-	int XDIALOG_TYPE = 38;
+	int XDIALOG_TYPE = 41;
 
 	/**
 	 * The meta object id for the '{@link de.dc.swtform.xcore.widget.Style <em>Style</em>}' enum.
@@ -3437,7 +3872,7 @@ public interface WidgetPackage extends EPackage {
 	 * @see de.dc.swtform.xcore.widget.impl.WidgetPackageImpl#getStyle()
 	 * @generated
 	 */
-	int STYLE = 39;
+	int STYLE = 42;
 
 
 	/**
@@ -3576,6 +4011,61 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getXSpinner_Digits();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XSpinner#isReadOnly <em>Read Only</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Read Only</em>'.
+	 * @see de.dc.swtform.xcore.widget.XSpinner#isReadOnly()
+	 * @see #getXSpinner()
+	 * @generated
+	 */
+	EAttribute getXSpinner_ReadOnly();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XSpinner#getMinimum <em>Minimum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Minimum</em>'.
+	 * @see de.dc.swtform.xcore.widget.XSpinner#getMinimum()
+	 * @see #getXSpinner()
+	 * @generated
+	 */
+	EAttribute getXSpinner_Minimum();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XSpinner#getMaximum <em>Maximum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Maximum</em>'.
+	 * @see de.dc.swtform.xcore.widget.XSpinner#getMaximum()
+	 * @see #getXSpinner()
+	 * @generated
+	 */
+	EAttribute getXSpinner_Maximum();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XSpinner#getSelection <em>Selection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selection</em>'.
+	 * @see de.dc.swtform.xcore.widget.XSpinner#getSelection()
+	 * @see #getXSpinner()
+	 * @generated
+	 */
+	EAttribute getXSpinner_Selection();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XSpinner#getIncrement <em>Increment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Increment</em>'.
+	 * @see de.dc.swtform.xcore.widget.XSpinner#getIncrement()
+	 * @see #getXSpinner()
+	 * @generated
+	 */
+	EAttribute getXSpinner_Increment();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.swtform.xcore.widget.XDateTime <em>XDate Time</em>}'.
@@ -4006,6 +4496,48 @@ public interface WidgetPackage extends EPackage {
 	EReference getXViewer_ContentProvider();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link de.dc.swtform.xcore.widget.XViewer#getMenu <em>Menu</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Menu</em>'.
+	 * @see de.dc.swtform.xcore.widget.XViewer#getMenu()
+	 * @see #getXViewer()
+	 * @generated
+	 */
+	EReference getXViewer_Menu();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.swtform.xcore.widget.XMenu <em>XMenu</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>XMenu</em>'.
+	 * @see de.dc.swtform.xcore.widget.XMenu
+	 * @generated
+	 */
+	EClass getXMenu();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.swtform.xcore.widget.XMenu#getItems <em>Items</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Items</em>'.
+	 * @see de.dc.swtform.xcore.widget.XMenu#getItems()
+	 * @see #getXMenu()
+	 * @generated
+	 */
+	EReference getXMenu_Items();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.swtform.xcore.widget.XMenuItem <em>XMenu Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>XMenu Item</em>'.
+	 * @see de.dc.swtform.xcore.widget.XMenuItem
+	 * @generated
+	 */
+	EClass getXMenuItem();
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.swtform.xcore.widget.XLabelProvider <em>XLabel Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4102,6 +4634,17 @@ public interface WidgetPackage extends EPackage {
 	EAttribute getXTableViewer_HasSearch();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTableViewer#isHasSorter <em>Has Sorter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Has Sorter</em>'.
+	 * @see de.dc.swtform.xcore.widget.XTableViewer#isHasSorter()
+	 * @see #getXTableViewer()
+	 * @generated
+	 */
+	EAttribute getXTableViewer_HasSorter();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link de.dc.swtform.xcore.widget.XTableViewer#getColumns <em>Columns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4121,6 +4664,17 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getXTableViewerColumn();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTableViewerColumn#getTyp <em>Typ</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Typ</em>'.
+	 * @see de.dc.swtform.xcore.widget.XTableViewerColumn#getTyp()
+	 * @see #getXTableViewerColumn()
+	 * @generated
+	 */
+	EAttribute getXTableViewerColumn_Typ();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTableViewerColumn#getSize <em>Size</em>}'.
@@ -4145,6 +4699,17 @@ public interface WidgetPackage extends EPackage {
 	EAttribute getXTableViewerColumn_Alignment();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTableViewerColumn#isIsFilterCriteria <em>Is Filter Criteria</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Filter Criteria</em>'.
+	 * @see de.dc.swtform.xcore.widget.XTableViewerColumn#isIsFilterCriteria()
+	 * @see #getXTableViewerColumn()
+	 * @generated
+	 */
+	EAttribute getXTableViewerColumn_IsFilterCriteria();
+
+	/**
 	 * Returns the meta object for class '{@link de.dc.swtform.xcore.widget.XTreeViewer <em>XTree Viewer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4153,6 +4718,104 @@ public interface WidgetPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getXTreeViewer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTreeViewer#isShowHeader <em>Show Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Show Header</em>'.
+	 * @see de.dc.swtform.xcore.widget.XTreeViewer#isShowHeader()
+	 * @see #getXTreeViewer()
+	 * @generated
+	 */
+	EAttribute getXTreeViewer_ShowHeader();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTreeViewer#isShowLines <em>Show Lines</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Show Lines</em>'.
+	 * @see de.dc.swtform.xcore.widget.XTreeViewer#isShowLines()
+	 * @see #getXTreeViewer()
+	 * @generated
+	 */
+	EAttribute getXTreeViewer_ShowLines();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTreeViewer#isHasFilter <em>Has Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Has Filter</em>'.
+	 * @see de.dc.swtform.xcore.widget.XTreeViewer#isHasFilter()
+	 * @see #getXTreeViewer()
+	 * @generated
+	 */
+	EAttribute getXTreeViewer_HasFilter();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.dc.swtform.xcore.widget.XTreeViewer#getColumns <em>Columns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Columns</em>'.
+	 * @see de.dc.swtform.xcore.widget.XTreeViewer#getColumns()
+	 * @see #getXTreeViewer()
+	 * @generated
+	 */
+	EReference getXTreeViewer_Columns();
+
+	/**
+	 * Returns the meta object for class '{@link de.dc.swtform.xcore.widget.XTreeViewerColumn <em>XTree Viewer Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>XTree Viewer Column</em>'.
+	 * @see de.dc.swtform.xcore.widget.XTreeViewerColumn
+	 * @generated
+	 */
+	EClass getXTreeViewerColumn();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTreeViewerColumn#getTyp <em>Typ</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Typ</em>'.
+	 * @see de.dc.swtform.xcore.widget.XTreeViewerColumn#getTyp()
+	 * @see #getXTreeViewerColumn()
+	 * @generated
+	 */
+	EAttribute getXTreeViewerColumn_Typ();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTreeViewerColumn#getSize <em>Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size</em>'.
+	 * @see de.dc.swtform.xcore.widget.XTreeViewerColumn#getSize()
+	 * @see #getXTreeViewerColumn()
+	 * @generated
+	 */
+	EAttribute getXTreeViewerColumn_Size();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTreeViewerColumn#getAlignment <em>Alignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alignment</em>'.
+	 * @see de.dc.swtform.xcore.widget.XTreeViewerColumn#getAlignment()
+	 * @see #getXTreeViewerColumn()
+	 * @generated
+	 */
+	EAttribute getXTreeViewerColumn_Alignment();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.dc.swtform.xcore.widget.XTreeViewerColumn#isIsFilterCriteria <em>Is Filter Criteria</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Filter Criteria</em>'.
+	 * @see de.dc.swtform.xcore.widget.XTreeViewerColumn#isIsFilterCriteria()
+	 * @see #getXTreeViewerColumn()
+	 * @generated
+	 */
+	EAttribute getXTreeViewerColumn_IsFilterCriteria();
 
 	/**
 	 * Returns the meta object for class '{@link de.dc.swtform.xcore.widget.XListViewer <em>XList Viewer</em>}'.

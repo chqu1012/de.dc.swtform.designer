@@ -22,6 +22,9 @@ public abstract class BaseXTableViewer extends Composite implements SelectionLis
 	protected Text Text;
 	protected Combo titelCombo;
 	protected Label beschreibungLabel;
+	protected Button pushButton;
+	protected Label testLabel;
+	protected Button testButton;
 	
 	public BaseXTableViewer(Composite parent){
 		super(parent, 0); 
@@ -44,6 +47,15 @@ public abstract class BaseXTableViewer extends Composite implements SelectionLis
 		titelCombo = new Combo(titelContainer, SWT.NONE);
 		SwtFactory.createComboItems(titelCombo,new String[]{"Dr.","Bachelor","Master","Diplom"});
 		beschreibungLabel = SwtFactory.createLabel(this, "Hallo Welt kann man auch anders benutzen", 100);
+		pushButton = SwtFactory.createPushButton(this, "Push");
+		Composite Composite = new Composite(this, SWT.NONE);
+			testLabel = SwtFactory.createLabel(this, "test", 100);
+			testButton = SwtFactory.createPushButton(this, "test");
+		
+				bearbeitenMenuItem.addSelectionListener(this);
+		pushButton.addSelectionListener(this);
+		
+		testButton.addSelectionListener(this);
 	}
 	
 	@Override
@@ -52,6 +64,22 @@ public abstract class BaseXTableViewer extends Composite implements SelectionLis
 
 	@Override
 	public void widgetSelected(SelectionEvent e) {
+		
+				if(bearbeitenMenuItem==e.getSource()){
+				onBearbeitenSelection(e);
+			} 
+		if(pushButton==e.getSource()){
+			onPushSelection(e);
+		} 
+		
+		if(testButton==e.getSource()){
+			onTestSelection(e);
+		} 
 	}
+	
+	
+			protected abstract void onBearbeitenSelection(SelectionEvent e);
+	protected abstract void onPushSelection(SelectionEvent e);
+	
+	protected abstract void onTestSelection(SelectionEvent e);
 }
-

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model:SwtForm xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="de.dc.swtform.xcore.model" xmlns:model_1="de.dc.swtform.layout.model" xmlns:widget="de.dc.swtform.xcore.widget" name="XTableViewer" packagePath="de.dc.swtform.example.control">
+<model:SwtForm xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="de.dc.swtform.xcore.model" xmlns:model_1="de.dc.swtform.layout.model" xmlns:widget="de.dc.swtform.xcore.widget" name="XTableViewer" packagePath="de.dc.swtform.example.control.table">
   <widgets xsi:type="widget:XTableViewer" name="Contacts">
     <layoutData xsi:type="model_1:XGridData" grabExcessVerticalSpace="true"/>
+    <menu name="Menu" text="Menu">
+      <items name="Neu" text="Neu"/>
+      <items name="Bearbeiten" text="Bearbeiten" hasSelectionListener="true"/>
+    </menu>
     <columns name="Name" text="Name"/>
     <columns name="Vorname" text="Vorname"/>
     <columns name="Handy" text="Handy" typ="int"/>
@@ -14,4 +18,10 @@
     <items name="Diplom" text="Diplom"/>
   </widgets>
   <widgets xsi:type="widget:XLabel" name="beschreibung" text="Hallo Welt kann man auch anders benutzen"/>
+  <widgets xsi:type="widget:XButton" name="Push" text="Push" hasSelectionListener="true"/>
+  <widgets xsi:type="widget:XComposite">
+    <Layout xsi:type="model_1:XGridLayout" numColumns="2"/>
+    <widgets xsi:type="widget:XLabel" name="test" text="test"/>
+    <widgets xsi:type="widget:XButton" name="test" text="test" hasSelectionListener="true"/>
+  </widgets>
 </model:SwtForm>

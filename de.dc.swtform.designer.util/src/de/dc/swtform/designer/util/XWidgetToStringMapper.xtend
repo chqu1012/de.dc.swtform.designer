@@ -24,10 +24,112 @@ import de.dc.swtform.xcore.widget.XTreeViewer
 import de.dc.swtform.xcore.widget.XTreeViewerColumn
 import de.dc.swtform.xcore.widget.XMenu
 import de.dc.swtform.xcore.widget.XMenuItem
+import de.dc.swtform.xcore.widget.ISelectable
 
 class XWidgetToStringMapper {
 	extension XLayoutMapper layoutMapper = new XLayoutMapper
 
+	dispatch def String widgetSelectedMethod(XButton w, boolean isAbstract)'''«w.registerWidgetSelectedMethod(isAbstract)»'''
+	dispatch def String widgetSelectedMethod(XLabel w, boolean isAbstract)'''«w.registerWidgetSelectedMethod(isAbstract)»'''
+	dispatch def String widgetSelectedMethod(XLabelCombo w, boolean isAbstract)'''«w.registerWidgetSelectedMethod(isAbstract)»'''
+	dispatch def String widgetSelectedMethod(XCombo w, boolean isAbstract)'''«w.registerWidgetSelectedMethod(isAbstract)»'''
+	dispatch def String widgetSelectedMethod(XText w, boolean isAbstract)'''«w.registerWidgetSelectedMethod(isAbstract)»'''
+	dispatch def String widgetSelectedMethod(XComposite w, boolean isAbstract)'''«FOR child : w.widgets SEPARATOR '\n'»«child.registerWidgetSelectedMethod(isAbstract)»«ENDFOR»'''
+	dispatch def String widgetSelectedMethod(XDateTime w, boolean isAbstract)'''«w.registerWidgetSelectedMethod(isAbstract)»'''
+	dispatch def String widgetSelectedMethod(XCheckButton w, boolean isAbstract)'''«w.registerWidgetSelectedMethod(isAbstract)»'''
+	dispatch def String widgetSelectedMethod(XMenu w, boolean isAbstract)'''«w.registerWidgetSelectedMethod(isAbstract)»'''
+	dispatch def String widgetSelectedMethod(XMenuItem w, boolean isAbstract)'''«w.registerWidgetSelectedMethod(isAbstract)»'''
+	dispatch def String widgetSelectedMethod(XRadioButton w, boolean isAbstract)'''«w.registerWidgetSelectedMethod(isAbstract)»'''
+	dispatch def String widgetSelectedMethod(XTableViewerColumn w, boolean isAbstract)''''''
+	dispatch def String widgetSelectedMethod(XTreeViewerColumn w, boolean isAbstract)''''''
+	dispatch def String widgetSelectedMethod(XComboItem w, boolean isAbstract)''''''
+	dispatch def String widgetSelectedMethod(XDialogText w, boolean isAbstract)'''«w.registerWidgetSelectedMethod(isAbstract)»'''
+	dispatch def String widgetSelectedMethod(XUnitLabel w, boolean isAbstract)'''«w.registerWidgetSelectedMethod(isAbstract)»'''
+	dispatch def String widgetSelectedMethod(XSpinner w, boolean isAbstract)'''«w.registerWidgetSelectedMethod(isAbstract)»'''
+	dispatch def String widgetSelectedMethod(XLink w, boolean isAbstract)'''«w.registerWidgetSelectedMethod(isAbstract)»'''
+	
+	dispatch def String widgetSelectedMethod(XTableViewer w, boolean isAbstract)'''«w.registerWidgetSelectedMethod(isAbstract)»
+	«FOR child : w.menu.items SEPARATOR '\n'»«child.registerWidgetSelectedMethod(isAbstract)»«ENDFOR»'''
+	
+	dispatch def String widgetSelectedMethod(XTreeViewer w, boolean isAbstract)'''«w.registerWidgetSelectedMethod(isAbstract)»
+	«FOR child : w.menu.items SEPARATOR '\n'»«child.registerWidgetSelectedMethod(isAbstract)»«ENDFOR»'''
+
+	dispatch def String widgetSelected(XButton w)'''«w.registerWidgetSelected»'''
+	dispatch def String widgetSelected(XLabel w)'''«w.registerWidgetSelected»'''
+	dispatch def String widgetSelected(XLabelCombo w)'''«w.registerWidgetSelected»'''
+	dispatch def String widgetSelected(XCombo w)'''«w.registerWidgetSelected»'''
+	dispatch def String widgetSelected(XText w)'''«w.registerWidgetSelected»'''
+	dispatch def String widgetSelected(XComposite w)'''«FOR child : w.widgets SEPARATOR '\n'»«child.registerWidgetSelected»«ENDFOR»'''
+	dispatch def String widgetSelected(XDateTime w)'''«w.registerWidgetSelected»'''
+	dispatch def String widgetSelected(XCheckButton w)'''«w.registerWidgetSelected»'''
+	dispatch def String widgetSelected(XMenu w)'''«w.registerWidgetSelected»'''
+	dispatch def String widgetSelected(XMenuItem w)'''«w.registerWidgetSelected»'''
+	dispatch def String widgetSelected(XRadioButton w)'''«w.registerWidgetSelected»'''
+	dispatch def String widgetSelected(XTableViewerColumn w)''''''
+	dispatch def String widgetSelected(XTreeViewerColumn w)''''''
+	dispatch def String widgetSelected(XComboItem w)''''''
+	dispatch def String widgetSelected(XDialogText w)'''«w.registerWidgetSelected»'''
+	dispatch def String widgetSelected(XUnitLabel w)'''«w.registerWidgetSelected»'''
+	dispatch def String widgetSelected(XSpinner w)'''«w.registerWidgetSelected»'''
+	dispatch def String widgetSelected(XLink w)'''«w.registerWidgetSelected»'''
+	
+	dispatch def String widgetSelected(XTableViewer w)'''«w.registerWidgetSelected»
+	«FOR child : w.menu.items SEPARATOR '\n'»«child.registerWidgetSelected»«ENDFOR»'''
+	
+	dispatch def String widgetSelected(XTreeViewer w)'''«w.registerWidgetSelected»
+	«FOR child : w.menu.items SEPARATOR '\n'»«child.registerWidgetSelected»«ENDFOR»'''
+
+	dispatch def String addListener(XButton w)'''«w.registerISelectable»'''
+	dispatch def String addListener(XLabel w)'''«w.registerISelectable»'''
+	dispatch def String addListener(XLabelCombo w)'''«w.registerISelectable»'''
+	dispatch def String addListener(XCombo w)'''«w.registerISelectable»'''
+	dispatch def String addListener(XText w)'''«w.registerISelectable»'''
+	dispatch def String addListener(XComposite w)'''«FOR child : w.widgets SEPARATOR '\n'»«child.registerISelectable»«ENDFOR»'''
+	dispatch def String addListener(XDateTime w)'''«w.registerISelectable»'''
+	dispatch def String addListener(XCheckButton w)'''«w.registerISelectable»'''
+	dispatch def String addListener(XMenu w)'''«w.registerISelectable»'''
+	dispatch def String addListener(XMenuItem w)'''«w.registerISelectable»'''
+	dispatch def String addListener(XRadioButton w)'''«w.registerISelectable»'''
+	dispatch def String addListener(XTableViewerColumn w)''''''
+	dispatch def String addListener(XTreeViewerColumn w)''''''
+	dispatch def String addListener(XComboItem w)''''''
+	dispatch def String addListener(XDialogText w)'''«w.registerISelectable»'''
+	dispatch def String addListener(XUnitLabel w)'''«w.registerISelectable»'''
+	dispatch def String addListener(XSpinner w)'''«w.registerISelectable»'''
+	dispatch def String addListener(XLink w)'''«w.registerISelectable»'''
+	
+	dispatch def String addListener(XTableViewer w)'''«w.registerISelectable»
+	«FOR child : w.menu.items SEPARATOR '\n'»«child.registerISelectable»«ENDFOR»'''
+	
+	dispatch def String addListener(XTreeViewer w)'''«w.registerISelectable»
+	«FOR child : w.menu.items SEPARATOR '\n'»«child.registerISelectable»«ENDFOR»'''
+	
+	def String registerISelectable(XWidget w)'''«IF w instanceof ISelectable»
+	«val s = w as ISelectable»«IF s.hasSelectionListener»«w.controlName».addSelectionListener(this);«ENDIF»
+	«ENDIF»'''
+
+	def String registerWidgetSelected(XWidget w)'''«IF w instanceof ISelectable»
+	«val selection = w as ISelectable»
+	«IF selection.hasSelectionListener»
+	if(«w.controlName»==e.getSource()){
+		on«IF selection.selectionListenerName==null»«w.name.toFirstUpper»«ELSE»«selection.selectionListenerName.toFirstUpper»«ENDIF»Selection(e);
+	} 
+	«ENDIF»
+	«ENDIF»'''
+	
+	def String registerWidgetSelectedMethod(XWidget w, boolean isAbstract)'''«IF w instanceof ISelectable»
+	«val selection = w as ISelectable»«IF selection.hasSelectionListener»
+	«IF isAbstract»
+	protected abstract void on«IF selection.selectionListenerName==null»«w.name.toFirstUpper»«ELSE»«selection.selectionListenerName.toFirstUpper»«ENDIF»Selection(SelectionEvent e);
+	«ELSE»
+	@Override
+	protected void on«IF selection.selectionListenerName==null»«w.name.toFirstUpper»«ELSE»«selection.selectionListenerName.toFirstUpper»«ENDIF»Selection(SelectionEvent e) {
+		// TODO: «w.name» button implementation
+		System.out.println("«w.name» button implementation");
+	}
+	«ENDIF»
+	«ENDIF»«ENDIF»'''
+	
 	dispatch def String controlName(XButton w)'''«w.name.toFirstLower»Button'''
 	dispatch def String controlName(XLabel w)'''«w.name.toFirstLower»Label'''
 	dispatch def String controlName(XLabelCombo w)'''«w.name.toFirstLower»Combo'''
@@ -62,7 +164,7 @@ class XWidgetToStringMapper {
 	«ENDIF»
 	«IF w.menu!=null»
 	«w.menu.field»
-	«FOR item : w.menu.items»«item.field»«ENDFOR»
+	«FOR item : w.menu.items SEPARATOR '\n'»«item.field»«ENDFOR»
 	«ENDIF»
 	'''
 	dispatch def String field(XComposite w)'''«FOR child : w.widgets SEPARATOR '\n'»«child.field»«ENDFOR»'''
@@ -128,7 +230,9 @@ class XWidgetToStringMapper {
 	dispatch def createWidget(XDateTime w)'''DateTime «w.name»DateTime = new DateTime(this, SWT.DATE | SWT.DROP_DOWN);
 	«w.getGridData('Composite')»'''
 
-	dispatch def createWidget(XComposite w)'''Composite «w.name»Composite = new Composite(this, SWT.NONE);'''
+	dispatch def createWidget(XComposite w)'''Composite «w.name»Composite = new Composite(this, SWT.NONE);
+	«FOR child : w.widgets»«child.createWidget»«ENDFOR»'''
+	
 	dispatch def createWidget(XCheckButton w)'''Button «w.name»Button = new Button(this, SWT.CHECK);'''
 	dispatch def createWidget(XRadioButton w)'''Button «w.name»Button = new Button(this, SWT.READIO);'''
 	dispatch def createWidget(XToogleButton w)'''Button «w.name»Button = new Button(this, SWT.TOGGLE);'''

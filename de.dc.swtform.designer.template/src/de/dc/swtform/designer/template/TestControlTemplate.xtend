@@ -1,17 +1,21 @@
 package de.dc.swtform.designer.template
 
+import de.dc.swtform.designer.util.XWidgetToStringMapper
 import de.dc.swtform.xcore.model.SwtForm
-import de.dc.swtform.xcore.widget.ISelectable
 import de.dc.swtform.xcore.widget.XTableViewer
 import de.dc.swtform.xcore.widget.XTreeViewer
 
 class TestControlTemplate implements IGenerator<SwtForm> {
+	
+	extension static XWidgetToStringMapper mapper = new XWidgetToStringMapper()
 	
 	override gen(SwtForm in)'''
 	package «in.packagePath»;
 	
 	import java.util.*;
 	import java.util.List;
+	
+	import org.eclipse.swt.events.*;
 	
 	import org.eclipse.jface.viewers.*;
 	import org.eclipse.swt.layout.*;
@@ -98,17 +102,17 @@ class TestControlTemplate implements IGenerator<SwtForm> {
 			}
 			display.dispose();
 		}
-	
-		«FOR w: in.widgets.filter[it instanceof ISelectable]»
-		«val selection = w as ISelectable»
-		«IF selection.hasSelectionListener»
-		@Override
-		protected void on«IF selection.selectionListenerName==null»«w.name.toFirstUpper»«ELSE»«selection.selectionListenerName.toFirstUpper»«ENDIF»Selection(SelectionEvent e) {
-			// TODO: «w.name» button implementation
-			System.out.println("«w.name» button implementation");
-		}
-		«ENDIF»
-		«ENDFOR»
+	«FOR w : in.widgets»«w.widgetSelectedMethod(false)»«ENDFOR»
+«««		«FOR w: in.widgets.filter[it instanceof ISelectable]»
+«««		«val selection = w as ISelectable»
+«««		«IF selection.hasSelectionListener»
+«««		@Override
+«««		protected void on«IF selection.selectionListenerName==null»«w.name.toFirstUpper»«ELSE»«selection.selectionListenerName.toFirstUpper»«ENDIF»Selection(SelectionEvent e) {
+«««			// TODO: «w.name» button implementation
+«««			System.out.println("«w.name» button implementation");
+«««		}
+«««		«ENDIF»
+«««		«ENDFOR»
 	}
 	
 	'''

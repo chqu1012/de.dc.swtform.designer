@@ -141,7 +141,7 @@ class XMenu extends XWidget{
 	contains XMenuItem[] items
 }
 
-class XMenuItem extends XWidget{
+class XMenuItem extends XWidget, ISelectable{
 }
 
 class XLabelProvider{

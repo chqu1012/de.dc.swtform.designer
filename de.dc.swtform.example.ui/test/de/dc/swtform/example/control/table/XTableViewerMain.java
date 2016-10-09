@@ -3,6 +3,8 @@ package de.dc.swtform.example.control.table;
 import java.util.*;
 import java.util.List;
 
+import org.eclipse.swt.events.*;
+
 import org.eclipse.jface.viewers.*;
 import org.eclipse.swt.layout.*;
 import org.eclipse.swt.widgets.*;
@@ -45,5 +47,21 @@ public class XTableViewerMain extends BaseXTableViewer {
 		display.dispose();
 	}
 
+		@Override
+	protected void onBearbeitenSelection(SelectionEvent e) {
+		// TODO: Bearbeiten button implementation
+		System.out.println("Bearbeiten button implementation");
+	}
+@Override
+protected void onPushSelection(SelectionEvent e) {
+	// TODO: Push button implementation
+	System.out.println("Push button implementation");
+}
+
+@Override
+protected void onTestSelection(SelectionEvent e) {
+	// TODO: test button implementation
+	System.out.println("test button implementation");
+}
 }
 

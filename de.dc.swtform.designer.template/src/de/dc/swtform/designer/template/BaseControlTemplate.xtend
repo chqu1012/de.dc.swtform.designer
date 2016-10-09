@@ -2,7 +2,6 @@ package de.dc.swtform.designer.template
 
 import de.dc.swtform.designer.util.XWidgetToStringMapper
 import de.dc.swtform.xcore.model.SwtForm
-import de.dc.swtform.xcore.widget.ISelectable
 import de.dc.swtform.xcore.widget.XTableViewer
 
 class BaseControlTemplate implements IGenerator<SwtForm>{
@@ -33,12 +32,8 @@ class BaseControlTemplate implements IGenerator<SwtForm>{
 			super(parent, 0); 
 			setLayout(new GridLayout(1, false));
 			
-			«FOR w: in.widgets»
-			«w.createWidget»
-			«ENDFOR»
-			«FOR w: in.widgets.filter[it instanceof ISelectable]»«val selection = w as ISelectable»
-			«IF selection.hasSelectionListener»«w.controlName».addSelectionListener(this);«ENDIF»
-			«ENDFOR»
+			«FOR w: in.widgets»«w.createWidget»«ENDFOR»
+			«FOR w : in.widgets »«w.addListener»«ENDFOR»
 		}
 		
 		@Override
@@ -47,22 +42,10 @@ class BaseControlTemplate implements IGenerator<SwtForm>{
 	
 		@Override
 		public void widgetSelected(SelectionEvent e) {
-			«FOR w: in.widgets.filter[it instanceof ISelectable]»
-			«val selection = w as ISelectable»
-			«IF selection.hasSelectionListener»
-			if(«w.controlName»==e.getSource()){
-				on«IF selection.selectionListenerName==null»«w.name.toFirstUpper»«ELSE»«selection.selectionListenerName.toFirstUpper»«ENDIF»Selection(e);
-			} 
-			«ENDIF»
-			«ENDFOR»
+			«FOR w : in.widgets »«w.widgetSelected»«ENDFOR»
 		}
-		«FOR w: in.widgets.filter[it instanceof ISelectable]»
-		«val selection = w as ISelectable»
-		«IF selection.hasSelectionListener»
-		protected abstract void on«IF selection.selectionListenerName==null»«w.name.toFirstUpper»«ELSE»«selection.selectionListenerName.toFirstUpper»«ENDIF»Selection(SelectionEvent e);
-		«ENDIF»
-		«ENDFOR»
+		
+		«FOR w : in.widgets»«w.widgetSelectedMethod(true)»«ENDFOR»
 	}
-	
 	'''
 }

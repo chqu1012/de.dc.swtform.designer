@@ -10,7 +10,7 @@ SwtFormDesigner is a framework for describing user interface declarativly and ge
 ![SwtFormDesigner screenshot](https://github.com/chqu1012/de.dc.swtform.designer/blob/master/readme/images/application-v0.1.1.PNG "SwtFormDesigner")
 
 ##Download
-
+[v0.1.0](https://github.com/chqu1012/de.dc.swtform.designer/blob/master/built/downloads/v0.1.0.zip)
 
 ##Changelog
 
@@ -18,6 +18,8 @@ SwtFormDesigner is a framework for describing user interface declarativly and ge
 * Initial version
 
 ##Help / FAQ
+* First steps: [Link](https://github.com/chqu1012/de.dc.swtform.designer/wiki)
+* Installation guide for Eclipse IDE: [Link](https://github.com/chqu1012/de.dc.swtform.designer/wiki/Installation-guide-for-Eclipse-IDE)
 
 ## Third libraries
 This project is based on a list of frameworks and libraries.

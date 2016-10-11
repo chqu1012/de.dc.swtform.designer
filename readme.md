@@ -7,7 +7,13 @@ SwtFormDesigner is a framework for describing user interface declarativly and ge
 * Easy integrating of databinding in the user interface
 
 ##Screenhot
+
+Describing with the declarative Tree Editor
+
 ![SwtFormDesigner screenshot](https://github.com/chqu1012/de.dc.swtform.designer/blob/master/readme/images/application-v0.1.1.PNG "SwtFormDesigner")
+
+Modelling with the Visual Designer
+
 ![VisualEditor screenshot](https://github.com/chqu1012/de.dc.swtform.designer/blob/master/readme/images/application-v0.1.2.PNG "SwtFormDesigner")
 ##Download
 [v0.1.0](https://github.com/chqu1012/de.dc.swtform.designer/blob/master/built/downloads/v0.1.0.zip)
@@ -28,4 +34,5 @@ This project is based on a list of frameworks and libraries.
 * Eclipse Xcore
 * Eclipse Graphiti
 * Eclipse Xtext
+* Eclipse Sirius
     

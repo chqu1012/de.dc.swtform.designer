@@ -2,6 +2,8 @@
 SwtFormDesigner is a framework for describing user interface declarativly and generates a lot of supported features. Mainly its grouped controls to a form. 
 * Generating user interface classes in java
 * Preview Part of described ui
+* Generating complete filter function for your data model
+* Visual modelling of table and treeviewer to generate base and extended code
 * A lot of combined widgets
 * Dialog Handling
 * Easy integrating of databinding in the user interface

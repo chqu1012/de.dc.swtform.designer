@@ -31,10 +31,10 @@ Modelling with the Visual Designer
 
 ## Third libraries
 This project is based on a list of frameworks and libraries.
-* Eclipse Rich Client Platform
-* Eclipse Modelling Framework
-* Eclipse Xcore
-* Eclipse Graphiti
-* Eclipse Xtext
-* Eclipse Sirius
+* Eclipse Rich Client Platform https://wiki.eclipse.org/Rich_Client_Platform
+* Eclipse Modelling Framework http://www.eclipse.org/modeling/emf/
+* Eclipse Xcore https://wiki.eclipse.org/Xcore
+* Eclipse Graphiti http://www.eclipse.org/graphiti/
+* Eclipse Xtext http://www.eclipse.org/Xtext/
+* Eclipse Sirius http://www.eclipse.org/sirius/
     
